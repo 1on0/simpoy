@@ -1,0 +1,14 @@
+<a href="{{ .Permalink }}" class="showcase-item">
+    <h2 class="showcase-title">{{ .Title }}</h2>
+		<div class="showcase-info">
+		  {{ if eq .Date.IsZero false }}
+			  <time>{{ .Date.Format "January 2, 2006" }}</time>
+		  {{ end }}
+		  {{ if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
+			(updated)
+		  {{ end }}
+      {{ if .Site.Params.article.readingTime }}
+      {{ T "article.readingTime" .ReadingTime }}
+      {{ end }}
+    </div>
+</a>

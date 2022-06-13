@@ -1,19 +1,362 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+  }
+
+
+/* Sections
+   ========================================================================== */
+
+
+:root {
+    --default-color: #555;
+    --background-color: #acd4cf;
+	--header-color: #eff7f6;
+	--primary-color: #c56806;
+    --secondary-color: #aaa;
+	--grey-1: #979797;
+    --grey-2: #e5e5e5;
+    --grey-3: #f0f0f0;
+    --grey-4: #f9f9f9;
+	--shadow-color: rgba(0, 0, 0, .2);
+	--primary-font: eb-garamond, serif;
+	--secondary-font: aileron, sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+	font-weight: 700;
+  }
+
+h2 { 
+	font-size: 1.40em; 
+	font-weight: 700;
+	font-size: 1.42em;
+	margin: 3.2em 0 1.4em;
+	padding-top: 1.2em;
+	border-top: 1px var(--header-color);
+  }
+
+h3 { 
+	font-size: 1.17em;
+	margin-top: 1.62em;
+	margin-bottom: 1em;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  margin-top: 1.4em;
+  margin-bottom: 0.8em;	
+}
+
+h6 {
+  font-weight: 500;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1.12em;
+	hyphens: auto;
+  }
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+  }
+
+a img {
+	border: none;
+	vertical-align: middle;
+  }
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+	margin-top: 4px;
+	font-size: 13px;
+	text-align: center;
+	color: var(--yue-c-light);
+  }
+
+figcaption a {
+  color: var(--yue-c-light);
+}
+
+figcaption a:hover {
+	color: var(--yue-c-accent);
+  }
+
+h1 a, 
+h2 a, 
+h3 a {
+	text-decoration: none;
+}
+
+strong,
+b {
+	font-weight: bolder;
+  }
+
+em,
+i {
+	font-style: italic;
+  }
+
 body {
-	margin: 0;
-	font-family: Helvetica, sans-serif;
-	background-color: rgb(255, 253, 253);
+  color: var(--default-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+	}
+
+main {
+  display: block;
+}
+
+hr {
+	box-sizing: content-box; /* 1 */
+	height: 0; /* 1 */
+	overflow: visible; /* 2 */
+  }
+
+pre {
+  font-family: var(--primary-font); /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+abbr[title] {
+	border-bottom: none; /* 1 */
+	text-decoration: underline; /* 2 */
+	text-decoration: underline dotted; /* 2 */
   }
   
-  a {
-	color: #000;
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+small {
+	font-size: 80%;
+  }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+blockquote {
+	position: relative;
+	background-color: var(--header-color);
+	margin: 0 0 1.64em 0;
+	padding: 34px 1em 0.1em 20px;
+	font-size: 1.12em;
+	font-family: var(--primary-font);
+	border-left: 4px solid var(--grey-1)
+  }
+
+blockquote::before {
+	content: '\201c';
+	position: absolute;
+	top: 0;
+	left: 20px;
+	color: var(--grey-1);
+	font: bold 48px/1 "Droid Serif", serif;
+  }
+
+ul,
+ol {
+  margin: 0 0 24px 6px;
+  padding-left: 16px;
+}
+
+li {
+	margin-bottom: 0.2em;
+  }
+
+li ul,
+li ol {
+	margin-top: 0;
+	margin-bottom: 0;
+  }
+
+li p {
+	margin: 0.4em 0 0.6em;
   }
   
-  /* header */
+li > code,
+p > code,
+p > tt {
+  font-size: 0.86em;
+  font-family: var(--yue-f-code);
+  font-weight: 600;
+  padding: 1px 3px;
+  word-wrap: break-word;
+  border-radius: 2px;
+}
+
+iframe {
+	display: block;
+	max-width: 100%;
+	margin-bottom: 1.5em;
+  }
+
+figure iframe {
+	margin: auto;
+  }
+
+.footnotes {
+	font-size: 80%;
+	line-height: 1.32;
+	opacity: 0.96;
+  }
+
+.footnotes:before {
+  content: '';
+  display: block;
+  border-top: 4px solid var(--default-color);
+  width: 50%;
+  max-width: 100px;
+  margin: 40px 0 20px;
+}
+
+.task-item input[type="checkbox"] {
+	margin: 0 0.3em 0.4em -1em;
+	vertical-align: middle;
+  }
   
-  .header {
-	background-color: #fff;
-	box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-	position: fixed;
+  img {
+	display: block;
+	border-style: none;
+	margin: 0 0 1rem;
+	max-width: 100%;
+  }
+
+  details {
+	display: block;
+  }
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+  
+  /*
+   * Add the correct display in all browsers.
+   */
+  
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+  
+  /**
+   * Add the correct display in IE 10.
+   */
+  
+[hidden] {
+  display: none;
+}
+
+  /* Improvements to Hugo Chroma syntax highlighting */
+
+.highlight {
+	margin-top: 1em;
+	font-size: 1em;
+	margin-bottom: 1em;
+	/* set the tab size for browsers that support it */
+	tab-size: 4;
+	-moz-tab-size: 4;
+	/* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
+	-webkit-text-size-adjust: 100%;
+}
+
+.highlight > * {
+	padding: 0.5em;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.highlight pre {
+	margin: 0px;
+	overflow-x: auto;
+	word-wrap: normal;
+}
+
+.highlight td.lntd pre {
+	/* needed to fix an iPhone scrolling bug */
+	overflow-x: hidden;
+}
+
+.highlight td.lntd:last-child {
+	/* needed until this bug is fixed: https://github.com/alecthomas/chroma/issues/225 */
+	width: 100%;
+}
+
+/* body */
+
+.nav,
+main {	
+	display: block;
+	margin: 0 auto !important;
+	float: none;
+	max-width: 800px;
+	width: 80%;
+	
+   }
+  
+/* header */
+
+.header {
+	background-color: var(--background-color);
+	box-shadow: 0 2px 2px -2px var(--shadow-color);
+	background-size: 100%;
+	background-position: bottom;
+	display: inline-block;
 	width: 100%;
 	z-index: 3;
   }
@@ -23,27 +366,47 @@ body {
 	padding: 0;
 	list-style: none;
 	overflow: hidden;
-	background-color: #fff;
+	background-color: var(--background-color);
   }
   
   .header li a {
 	display: block;
 	padding: 20px 20px;
 	text-decoration: none;
+	font-family: var(--secondary-font);
+	font-weight: 600;
+	color: var(--default-color);
   }
   
-  .header li a:hover,
+  .header li a:hover {
+	opacity: .8;
+  }
+
   .header .menu-btn:hover {
-	background-color: #f4f4f4;
+	background-color: var(--grey-1);
+	color: var(--grey-4);
   }
   
   .header .logo {
 	display: block;
+	font-weight: 900;
+	font-family: var(--secondary-font);
 	float: left;
 	font-size: 2em;
 	padding: 10px 20px;
 	text-decoration: none;
+	margin: 0;
   }
+
+  .header .logo a {
+	color: var(--primary-color);
+  }
+
+  .header .logo:hover {
+    opacity: .8;
+	text-decoration: underline;
+  }
+
   
   /* menu */
   
@@ -70,6 +433,7 @@ body {
 	position: relative;
 	transition: background .2s ease-out;
 	width: 18px;
+	align-items: baseline;
   }
   
   .header .menu-icon .nav-icon:before,
@@ -135,3 +499,95 @@ body {
 	}
   }
   
+
+  /* index */
+  .showcase .showcase-item {
+    border-bottom: 1px solid var(--header-color);
+	  color: var(--header-color);
+	  display: block;
+	  padding: 2rem 0;
+	  text-decoration: none;
+  }
+
+  .showcase .showcase-info {
+    letter-spacing: .5px;
+	margin-top: 2rem;
+  }
+
+ .showcase-title {
+    color: var(--default-color);
+    display: block;
+    font-family: var(--primary-font);
+	line-height: .8;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: .5rem 0;
+	text-align: center;
+  }
+
+
+   /* single */
+
+   .post {
+	padding: 3rem 0;
+   }
+
+   .post-title h1 {
+    color: var(--header-color);
+	font-family: var(--primary-font);
+    font-size: 3rem;
+	letter-spacing: -1px;
+	line-height: 1;
+    text-align: center;
+	margin-bottom: 0.3em;
+  }
+
+  .post-line {
+    display: block; 
+    background-color: #eff7f6;
+    margin-bottom: 1.32rem;
+	height: 2px;
+  }
+
+  .post-info {
+	font-size: 1.32em;
+	font-family: var(--primary-font);
+	margin-bottom: 1.32rem;
+	font-weight: 700;
+	color: var(--header-color);
+  }
+
+
+  .post img {
+    margin: 0 auto 0.5rem;
+  }
+
+  .post p {
+    color: var(--default-color);
+	margin: 0 0 1rem;
+	font-family: var(--primary-font);
+	font-size: 1.12rem;
+	letter-spacing: 0.5px;
+	line-height: 1.5;
+	font-weight: 100;
+  }
+
+
+
+  footer {
+	font-family: var(--secondary-font);
+	padding: 2rem 0;
+	text-align: center;
+  }
+
+	footer .span {
+	  color: var(--default-color);
+	  font-size: 1.12em;
+	}
+
+	footer p {
+		line-height: 1.5;
+	}
+
+
+

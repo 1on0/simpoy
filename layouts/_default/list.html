@@ -1,45 +1,22 @@
-{{ define "title" }}{{ .Title }} &ndash; {{ .Site.Title }}{{ end }}
 {{ define "main" }}
-  {{ .Content }}
-  <div class="title-header">
-    <h1>{{ .Title }}</h1>
-  </div>
-  {{- if gt (len .Sections) 0 }}
-  <h2>Categories</h2>
-    <ul class="section-list">
-    {{- range .Sections }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-    {{- end }}
-    </ul>
-  <h2>All Posts</h2>
-  {{- end }}
-  {{- $cs := .CurrentSection }}
-  {{- with $cs }}
-    {{- range (where .Site.RegularPages "Section" .Section) }}
-      {{- if .IsDescendant $cs }}
-  <article class="all-list">
-    <div class="title-list">
-      <h3><a href="{{ .RelPermalink }}">{{ if .Draft }}<i>(Draft)</i> {{ end }}{{ .Title }}</a></h3>
-      <div class="title-list-date">
-        {{- if eq .Date.IsZero false }}
-          <time>{{ .Date.Format "Monday, January 2, 2006" }}</time>
-        {{- end }}
-        {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
-          (updated)
-        {{- end }}
-      </div>
-    </div>
-    <div class="body-list">
-      <p></p> {{/* Spacing is weird if we don't include this */}}
-      <p>
-        {{ .Summary }}
-      </p>
-      {{- if .Truncated }}
-        <a href="{{ .RelPermalink }}">Read More…</a>
-      {{- end }}
-    </div>
-  </article>
-      {{- end }}
-    {{- end }}
-  {{- end }}
+
+<main>
+	<div class="showcase">
+		{{ range (.Paginate .Pages).Pages }}
+			{{ .Render "summary" }}
+		{{ end }}
+	</div>
+	
+	<div class="pagination">
+		{{ if .Paginator.HasPrev }}
+			<a href="{{ .Paginator.Prev.URL }}" class="left arrow">&#8592;</a>
+		{{ end }}
+		{{ if .Paginator.HasNext }}
+			<a href="{{ .Paginator.Next.URL }}" class="right arrow">&#8594;</a>
+		{{ end }}
+	
+		<span>{{ .Paginator.PageNumber }}</span>
+	</div>
+</main>
+
 {{ end }}

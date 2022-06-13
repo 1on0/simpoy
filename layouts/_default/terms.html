@@ -1,18 +1,33 @@
 {{ define "main" }}
-<section id="main" class="terms">
-  <div class="container has-padding">
-    {{ if eq .Title "Tags" }}
-      <h2>{{ partial "utils/icons" "pricetags-sharp" }}{{ i18n "tag" }}</h2>
-    {{ else }}
-      <h2>{{ partial "utils/icons" "search-sharp" }}{{ .Title }}</h2>
-    {{ end }}
-    <ul class="term-columns">
-      {{ range .Data.Terms.Alphabetical }} {{ if ne .Page.Title "" }}
-      <li>
-        <a href="{{ .Page.Permalink }}" title="last seen at {{ .Page.Lastmod.Format "January 02, 2006" }}">{{ .Page.Title }}({{.Count}})</a>
-      </li>
-      {{ end }} {{ end }}
-    </ul>
-  </div>
-</section>
+
+
+<main>
+    <h1>{{ .Title }}</h1>
+	  <div class="showcase">
+        <ul>
+        {{ range (.Paginate .Data.Pages).Pages }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
+        {{ end }}
+        {{ $currPermalink := .Page.RelPermalink }}
+        {{ range (.GetTerms "tags") }}
+          {{ $currTag := .LinkTitle }}
+          {{ $taggedPages := (index .Site.Taxonomies.tags (lower $currTag)).Pages }}
+        <ul>
+            {{ range $taggedPages }}
+              {{ if not (eq .RelPermalink $currPermalink) }}
+              <li>
+                <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+              </li>
+              {{ end }}
+            {{ end }}
+        </ul>
+        {{ end }}
+          
+        </ul>
+	</div>
+
+</main>
+
 {{ end }}
