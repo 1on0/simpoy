@@ -1,0 +1,15 @@
+footer {
+    font-family: var(--secondary-font);
+    padding: 2rem 0;
+    text-align: center;
+
+    span {
+        color: var(--default-color);
+        font-size: 1.12em;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+}
+

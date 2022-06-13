@@ -1,0 +1,46 @@
+/* single */
+
+.post {
+    padding: 3rem 0;
+
+    &-title {
+        h1 {
+            color: var(--header-color);
+            font-family: var(--primary-font);
+            font-size: 3rem;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 0.3em;
+        }
+    }
+
+    &-line {
+        display: block;
+        background-color: #eff7f6;
+        margin-bottom: 1.32rem;
+        height: 2px;
+    }
+
+    &-info {
+        font-size: 1.32em;
+        font-family: var(--primary-font);
+        margin-bottom: 1.32rem;
+        font-weight: 700;
+        color: var(--header-color);
+    }
+
+    img {
+        margin: 0 auto 0.5rem;
+    }
+
+    p {
+        color: var(--default-color);
+        margin: 0 0 1rem;
+        font-family: var(--primary-font);
+        font-size: 1.12rem;
+        letter-spacing: 0.5px;
+        line-height: 1.5;
+        font-weight: 100;
+    }
+}

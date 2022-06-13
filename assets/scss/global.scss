@@ -1,0 +1,83 @@
+$color-transition: 
+    background-color .4s ease-out,
+    color .4s ease-out,
+    border-color .4s ease-out,
+    box-shadow .4s ease-out;
+
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--accent-color);
+
+    &:hover {
+        color: var(--accent-color-darker);
+    }
+
+    &.link {
+        box-shadow: 0px -2px 0px rgba(var(--link-background-color), var(--link-background-opacity)) inset;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0px calc(-1rem * var(--article-line-height)) 0px rgba(var(--link-background-color), var(--link-background-opacity-hover)) inset;
+        }
+    }
+}
+
+:root {
+    --background-color: #acd4cf;
+    --primary-color: #555;
+    --secondary-color: #979797;
+    --third-color: #aaa;
+    --header-color: #eff7f6;
+    --accent-color: #c56806;
+    --white-color: #f9f9f9;
+    --shadow-color: rgba(0, 0, 0, .2);
+    --primary-font: eb-garamond, serif;
+    --secondary-font: aileron, sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.40em;
+    font-weight: 700;
+    font-size: 1.42em;
+    margin: 3.2em 0 1.4em;
+    padding-top: 1.2em;
+    border-top: 1px var(--header-color);
+}
+
+h3 {
+    font-size: 1.17em;
+    margin-top: 1.62em;
+    margin-bottom: 1em;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1em;
+    margin-top: 1.4em;
+    margin-bottom: 0.8em;
+}
+
+h6 {
+    font-weight: 500;
+}
+
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    transition: $args;
+}

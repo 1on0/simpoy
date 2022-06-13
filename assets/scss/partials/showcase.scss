@@ -1,0 +1,27 @@
+/* index showcase */
+.showcase {
+
+    .showcase-item {
+        border-bottom: 1px solid var(--header-color);
+        color: var(--header-color);
+        display: block;
+        padding: 2rem 0;
+        text-decoration: none;
+    }
+
+    .showcase-info {
+        letter-spacing: .5px;
+        margin-top: 2rem;
+    }
+
+    &-title {
+        color: var(--default-color);
+        display: block;
+        font-family: var(--primary-font);
+        line-height: .8;
+        font-size: 4rem;
+        font-weight: 700;
+        margin: .5rem 0;
+        text-align: center;
+    }
+}

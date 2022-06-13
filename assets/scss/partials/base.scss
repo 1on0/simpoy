@@ -1,0 +1,93 @@
+/* baseof */
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.40em;
+    font-weight: 700;
+    font-size: 1.42em;
+    margin: 3.2em 0 1.4em;
+    padding-top: 1.2em;
+    border-top: 1px var(--header-color);
+}
+
+h3 {
+    font-size: 1.17em;
+    margin-top: 1.62em;
+    margin-bottom: 1em;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1em;
+    margin-top: 1.4em;
+    margin-bottom: 0.8em;
+}
+
+h6 {
+    font-weight: 500;
+}
+
+h1 a,
+h2 a,
+h3 a {
+    text-decoration: none;
+}
+
+strong,
+b {
+    font-weight: bolder;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+body {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.nav,
+main {
+    display: block;
+    margin: 0 auto !important;
+    float: none;
+    max-width: 800px;
+    width: 80%;
+
+}
+
+blockquote {
+    position: relative;
+    background-color: var(--white-color);
+    margin: 0 0 1.64em 0;
+    padding: 34px 1em 0.1em 20px;
+    font-size: 1.12em;
+    font-family: var(--primary-font);
+    border-left: 4px solid var(--secondary-color);
+}
+
+blockquote::before {
+    content: '\201c';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    color: var(--grey-1);
+    font: bold 48px/1 "Droid Serif", serif;
+}
+
+img {
+    display: block;
+    border-style: none;
+    margin: 0 0 1rem;
+    max-width: 100%;
+}
+
