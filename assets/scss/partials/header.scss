@@ -1,150 +1,169 @@
 /* header */
 .header {
-    background-color: var(--background-color);
-    box-shadow: 0 2px 2px -2px var(--shadow-color);
-    background-size: 100%;
-    background-position: bottom;
-    display: inline-block;
+    box-shadow: 0 2px 2px -2px var(--white-color);
+    margin-bottom: 2em;
+    display: flex;
     width: 100%;
     z-index: 3;
 
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        overflow: hidden;
-        background-color: var(--background-color);
-    }
+    &-inner {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 48em;
 
-    li {
-        a {
-            display: block;
-            padding: 20px 20px;
-            text-decoration: none;
-            font-family: var(--secondary-font);
-            font-weight: 600;
-            color: var(--default-color);
+        &::before, &::after {
+        box-sizing: inherit;
         }
 
-        a:hover {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        li {
+
+            a {
+                padding: 1em;
+                display: block;
+                text-decoration: none;
+                font-family: var(--secondary-font);
+                font-weight: 600;
+                color: var(--white-color);
+            }
+
+            a:hover {
+                opacity: .8;
+            }
+        }
+
+        .menu-btn:hover {
             opacity: .8;
         }
-    }
 
-    .menu-btn:hover {
-        background-color: var(--grey-1);
-        color: var(--grey-4);
-    }
-
-    .logo {
-        display: block;
-        font-weight: 900;
-        font-family: var(--secondary-font);
-        float: left;
-        font-size: 2em;
-        padding: 10px 20px;
-        text-decoration: none;
-        margin: 0;
-
-        a {
-            color: var(--primary-color);
-        }
-
-        &:hover {
-            opacity: .8;
-            text-decoration: underline;
-        }
-    }
-
-    /* menu */
-    .menu {
-        clear: both;
-        max-height: 0;
-        transition: max-height .2s ease-out;
-    }
-
-    /* menu icon */
-    .menu-icon {
-        cursor: pointer;
-        float: right;
-        padding: 28px 20px;
-        position: relative;
-        user-select: none;
-
-        .nav-icon {
-            background: #333;
+        .logo {
             display: block;
-            height: 2px;
-            position: relative;
-            transition: background .2s ease-out;
-            width: 18px;
-            align-items: baseline;
+            float: left;
 
-            &:before {
-                background: #333;
-                content: '';
-                display: block;
-                height: 100%;
-                position: absolute;
-                transition: all .2s ease-out;
-                width: 100%;
-                top: 5px;
+            a {
+                color: var(--secondary-white-color);
+                font-size: 1.4em;
+                text-decoration: none;
+                letter-spacing: -0.01em;
+                font-family: var(--secondary-font);
+                font-weight: bolder;
             }
 
-            &:after {
-                background: #333;
-                content: '';
-                display: block;
-                height: 100%;
-                position: absolute;
-                transition: all .2s ease-out;
-                width: 100%;
-                top: -5px;
-            }
-        }
-    }
-
-/* menu btn */
-    .menu-btn {
-        display: none;
-
-        &:checked~.menu {
-            max-height: 240px;
-        }
-
-        &:checked~.menu-icon .nav-icon {
-            background: transparent;
-
-            &:before {
-                transform: rotate(-45deg);
-                top: 0;
+            &:hover {
+                opacity: .8;
             }
 
-            &:after {
-                transform: rotate(45deg);
-                top: 0;
+            svg {
+                display: inline-block;
+                margin: 10px;
+                height: 30px;
             }
         }
     }
 }
 
+/* menu */
+.menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+
+    li {
+        max-height: fit-content;
+    }
+}
+
+/* menu icon */
+.menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+
+    .nav-icon {
+        background: var(--white-color);
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+        align-items: baseline;
+
+        &:before {
+            background: var(--white-color);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+            top: 5px;
+        }
+
+        &:after {
+            background: var(--white-color);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+            top: -5px;
+        }
+    }
+}
+
+/* menu btn */
+.menu-btn {
+    display: none;
+
+    &:checked~.menu {
+        max-height: 240px;
+    }
+
+    &:checked~.menu-icon .nav-icon {
+        background: transparent;
+
+        &:before {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        &:after {
+            transform: rotate(45deg);
+            top: 0;
+        }
+    }
+}
+
+
 /* 48em = 768px @ 16pt font */
 @media (min-width: 48em) {
-    .header li {
-        float: left;
-    }
+    .header {
 
-    .header li a {
-        padding: 20px 30px;
-    }
+        .menu {
+            clear: none;
+            float: right;
+            max-height: none;
+        }
 
-    .header .menu {
-        clear: none;
-        float: right;
-        max-height: none;
-    }
+        .menu-icon {
+            display: none;
+        }
 
-    .header .menu-icon {
-        display: none;
+        li {
+            float: left;
+
+            a {
+                padding: 1em 1em;
+            }
+        }
     }
 }

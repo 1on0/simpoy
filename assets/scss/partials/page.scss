@@ -1,0 +1,219 @@
+.index-list {
+
+    .index {
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    hr {
+        margin-top: 2em;
+        color: var(--white-color);
+    }
+}
+
+.index-item {
+    text-decoration: none;
+    text-align: left;
+
+    .index-title {
+        color: var(--white-color);
+        margin-bottom: 0.4em;
+        font-weight: 900;
+    }
+
+    .date {
+        color: var(--secondary-white-color);
+        margin: 0.1em;
+    }
+
+    .index-summary,
+    .index-desc,
+    a, p {
+        color: var(--primary-white-color);
+        margin-bottom: 0.3em;
+        font-size: 1em;
+    }
+}
+
+.index-label {
+    margin-bottom: 0.5em;
+
+    .index-tag,
+    .index-category {
+        color: var(--secondary-white-color);
+        display: inline-block;
+        margin: 5px 8px 5px 0;
+        text-decoration: none;
+    }
+}
+
+.index-category {
+    background-color: var(--accent-color);
+    border-radius: .25em;
+    padding: 0.25em;
+}
+
+.category-section {
+    color: var(--white-color);
+    text-align: center;
+    padding: 1em;
+
+    .category-section-title {
+        text-decoration: underline;
+    }
+}
+
+.category-list {
+    margin-top: 2em;
+
+    .category {
+        padding: 1em;
+        background-color: var(--primary-white-color);
+        color: var(--primary-color);
+        margin-bottom: 1em;
+        border-radius: 0.5em;
+
+        &-title {
+            margin-bottom: 1em;
+
+            a {
+                color: var(--primary-color);
+
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--secondary-color);
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        .page-item {
+            margin: 0.5em 0;
+
+            a {
+                text-decoration: none;
+                color: var(--primary-color);
+
+                &:hover {
+                    background-color: yellow;
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        .more-post {
+            background-color: var(--primary-color);
+            padding: 0.25em;
+            margin: 3em 0;
+
+            .more-single-link {
+                text-decoration: none;
+                color: var(--white-color);
+                margin: 3em 0;
+
+            }
+        }
+
+    }
+}
+
+.tag-list {
+    margin: 1em 0;
+
+    a {
+        text-decoration: none;
+        color: var(--primary-color);
+        background-color: var(--primary-white-color);
+        padding: 0.25em;
+        display: inline-block;
+        position: relative;
+        margin: 5px 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        border-radius: 0.25em;
+
+        &:hover {
+            color: var(--primary-white-color);
+            background-color: var(--primary-color);
+            transition: all ease-out 0.3s;
+        }
+    }
+}
+
+.archive {
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--primary-white-color);
+    padding: 1em;
+    border-radius: .5em;
+
+    .page-list {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    .page-item {
+        margin-bottom: 0.5em;
+        display: flex;
+
+        .page-item-date {
+            margin: 0.5em 0.25em;
+            font-weight: 600;
+
+
+            span {
+                background-color: var(--accent-color);
+                color: var(--secondary-white-color);
+                padding: 0.5em;
+                border-radius: 0.25em;
+                margin-right: 0.25em;
+                font-family: var(--secondary-font);
+
+                &:hover {
+                    transition: ease 0.3s;
+                    background-color: var(--primary-color);
+                    color: var(--white-color);
+                }
+            }
+        }
+
+        .page-title {
+            display: flex;
+            text-decoration: none;
+            color: var(--primary-color);
+            align-items: center;
+
+            &:hover {
+                background-color: yellow;
+                transition: 0.5s;
+            }
+
+        }
+    }
+}
+
+.pagination {
+    text-align: center;
+
+    ul {
+        font-size: 1.125em;
+        
+
+        li {
+            display: inline-block;
+
+
+            a {
+            text-decoration: none;
+            color: var(--white-color);
+            padding: 0.5em;
+
+
+                &:hover {
+                    background-color: var(--secondary-color);
+                }
+
+            }
+        }
+    }
+}

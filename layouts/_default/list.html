@@ -1,22 +1,44 @@
-{{ define "main" }}
+{{- define "title" -}}
+    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- end -}}
 
-<main>
-	<div class="showcase">
-		{{ range (.Paginate .Pages).Pages }}
-			{{ .Render "summary" }}
-		{{ end }}
-	</div>
-	
-	<div class="pagination">
-		{{ if .Paginator.HasPrev }}
-			<a href="{{ .Paginator.Prev.URL }}" class="left arrow">&#8592;</a>
-		{{ end }}
-		{{ if .Paginator.HasNext }}
-			<a href="{{ .Paginator.Next.URL }}" class="right arrow">&#8594;</a>
-		{{ end }}
-	
-		<span>{{ .Paginator.PageNumber }}</span>
-	</div>
-</main>
+{{- define "content" -}}
+    <div class="archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title">
+            {{- $taxonomy := .Data.Singular -}}
+            {{- if eq $taxonomy "category" -}}
+                {{ .Title }}
+            {{- else if eq $taxonomy "tag" -}}
+                {{ .Title }}
+            {{- else -}}
+                {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
+            {{- end -}}
+        </h2>
 
-{{ end }}
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- range $pages.PageGroups -}}
+                <div class="page-list">{{ .Key }}</div>
+                {{- range .Pages -}}
+                    <article class="page-item">
+                        <p class="page-item-date"><span>{{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> {{- $.Site.Params.list.dateFormat | default "Jan" | .Date.Format -}}&nbsp;|&nbsp;</p>
+                        <a href="{{ .RelPermalink }}" class="page-title">
+                            {{- .Title | emojify -}} | {{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}
+                        </a>
+
+                    </article>
+                {{- end -}}
+            {{- end -}}
+
+            {{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+            {{- partial "components/pagination" $paginator -}}
+        {{- end -}}
+    </div>
+{{- end -}}

@@ -1,23 +1,19 @@
 /* baseof */
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
     font-weight: 700;
+    color: var(--white-primary-color);
 }
 
 h2 {
-    font-size: 1.40em;
-    font-weight: 700;
-    font-size: 1.42em;
-    margin: 3.2em 0 1.4em;
-    padding-top: 1.2em;
-    border-top: 1px var(--header-color);
+    margin: .8em 0 1em;
+    font-size: 1.5em;
+
 }
 
 h3 {
+    color: var(--primary-color);
     font-size: 1.17em;
-    margin-top: 1.62em;
-    margin-bottom: 1em;
 }
 
 h4,
@@ -26,10 +22,6 @@ h6 {
     font-size: 1em;
     margin-top: 1.4em;
     margin-bottom: 0.8em;
-}
-
-h6 {
-    font-weight: 500;
 }
 
 h1 a,
@@ -48,35 +40,46 @@ i {
     font-style: italic;
 }
 
-body {
-    color: var(--primary-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
+ul,
+ol {
+    margin: 0 0 24px 6px;
+    padding-left: 16px;
 }
 
-.nav,
-main {
-    display: block;
-    margin: 0 auto !important;
-    float: none;
-    max-width: 800px;
-    width: 80%;
+li {
+    color: var(--primary-color);
 
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0.4em 0 0.6em;
+    }
 }
 
 blockquote {
     position: relative;
     background-color: var(--white-color);
     margin: 0 0 1.64em 0;
-    padding: 34px 1em 0.1em 20px;
-    font-size: 1.12em;
+    padding: .1em 1em .4em 20px;
+    font-size: 1em;
     font-family: var(--primary-font);
-    border-left: 4px solid var(--secondary-color);
+    border-left: 7px solid var(--primary-color);
+
+    h3, p {
+        color: var(--primary-color);
+    }
 }
 
 blockquote::before {
-    content: '\201c';
     position: absolute;
     top: 0;
     left: 20px;
@@ -86,8 +89,58 @@ blockquote::before {
 
 img {
     display: block;
-    border-style: none;
-    margin: 0 0 1rem;
+    margin: 1em 0;
+    max-width: 100%;
+    height: auto;
+}
+
+embed, object, video {
     max-width: 100%;
 }
 
+code {
+    font-size: .9em;
+    background-color: var(--secondary-color);
+    color: var(--primary-white-color);
+    border-radius: .1em;
+
+        span {
+            margin-bottom: .1em;
+        }
+}
+
+div.highlight,
+pre {
+    margin: 0;
+    position: relative;
+    font-size: 1em;
+    overflow-x: auto;
+    border-radius: .5em;
+}
+
+.highlight > * {
+	padding: 0.7em;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: .1em;
+    background: var(--secondary-white-color);
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0.5em;
+    user-select: none;
+}
+
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
+    display: block;
+    cursor: pointer;
+}
+  
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}

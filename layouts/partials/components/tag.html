@@ -1,0 +1,6 @@
+{{- range .Params.tags -}}
+{{- $tag := replace . "#" "%23" -}}
+{{- $tag = replace $tag "." "%2e" -}}
+{{- $url := print "/tags/" ($tag | urlize) "/" -}}
+<a class="tag" href="{{- $url | relLangURL -}}">#{{- . -}}</a>
+{{- end -}}

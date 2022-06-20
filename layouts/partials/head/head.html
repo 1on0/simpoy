@@ -36,4 +36,12 @@
     {{ $sass := resources.Get "scss/style.scss" }}
     {{ $style := $sass | resources.ToCSS | minify | resources.Fingerprint "sha256" }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<!-- img style -->  
+    {{- if and (eq .Type "photos") (eq .Kind "page") -}}
+    <link rel="stylesheet" href="{{ (resources.Get "lightgallery/lightgallery.min.css" | fingerprint).Permalink }}" />
+    {{- end -}}
+
 </head>
+
+

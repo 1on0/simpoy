@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="header-inner">
+        {{- partial "logo" -}}
+        <input class="menu-btn" type="checkbox" id="menu-btn">
+        <label class="menu-icon" for="menu-btn">
+            <span class="nav-icon"></span>
+        </label>
+        <ul class="menu">
+        {{- range .Site.Menus.main -}}
+            <li>
+                <a href="{{- .URL -}}">{{ .Name }}</a>
+            </li>
+        {{- end }}
+        </ul>   
+    </div> 
+</div>
+
+
+

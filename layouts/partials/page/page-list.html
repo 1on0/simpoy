@@ -1,0 +1,47 @@
+{{- $paginator := . -}}
+
+{{- if gt $paginator.TotalPages 0 -}}
+{{- $dateFormat := site.Params.dateFormat -}}
+{{- if not $dateFormat -}}{{- $dateFormat = "2006-01-02" -}}{{- end -}}
+<div class="index-list">
+    {{- range $paginator.Pages -}}
+      {{- $relURL := replace .RelPermalink "#" "%23" -}}
+      {{- $relURL = replace $relURL "." "%2e" -}}
+    <article class="index">
+        <a class="index-item" href="{{- $relURL -}}">
+            <h2 class="index-title">{{- .Title | safeHTML -}}</h2>
+            {{- if not .Date.IsZero -}}
+            <p class="date">
+                {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+            </p>
+            {{- end -}}
+            {{ if isset .Params "description" }}
+            <p class="index-desc">
+                {{- .Description -}}
+            </p>
+            {{- else if .Summary -}}
+            <p class="index-summary">
+                {{- .Summary | plainify | safeHTML -}}{{- else -}}<span class="mldr">&mldr;</span>{{- end -}}
+            </p>
+
+            
+            {{- $imgs := .Params.imgs -}}
+            {{- with $imgs -}}
+            <span class="images">
+                {{- $imgCount := len $imgs -}}
+                {{- range $imgs -}}
+                {{- $imgurl := lower . -}}
+                {{- if and (not (hasPrefix $imgurl "http://")) (not (hasPrefix $imgurl "https://")) -}}
+                {{- $imgurl = path.Join $relURL . -}}
+                {{- end -}}
+                <img class="img" src="{{- $imgurl -}}" alt />
+                {{- end -}}
+            </span>
+            {{- end -}}
+        </a>
+        {{- partial "page/page-label" . -}}
+        <hr>
+    </article>
+    {{- end -}}
+</div>
+{{- end -}}

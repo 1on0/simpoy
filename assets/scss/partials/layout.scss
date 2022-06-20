@@ -1,59 +1,23 @@
-.highlight>* {
-    padding: 0.5em;
-    border-width: 1px;
-    border-style: solid;
-}
-
-.highlight pre {
-    margin: 0px;
-    overflow-x: auto;
-    word-wrap: normal;
-}
-
-.highlight td.lntd pre {
-    /* needed to fix an iPhone scrolling bug */
-    overflow-x: hidden;
-}
-
-.highlight td.lntd:last-child {
-    /* needed until this bug is fixed: https://github.com/alecthomas/chroma/issues/225 */
-    width: 100%;
-}
-
-/* body */
-
-.nav,
-main {
-    display: block;
-    margin: 0 auto !important;
-    float: none;
-    max-width: 800px;
-    width: 80%;
-
-}
-
-
 /* layout */
-ul,
-ol {
-    margin: 0 0 24px 6px;
-    padding-left: 16px;
+html {
+    scroll-behavior: smooth;
 }
 
-li {
-    margin-bottom: 0.2em;
-
-    ul {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    ol {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    font-size: 1.125em;
+    -moz-osx-font-smoothing: grayscale;
 
     p {
-        margin: 0.4em 0 0.6em;
+    letter-spacing: -0.014em;
     }
 }
+
+#content {
+    display: block;
+    max-width: 48em;
+    width: 95%;
+    margin: 0 auto !important;
+}
+
