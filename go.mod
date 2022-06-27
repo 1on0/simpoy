@@ -1,3 +1,3 @@
-module github.com/ionsqr/simpoy/v0.0.1
+module github.com/ionsqr/simpoy
 
-go 1.17
+go 1.18
