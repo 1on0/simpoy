@@ -1,9 +1,17 @@
 {{- define "content" -}}
 
-{{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+<section id="posts" class="posts">
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+      {{ $pages = where .Site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ end }}
+    {{ $paginator := .Paginate $pages }}
+    {{ range $paginator.Pages }}
+      {{ .Render "summary" }}
+    {{ end }}
+  </section>
 
-{{- partial "page/page-list" $paginator -}}
-{{- partial "components/pagination" $paginator -}}
+{{- partial "components/pagination" . -}}
 
 
 {{- end -}}

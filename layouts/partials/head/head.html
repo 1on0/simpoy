@@ -4,19 +4,14 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="{{ .Permalink }}" />
-
-<!-- open graph -->
-    <meta property="og:type" content="Personal Sites" />
-    <meta property="og:description" content="Sites for Personal Notes" />
-    <meta property="og:title" content="iorn" />
-    <meta property="og:site_name" content="iorn" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:locale" content="{{ .Site.LanguageCode }}" />    
+    <link rel="canonical" href="{{ .Permalink | safeURL }}" />
 
 <!-- site title -->
     <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
+<!-- rss -->
+{{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 
 <!-- icon meta -->
     {{ if (fileExists "static/favicon.ico") }}
@@ -35,11 +30,11 @@
 <!-- style -->
     {{ $sass := resources.Get "scss/style.scss" }}
     {{ $style := $sass | resources.ToCSS | minify | resources.Fingerprint "sha256" }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}">
 
 <!-- img style -->  
     {{- if and (eq .Type "photos") (eq .Kind "page") -}}
-    <link rel="stylesheet" href="{{ (resources.Get "lightgallery/lightgallery.min.css" | fingerprint).Permalink }}" />
+    <link rel="stylesheet" href="{{ (resources.Get "lightgallery/lightgallery.min.css" | fingerprint).Permalink | safeURL }}" />
     {{- end -}}
 
 </head>

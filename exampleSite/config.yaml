@@ -1,0 +1,108 @@
+baseurl: http://demo.ion.web.id/
+languageCode: en-gb
+theme: simpoy
+paginate: 4
+title: iorn.org
+description: A Knowledge Seeker
+
+taxonomies:
+  tag: tags
+  category: categories
+
+permalinks:
+  posts: /:year/:month/:title/
+  category: /posts/categories/:slug/
+  tag: /posts/tags/:slug/
+
+menu:
+  main:
+    - identifier: category
+      name: Posts
+      title: Categories
+      url: /posts/
+      weight: 1
+
+    - identifier: about
+      name: About
+      title: About
+      url: /about/
+      weight: 3
+    
+  social:
+    - identifier: github
+      name: GitHub
+      url: https://github.com/ionsqr
+      weight: 1
+      params:
+        icon: github
+      
+    - identifier: mail
+      name: Mail
+      url: mailto:ion@ori.onl
+      weight: 2
+      params:
+        icon: mail
+      
+    - identifier: link
+      name: Website
+      url: https://iorn.org/
+      weight: 3
+      params:
+        icon: link
+
+    - identifier: rss
+      name: rss
+      url: https://demo.ion.web.id/index.xml
+      weight: 100
+      params:
+        icon: rss
+
+hasCJKLanguage: true
+
+params:
+  rssFullContent: true
+  title: iorn.org
+  description: A Knowledge Seeker
+  csp:
+    childsrc: self
+    fontsrc: self
+    formaction: self
+    framesrc: self
+    imgsrc: self
+    objectsrc: none
+    stylesrc: self
+    scriptsrc: self
+    default-src: self
+    base-uri: self
+
+imaging:
+  anchor: Smart
+  bgColor: '#ffffff'
+  hint: photo
+  quality: 80
+  resampleFilter: Lanczos
+
+pygmentsUseClasses: false
+pygmentsCodefences: true
+pygmentsStyle: dracula
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    endLevel: 4
+    ordered: true
+    startLevel: 2
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    tabWidth: 2 
+    style: dracula
+
+

@@ -1,61 +1,6 @@
-<footer>
-  {{ if and .Params.comments (gt (len .Site.DisqusShortname) 0) }}
-  <figure class="article-discussion">
-    {{ template "_internal/disqus.html" . }}
-  </figure>
-  {{ end }}
+import Clipboard from 'clipboard';
 
-  <div class="footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <div class="quote">
-          
-          <p>{{- with .Site.Params.quote -}}{{ . | markdownify }}{{- else -}} asdasdphet ﷺ said, <span>“Seeking knowledge is an obligation upon every
-              Muslim.”</span></p>{{- end -}}
-        </div>
-      </div>
-
-      <div class="footer-center">
-        <div class="social-menu">
-          {{- with .Site.Menus.social -}}
-            {{ range . }}
-            {{ $url := .URL }}
-            <a class="social-icons" href='{{ $url | safeHTML }}' {{ if eq (default true .Params.newTab) true }}target="_blank" {{ end }} {{ with .Name
-              }}title="{{ . }}" {{ end }}>
-              {{ $icon := .Name }}
-              {{ with $icon }}
-              {{ partial "utilities/icons" . }}
-              {{ end }}
-            </a>
-
-            {{ end }}
-
-          {{- end -}}
-        </div>
-      </div>
-
-      <div class="footer-right">
-        <div class="author">
-          {{- $current := now.Format "2006" }}
-          &copy;
-          {{ if ne .Site.Params.since $current }}
-            {{ .Site.Params.since }} -
-          {{ end }}
-          {{- $current }}
-        </div>
-      </div>
-
-    </div>
-  </div>
-</footer>
-
-{{- if and (eq .Type "photos") (eq .Kind "page") -}}
-<script src="{{ (resources.Get " lightgallery/lightgallery.min.js" | fingerprint).Permalink }}"></script>
-<script>lightGallery(document.getElementById('lightgallery'), { selector: '.photo-item' });</script>
-{{- end -}}
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
+document.querySelectorAll('pre > code').forEach((codeblock) => {
     const container = codeblock.parentNode.parentNode;
 
     const copybutton = document.createElement('button');
@@ -73,14 +18,12 @@
         copybutton.innerHTML = svgCopy;
       }, 2000);
     }
-
     copybutton.addEventListener('click', (cb) => {
       if ('clipboard' in navigator) {
         navigator.clipboard.writeText(codeblock.textContent);
         copyingDone();
         return;
       }
-
       const range = document.createRange();
       range.selectNodeContents(codeblock);
       const selection = window.getSelection();
@@ -89,10 +32,9 @@
       try {
         document.execCommand('copy');
         copyingDone();
-      } catch (e) { };
+      } catch (e) {};
       selection.removeRange(range);
     });
-
     if (container.classList.contains("highlight")) {
       container.appendChild(copybutton);
     } else if (container.parentNode.firstChild == container) {
@@ -105,4 +47,3 @@
       codeblock.parentNode.appendChild(copybutton);
     }
   });
-</script>

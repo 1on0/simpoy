@@ -1,0 +1,216 @@
+.index-list {
+
+    .index {
+        padding: 1em;
+        box-shadow: 0 2px 2px -2px $first;
+
+        .read-link {
+            margin-top: 1em;
+            text-align: right;
+            margin-right: 1em;
+            clear: both;
+
+            .read-more {
+                padding: 0.25em;
+                box-shadow: 1px 1px 2px 1px $first;
+                text-decoration: none;
+                text-align: center;
+                color: $accent;
+
+                &:hover {
+                    transition: 0.3s;
+                    color: $second-white;
+                    background-color: $accent;
+
+                }
+            }
+        }
+    }
+}
+
+.index-item {
+    text-decoration: none;
+    text-align: left;
+
+    .index-title {
+        color: $first;
+        margin-bottom: 0.4em;
+        font-weight: 900;
+
+        &:hover {
+            transition: all ease-out 0.3s;
+            opacity: .5;
+
+        }
+    }
+}
+
+.date {
+    color: $second;
+    margin: 0.25em 0;
+}
+
+%index-tag-category {
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+    text-decoration: none;
+
+    &:hover {
+        transition: all ease-out 0.3s;
+        opacity: .5;
+    }
+}
+
+.index-summary,
+.index-desc {
+    color: $first;
+    margin-bottom: 0.3em;
+    font-size: 1em;
+
+    a {
+        color: $second;
+    }
+}
+
+.index-label {
+    margin-bottom: 0.5em;
+
+    .index-tag {
+        @extend %index-tag-category;
+        color: $second;
+    }
+
+    .index-category {
+        @extend %index-tag-category;
+        padding: 0.25em 0.3em;
+        background-color: $accent;
+        color: $second-white;
+    }
+}
+
+.category-section {
+    color: $white;
+    text-align: center;
+    padding: 1em;
+
+    .category-section-title {
+        text-decoration: underline;
+    }
+}
+
+.tag-list {
+    margin: 1em 0;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: $first;
+        background-color: $first-white;
+        padding: 0.4em;
+        display: inline-block;
+        position: relative;
+        margin: 5px 10px;
+
+        &:hover {
+            color: $first-white;
+            background-color: $second;
+            transition: all ease-out 0.3s;
+        }
+
+        sup {
+            background-color: $accent;
+            color: $first-white;
+            padding: 0.1em 0.4em;
+            border-radius: 5em;
+        }
+    }
+}
+
+.archive {
+    text-decoration: none;
+    box-shadow: 2px 2px 2px 2px $shadow;
+    color: $first;
+    background-color: $second-white;
+    padding: 1em;
+
+    .single-title {
+        margin: 0;
+    }
+
+    .year-date {
+        box-shadow: 0 2px 2px -2px $shadow;
+        padding: 0.25em;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .page-list {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    .more-post {
+        background-color: $first;
+        padding: 0.25em;
+        margin: 3em 0;
+
+        .more-single-link {
+            text-decoration: none;
+            color: $white;
+            margin: 3em 0;
+        }
+    }
+
+    .page-item {
+        margin-bottom: 0.5em;
+        display: flex;
+
+        .page-item-date {
+            margin: 0.5em 0.25em;
+            font-weight: 600;
+
+            span {
+                background-color: $accent;
+                color: $second-white;
+                padding: 0.5em 0.6em;
+                margin-right: 0.25em;
+
+                &:hover {
+                    transition: ease 0.3s;
+                    background-color: $first;
+                    color: $white;
+                }
+            }
+        }
+
+        .page-title {
+            display: flex;
+            font-size: 1.25em;
+            font-weight: 500;
+            text-decoration: none;
+            color: $first;
+            align-items: center;
+
+            &:hover {
+                background-color: yellow;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+.index-pagination {
+    text-align: center;
+    margin: 1em 0;
+
+    .prev,
+    .next {
+        text-decoration: none;
+        color: $accent;
+        font-weight: 700;
+        margin: 0 2em;
+
+    }
+}

@@ -2,17 +2,17 @@
 h1 {
     font-size: 2em;
     font-weight: 700;
-    color: var(--white-primary-color);
+    color: $first;
 }
 
 h2 {
-    margin: .8em 0 1em;
+    margin: 1.5em 0 0.5em;
     font-size: 1.5em;
 
 }
 
 h3 {
-    color: var(--primary-color);
+    color: $first;
     font-size: 1.17em;
 }
 
@@ -21,7 +21,7 @@ h5,
 h6 {
     font-size: 1em;
     margin-top: 1.4em;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.5em;
 }
 
 h1 a,
@@ -47,7 +47,7 @@ ol {
 }
 
 li {
-    color: var(--primary-color);
+    color: $first;
 
 
     ul {
@@ -67,15 +67,16 @@ li {
 
 blockquote {
     position: relative;
-    background-color: var(--white-color);
+    background-color: $white;
     margin: 0 0 1.64em 0;
     padding: .1em 1em .4em 20px;
     font-size: 1em;
-    font-family: var(--primary-font);
-    border-left: 7px solid var(--primary-color);
+    font-family: $serif;
+    border-left: 7px solid $first;
 
-    h3, p {
-        color: var(--primary-color);
+    h3,
+    p {
+        color: $first;
     }
 }
 
@@ -94,32 +95,53 @@ img {
     height: auto;
 }
 
-embed, object, video {
+embed,
+object,
+video {
     max-width: 100%;
 }
 
 code {
-    font-size: .9em;
-    background-color: var(--secondary-color);
-    color: var(--primary-white-color);
-    border-radius: .1em;
+    font-family: "PT Mono", Menlo, "Courier New", monospace;
+    padding: 2px 4px;
+    font-size: 80%;
+    color: $white;
+    background-color: $terminal;
+    border-radius: .2rem;
+}
 
-        span {
-            margin-bottom: .1em;
-        }
+pre code {
+    padding: 0;
+    color: $white;
+    background-color: transparent;
+    border: 0;
+}
+
+.highlight pre {
+    margin: 0px;
+    overflow-x: auto;
+    background-color: inherit;
+    word-wrap: normal;
 }
 
 div.highlight,
 pre {
+    font-size: 1.075em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /* set the tab size for browsers that support it */
+    tab-size: 4;
+    -moz-tab-size: 4;
+    /* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
+    -webkit-text-size-adjust: 100%;
+    background-color: $terminal;
     margin: 0;
     position: relative;
-    font-size: 1em;
     overflow-x: auto;
-    border-radius: .5em;
 }
 
-.highlight > * {
-	padding: 0.7em;
+.highlight>* {
+    padding: 0.7em;
 }
 
 .copy-code {
@@ -127,9 +149,8 @@ pre {
     position: absolute;
     top: 0;
     right: .1em;
-    background: var(--secondary-white-color);
+    background: $second-white;
     border: 1px solid;
-    border-radius: 5px;
     padding: 0.5em;
     user-select: none;
 }
@@ -139,8 +160,10 @@ pre:hover .copy-code {
     display: block;
     cursor: pointer;
 }
-  
 
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }

@@ -1,6 +1,6 @@
 /* header */
 .header {
-    box-shadow: 0 2px 2px -2px var(--white-color);
+    box-shadow: 0 2px 2px -2px $shadow;
     margin-bottom: 2em;
     display: flex;
     width: 100%;
@@ -25,12 +25,12 @@
         li {
 
             a {
-                padding: 1em;
+                padding: 0.75em;
                 display: block;
                 text-decoration: none;
-                font-family: var(--secondary-font);
-                font-weight: 600;
-                color: var(--white-color);
+                color: $first;
+                box-shadow: 0 2px 2px -2px $shadow;
+
             }
 
             a:hover {
@@ -47,11 +47,10 @@
             float: left;
 
             a {
-                color: var(--secondary-white-color);
+                color: $first;
                 font-size: 1.4em;
                 text-decoration: none;
                 letter-spacing: -0.01em;
-                font-family: var(--secondary-font);
                 font-weight: bolder;
             }
 
@@ -71,6 +70,8 @@
 /* menu */
 .menu {
     clear: both;
+    display: block;
+    text-align: center;
     max-height: 0;
     transition: max-height .2s ease-out;
 
@@ -88,7 +89,7 @@
     user-select: none;
 
     .nav-icon {
-        background: var(--white-color);
+        background: $first;
         display: block;
         height: 2px;
         position: relative;
@@ -97,7 +98,7 @@
         align-items: baseline;
 
         &:before {
-            background: var(--white-color);
+            background: $first;
             content: '';
             display: block;
             height: 100%;
@@ -108,7 +109,7 @@
         }
 
         &:after {
-            background: var(--white-color);
+            background: $first;
             content: '';
             display: block;
             height: 100%;
@@ -162,7 +163,7 @@
             float: left;
 
             a {
-                padding: 1em 1em;
+                padding: 1em;
             }
         }
     }

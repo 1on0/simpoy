@@ -1,0 +1,22 @@
+<div class="index-list">
+    <article class="index">
+        <a class="index-item" href="{{ .RelPermalink }}">
+            <h2 class="index-title">{{- .Title | safeHTML -}}</h2>
+            {{- if not .Date.IsZero -}}
+            <p class="date">
+                {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+            </p>
+            {{- end -}}
+            {{ if isset .Params "description" }}
+            <p class="index-desc">
+                {{- .Description -}}
+            </p>
+            {{- else if .Summary -}}
+            <p class="index-summary">
+                {{- .Summary | plainify | safeHTML -}}
+            </p>
+            {{- end -}}
+        </a>
+        {{- partial "page/page-label" . -}}
+    </article>
+</div>

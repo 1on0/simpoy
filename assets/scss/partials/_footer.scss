@@ -1,0 +1,105 @@
+footer {
+  box-shadow: 2px 2px 2px 2px $shadow;
+  margin-top: 3.5em;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.25em;
+  padding: 1em;
+  font-size: 1em;
+  text-align: center;
+  color: $first;
+  align-items: center;
+}
+
+.footer-center {
+  flex: 30%;
+  margin: 0 auto;
+  padding: 0.5em;
+
+
+  .social-menu {
+    width: 100%;
+
+    .social-icons {
+      margin: 0 0.5em;
+      color: $third;
+      text-decoration: none;
+
+      svg {
+        width: 25px;
+        height: auto;
+        color: $second;
+
+        &:hover {
+          color: $accent;
+        }
+
+      }
+    }
+  }
+}
+
+.footer-left {
+  flex: 35%;
+  margin: 0 auto;
+  padding: 0.5em;
+
+  .quote {
+    background-color: $shadow;
+    padding: 1em;
+
+    span {
+      font-style: italic;
+      font-weight: 600;
+    }
+  }
+}
+
+.footer-right {
+  flex: 35%;
+  margin: 0 auto;
+  padding: 0.5em;
+  line-height: 1.4em;
+
+  .author {
+    padding: 1em;
+    box-shadow: 2px 2px 2px 2px $shadow;
+
+
+    a {
+      color: $accent;
+
+      &:hover {
+      background-color: yellow;
+      }
+    }
+  }
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 48em) {
+
+  %display {
+    flex: 100%;
+  }
+
+  .footer-right {
+    @extend %display;
+  }
+
+  .footer-center {
+    @extend %display;
+  }
+
+  .footer-left {
+    @extend %display;
+  }
+}
