@@ -6,10 +6,10 @@
     <div class="photo-item" data-src="{{ $img.RelPermalink }}">
 
         {{/* set image sizes, these are hardcoded for now */}}
-        {{- $tinyw := default "500x Lanczos" -}}
-        {{- $smallw := default "800x Lanczos" -}}
-        {{- $mediumw := default "1200x Lanczos" -}}
-        {{- $largew := default "1600x Lanczos" -}}
+        {{- $tinyw := default "500x Lanczos webp" -}}
+        {{- $smallw := default "800x Lanczos webp" -}}
+        {{- $mediumw := default "1200x Lanczos webp" -}}
+        {{- $largew := default "1600x Lanczos webp" -}}
 
         {{/* resize the src image to the given sizes */}}
         {{- .Scratch.Set "tiny" ($img.Resize $tinyw) -}}
@@ -24,10 +24,11 @@
         {{- $large := .Scratch.Get "large" -}}
 
         <a href="{{ $img.RelPermalink }}">
-            <img loading="lazy" class="center" width="{{$img.Width}}" height="{{$img.Height}}" {{- with .Get "sizes"
-                -}}sizes='{{.}}' {{- else -}}
-                sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
-                {{- end -}} srcset='
+            <picture>
+                <img loading="lazy" class="center" width="{{$img.Width}}" height="{{$img.Height}}" {{- with .Get "sizes"
+                    -}}sizes='{{.}}' {{- else -}}
+                    sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
+                    {{- end -}} srcset='
                 {{- if ge $img.Width "500" -}}
                 {{- with $tiny.RelPermalink -}}{{.}} 500w{{- end -}}
                 {{- end -}}
@@ -40,7 +41,8 @@
                 {{- if ge $img.Width "1600" -}}
                 {{- with $large.RelPermalink -}}, {{.}} 1600w{{- end -}}
                 {{- end -}}' {{- if .Get (print $medium) -}} src="{{$medium.RelPermalink}}" {{- else -}}
-                src="{{$img.RelPermalink}}" {{- end -}} alt="{{ $alt }}">
+                    src="{{$img.RelPermalink}}" {{- end -}} alt="{{ $img.Title }}">
+            </picture>
         </a>
 
     </div>

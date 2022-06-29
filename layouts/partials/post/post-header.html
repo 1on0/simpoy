@@ -2,11 +2,7 @@
     <h1 class="post-title">
         {{- .Title -}}
     </h1>
-
-<hr>
-
-    {{- partial "post/post-meta" . -}}
-    
+    {{- partial "post/post-meta" . -}}    
     {{- with .Params.description -}}
     <h3 class="post-subtitle">
         {{- . -}}

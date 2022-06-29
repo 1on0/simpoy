@@ -1,0 +1,21 @@
+<div class="photo-container" id="lightgallery">
+    {{- $img := resources.Get .Params.cover -}}
+    <div class="photo-item" data-src="{{ $img.Permalink }}">
+        {{ $medium := $img.Fill "1200x900 Lanczos" }}
+        {{ $small := $img.Fill "800x600 Lanczos" }}
+
+        <a href="{{ $img.Permalink }}">
+            <picture>
+                <img loading="lazy" class="center" width="{{$img.Width}}" height="{{$img.Height}}"
+                    sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
+                    srcset='
+            {{- if ge $img.Width "800" -}}
+            {{- with $small.Permalink -}}, {{.}} 800w{{- end -}}
+            {{- end -}}
+            {{- if ge $img.Width "1200" -}}
+            {{- with $medium.Permalink -}}, {{.}} 1200w{{- end -}}
+            {{- end -}}' alt="{{ .Params.title }}">
+            </picture>
+        </a>
+    </div>
+</div>

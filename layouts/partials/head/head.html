@@ -5,38 +5,22 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="{{ .Permalink | safeURL }}" />
-
-<!-- site title -->
-    <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
-<!-- rss -->
-{{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
-
-<!-- icon meta -->
-    {{ if (fileExists "static/favicon.ico") }}
-        <link rel="icon" href="{{ "favicon.ico" | absURL }}">
-    {{ end }}
-    {{ if (fileExists "static/favicon16x16.png") }}
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
-    {{ end}}
-    {{ if (fileExists "static/favicon32x32.png") }}
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
-    {{ end}}
-    {{ if (fileExists "static/apple-touch-icon.png") }}
-        <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}" />
-    {{ end}}
-
-<!-- style -->
-    {{ $sass := resources.Get "scss/style.scss" }}
-    {{ $style := $sass | resources.ToCSS | minify | resources.Fingerprint "sha256" }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}">
-
-<!-- img style -->  
-    {{- if and (eq .Type "photos") (eq .Kind "page") -}}
-    <link rel="stylesheet" href="{{ (resources.Get "lightgallery/lightgallery.min.css" | fingerprint).Permalink | safeURL }}" />
+    <!--csp-->
+    {{- partial "head/csp" . -}}
+    <!--seo-->
+    {{- partial "head/seo" . -}}
+    <!-- rss -->
+    {{- with .OutputFormats.Get "rss" -}}
+    {{ printf `
+    <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{- end -}}
-
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+    <!-- style -->
+    {{- $css := resources.Get "scss/style.scss" -}}
+    {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha256" -}}
+    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}">
 </head>
-
-

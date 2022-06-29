@@ -1,6 +1,9 @@
 <div class="logo">
-    <a href="{{- .Site.BaseURL | relLangURL -}}">{{$logo := resources.GetMatch "icons/logo.svg"}}{{if $logo}}{{partial "utilities/icons" "logo"}}{{else}}
-    <span class="site name">{{- site.Title | safeHTML -}}</span>
+    <a aria-label="{{ .Site.Title }}" href="{{ "/" | absURL }}">
+        {{$logo := resources.GetMatch "icons/logo.svg"}}
+        {{if $logo}}{{partial "utilities/icons" "logo"}}
+        {{else}}
+        <span class="site-title">{{- site.Title | safeHTML -}}</span>
     {{end}}
     </a>
     

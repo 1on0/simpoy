@@ -21,11 +21,12 @@
 
     .btag {
         display: inline-flex;
-        margin: 1em;
         color: $first;
+        align-items: center;
+        margin: 1em;
         text-decoration: none;
 
-        .tag {
+        .tag, p  {
             color: $second;
             text-decoration: none;
             margin-left: 0.25em;
@@ -45,12 +46,9 @@
         color: $first;
         line-height: 1;
         text-align: center;
-    }
+        padding: 0.5em;
+        box-shadow: 0 3px 3px -3px $second;
 
-    hr {
-        display: block;
-        background-color: $second;
-        height: 2px;
     }
 }
 
@@ -60,9 +58,10 @@
     justify-content: center;
     gap: 3em;
     flex-wrap: wrap;
+    align-items: center;
 
-    .single-date,
-    .read {
+    .post-date,
+    .post-read {
         font-size: 1em;
         line-height: 0;
         color: $second;
@@ -113,17 +112,11 @@
 
     .photo-item {
         padding: 2px;
-
-        a {
-            width: auto;
-
-            .center {
-                width: auto;
-            }
-        }
+        width: 70%;
 
         @media(max-width:48em) {
             width: 100%;
         }
     }
 }
+

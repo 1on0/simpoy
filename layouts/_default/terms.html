@@ -3,6 +3,7 @@
     {{- $terms := .Data.Terms.ByCount -}}
     {{- $type := .Type -}}
 
+{{- if .Params.Title -}}
 <div class="category-section">
 <!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
     <h2 class="category-section-title">
@@ -11,31 +12,40 @@
 <!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
         {{- .Content -}}
 </div>
+{{- end -}}
+
+<div class="tag-list">
+    {{- if not (eq $taxonomies "tags") -}}
+    {{- range $.Site.Taxonomies.tags.ByCount -}}
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup> {{ .Count }} </sup></a>
+        {{- end -}}
+        {{- end -}}
+</div>
 
 <!-- All post with categories taxonomy,  -->
-        {{- if eq $taxonomies "categories" -}}
-            <div class="category-list">
+        {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
+            <div class="term-list">
                 {{- range $terms -}}
                     {{- $term := .Term -}}
                     {{- $pages := .Pages -}}
                     {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
-                    <div class="category-item">
-                        <div class="category">
-                            <h3 class="category-title">
+                    <div class="term-section">
+                        <div class="term">
+                            <h2 class="term-title">
                                 <a href="{{ .RelPermalink }}">
-                                    <i class="far fa-folder fa-fw" aria-hidden="true"></i>&nbsp;{{ .Page.Title }}
+                                    {{ .Page.Title }}
                                 </a>
-                            </h3>
-                            {{- range first 5 $pages -}}
-                                <article class="page-item">
+                            </h2>
+                            {{- range first 20 $pages -}}
+                                <article class="term-item">
                                     <a href="{{ .RelPermalink }}" class="page-title">
-                                        {{- .Title | emojify -}}
+                                        {{- .Title -}}
                                     </a>
                                 </article>
                             {{- end -}}
-                            {{- if gt (len $pages) 5 -}}
+                            {{- if gt (len $pages) 20 -}}
                                 <span class="more-post">
-                                    <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
+                                    <a href="{{ .RelPermalink }}">{{ T "more" }}</a>
                                 </span>
                             {{- end -}}
                         </div>
@@ -43,14 +53,7 @@
                     {{- end -}}
                 {{- end -}}
             </div>
+            {{- end -}}
+            {{- end -}}
 
-        {{- /* Tag Cloud Page */ -}}
-        {{- else if eq $taxonomies "tags" -}}
-            <div class="tag-list">
-                {{- range $.Site.Taxonomies.tags.ByCount -}}
-                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup> {{ .Count }} </sup></a>
-                {{- end -}}
-            </div>
-        {{- end -}}
-    {{- end -}}
    

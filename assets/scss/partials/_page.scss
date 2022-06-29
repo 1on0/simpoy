@@ -5,7 +5,7 @@
         box-shadow: 0 2px 2px -2px $first;
 
         .read-link {
-            margin-top: 1em;
+            margin-top: 1.5em;
             text-align: right;
             margin-right: 1em;
             clear: both;
@@ -126,12 +126,46 @@
     }
 }
 
-.archive {
+%list-template {
     text-decoration: none;
     box-shadow: 2px 2px 2px 2px $shadow;
     color: $first;
     background-color: $second-white;
     padding: 1em;
+}
+
+.term-section {
+    @extend %list-template;
+
+    .term-title {
+        margin: 0.5em auto 1em auto;
+
+        a {
+            color: $first;
+        }
+
+            &:hover {
+                opacity: 0.8;
+        }
+    }
+
+    .term-item {
+        margin: 0.5em auto;
+
+        a {
+            text-decoration: none;
+            color: $first;
+            font-size: 1.25em;
+
+            &:hover {
+                background-color: yellow;
+            }
+        }
+    }
+}
+
+.archive {
+    @extend %list-template;
 
     .single-title {
         margin: 0;
@@ -202,15 +236,20 @@
 }
 
 .index-pagination {
-    text-align: center;
     margin: 1em 0;
+    text-align: center;
 
-    .prev,
-    .next {
+    a {
         text-decoration: none;
         color: $accent;
+        padding: 0.4em;
+        display: inline-block;
+        position: relative;
         font-weight: 700;
-        margin: 0 2em;
+        margin: 5px 10px;
 
+        hover {
+            opacity: 0.8;
+        }
     }
 }

@@ -6,7 +6,8 @@
 
 @import "normalize.scss";
 @import "global.scss";
-
+@import "lightgallery.scss";
+@import "highlight.scss";
 @import "partials/base.scss";
 @import "partials/header.scss";
 @import "partials/layout.scss";
@@ -15,4 +16,3 @@
 @import "partials/footer.scss";
 
 
-@import "/assets/lightgallery/lightgallery.min.css"

@@ -1,5 +1,3 @@
-import Clipboard from 'clipboard';
-
 document.querySelectorAll('pre > code').forEach((codeblock) => {
     const container = codeblock.parentNode.parentNode;
 

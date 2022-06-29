@@ -1,7 +1,6 @@
 {{- define "title" -}}
     {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
 {{- end -}}
-
 {{- define "content" -}}
     <div class="archive">
         {{- /* Title */ -}}
@@ -15,8 +14,6 @@
                 {{- .Title -}}
             {{- end -}}
         </h2>
-
-        {{- /* Paginate */ -}}
         {{- if .Pages -}}
         {{ range (.Pages.GroupByDate "2006") }}
         <div class="page-list">{{ .Key }}</div>
@@ -28,7 +25,6 @@
                         <a href="{{ .RelPermalink }}" class="page-title">
                             {{- .Title  -}} 
                         </a>
-
                     </article>
                 {{- end -}}
             {{- end -}}
