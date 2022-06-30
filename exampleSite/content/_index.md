@@ -1,3 +1,0 @@
----
-author: Ion Orion Sugiarmawan
----

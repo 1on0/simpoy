@@ -1,10 +1,16 @@
 <div class="logo">
-    <a aria-label="{{ .Site.Title }}" href="{{ "/" | absURL }}">
-        {{$logo := resources.GetMatch "icons/logo.svg"}}
-        {{if $logo}}{{partial "utilities/icons" "logo"}}
-        {{else}}
-        <span class="site-title">{{- site.Title | safeHTML -}}</span>
-    {{end}}
+
+    <a aria-label="{{ $.Site.Title }}" href="{{ "/" | absURL }}">
+        {{ with .Site.Params.logo }}
+        {{- $img := resources.Get .image -}}
+        {{ with $img }}
+            {{ $logo := $img.Resize "x30 Lanczos" }}
+                <picture>
+                    <img srcset="{{- $logo.Permalink | absURL -}}" alt="logo" aria-label="logo" width="{{ $logo.Width }}"
+                    height="{{- $logo.Height -}}">
+                </picture>
+        {{ end }}
+        {{ end }}
+        {{ .Site.Title }}
     </a>
-    
 </div>

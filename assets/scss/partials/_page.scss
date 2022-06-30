@@ -11,11 +11,11 @@
             clear: both;
 
             .read-more {
-                padding: 0.25em;
+                padding: 0.25em 0.5em;
                 box-shadow: 1px 1px 2px 1px $first;
                 text-decoration: none;
                 text-align: center;
-                color: $accent;
+                color: $first;
 
                 &:hover {
                     transition: 0.3s;
@@ -98,7 +98,7 @@
     }
 }
 
-.tag-list {
+.tag-list, .category-list {
     margin: 1em 0;
     text-align: center;
 

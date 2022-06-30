@@ -17,45 +17,44 @@
             {{ $icon := .Name }}
             {{ with $icon }}
             {{ partial "utilities/icons" . }}
-            {{ end }}
-          </a>
-          {{ end }}
+            {{ end }}</a>
+          {{- end -}}
           {{- end -}}
         </div>
-
-        {{- with .Site.Params.quote -}}
-        <div class="footer-upper-right">
-          <div class="quote">
-            <p>{{ . | markdownify }}</p>
-          </div>
-        </div>
-        {{- end -}}
       </div>
+
+      {{- with .Site.Params.quote -}}
+      <div class="footer-upper-right">
+        <div class="quote">
+          <p>{{ . | markdownify }}</p>
+        </div>
+      </div>
+      {{- end -}}
     </div>
 
     <div class="footer-lower">
       <p class="author">
         {{- $current := now.Format "2006" }}
         &copy;
-        {{ if ne .Site.Params.since $current }}
-        {{ .Site.Params.since }} -
-        {{ end }}
-        {{- $current -}} |
-        {{- with site.Params -}}
-        {{ .author }}
+        {{- if ne .Site.Params.since $current -}}
+        {{ .Site.Params.since }}-
+        {{- end -}}
+        {{ $current }} |
+        {{- with .Site.Author -}}
+        {{ .Name }}
         {{- end -}}
       </p>
 
       <p class="licensed">
         {{- with .Site.Params.license -}}
-        Licensed by <a href="{{ .url | safeHTML }}" target="_blank" rel="noopener">{{ .name }}</a>
+        License under <a href="{{ .url | safeHTML }}" target="_blank" rel="noopener">{{ .name }}</a>
         {{- end -}}
       </p>
 
       <p class="powered">
-        {{- with .Site.Params.powered -}}
-        Powered by <a href="{{ .hugourl | safeHTML }}" target="_blank" rel="noopener">{{ .hugo }}</a>, using <a
-          href="{{ .themeurl | safeHTML }}" target="_blank" rel="noopener">{{ .theme }}</a>
+        {{- with .Site.Copyright -}}
+        Powered by <a href="{{ .hugo.url | safeHTML }}" target="_blank" rel="noopener">{{ .hugo.name }}</a>, using <a
+          href="{{ .theme.url | safeHTML }}" target="_blank" rel="noopener">{{ .theme.name }}</a>
         {{- end -}}
       </p>
     </div>

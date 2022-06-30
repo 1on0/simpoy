@@ -1,34 +1,53 @@
 {{- define "title" -}}
-    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
 {{- end -}}
 {{- define "content" -}}
-    <div class="archive">
-        {{- /* Title */ -}}
-        <h2 class="single-title">
-            {{- $taxonomy := .Data.Singular -}}
-            {{- if eq $taxonomy "category" -}}
-                {{ .Title }}
-            {{- else if eq $taxonomy "tag" -}}
-                {{ .Title }}
-            {{- else -}}
-                {{- .Title -}}
-            {{- end -}}
-        </h2>
-        {{- if .Pages -}}
-        {{ range (.Pages.GroupByDate "2006") }}
-        <div class="page-list">{{ .Key }}</div>
-    {{ range (.Pages.GroupByDate "January") }}
-                <div class="page-list">{{ .Key }}</div>
-                {{- range .Pages -}}
-                    <article class="page-item">
-                        <p class="page-item-date"><span>{{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
-                        <a href="{{ .RelPermalink }}" class="page-title">
-                            {{- .Title  -}} 
-                        </a>
-                    </article>
-                {{- end -}}
-            {{- end -}}
-            {{- end -}}
+
+<div class="category-list">
+    {{- $taxonomies := .Data.Plural -}}
+    {{- if not (eq $taxonomies "categories") -}}
+    {{- range $.Site.Taxonomies.categories.ByCount -}}
+    <a href="{{ .Page.RelPermalink | safeHTML }}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
+    {{- end -}}
+    {{- end -}}
+</div>   
+
+<div class="archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title">
+        {{- $taxonomy := .Data.Singular -}}
+        {{- if eq $taxonomy "category" -}}
+        {{ .Title }}
+        {{- else if eq $taxonomy "tag" -}}
+        {{ .Title }}
+        {{- else -}}
+        {{- .Title -}}
         {{- end -}}
-    </div>
+    </h2>
+    {{- if .Pages -}}
+    {{ range (.Pages.GroupByDate "2006") }}
+    <div class="page-list">{{ .Key }}</div>
+    {{ range (.Pages.GroupByDate "January") }}
+    <div class="page-list">{{ .Key }}</div>
+    {{- range .Pages -}}
+    <article class="page-item">
+        <p class="page-item-date"><span>{{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
+        <a href="{{ .RelPermalink }}" class="page-title">
+            {{- .Title -}}
+        </a>
+    </article>
+    {{- end -}}
+    {{- end -}}
+    {{- end -}}
+    {{- end -}}
+</div>
+
+<div class="tag-list">
+    {{- if not (eq $taxonomies "tags") -}}
+    {{- range $.Site.Taxonomies.tags.ByCount -}}
+    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup> {{ .Count }} </sup></a>
+    {{- end -}}
+    {{- end -}}
+</div>
+
 {{- end -}}

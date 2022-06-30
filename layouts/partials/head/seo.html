@@ -1,13 +1,3 @@
-{{ if eq .Kind "404" -}}
-  <meta name="robots" content="noindex, follow">
-{{ else -}}
-  {{ with .Params.robots -}}
-    <meta name="robots" content="{{ . }}">
-  {{ else -}}
-    <meta name="robots" content="index, follow">
-  {{ end -}}
-{{ end -}}
-
 {{ if .IsHome -}}
   {{ printf `<title> %s  | %s </title>` $.Site.Title .Site.Params.description | safeHTML }}
   {{- end -}}

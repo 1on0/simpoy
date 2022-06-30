@@ -2,23 +2,6 @@ module:
     hugoVersion:
       extended: true
       min: "0.87.0"
-    replacements: github.com/ionsqr/simpoy -> ../..
     imports:
       - path: github.com/ionsqr/simpoy
 
-enableRobotsTXT: true
-
-
-params:
-  title: iorn.org
-  description: A Knowledge Seeker
-  author: طالب العلم | Ion Orion Sugiarmawan
-  since: 2007
-  powered: 
-    - hugo: 
-      name: hugo
-      url: https://gohugo.io/
-    - theme: 
-      name: Simpoy Theme
-      url: https://github.com/ionsqr/simpoy
-     

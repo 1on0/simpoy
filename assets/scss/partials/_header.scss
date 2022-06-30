@@ -1,8 +1,9 @@
 /* header */
 .header {
     box-shadow: 0 2px 2px -2px $shadow;
-    margin-bottom: 2em;
+    padding: 0.25em;
     display: flex;
+    margin-bottom: 2em;
     width: 100%;
     z-index: 3;
 
@@ -11,8 +12,9 @@
         width: 100%;
         max-width: 48em;
 
-        &::before, &::after {
-        box-sizing: inherit;
+        &::before,
+        &::after {
+            box-sizing: inherit;
         }
 
         ul {
@@ -44,11 +46,19 @@
 
         .logo {
             display: block;
-            float: left;
+            padding: 0.5em;
+            float: right;
+ 
+
+            img {
+                display: block;
+                max-width: 100%;
+                margin: 0;
+            }
 
             a {
-                color: $first;
-                font-size: 1.4em;
+                color: $accent;
+                font-size: $xxl;
                 text-decoration: none;
                 letter-spacing: -0.01em;
                 font-weight: bolder;
@@ -60,7 +70,6 @@
 
             svg {
                 display: inline-block;
-                margin: 10px;
                 height: 30px;
             }
         }
@@ -71,20 +80,21 @@
 .menu {
     clear: both;
     display: block;
-    text-align: center;
     max-height: 0;
     transition: max-height .2s ease-out;
 
     li {
         max-height: fit-content;
+        text-align: left;
     }
 }
 
 /* menu icon */
 .menu-icon {
     cursor: pointer;
-    float: right;
-    padding: 28px 20px;
+    display: flex;
+    align-items: center;
+    padding: 1.75em 1.25em;
     position: relative;
     user-select: none;
 
@@ -145,25 +155,40 @@
 }
 
 
-/* 48em = 768px @ 16pt font */
+/* for Desktop layout with min width 48em / 768 px */
 @media (min-width: 48em) {
     .header {
+        padding: 0.25em 1em;
 
-        .menu {
-            clear: none;
-            float: right;
-            max-height: none;
-        }
+        &-inner {
+            display: flex;
+            justify-content: space-between;
 
-        .menu-icon {
-            display: none;
-        }
+            .menu {
+                display: flex;
+                clear: none;
+                align-items: center;
+                max-height: none;
+                font-weight: $bold;
+            }
 
-        li {
-            float: left;
+            .logo {
+                display: flex;
+                align-items: center;
+            }
 
-            a {
-                padding: 1em;
+            .menu-icon {
+                display: none;
+            }
+
+            li {
+                float: left;
+
+                a {
+                    padding: 1em;
+                    box-shadow: none;
+
+                }
             }
         }
     }
