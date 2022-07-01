@@ -95,9 +95,9 @@ video {
 }
 
 code {
-    font-family: "PT Mono", Menlo, "Courier New", monospace;
+    font-family:  monospace;
     padding: 2px 4px;
-    font-size: 80%;
+    font-size: 95%;
     color: $white;
     background-color: $terminal;
     border-radius: .2rem;
@@ -108,6 +108,10 @@ pre code {
     color: $white;
     background-color: transparent;
     border: 0;
+}
+
+pre {
+  padding: 0.5em 0.5em 1em 0.5em;
 }
 
 .highlight pre {
@@ -121,16 +125,16 @@ pre code {
 pre {
     font-size: 1em;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     /* set the tab size for browsers that support it */
     tab-size: 4;
     -moz-tab-size: 4;
     /* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
     -webkit-text-size-adjust: 100%;
     background-color: $terminal;
-    margin: 0;
     position: relative;
     overflow-x: auto;
+
 }
 
 .highlight>* {

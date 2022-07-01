@@ -52,7 +52,7 @@
       </p>
 
       <p class="powered">
-        {{- with .Site.Copyright -}}
+        {{- with .Site.Params.Copyright -}}
         Powered by <a href="{{ .hugo.url | safeHTML }}" target="_blank" rel="noopener">{{ .hugo.name }}</a>, using <a
           href="{{ .theme.url | safeHTML }}" target="_blank" rel="noopener">{{ .theme.name }}</a>
         {{- end -}}

@@ -2,3 +2,4 @@
 {{- $jsBundle := resources.Get "feature/main.js" | js.Build $options | resources.Minify | fingerprint -}}
 
 <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" crossorigin="anonymous" defer></script>
+
