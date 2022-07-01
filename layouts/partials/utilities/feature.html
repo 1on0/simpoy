@@ -3,3 +3,7 @@
 
 <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" crossorigin="anonymous" defer></script>
 
+{{- /* Highlight.js */}}
+
+{{- $highlight := slice (resources.Get "feature/highlight.min.js") | resources.Concat "assets/feature/highlight.js" }}
+<script  src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.RelPermalink }}" defer crossorigin="anonymous" onload="hljs.initHighlightingOnLoad();"></script>

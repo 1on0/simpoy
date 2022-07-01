@@ -1,5 +1,6 @@
 .index-list {
 
+
     .index {
         padding: 1em;
         box-shadow: 0 2px 2px -2px $first;
@@ -12,15 +13,18 @@
 
             .read-more {
                 padding: 0.25em 0.5em;
-                box-shadow: 1px 1px 2px 1px $first;
+                @include hover-effect;
+                box-shadow: $box;
+                -moz-box-shadow: $box;
+                -webkit-box-shadow: $box;
                 text-decoration: none;
                 text-align: center;
                 color: $first;
 
                 &:hover {
-                    transition: 0.3s;
                     color: $second-white;
-                    background-color: $accent;
+
+
 
                 }
             }
@@ -38,9 +42,7 @@
         font-weight: 900;
 
         &:hover {
-            transition: all ease-out 0.3s;
-            opacity: .5;
-
+            opacity: 0.8;
         }
     }
 }
@@ -54,11 +56,6 @@
     display: inline-block;
     margin: 5px 8px 5px 0;
     text-decoration: none;
-
-    &:hover {
-        transition: all ease-out 0.3s;
-        opacity: .5;
-    }
 }
 
 .index-summary,
@@ -77,14 +74,27 @@
 
     .index-tag {
         @extend %index-tag-category;
-        color: $second;
+        color: $accent;
+        transition: transform 250ms;
+
+            &:hover {
+                color: $third;
+            }
     }
+
+    
 
     .index-category {
         @extend %index-tag-category;
         padding: 0.25em 0.3em;
         background-color: $accent;
         color: $second-white;
+        transition: transform 250ms;
+
+
+        &:hover {
+            background-color: $third;
+        }
     }
 }
 
@@ -128,7 +138,7 @@
 
 %list-template {
     text-decoration: none;
-    box-shadow: 2px 2px 2px 2px $shadow;
+    box-shadow: $box1;
     color: $first;
     background-color: $second-white;
     padding: 1em;
@@ -239,9 +249,9 @@
     margin: 1em 0;
     text-align: center;
 
-    a {
+    .older, .newer {
+        @include text-hover;
         text-decoration: none;
-        color: $accent;
         padding: 0.4em;
         display: inline-block;
         position: relative;

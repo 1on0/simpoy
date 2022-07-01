@@ -3,7 +3,7 @@ $background: #9EB5A7;
 $first: #00242E;
 $second: #003645;
 $third: #004659;
-$terminal: #383838;
+$terminal: #3a4055;
 $first-white: #eff7f6;
 $second-white: #f5faf8;
 $accent: #763e03;
@@ -22,3 +22,42 @@ $xxl: 2em;
 $reg: 500;
 $bold: 600;
 $bolder: 700;
+
+/*shadow for page & post*/
+$box: 0 2px 2px 2px $first;
+
+$webkit1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+$moz1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+$box1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+
+$webkit2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+$moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+$box2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+
+/*hover-effect-1*/
+@mixin hover-effect {
+    background-image: linear-gradient($accent, $accent);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s;
+
+    &:hover {
+        background-size: 100% 100%;
+    }
+}
+
+@mixin text-hover {
+    --h: 2em;
+
+    line-height: var(--h);
+    color: $second;
+    text-shadow:
+        0 var(--_t,0em) $accent, 
+        0 calc(var(--_t,0em) - var(--h)) $second;
+    overflow: hidden;
+    transition: .3s;
+
+    &:hover {
+        --_t: var(--h);
+    }
+}

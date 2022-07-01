@@ -1,8 +1,8 @@
 <div class="index-pagination">
     {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}" class="prev">Newer Posts</a>
+        <a class="newer" href="{{ .Paginator.Prev.URL }}" class="prev">Newer Posts</a>
     {{ end }}
     {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}" class="next">Older Posts</a>
+        <a class="older" href="{{ .Paginator.Next.URL }}" class="next">Older Posts</a>
     {{ end }}
 </div>
