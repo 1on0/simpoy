@@ -11,7 +11,6 @@ footer {
   /*footer-upper*/
   .footer-upper {
     line-height: 1.25em;
-    font-size: 1em;
     text-align: center;
     color: $first;
 
@@ -61,7 +60,6 @@ footer {
   .footer-lower {
     display: flex;
     flex-direction: row;
-    font-size: 1em;
     align-items: center;
     text-align: center;
     color: $first;
@@ -119,8 +117,7 @@ footer {
 }
 
 
-/* Responsive layout - makes a one column-layout instead of a 3-column layout */
-@media (max-width: 48em) {
+@media (max-width: 48rem) {
   .footer {
     .footer-lower {
       flex-direction: column;

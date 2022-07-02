@@ -58,10 +58,10 @@
 
             a {
                 color: $accent;
-                font-size: $xxl;
+                font-size: $xl;
+                font-weight: $bolder;
                 text-decoration: none;
                 letter-spacing: -0.01em;
-                font-weight: bolder;
             }
 
             &:hover {
@@ -169,7 +169,7 @@
                 clear: none;
                 align-items: center;
                 max-height: none;
-                font-weight: $bold;
+                font-weight: $normal;
             }
 
             .logo {

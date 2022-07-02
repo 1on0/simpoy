@@ -1,38 +1,41 @@
 /* color */
-$background: #9EB5A7;
-$first: #00242E;
-$second: #003645;
-$third: #004659;
+$background: #EDEDE6;
+$first: #111;
+$second: #2E2E2E;
+$third: #575757;
 $terminal: #3a4055;
-$first-white: #eff7f6;
-$second-white: #f5faf8;
+$first-white: #fffff8;
+$second-white: #E8E8E1;
 $accent: #763e03;
 $white: #f9f9f9;
 $shadow: rgba(0, 0, 0, .2);
-$serif: adobe-garamond-pro, serif;
+$serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 
 /* font-size */
-$s: 1em;
-$r: 1.125em;
-$l: 1.2em;
-$xl: 1.4em;
-$xxl: 2em;
+$s: 1.1rem;
+$r: 1.4rem;
+$l: 1.7rem;
+$xl: 2.1rem;
+$xxl: 4rem;
 
 /* font-weight */
-$reg: 500;
+$normal: 500;
 $bold: 600;
 $bolder: 700;
 
 /*shadow for page & post*/
 $box: 0 2px 2px 2px $first;
+$webkit: 0 2px 2px 2px $first;
+$moz: 0 2px 2px 2px $first;
 
+$box1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
 $webkit1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
 $moz1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
-$box1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
 
+$box2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 $webkit2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 $moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
-$box2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+
 
 /*hover-effect-1*/
 @mixin hover-effect {

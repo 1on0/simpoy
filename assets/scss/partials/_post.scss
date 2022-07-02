@@ -1,7 +1,7 @@
 /* single & list post */
 .post {
-    background-color: $second-white;
-    padding: 0.25em;
+    background-color: $first-white;
+    padding: 0.75rem;
     box-shadow: $box1;
     -webkit-box-shadow: $webkit1;
     -moz-box-shadow: $moz1;
@@ -13,7 +13,6 @@
         color: $second-white;
         background-color: $accent;
         padding: .3em .6em;
-        font-size: 1em;
         text-decoration: none;
 
         &:hover {
@@ -46,9 +45,9 @@
 
     .post-title {
         color: $first;
-        line-height: 1;
-        text-align: center;
-        padding: 0.5em;
+        line-height: 1.25;
+        text-align: left;
+        padding: 0.5rem;
         box-shadow: 0 3px 3px -3px $second;
 
     }
@@ -57,21 +56,16 @@
 
 .post-meta {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     gap: 3em;
+    padding-left: 0.5rem;
     flex-wrap: wrap;
-    align-items: center;
 
     .post-date,
     .post-read {
-        font-size: 1em;
         line-height: 0;
         color: $second;
     }
-}
-
-.highlight .post-content  {
-    padding: initial;
 }
 
 .post-content {
@@ -88,14 +82,7 @@
     }
 
     p {
-        font-size: 1.125em;
-        line-height: 1.5625em;
         color: $first;
-    }
-
-
-    li {
-        font-size: 1.125em;
     }
 }
 
@@ -117,8 +104,8 @@
     }
 
     .photo-item {
-        padding: 2px;
-        width: 70%;
+        padding: 0.25rem;
+        width: 60%;
 
         img {
             display: block;

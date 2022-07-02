@@ -6,21 +6,16 @@ html {
 
 body {
     background-color: $background;
-    font-size: 1.125em;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100%;
     font-family: $serif;
 
-
-    p {
-        letter-spacing: -0.014em;
-    }
 }
 
 #content {
     display: block;
     min-height: 70vh;
-    max-width: 48em;
+    max-width: 51.2rem;
     width: 95%;
     margin: 0 auto !important;
 }

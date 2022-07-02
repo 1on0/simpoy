@@ -3,7 +3,7 @@ code,
 kbd,
 samp {
     font-family: monospace;
-    font-size: $s;
+    font-size: 1rem;
 }
 
 code {
@@ -25,12 +25,12 @@ pre code {
 }
 
 .hljs {
-    padding: 1em !important;
+    padding: 1rem !important;
     display: relative;
 }
 
 .highlight {
-    margin: 2em 0;
+    margin: 1rem 0 2rem 0;
     position: relative;
     overflow-x: auto;
 }
