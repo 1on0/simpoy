@@ -26,14 +26,14 @@
     </h2>
     {{- if .Pages -}}
     {{ range (.Pages.GroupByDate "2006") }}
-    <div class="page-list">{{ .Key }}</div>
+    <h3 class="year-date">{{ .Key }}</h3>
     {{ range (.Pages.GroupByDate "January") }}
-    <div class="page-list">{{ .Key }}</div>
+    <h4 class="month-date">{{ .Key }}</h4>
     {{- range .Pages -}}
     <article class="page-item">
         <p class="page-item-date"><span>{{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
         <a href="{{ .RelPermalink }}" class="page-title">
-            {{- .Title -}}
+            <h4>{{- .Title -}}</h4>
         </a>
     </article>
     {{- end -}}
