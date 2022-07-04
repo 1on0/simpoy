@@ -9,14 +9,15 @@
 
     .category {
         display: inline-flex;
-        margin: 1em;
-        color: $second-white;
-        background-color: $accent;
-        padding: .3em .6em;
+        margin: 0.5rem 1rem 0.5rem 1rem;
+        color: $second;
+        background-color: $second-white;
+        padding: .5rem .75rem;
         text-decoration: none;
 
         &:hover {
-            opacity: .8;
+            background-color: $accent;
+            color: $first-white;
         }
     }
 
@@ -24,7 +25,8 @@
         display: inline-flex;
         color: $first;
         align-items: center;
-        margin: 1em;
+        margin: 0.25rem 0.5rem;
+        gap: 1rem;
         text-decoration: none;
 
         .tag, p  {
@@ -34,6 +36,12 @@
 
             &:hover {
                 opacity: .8;
+            }
+
+            svg {
+                height: 1rem;
+                width: auto;
+                fill: $second;
             }
         }
 
@@ -45,9 +53,9 @@
 
     .post-title {
         color: $first;
-        line-height: 1.25;
+        line-height: 1;
         text-align: left;
-        padding: 0.5rem;
+        padding: .75rem;
         box-shadow: 0 3px 3px -3px $second;
 
     }
@@ -58,12 +66,13 @@
     display: flex;
     justify-content: start;
     gap: 3em;
-    padding-left: 0.5rem;
+    padding-left: 0.75rem;
     flex-wrap: wrap;
 
     .post-date,
     .post-read {
         line-height: 0;
+        margin-top: 0.5rem;
         color: $second;
     }
 }

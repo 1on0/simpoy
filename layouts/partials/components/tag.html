@@ -3,6 +3,9 @@
 {{- $tag = replace $tag "." "%2e" -}}
 {{- $url := print "/tags/" ($tag | urlize) "/" -}}
 <p class="btag">
-    Tag:<a class="tag" href="{{- $url | relLangURL -}}"> #{{- . -}}</a>    
+    <a class="tag" href="{{- $url | relLangURL -}}"> 
+        {{- partial "utilities/icons" "tags" -}}
+        {{- . -}}
+    </a>    
 </p>
 {{- end -}}

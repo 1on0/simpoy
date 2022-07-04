@@ -39,7 +39,7 @@
                             {{- range first 20 $pages -}}
                                 <article class="term-item">
                                     <a href="{{ .RelPermalink }}" class="page-title">
-                                        {{- .Title -}}
+                                        {{- .Title | safeHTML -}}
                                     </a>
                                 </article>
                             {{- end -}}

@@ -69,31 +69,36 @@
     }
 }
 
+/* Category and Tag Label on index.html */
 .index-label {
     margin-bottom: 0.5em;
 
     .index-tag {
         @extend %index-tag-category;
-        color: $accent;
+        color: $second;
         transition: transform 250ms;
 
         &:hover {
-            color: $third;
+            opacity: .8;
+        }
+
+        svg {
+            height: 1rem;
+            width: auto;
+            fill: $second;
         }
     }
 
-
-
     .index-category {
         @extend %index-tag-category;
-        padding: 0.25em 0.3em;
-        background-color: $accent;
-        color: $second-white;
+        padding: .25rem .75rem;
+        background-color: $second-white;
+        color: $second;
         transition: transform 250ms;
 
-
         &:hover {
-            background-color: $third;
+            background-color: $accent;
+            color: $first-white;
         }
     }
 }

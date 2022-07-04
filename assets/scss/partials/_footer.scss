@@ -1,5 +1,5 @@
 footer {
-  box-shadow: 2px 2px 2px 2px $shadow;
+  box-shadow: 0px 0px 0px 1px $shadow;
   margin-top: 3.5em;
   padding: 1.5em;
   position: relative;
@@ -25,6 +25,7 @@ footer {
           margin: 0 0.5em;
           color: $third;
           text-decoration: none;
+          transition: transform 250ms;
 
           svg {
             width: 25px;
@@ -33,6 +34,9 @@ footer {
 
             &:hover {
               color: $accent;
+              -webkit-transform: scale(1.25);
+              -ms-transform: scale(1.25);
+              transform: scale(1.25);
             }
           }
         }
@@ -41,11 +45,11 @@ footer {
 
     &-right {
       margin: 0 auto;
-      padding: 0.5em 0;
+      padding: 0.5rem 0;
 
       .quote {
         background-color: $shadow;
-        padding: 0.125em 2em;
+        padding: 0.5rem;
 
         span {
           font-style: italic;
@@ -64,7 +68,6 @@ footer {
     text-align: center;
     color: $first;
     padding: 1em 0.25em;
-    box-shadow: 2px 2px 2px 2px $shadow;
 
     .author {
       flex: 35%;

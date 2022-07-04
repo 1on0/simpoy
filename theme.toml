@@ -12,10 +12,10 @@ min_version = "0.88.0"
 
 [author]
   name = "Ion Orion Sugiarmawan"
-  homepage = ""
+  homepage = "https://iorn.org"
 
 # If porting an existing theme
 [original]
   name = "Ion Orion Sugiarmawan"
   homepage = "https://github.com/ionsqr/simpoy"
-  repo = ""
+  repo = "https://github.com/ionsqr/simpoy"

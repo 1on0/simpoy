@@ -8,7 +8,7 @@
             {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
         </p>
         {{- end -}}
-        {{ if .Params.cover }}
+        {{- if .Params.cover -}}
         {{- partial "utilities/featured_image" . -}}
         {{- end -}}
         {{ if isset .Params "description" }}

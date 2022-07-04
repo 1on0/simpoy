@@ -1,9 +1,8 @@
-{{- $options := dict "targetPath" "js/feature.js" -}}
+{{- $options := dict "targetPath" "feature/src/feature.js" -}}
 {{- $jsBundle := resources.Get "feature/main.js" | js.Build $options | resources.Minify | fingerprint -}}
 
 <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" crossorigin="anonymous" defer></script>
 
 {{- /* Highlight.js */}}
-
-{{- $highlight := slice (resources.Get "feature/highlight.min.js") | resources.Concat "assets/feature/highlight.js" }}
-<script  src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.RelPermalink }}" defer crossorigin="anonymous" onload="hljs.initHighlightingOnLoad();"></script>
+{{- $highlight := slice (resources.Get "feature/highlight.min.js") | resources.Concat "feature/src/highlight.js" | resources.Minify | fingerprint -}}
+<script  src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" defer crossorigin="anonymous" onload="hljs.initHighlightingOnLoad();"></script>

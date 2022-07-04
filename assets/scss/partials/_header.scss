@@ -1,7 +1,6 @@
 /* header */
 .header {
     box-shadow: 0 2px 2px -2px $shadow;
-    padding: 0.25em;
     display: flex;
     margin-bottom: 2em;
     width: 100%;
@@ -27,7 +26,7 @@
         li {
 
             a {
-                padding: 0.75em;
+                padding: 1rem;
                 display: block;
                 text-decoration: none;
                 color: $first;
@@ -46,8 +45,8 @@
 
         .logo {
             display: block;
-            padding: 0.5em;
-            float: right;
+            padding: 1rem 2rem;
+            float: left;
  
 
             img {
@@ -85,16 +84,15 @@
 
     li {
         max-height: fit-content;
-        text-align: left;
+        text-align: center;
     }
 }
 
 /* menu icon */
 .menu-icon {
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 1.75em 1.25em;
+    float: right;
+    padding: 2rem 2rem;
     position: relative;
     user-select: none;
 
@@ -156,9 +154,9 @@
 
 
 /* for Desktop layout with min width 48em / 768 px */
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
     .header {
-        padding: 0.25em 1em;
+        max-height: 4rem;
 
         &-inner {
             display: flex;
@@ -185,7 +183,7 @@
                 float: left;
 
                 a {
-                    padding: 1em;
+                    padding: 1rem;
                     box-shadow: none;
 
                 }
