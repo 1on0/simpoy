@@ -1,6 +1,6 @@
 <div class="photo-container" id="lightgallery">
     {{/* get file that matches the filename as specified as src="" in shortcode */}}
-    {{- $img := resources.Get (printf "%s" (.Get 0)) -}}
+    {{- $img := resources.GetMatch (printf "%s" (.Get 0)) -}}
     {{- $options := .Get 1 -}}
     {{- $alt := .Get 2 -}}
     <div class="photo-item" data-src="{{ $img.RelPermalink }}">
