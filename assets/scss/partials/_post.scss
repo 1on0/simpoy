@@ -130,11 +130,13 @@
 }
 
 .arabic {
-color: #343434;
-font-size: 25px;
 text-align: right;
-line-height: 30px;
-margin-right: 20px;
-font-family: Traditional Arabic;
+font-family: $arabic;
+
+
+
+    p {
+    font-family: $arabic;
+    }
 
 }

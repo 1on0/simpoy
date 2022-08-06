@@ -1,0 +1,4 @@
+{{- $content := .Get "content" -}}
+{{- with .Parent -}}
+<p>{{ $content }}</p>
+{{- end -}}
