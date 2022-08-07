@@ -131,12 +131,17 @@
 
 .arabic {
 text-align: right;
-font-family: $arabic;
-
-
 
     p {
     font-family: $arabic;
     }
 
+}
+
+audio {
+    text-align: center;  
+    margin: auto;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }

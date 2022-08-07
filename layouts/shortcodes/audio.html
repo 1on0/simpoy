@@ -1,6 +1,5 @@
-<figure {{ with .Get "class" }}class="{{ . }}"{{ end }}>
-    <audio controls preload="{{ .Get "preload" | default "metadata" }}">
-      {{ with .Get "src" }}<source src="{{ . | relURL }}" type="audio/mp3">{{ end }}
-    </audio>
-    {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
-  </figure>
+{{ $audio := resources.GetMatch (printf "%s" (.Get 0)) }}
+<audio controls preload="{{ .Get "preload" | default "metadata" }}">
+    <source src="{{$audio}}" type="audio/mpeg">
+</audio>
+
