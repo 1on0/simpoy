@@ -150,14 +150,11 @@ audio {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    list-style-type: none;  
+    list-style-type: none;
+    margin: 2em 0 4em 0;  
 
-
-    li {
-        text-decoration: none;
-
-    }
 }
   
   .gallery > li {
@@ -165,10 +162,8 @@ audio {
   }
   
   .gallery li img {
-    object-fit: cover;
-    text-decoration: none;
     width: 100%;
-    height: 100%;
+    height: auto;
     vertical-align: middle;
     border-radius: 5px;
   }
