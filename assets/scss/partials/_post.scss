@@ -92,6 +92,7 @@
 
     p {
         color: $first;
+        
     }
 }
 
@@ -135,6 +136,8 @@ text-align: right;
 
     p {
     font-family: $arabic;
+    font-size: $xl;
+    line-height: 3rem;
     }
 
 }
