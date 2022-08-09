@@ -123,6 +123,9 @@
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            box-shadow: $box1;
+            -webkit-box-shadow: $webkit1;
+            -moz-box-shadow: $moz1;
         }
 
         @media(max-width:48em) {
@@ -170,4 +173,7 @@ audio {
     height: auto;
     vertical-align: middle;
     border-radius: 5px;
+    box-shadow: $box1;
+    -webkit-box-shadow: $webkit1;
+    -moz-box-shadow: $moz1;
   }
