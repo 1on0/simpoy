@@ -34,7 +34,7 @@
     <div class="footer-lower">
       <p class="author">
         {{- $current := now.Format "2006" -}}
-        &#x1f16d;
+        <span class="cc">&#X1F16D;</span>
         {{ if ne site.Params.since $current -}}
         {{- site.Params.since }} -
         {{ end -}}
