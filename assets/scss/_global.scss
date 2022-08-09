@@ -12,10 +12,15 @@
 }
 
 @font-face {
-    font-family: cc;
-    src: url(../font/CC-Accidenz-Commons-medium.otf);
     font-display: swap;
-}
+    font-family: CCSymbols;
+    font-synthesis: none;
+    src: url(../font/CCSymbols.woff2) format(woff2), url(../font/CCSymbols.woff) format(woff);
+    unicode-range: u+a9, u+229c,
+                   u+1f10d-1f10f,
+                   u+1f16d-1f16f;
+  }
+  
 
 /* color */
 $background: #EDEDE6;
@@ -30,7 +35,7 @@ $white: #f9f9f9;
 $shadow: rgba(0, 0, 0, .2);
 $serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 $arabic: uthmanic, "Geeza Pro", "Nadeem", "Al Bayan", "DecoType Naskh", "DejaVu Serif", "STFangsong", "STHeiti", "STKaiti", "STSong", "AB AlBayan", "AB Geeza", "AB Kufi", "DecoType Naskh", "Aldhabi", "Andalus", "Sakkal Majalla", "Simplified Arabic", "Traditional Arabic", "Arabic Typesetting", "Urdu Typesetting", "Droid Naskh", "Droid Kufi", "Roboto", "Tahoma", "Times New Roman", "Arial", serif;
-$cc: cc, Arial, Helvetica, sans-serif;
+$cc: CCSymbol, Arial, Helvetica, sans-serif;
 
 /* font-size */
 $s: 1rem;
