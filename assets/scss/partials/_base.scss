@@ -74,11 +74,6 @@ p {
     vertical-align: baseline;
 }
 
-em {
-    line-height: 1.4rem;
-}
-
-
 footer p {
     font-size: $s;
     line-height: 1.5rem;
@@ -106,6 +101,7 @@ b {
 em,
 i {
     font-style: italic;
+    line-height: 1.4rem;
 }
 
 
