@@ -1,0 +1,22 @@
+/* layout */
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    background-color: $background;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    font-family: $serif;
+
+}
+
+#content {
+    display: block;
+    min-height: 70vh;
+    max-width: 48rem;
+    width: 95%;
+    margin: 0 auto !important;
+    word-wrap: break-word;
+}

@@ -1,0 +1,269 @@
+.index-list {
+
+
+    .index {
+        padding: 1em;
+        box-shadow: 0 2px 2px -2px $first;
+
+        .read-link {
+            margin-top: 1.5em;
+            text-align: right;
+            margin-right: 1em;
+            clear: both;
+
+            .read-more {
+                padding: 0.25em 0.5em;
+                @include hover-effect;
+                box-shadow: $box;
+                -moz-box-shadow: $box;
+                -webkit-box-shadow: $box;
+                text-decoration: none;
+                text-align: center;
+                color: $first;
+
+                &:hover {
+                    color: $second-white;
+
+
+
+                }
+            }
+        }
+    }
+}
+
+.index-item {
+    text-decoration: none;
+    text-align: left;
+
+    .index-title {
+        color: $first;
+        margin-bottom: 0.4em;
+        font-weight: 900;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.date {
+    color: $second;
+    margin: 0.25em 0;
+}
+
+%index-tag-category {
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+    text-decoration: none;
+}
+
+.index-summary,
+.index-desc {
+    color: $first;
+    margin-bottom: 0.3em;
+    line-height: 1.4em;
+
+    a {
+        color: $second;
+    }
+}
+
+/* Category and Tag Label on index.html */
+.index-label {
+    margin-bottom: 0.5em;
+
+    .index-tag {
+        @extend %index-tag-category;
+        color: $second;
+        transition: transform 250ms;
+
+        &:hover {
+            opacity: .8;
+        }
+
+        svg {
+            height: 1rem;
+            width: auto;
+            fill: $second;
+        }
+    }
+
+    .index-category {
+        @extend %index-tag-category;
+        padding: .25rem .75rem;
+        background-color: $second-white;
+        color: $second;
+        transition: transform 250ms;
+
+        &:hover {
+            background-color: $accent;
+            color: $first-white;
+        }
+    }
+}
+
+.category-section {
+    color: $white;
+    text-align: center;
+    padding: 1em;
+
+    .category-section-title {
+        text-decoration: underline;
+    }
+}
+
+.tag-list,
+.category-list {
+    margin: 1em 0;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: $first;
+        background-color: $first-white;
+        padding: 0.4em;
+        display: inline-block;
+        position: relative;
+        margin: 5px 10px;
+
+        &:hover {
+            color: $first-white;
+            background-color: $second;
+            transition: all ease-out 0.3s;
+        }
+
+        sup {
+            background-color: $accent;
+            color: $first-white;
+            padding: 0.1em 0.4em;
+            border-radius: 5em;
+        }
+    }
+}
+
+%list-template {
+    text-decoration: none;
+    color: $first;
+    padding: 1em;
+}
+
+.term-section {
+    @extend %list-template;
+
+    .term-title {
+        margin: 0.5em auto 1em auto;
+
+        a {
+            color: $first;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .term-item {
+        margin: 0.5em auto;
+
+        a {
+            text-decoration: none;
+            color: $first;
+
+            &:hover {
+                background-color: yellow;
+            }
+        }
+    }
+}
+
+.archive {
+    @extend %list-template;
+
+    .single-title {
+        margin: 0;
+    }
+
+    .year-date {
+        box-shadow: 0 2px 2px -2px $shadow;
+        padding: 0.25em;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .page-list {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    .more-post {
+        background-color: $first;
+        padding: 0.25em;
+        margin: 3em 0;
+
+        .more-single-link {
+            text-decoration: none;
+            color: $white;
+            margin: 3em 0;
+        }
+    }
+
+    .page-item {
+        display: flex;
+
+        .page-item-date {
+            margin: 0.5em 0.25em;
+
+            span {
+                background-color: $accent;
+                color: $second-white;
+                padding: 0.5em 0.6em;
+                margin-right: 0.25em;
+
+                &:hover {
+                    transition: ease 0.3s;
+                    background-color: $first;
+                    color: $white;
+                }
+            }
+        }
+
+        .page-title {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            h4 {
+                margin: 0;
+                color: $second;
+            }
+
+            &:hover {
+                background-color: yellow;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+.index-pagination {
+    margin: 1em 0;
+    text-align: center;
+
+    .older,
+    .newer {
+        @include text-hover;
+        text-decoration: none;
+        padding: 0.4em;
+        display: inline-block;
+        position: relative;
+        font-weight: 700;
+        margin: 5px 10px;
+
+        hover {
+            opacity: 0.8;
+        }
+    }
+}

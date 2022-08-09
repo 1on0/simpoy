@@ -1,0 +1,129 @@
+footer {
+  box-shadow: 0px 0px 0px 1px $shadow;
+  margin-top: 3.5em;
+  padding: 1.5em;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+
+  /*footer-upper*/
+  .footer-upper {
+    line-height: 1.25em;
+    text-align: center;
+    color: $first;
+
+    &-left {
+      margin: 0 auto;
+      padding: 0.5em;
+
+      .social-menu {
+        width: 100%;
+
+        .social-icons {
+          margin: 0 0.5em;
+          color: $third;
+          text-decoration: none;
+          transition: transform 250ms;
+
+          svg {
+            width: 25px;
+            height: auto;
+            color: $second;
+
+            &:hover {
+              color: $accent;
+              -webkit-transform: scale(1.25);
+              -ms-transform: scale(1.25);
+              transform: scale(1.25);
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      margin: 0 auto;
+      padding: 0.5rem 0;
+
+      .quote {
+        background-color: $shadow;
+        padding: 0.5rem;
+
+        span {
+          font-style: italic;
+          font-weight: $bold;
+        }
+      }
+    }
+
+  }
+
+  /*footer-upper*/
+  .footer-lower {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    color: $first;
+    padding: 1em 0.25em;
+
+    .author {
+      flex: 35%;
+      margin: 0 auto;
+      padding: 0.125em;
+
+      a {
+        color: $accent;
+
+        &:hover {
+          background-color: yellow;
+        }
+      }
+    }
+
+    .licensed {
+      flex: 30%;
+      margin: 0 auto;
+      padding: 0.125em;
+
+
+      a {
+        color: $second;
+        text-decoration: none;
+        font-weight: $bold;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+
+    .powered {
+      flex: 35%;
+      margin: 0 auto;
+      padding: 0.125em;
+
+
+      a {
+        color: $second;
+        text-decoration: none;
+        font-weight: $bold;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 48rem) {
+  .footer {
+    .footer-lower {
+      flex-direction: column;
+    }
+  }
+}
