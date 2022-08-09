@@ -5,6 +5,13 @@
         padding: 1em;
         box-shadow: 0 2px 2px -2px $first;
 
+        sup {
+
+            a {
+            color: $first;
+            }
+        }
+
         .read-link {
             margin-top: 1.5em;
             text-align: right;

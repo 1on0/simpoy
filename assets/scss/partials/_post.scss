@@ -32,7 +32,6 @@
         .tag, p  {
             color: $second;
             text-decoration: none;
-            margin-left: 0.25em;
 
             &:hover {
                 opacity: .8;
@@ -42,6 +41,7 @@
                 height: 1rem;
                 width: auto;
                 fill: $second;
+                margin-right: .1em;
             }
         }
 
@@ -121,6 +121,7 @@
             margin: 1em 0;
             max-width: 100%;
             height: auto;
+            border-radius: 5px;
         }
 
         @media(max-width:48em) {
