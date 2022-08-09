@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: et-book;
-    src: url(../font/et-book-roman-old-style-figures.woff) format('woff'), url(../font/et-book-roman-old-style-figures.eot), url(../font/et-book-roman-old-style-figures.ttf);
+    src: url(../font/et-book-roman-old-style-figures.woff) format('woff'), url(../font/et-book-roman-old-style-figures.eot), url(../font/et-book-roman-old-style-figures.ttf), url(../font/et-book-semi-bold-old-style-figures.woff) format('woff'), url(../font/et-book-semi-bold-old-style-figures.eot), url(../font/et-book-semi-bold-old-style-figures.ttf);
     font-display: swap;
 }
 
@@ -35,8 +35,8 @@ $xxl: 2rem;
 
 /* font-weight */
 $normal: 500;
-$bold: 700;
-$bolder: 900;
+$bold: 600;
+$bolder: 700;
 
 /*shadow for page & post*/
 $box: 0 2px 2px 2px $first;
