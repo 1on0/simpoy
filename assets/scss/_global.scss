@@ -4,6 +4,11 @@
     font-size: x-large;
 }
 
+@font-face {
+    font-family: et-book;
+    src: url(../font/et-book-roman-old-style-figures.woff) format('woff'), url(../font/et-book-roman-old-style-figures.eot), url(../font/et-book-roman-old-style-figures.ttf);
+}
+
 /* color */
 $background: #EDEDE6;
 $first: #111;
@@ -15,7 +20,7 @@ $second-white: #E8E8E1;
 $accent: #763e03;
 $white: #f9f9f9;
 $shadow: rgba(0, 0, 0, .2);
-$serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+$serif: et-book;
 $arabic: hijazi;
 
 /* font-size */
