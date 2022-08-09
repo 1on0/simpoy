@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+#footer
+author = "Ion Orion Sugiarmawan"
+description = "A Knowledge Seeker"
+since =  2007 
+#quote = "Anas ibn Malik reported, The Prophet ﷺ said, <span>“Seeking knowledge is an obligation upon every Muslim.”</span> (Ibn Majah:224)"
+
+[powered.hugo]
+  name = "Hugo"
+  url = "https://gohugo.io/"
+[powered.theme]
+  name = "Simpoy Theme"
+  url = "https://github.com/ionsqr/simpoy"
+
+[license]
+  name = "CC-BY-SA-4.0"
+  url = "https://creativecommons.org/licenses/by-sa/4.0/"
+
