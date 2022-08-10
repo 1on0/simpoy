@@ -7,21 +7,14 @@
 
 @font-face {
     font-family: et-book;
-    src: url(../font/et-book-semi-bold-old-style-figures.svg) format ('svg'), 
-    url(../font/et-book-roman-old-style-figures.svg) format ('svg'), 
-    url(../font/et-book-roman-old-style-figures.woff) format('woff'), 
-    url(../font/et-book-roman-old-style-figures.eot?iefix) format ('embedded-opentype'),
-    url(../font/et-book-roman-old-style-figures.ttf) format ('truetype'), 
-    url(../font/et-book-semi-bold-old-style-figures.woff) format('woff'), 
-    url(../font/et-book-semi-bold-old-style-figures.eot?iefix) format ('embedded-opentype'), 
-    url(../font/et-book-semi-bold-old-style-figures.ttf) format ('truetype');
+    src: url(../font/et-book-roman-old-style-figures.woff) format('woff'), url(../font/et-book-semi-bold-old-style-figures.svg) format ('svg'), url(../font/et-book-semi-bold-old-style-figures.woff) format('woff'), url(../font/et-book-roman-old-style-figures.svg) format ('svg'), url(../font/et-book-roman-old-style-figures.eot?iefix) format ('embedded-opentype'), url(../font/et-book-roman-old-style-figures.ttf) format ('truetype'), url(../font/et-book-semi-bold-old-style-figures.eot?iefix) format ('embedded-opentype'), url(../font/et-book-semi-bold-old-style-figures.ttf) format ('truetype');
     font-display: swap;
 }
 
 @font-face {
     font-display: swap;
     font-family: CCSymbols;
-    src: url(../font/CCSymbols.woff2) format(woff2), url(../font/CCSymbols.woff) format(woff);
+    src: url(../font/CCSymbols.woff) format(woff), url(../font/CCSymbols.woff2) format(woff2);
   }
   
 /* color */
