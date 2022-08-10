@@ -3,12 +3,11 @@
     {{- $options := .Get 1 -}}
     {{- $alt := .Get 2 -}}
 
-
         {{/* set image sizes, these are hardcoded for now */}}
-        {{- $tinyw := default "500x375 Lanczos webp" -}}
-        {{- $smallw := default "800x600 Lanczos webp" -}}
-        {{- $mediumw := default "1200x900 Lanczos webp" -}}
-        {{- $largew := default "1600x1200 Lanczos webp" -}}
+        {{- $tinyw := default "500x375 Lanczos" -}}
+        {{- $smallw := default "800x600 Lanczos" -}}
+        {{- $mediumw := default "1200x900 Lanczos" -}}
+        {{- $largew := default "1600x1200 Lanczos" -}}
 
         {{/* resize the src image to the given sizes */}}
         {{- .Scratch.Set "tiny" ($img.Fill $tinyw) -}}
