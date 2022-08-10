@@ -22,31 +22,31 @@
         </div>
       </div>
 
-      {{- with site.Params.quote -}}
       <div class="footer-upper-right">
-        <div class="quote">
-          <p>{{ . | markdownify }}</p>
-        </div>
+        <p class="author">
+          {{- $current := now.Format "2006" -}}
+          {{ if ne site.Params.since $current -}}
+          {{- site.Params.since }} -
+          {{ end -}}
+          {{- $current }} |
+          {{ with site.Params -}}
+          {{- .Author -}}
+          {{- end -}}
+        </p>
       </div>
-      {{- end -}}
     </div>
 
     <div class="footer-lower">
-      <p class="author">
-        {{- $current := now.Format "2006" -}}
-        <span class="cc">&#x1F16D;</span>
-        {{ if ne site.Params.since $current -}}
-        {{- site.Params.since }} -
-        {{ end -}}
-        {{- $current }} |
-        {{ with site.Params -}}
-        {{- .Author -}}
-        {{- end -}}
-      </p>
+      <ul class="cc"> 
+        <li>&#x1f16d;</li>
+        <li>&#x1f16f;</li>
+        <li>&#x1f10f;</li>
+        <li>&#x1f10e;</li>
+      </ul>
 
       <p class="licensed">
         {{- with site.Params.license -}}
-        License under <a href="{{ .url | safeHTML }}" target="_blank" rel="noopener">{{- .name -}}</a>
+        Licensed under <a href="{{ .url | safeHTML }}" target="_blank" rel="noopener">{{- .name -}}</a>
         {{- end -}}
       </p>
 

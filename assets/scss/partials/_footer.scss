@@ -10,7 +10,6 @@ footer {
 
   /*footer-upper*/
   .footer-upper {
-    line-height: 1.25em;
     text-align: center;
     color: $first;
 
@@ -44,20 +43,16 @@ footer {
     }
 
     &-right {
-      margin: 0 auto;
-      padding: 0.5rem 0;
+      padding: 0.125em;
 
-      .quote {
-        background-color: $shadow;
-        padding: 0.5rem;
+      .author {
+        margin: 0 auto;
+        padding: 0.125em;
+        
 
-        span {
-          font-style: italic;
-          font-weight: $bold;
-        }
       }
-    }
 
+    }
   }
 
   /*footer-upper*/
@@ -67,24 +62,26 @@ footer {
     align-items: center;
     text-align: center;
     color: $first;
-    padding: 1em 0.25em;
+    padding: 0 .25em 1em .25em;
 
-    .author {
+    .cc {
       flex: 35%;
       margin: 0 auto;
       padding: 0.125em;
+      font-family: $cc;
+      font-size: $xl;
+      display: inline-flex;
+      justify-content: center;
+      list-style-type: none;
 
-      a {
-        color: $accent;
+      li {
+        margin-left: 1rem;
 
-        &:hover {
-          background-color: yellow;
-        }
+      }
+      li:not(:first-child) {
+        margin-top: 0;
       }
 
-      .cc {
-        font-family: $cc;
-      }
     }
 
     .licensed {
