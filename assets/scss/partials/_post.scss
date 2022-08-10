@@ -25,13 +25,17 @@
         display: inline-flex;
         color: $first;
         align-items: center;
-        margin: 0.25rem 0.5rem;
-        gap: 1rem;
+        margin: 0.5rem;
+        gap: .5rem;
         text-decoration: none;
 
         .tag, p  {
+            display: flex;
+            align-items: center;
             color: $second;
             text-decoration: none;
+            line-height: 0;
+            
 
             &:hover {
                 opacity: .8;
@@ -39,9 +43,11 @@
 
             svg {
                 height: 1rem;
+                display: flex;
+                align-items: center;
                 width: auto;
                 fill: $second;
-                margin-right: .1em;
+                margin-right: .1rem;
             }
         }
 

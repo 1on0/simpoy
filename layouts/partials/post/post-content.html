@@ -5,4 +5,8 @@
     {{- partial "utilities/featured_image" . -}}
     {{- end -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
+    {{- if .Params.socialshare  -}}
+    {{ partial "utilities/socialshare.html" . }}
+    {{- end -}}
+
 </section>

@@ -60,7 +60,8 @@
 }
 
 %index-tag-category {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin: 5px 8px 5px 0;
     text-decoration: none;
 }
@@ -78,7 +79,14 @@
 
 /* Category and Tag Label on index.html */
 .index-label {
-    margin-bottom: 0.5em;
+    display: inline-flex;
+    color: $first;
+    align-items: center;
+    margin: 0.5rem;
+    gap: .5rem;
+    text-decoration: none;
+    flex-wrap: wrap;
+
 
     .index-tag {
         @extend %index-tag-category;
@@ -93,6 +101,7 @@
             height: 1rem;
             width: auto;
             fill: $second;
+            margin-right: .1rem;
         }
     }
 
