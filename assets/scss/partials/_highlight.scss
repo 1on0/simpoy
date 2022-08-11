@@ -3,17 +3,18 @@ code,
 kbd,
 samp {
     font-family: monospace;
-    font-size: 1rem;
 }
 
-code {
-    background: $terminal;
-    color: $white;
-}
 
 pre {
     margin: 0;
 }
+
+.highlight > * {
+	border-style: solid;
+    border-radius: 5px;
+}
+
 
 pre code {
     display: block;
@@ -39,7 +40,7 @@ pre code {
 .copy-code {
     display: none;
     position: absolute;
-    top: 0;
+    top: .2em;
     right: .1em;
     background: $second-white;
     border: 1px solid;

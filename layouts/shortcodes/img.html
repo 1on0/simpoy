@@ -6,16 +6,16 @@
     <div class="photo-item" data-src="{{ $img.RelPermalink }}">
 
         {{/* set image sizes, these are hardcoded for now */}}
-        {{- $tinyw := default "500x Lanczos webp" -}}
-        {{- $smallw := default "800x Lanczos webp" -}}
-        {{- $mediumw := default "1200x Lanczos webp" -}}
-        {{- $largew := default "1600x Lanczos webp" -}}
+        {{- $tinys := default "500x Lanczos webp" -}}
+        {{- $smalls := default "800x Lanczos webp" -}}
+        {{- $mediums := default "1200x Lanczos webp" -}}
+        {{- $larges := default "1600x Lanczos webp" -}}
 
         {{/* resize the src image to the given sizes */}}
-        {{- .Scratch.Set "tiny" ($img.Resize $tinyw) -}}
-        {{- .Scratch.Set "small" ($img.Resize $smallw) -}}
-        {{- .Scratch.Set "medium" ($img.Resize $mediumw) -}}
-        {{- .Scratch.Set "large" ($img.Resize $largew) -}}
+        {{- .Scratch.Set "tiny" ($img.Resize $tinys) -}}
+        {{- .Scratch.Set "small" ($img.Resize $smalls) -}}
+        {{- .Scratch.Set "medium" ($img.Resize $mediums) -}}
+        {{- .Scratch.Set "large" ($img.Resize $larges) -}}
 
         {{/* add the processed images to the scratch */}}
         {{- $tiny := .Scratch.Get "tiny" -}}
@@ -42,7 +42,5 @@
                 {{- end -}}' alt="{{ $alt }}">
             </picture>
         </a>
-
     </div>
-
 </div>
