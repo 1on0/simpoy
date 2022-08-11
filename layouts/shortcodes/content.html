@@ -1,4 +1,4 @@
 {{- $content := .Get "content" -}}
 {{- with .Parent -}}
-<p>{{ $content }}</p>
+<p>{{ htmlUnescape $content }}</p>
 {{- end -}}

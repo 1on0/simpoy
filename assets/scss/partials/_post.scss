@@ -9,10 +9,9 @@
 
     .category {
         display: inline-flex;
-        margin: 0.5rem 1rem 0.5rem 1rem;
+        padding: .5rem 1rem;
+        background-color: $background-2;
         color: $second;
-        background-color: $second-white;
-        padding: .5rem .75rem;
         text-decoration: none;
 
         &:hover {
@@ -138,17 +137,6 @@
             width: 100%;
         }
     }
-}
-
-.arabic {
-text-align: right;
-
-    p {
-    font-family: $arabic;
-    font-size: $xl;
-    line-height: 3rem;
-    }
-
 }
 
 audio {

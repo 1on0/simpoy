@@ -2,7 +2,7 @@ pre,
 code,
 kbd,
 samp {
-    font-family: monospace, monospace, Courier, monaco;
+    font-family: monospace, monospace;
 }
 
 code {
@@ -17,6 +17,7 @@ pre {
 .highlight>* {
     border: 1px solid #ddd;
     border-radius: 5px;
+    margin-bottom: 2rem;
 }
 
 

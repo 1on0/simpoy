@@ -160,11 +160,6 @@ blockquote footer {
     text-align: left;
 }
 
-dt:not(:first-child),
-li:not(:first-child) {
-    margin-top: 0.25rem;
-}
-
 figure {
     padding: 0;
     border: 0;
@@ -199,4 +194,17 @@ video {
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+.ccpost {
+    font-family: $cc;
+    font-size: $xl;
+    line-height: 0;
+}
+
+.arabic {
+    text-align: right;
+    font-family: $arabic;
+    font-size: $xl;
+    line-height: 3rem;
 }

@@ -28,7 +28,7 @@
           {{ if ne site.Params.since $current -}}
           {{- site.Params.since }} -
           {{ end -}}
-          {{- $current }} |
+          {{- $current }} &copy;
           {{ with site.Params -}}
           {{- .Author -}}
           {{- end -}}

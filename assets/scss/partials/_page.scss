@@ -107,8 +107,8 @@
 
     .index-category {
         @extend %index-tag-category;
-        padding: .25rem .75rem;
-        background-color: $second-white;
+        padding: .15rem 1rem;
+        background-color: $background-2;
         color: $second;
         transition: transform 250ms;
 

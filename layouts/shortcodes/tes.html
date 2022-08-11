@@ -1,0 +1,4 @@
+{{- $class := .Get 0 -}}
+{{- $content := .Get 1 -}}
+
+<p class="{{ $class }}">{{ htmlUnescape $content }}</p>
