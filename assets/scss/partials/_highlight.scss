@@ -6,8 +6,10 @@ samp {
 }
 
 code {
-    background-color: $background-2;
-    font-size: 85%;
+    background-color: #282b2e;
+    color: #a9b7c6;
+    font-size: 80%;
+    border-radius: 5px;
 }
 
 pre {
@@ -15,11 +17,9 @@ pre {
 }
 
 .highlight>* {
-    border: 1px solid #ddd;
+    border: 1px solid $background-2;
     border-radius: 5px;
-    margin-bottom: 2rem;
 }
-
 
 pre code {
     display: block;
@@ -41,17 +41,27 @@ pre code {
     overflow-x: auto;
 }
 
-
 .copy-code {
     display: none;
     position: absolute;
-    top: .2em;
-    right: .1em;
-    background: $second-white;
-    border: 1px solid;
-    padding: 0.5em;
+    top: 0;
+    right: 0;
+    background: $white;
+    border: .5px solid $background-2;
+    border-radius: 5px;
+    padding: 0.3em 0.4em;
     user-select: none;
 }
+
+.code-name {
+    display: inline-block;
+    position: relative;
+    padding: .6rem;
+    background-color: $background;
+    color: $second;
+    font-size: 13px;
+    font-weight: 400;
+  }
 
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
