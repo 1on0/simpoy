@@ -1,6 +1,5 @@
-{{- define "title" -}}{{- .Title -}} - {{- .Site.Title -}}{{- end -}}
+{{- define "title" -}}{{- .Title -}} - {{- site.Title -}}{{- end -}}
 {{- define "content" -}}
-    {{- $params := .Scratch.Get "params" -}}
 <article class="post">
     {{- partial "components/category" . -}}
     {{- partial "post/post-header" . -}}

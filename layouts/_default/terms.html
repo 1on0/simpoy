@@ -1,59 +1,57 @@
 {{- define "content" -}}
-    {{- $taxonomies := .Data.Plural -}}
-    {{- $terms := .Data.Terms.ByCount -}}
-    {{- $type := .Type -}}
+{{- $taxonomies := .Data.Plural -}}
+{{- $terms := .Data.Terms.ByCount -}}
+{{- $type := .Type -}}
 
 {{- if .Params.Title -}}
 <div class="category-section">
-<!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
+    <!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
     <h2 class="category-section-title">
-        {{- .Params.Title  -}}
+        {{- .Params.Title -}}
     </h2>
-<!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
-        {{- .Content -}}
+    <!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
+    {{- .Content -}}
 </div>
 {{- end -}}
 
 <div class="tag-list">
     {{- if not (eq $taxonomies "tags") -}}
-    {{- range $.Site.Taxonomies.tags.ByCount -}}
-        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup> {{ .Count }} </sup></a>
-        {{- end -}}
-        {{- end -}}
+    {{- range site.Taxonomies.tags.ByCount -}}
+    <a href="{{- .Page.RelPermalink -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
+    {{- end -}}
+    {{- end -}}
 </div>
 
 <!-- All post with categories taxonomy,  -->
-        {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
-            <div class="term-list">
-                {{- range $terms -}}
-                    {{- $term := .Term -}}
-                    {{- $pages := .Pages -}}
-                    {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
-                    <div class="term-section">
-                        <div class="term">
-                            <h2 class="term-title">
-                                <a href="{{ .RelPermalink }}">
-                                    {{ .Page.Title }}
-                                </a>
-                            </h2>
-                            {{- range first 20 $pages -}}
-                                <article class="term-item">
-                                    <a href="{{ .RelPermalink }}" class="page-title">
-                                        {{- .Title | safeHTML -}}
-                                    </a>
-                                </article>
-                            {{- end -}}
-                            {{- if gt (len $pages) 20 -}}
-                                <span class="more-post">
-                                    <a href="{{ .RelPermalink }}">{{ T "more" }}</a>
-                                </span>
-                            {{- end -}}
-                        </div>
-                    </div>
-                    {{- end -}}
-                {{- end -}}
-            </div>
+{{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
+<div class="term-list">
+    {{- range $terms -}}
+    {{- $term := .Term -}}
+    {{- $pages := .Pages -}}
+    {{- with site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
+    <div class="term-section">
+        <div class="term">
+            <h2 class="term-title">
+                <a href="{{- .RelPermalink | safeHTML -}}">
+                    {{- .Page.Title -}}
+                </a>
+            </h2>
+            {{- range first 20 $pages -}}
+            <article class="term-item">
+                <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
+                    {{- .Title -}}
+                </a>
+            </article>
             {{- end -}}
+            {{- if gt (len $pages) 20 -}}
+            <span class="more-post">
+                <a href="{{- .RelPermalink -}}">{{- T "more" -}}</a>
+            </span>
             {{- end -}}
-
-   
+        </div>
+    </div>
+    {{- end -}}
+    {{- end -}}
+</div>
+{{- end -}}
+{{- end -}}

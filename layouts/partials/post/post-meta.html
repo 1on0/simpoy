@@ -1,17 +1,14 @@
-{{- if or (not .Date.IsZero) (.Site.Params.post.readingTime) -}}
 <div class="post-meta">
     {{- if not .Date.IsZero -}}
     <p class="post-date">
-        {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+        {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
     </p>
     {{- end -}}
-    
-    {{ if (isset .Params "tags") }}
+
+    {{- if or (not .Params.disablereadtime) (site.Params.readtime) -}}
     <p class="post-read">
         {{- $readTime := cond (gt .ReadingTime 1) "-min-" "-min-" -}}
-
         {{- .ReadingTime -}}{{- $readTime -}}read
     </p>   
     {{- end -}}     
 </div>
-{{- end -}}

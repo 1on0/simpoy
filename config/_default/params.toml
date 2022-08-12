@@ -1,0 +1,38 @@
+#footer
+author = "Ion Orion Sugiarmawan"
+description = "A Knowledge Seeker"
+since =  2007 
+quote = "Anas ibn Malik reported, The Prophet ﷺ said, <span>“Seeking knowledge is an obligation upon every Muslim.”</span> (Ibn Majah:224)"
+
+[[social.button]]
+  name = "facebook"
+  link = "https://www.facebook.com/sharer.php?u={{ $url }}"
+
+[[social.button]]
+  name = "linkedin"
+  link = "https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $url }}&amp;source={{ $url }}&amp;title={{ $title }}&amp;summary={{ $title }}"
+
+[[social.button]]
+  name = "twitter"
+  link = "https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
+
+[[social.button]]
+  name = "whatsapp"
+  link = "whatsapp://send?text={{ $body }}"
+
+[[social.button]]
+  name = "email"
+  link = "https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
+
+
+[powered.hugo]
+  name = "Hugo"
+  url = "https://gohugo.io/"
+[powered.theme]
+  name = "Simpoy Theme"
+  url = "https://github.com/ionsqr/simpoy"
+
+[license]
+  name = "CC-BY-SA-4.0"
+  url = "https://creativecommons.org/licenses/by-sa/4.0/"
+

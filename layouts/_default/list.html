@@ -1,38 +1,38 @@
 {{- define "title" -}}
-{{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{- site.Title -}}
 {{- end -}}
 {{- define "content" -}}
-
 <div class="category-list">
     {{- $taxonomies := .Data.Plural -}}
-    {{- if not (eq $taxonomies "categories") -}}
-    {{- range $.Site.Taxonomies.categories.ByCount -}}
+    {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags")  -}}
+    {{- range site.Taxonomies.categories.ByCount -}}
     <a href="{{ .Page.RelPermalink | safeHTML }}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
     {{- end -}}
     {{- end -}}
 </div>   
-
 <div class="archive">
     {{- /* Title */ -}}
     <h2 class="single-title">
         {{- $taxonomy := .Data.Singular -}}
         {{- if eq $taxonomy "category" -}}
-        {{ .Title }}
+        {{- .Title -}}
         {{- else if eq $taxonomy "tag" -}}
-        {{ .Title }}
+        {{- .Title -}}
         {{- else -}}
         {{- .Title -}}
         {{- end -}}
     </h2>
     {{- if .Pages -}}
-    {{ range (.Pages.GroupByDate "2006") }}
-    <h3 class="year-date">{{ .Key }}</h3>
-    {{ range (.Pages.GroupByDate "January") }}
-    <h4 class="month-date">{{ .Key }}</h4>
+    {{- range (.Pages.GroupByDate "2006") -}}
+    <h3 class="year-date">{{- .Key -}}</h3>
+    {{- range (.Pages.GroupByDate "January") -}}
+    <h4 class="month-date">{{- .Key -}}</h4>
     {{- range .Pages -}}
     <article class="page-item">
-        <p class="page-item-date"><span>{{- $.Site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
-        <a href="{{ .RelPermalink }}" class="page-title">
+        {{- if not .Date.IsZero -}}
+        <p class="page-item-date"><span>{{- site.Params.list.dateFormat | default "02" | .Date.Format -}}</span></p>
+        {{- end -}}
+        <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
             <h4>{{- .Title -}}</h4>
         </a>
     </article>
@@ -43,11 +43,10 @@
 </div>
 
 <div class="tag-list">
-    {{- if not (eq $taxonomies "tags") -}}
-    {{- range $.Site.Taxonomies.tags.ByCount -}}
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup> {{ .Count }} </sup></a>
+    {{- if or (eq $taxonomies "tags") (eq $taxonomies "categories") -}}
+    {{- range site.Taxonomies.tags.ByCount -}}
+    <a href="{{- .Page.RelPermalink | safeHTML -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
     {{- end -}}
     {{- end -}}
 </div>
-
 {{- end -}}
