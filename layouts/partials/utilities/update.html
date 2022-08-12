@@ -1,0 +1,4 @@
+{{- if (and (eq .Lastmod.IsZero false) (.Lastmod)) }}
+Last update on <time>{{ .Lastmod.Format "January 2, 2006" }}</time>
+{{ end }}
+
