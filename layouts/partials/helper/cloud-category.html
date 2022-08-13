@@ -1,0 +1,6 @@
+<div class="cloud-category">
+    {{- $taxonomies := .Data.Plural -}}
+    {{- range site.Taxonomies.categories.ByCount -}}
+    <a href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
+    {{- end -}}
+</div> 

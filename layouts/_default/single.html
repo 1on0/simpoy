@@ -2,7 +2,7 @@
 {{- define "content" -}}
 <article class="post">
     <p class="helper-label">
-        {{- partial "helper/category" . -}}
+        {{- partial "helper/label-category" . -}}
     </p>
     <div class="post-header">
         {{- partial "body/post/post-title" . -}}
@@ -11,7 +11,7 @@
     </div>
     {{- partial "body/post/post-content" . -}}
     <p class="helper-label">
-        {{- partial "helper/tag" . -}}
+        {{- partial "helper/label-tag" . -}}
     </p>
 </article>
 {{- end -}}

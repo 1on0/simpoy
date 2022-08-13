@@ -1,6 +1,6 @@
 {{- if or .Params.categories .Params.tags -}}
 <p class="helper-label"> 
-    {{- partial "helper/category" . -}}
-    {{- partial "helper/tag" . -}}
+    {{- partial "helper/label-category" . -}}
+    {{- partial "helper/label-tag" . -}}
 </p>
     {{- end -}}

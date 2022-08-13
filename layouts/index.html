@@ -1,14 +1,11 @@
 {{- define "content" -}}
-{{ $pages := .Pages }}
-{{ if .IsHome }}
-{{ $pages = where .Site.RegularPages "Type" "in" site.Params.mainSections }}
-{{ end }}
-{{ $paginator := .Paginate $pages }}
-{{ range $paginator.Pages }}
-{{ .Render "summary" }}
-{{ end }}
-
+{{- $pages := .Pages -}}
+{{- if .IsHome -}}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- end -}}
+{{ $paginator := .Paginate $pages -}}
+{{- range $paginator.Pages -}}
+{{- .Render "summary" -}}
+{{- end -}}
 {{- partial "helper/pagination" . -}}
-
-
 {{- end -}}

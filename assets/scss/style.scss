@@ -2,27 +2,30 @@
 *   Simpoy
 *
 */
-
 @import "feature/lightgallery.scss";
 @import "feature/androidstudio.scss";
 @import "feature/normalize.scss";
 
 @import "global.scss";
-@import "index.scss";
 
-
-@import "partials/base.scss";
-@import "partials/header.scss";
 @import "partials/layout.scss";
+@import "partials/base.scss";
+
+@import "partials/header.scss";
 @import "partials/page.scss";
+@import "partials/index.scss";
 @import "partials/archive.scss";
 @import "partials/post.scss";
 @import "partials/footer.scss";
+
 @import "partials/helper.scss";
+@import "partials/cloud.scss";
 @import "partials/media.scss";
 @import "partials/highlight.scss";
 @import "partials/socialshare.scss";
 @import "partials/table.scss";
+@import "partials/404.scss";
+
 
 
 

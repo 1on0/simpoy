@@ -1,0 +1,5 @@
+<div class="cloud-tag">
+    {{- range site.Taxonomies.tags.ByCount -}}
+    <a href="{{- .Page.RelPermalink -}}">{{- .Page.Title -}} <sup> {{- .Count -}}</sup></a>
+    {{- end -}}
+</div>

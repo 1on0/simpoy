@@ -6,9 +6,10 @@ samp {
 }
 
 code {
-    background-color: #282b2e;
-    color: #a9b7c6;
+    background: $background-3;
+    color: $terminal;
     font-size: 80%;
+    padding: 0 .2rem;
 }
 
 pre {
