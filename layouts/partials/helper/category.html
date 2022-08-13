@@ -2,10 +2,5 @@
 {{- $category := replace . "#" "%23" -}}
 {{- $category = replace $category "." "%2e" -}}
 {{- $url := print "/categories/" ($category | urlize) "/" -}}
-<p class="helper-label"> 
-    <a class="helper-label-category" href="{{- $url | relLangURL -}}">
-        {{- partial "helper/icons" "category" -}}
-        {{- . -}}
-    </a>
-</p>
+<a class="helper-label-category" href="{{- $url | relLangURL -}}">{{- . -}}</a>
 {{- end -}}

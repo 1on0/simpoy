@@ -3,29 +3,43 @@
     display: inline-flex;
     color: $first;
     align-items: center;
-    margin: 0.5rem;
-    gap: .5rem;
-    text-decoration: none;
+    margin: 0.5rem 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 
-    &-tag, &-category, p  {
+    &-tag {
         display: flex;
         align-items: center;
         color: $second;
         text-decoration: none;
         line-height: 0;
-        
+        flex-wrap: wrap;
 
         &:hover {
             opacity: .8;
         }
 
         svg {
-            height: 1.25rem;
+            height: 1rem;
             display: flex;
             align-items: center;
             width: auto;
             fill: $second;
-            margin-right: .2rem;
+            margin-right: .1rem;
         }
     }
+
+    &-category {
+        padding: .1rem 1rem;
+        background-color: $background-2;
+        color: $second;
+        transition: transform 250ms;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $accent;
+            color: $first-white;
+        }
+    }
+
 }
