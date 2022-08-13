@@ -1,0 +1,70 @@
+.archive {
+    @extend %list-template;
+
+    &-title {
+        margin: 0;
+    }
+
+    &-year {
+        box-shadow: 0 2px 2px -2px $shadow;
+        padding: 0.25em;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .page-list {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    .more-post {
+        background-color: $primary;
+        padding: 0.25em;
+        margin: 3em 0;
+
+        .more-single-link {
+            text-decoration: none;
+            color: $white;
+            margin: 3em 0;
+        }
+    }
+
+    &-item {
+        display: flex;
+
+        &-date {
+            margin: 0.5em 0.25em;
+
+            span {
+                background-color: $accent;
+                color: $secondary-white;
+                padding: 0.5em 0.6em;
+                margin-right: 0.25em;
+
+                &:hover {
+                    transition: ease 0.3s;
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            h4 {
+                margin: 0;
+                color: $secondary;
+            }
+
+            &:hover {
+                background-color: yellow;
+                transition: 0.5s;
+            }
+        }
+    }
+}

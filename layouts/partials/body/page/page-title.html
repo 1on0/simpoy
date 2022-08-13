@@ -1,8 +1,8 @@
 <a class="index-item" href="{{- .RelPermalink | relURL -}}">
-    <h1 class="index-title">{{- .Title -}}</h1>
+    <h1 class="index-item-title">{{- .Title -}}</h1>
 </a>
 {{- if not .Date.IsZero -}}
-<p class="date">
+<p class="index-date">
     {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
 </p>
 {{- end -}}

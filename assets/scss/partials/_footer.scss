@@ -11,7 +11,7 @@ footer {
   /*footer-upper*/
   .footer-upper {
     text-align: center;
-    color: $first;
+    color: $primary;
 
     &-left {
       margin: 0 auto;
@@ -22,14 +22,14 @@ footer {
 
         .social-icons {
           margin: 0 0.5em;
-          color: $third;
+          color: $tertiary;
           text-decoration: none;
           transition: transform 250ms;
 
           svg {
             width: 25px;
             height: auto;
-            color: $second;
+            color: $secondary;
 
             &:hover {
               color: $accent;
@@ -61,7 +61,7 @@ footer {
     flex-direction: row;
     align-items: center;
     text-align: center;
-    color: $first;
+    color: $primary;
     padding: 0 .25em 1em .25em;
 
     .cc {
@@ -78,7 +78,7 @@ footer {
         margin-right: .75rem;
 
       }
-      li:not(:first-child) {
+      li:not(:primary-child) {
         margin-top: 0;
       }
 
@@ -91,7 +91,7 @@ footer {
 
 
       a {
-        color: $second;
+        color: $secondary;
         text-decoration: none;
         font-weight: $bold;
 
@@ -108,7 +108,7 @@ footer {
 
 
       a {
-        color: $second;
+        color: $secondary;
         text-decoration: none;
         font-weight: $bold;
 

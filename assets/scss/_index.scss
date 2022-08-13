@@ -1,0 +1,64 @@
+.index {
+    padding: 1em;
+    box-shadow: 0 2px 2px -2px $primary;
+
+    sup {
+
+        a {
+            color: $primary;
+        }
+    }
+
+    &-item {
+        text-decoration: none;
+        text-align: left;
+
+        &-title {
+            color: $primary;
+            margin-bottom: 0.4em;
+            font-weight: 900;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &-date {
+        color: $secondary;
+        margin: 0.25em 0;
+    }
+
+    &-summary,
+    &-desc {
+        color: $primary;
+        margin-bottom: 0.3em;
+        line-height: 1.4em;
+
+        a {
+            color: $secondary;
+        }
+    }
+
+    &-link {
+        margin: 2rem;
+        text-align: right;
+        margin-right: 1em;
+        clear: both;
+
+        &-read {
+            padding: 0.25em 0.5em;
+            @include hover-effect;
+            box-shadow: $box;
+            -moz-box-shadow: $box;
+            -webkit-box-shadow: $box;
+            text-decoration: none;
+            text-align: center;
+            color: $primary;
+
+            &:hover {
+                color: $secondary-white;
+            }
+        }
+    }
+}

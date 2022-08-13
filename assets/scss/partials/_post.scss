@@ -1,174 +1,64 @@
 /* single & list post */
 .post {
-    background-color: $first-white;
+    background-color: $primary-white;
     padding: 0.75rem;
     box-shadow: $box1;
     -webkit-box-shadow: $webkit1;
     -moz-box-shadow: $moz1;
 
+    &-header {
+        padding: 1em;
 
-    .category {
-        display: inline-flex;
-        padding: .5rem 1rem;
-        background-color: $background-2;
-        color: $second;
-        text-decoration: none;
+        &-title {
+            color: $primary;
+            line-height: 1;
+            text-align: left;
+            padding: .75rem;
+            box-shadow: 0 3px 3px -3px $secondary;
 
-        &:hover {
-            background-color: $accent;
-            color: $first-white;
         }
     }
 
-    .btag {
-        display: inline-flex;
-        color: $first;
-        align-items: center;
-        margin: 0.5rem;
-        gap: .5rem;
-        text-decoration: none;
+    &-meta {
+        display: flex;
+        justify-content: start;
+        gap: 3em;
+        padding-left: 0.75rem;
+        flex-wrap: wrap;
 
-        .tag, p  {
-            display: flex;
-            align-items: center;
-            color: $second;
-            text-decoration: none;
+        &-date,
+        &-read {
             line-height: 0;
-            
+            margin-top: 0.5rem;
+            color: $secondary;
+        }
+    }
+
+    &-content {
+        padding: .5em 0.8em 2em 0.8em;
+
+        a {
+            color: $primary;
+            overflow-wrap: break-word;
 
             &:hover {
-                opacity: .8;
-            }
-
-            svg {
-                height: 1rem;
-                display: flex;
-                align-items: center;
-                width: auto;
-                fill: $second;
-                margin-right: .1rem;
+                background-color: yellow;
+                transition: 0.5s;
             }
         }
 
-    }
-}
+        p {
+            color: $primary;
 
-.post-header {
-    padding: 1em;
-
-    .post-title {
-        color: $first;
-        line-height: 1;
-        text-align: left;
-        padding: .75rem;
-        box-shadow: 0 3px 3px -3px $second;
-
-    }
-}
-
-
-.post-meta {
-    display: flex;
-    justify-content: start;
-    gap: 3em;
-    padding-left: 0.75rem;
-    flex-wrap: wrap;
-
-    .post-date,
-    .post-read {
-        line-height: 0;
-        margin-top: 0.5rem;
-        color: $second;
-    }
-}
-
-.post-content {
-    padding: .5em 0.8em 2em 0.8em;
-
-    a {
-        color: $first;
-        overflow-wrap: break-word;
-
-        &:hover {
-            background-color: yellow;
-            transition: 0.5s;
         }
     }
 
-    p {
-        color: $first;
-        
+    &-item {
+        border-bottom: 1px solid $primary-white;
+        color: $primary-white;
+        display: block;
+        padding: 2rem 0;
+        text-decoration: none;
     }
 }
 
-.post-item {
-    border-bottom: 1px solid $first-white;
-    color: $first-white;
-    display: block;
-    padding: 2rem 0;
-    text-decoration: none;
-}
-
-.photo-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    @media(max-width:48em) {
-        margin: 0;
-    }
-
-    .photo-item {
-        padding: 0.25rem;
-        width: 60%;
-
-        img {
-            display: block;
-            margin: 1em 0;
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: $box1;
-            -webkit-box-shadow: $webkit1;
-            -moz-box-shadow: $moz1;
-        }
-
-        @media(max-width:48em) {
-            width: 100%;
-        }
-    }
-}
-
-audio {
-    text-align: center;  
-    margin: auto;
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    list-style-type: none;
-    margin: 2em 0 4em 0;  
-    padding: 0;
-
-}
-  
-  .gallery > li {
-    flex-basis: 300px; 
-  }
-  
-  .gallery li img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    border-radius: 5px;
-    box-shadow: $box1;
-    -webkit-box-shadow: $webkit1;
-    -moz-box-shadow: $moz1;
-  }

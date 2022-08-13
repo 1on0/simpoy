@@ -29,7 +29,7 @@
                 padding: 1rem;
                 display: block;
                 text-decoration: none;
-                color: $first;
+                color: $primary;
                 box-shadow: 0 2px 2px -2px $shadow;
 
             }
@@ -101,7 +101,7 @@
     user-select: none;
 
     .nav-icon {
-        background: $first;
+        background: $primary;
         display: block;
         height: 2px;
         position: relative;
@@ -110,7 +110,7 @@
         align-items: baseline;
 
         &:before {
-            background: $first;
+            background: $primary;
             content: '';
             display: block;
             height: 100%;
@@ -121,7 +121,7 @@
         }
 
         &:after {
-            background: $first;
+            background: $primary;
             content: '';
             display: block;
             height: 100%;

@@ -1,4 +1,3 @@
-<div class="index-list">
     <article class="index">
         {{- partial "body/page/page-title" . -}}
         {{- if .Params.cover -}}
@@ -13,9 +12,8 @@
             {{- .Summary -}}
         </p>
         {{- end -}}
-        <div class="read-link">
-          <a class="read-more" href="{{- .RelPermalink | relURL -}}">Read Post</a>
+        <div class="index-link">
+          <a class="index-link-read" href="{{- .RelPermalink | relURL -}}">Read Post</a>
         </div>
         {{- partial "body/page/page-label" . -}}
     </article>
-</div>

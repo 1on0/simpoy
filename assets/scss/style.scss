@@ -8,13 +8,18 @@
 @import "feature/normalize.scss";
 
 @import "global.scss";
+@import "index.scss";
+
+
 @import "partials/base.scss";
 @import "partials/header.scss";
 @import "partials/layout.scss";
 @import "partials/page.scss";
+@import "partials/archive.scss";
 @import "partials/post.scss";
 @import "partials/footer.scss";
 @import "partials/helper.scss";
+@import "partials/media.scss";
 @import "partials/highlight.scss";
 @import "partials/socialshare.scss";
 @import "partials/table.scss";
