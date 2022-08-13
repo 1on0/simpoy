@@ -12,7 +12,7 @@
 pre {
     position: relative;
     margin: 0;
-    background-color: #d5d6db !important;
+    background-color: $background-4 !important;
     border: $border;
     color: $secondary;
     font-family: monospace, monospace;
@@ -73,7 +73,7 @@ code {
 .code-name {
     display: inline-block;
     position: relative;
-    color: $secondary;
+    color: $forth;
     font-size: 13px;
     font-weight: 400;
   }
