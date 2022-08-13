@@ -1,13 +1,12 @@
 {{- define "title" -}}
-{{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{- site.Title -}}
+{{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{ site.Title -}}
 {{- end -}}
 {{- define "content" -}}
+
 <div class="category-list">
     {{- $taxonomies := .Data.Plural -}}
-    {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags")  -}}
     {{- range site.Taxonomies.categories.ByCount -}}
-    <a href="{{ .Page.RelPermalink | safeHTML }}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
-    {{- end -}}
+    <a href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
     {{- end -}}
 </div>   
 <div class="archive">
@@ -22,31 +21,26 @@
         {{- .Title -}}
         {{- end -}}
     </h2>
-    {{- if .Pages -}}
-    {{- range (.Pages.GroupByDate "2006") -}}
+
+    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{- range ($pages.GroupByDate "2006") -}}
     <h3 class="year-date">{{- .Key -}}</h3>
-    {{- range (.Pages.GroupByDate "January") -}}
+    {{- range ($pages.GroupByDate "January") -}}
     <h4 class="month-date">{{- .Key -}}</h4>
-    {{- range .Pages -}}
+    {{- range $pages -}}
     <article class="page-item">
-        {{- if not .Date.IsZero -}}
-        <p class="page-item-date"><span>{{- site.Params.list.dateFormat | default "02" | .Date.Format -}}</span></p>
-        {{- end -}}
-        <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
+        <p class="page-item-date"><span>{{- site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
+        <a href="{{- .RelPermalink | relURL -}}" class="page-title">
             <h4>{{- .Title -}}</h4>
         </a>
     </article>
     {{- end -}}
     {{- end -}}
     {{- end -}}
-    {{- end -}}
 </div>
-
 <div class="tag-list">
-    {{- if or (eq $taxonomies "tags") (eq $taxonomies "categories") -}}
     {{- range site.Taxonomies.tags.ByCount -}}
-    <a href="{{- .Page.RelPermalink | safeHTML -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
-    {{- end -}}
+    <a href="{{- .Page.RelPermalink -}}">{{- .Page.Title -}} <sup> {{- .Count -}}</sup></a>
     {{- end -}}
 </div>
 {{- end -}}

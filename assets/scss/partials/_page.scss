@@ -13,7 +13,7 @@
         }
 
         .read-link {
-            margin-top: 1.5em;
+            margin: 2rem;
             text-align: right;
             margin-right: 1em;
             clear: both;
@@ -30,9 +30,6 @@
 
                 &:hover {
                     color: $second-white;
-
-
-
                 }
             }
         }
@@ -74,48 +71,6 @@
 
     a {
         color: $second;
-    }
-}
-
-/* Category and Tag Label on index.html */
-.index-label {
-    display: inline-flex;
-    color: $first;
-    align-items: center;
-    margin: 0.5rem;
-    gap: .5rem;
-    text-decoration: none;
-    flex-wrap: wrap;
-
-
-    .index-tag {
-        @extend %index-tag-category;
-        color: $second;
-        transition: transform 250ms;
-
-        &:hover {
-            opacity: .8;
-        }
-
-        svg {
-            height: 1rem;
-            width: auto;
-            fill: $second;
-            margin-right: .1rem;
-        }
-    }
-
-    .index-category {
-        @extend %index-tag-category;
-        padding: .15rem 1rem;
-        background-color: $background-2;
-        color: $second;
-        transition: transform 250ms;
-
-        &:hover {
-            background-color: $accent;
-            color: $first-white;
-        }
     }
 }
 

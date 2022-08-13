@@ -1,15 +1,8 @@
 <div class="index-list">
     <article class="index">
-        <a class="index-item" href="{{- .RelPermalink -}}">
-            <h1 class="index-title">{{- .Title | safeHTML -}}</h1>
-        </a>
-        {{- if not .Date.IsZero -}}
-        <p class="date">
-            {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
-        </p>
-        {{- end -}}
+        {{- partial "body/page/page-title" . -}}
         {{- if .Params.cover -}}
-        {{- partial "utilities/featured_image" . -}}
+        {{- partial "addon/featured_image" . -}}
         {{- end -}}
         {{- if isset .Params "description" -}}
         <p class="index-desc">
@@ -17,12 +10,12 @@
         </p>
         {{- else if .Summary -}}
         <p class="index-summary">
-            {{- .Summary | safeHTML -}}
+            {{- .Summary -}}
         </p>
         {{- end -}}
-        <p class="read-link" href="{{- .RelPermalink | safeHTML -}}">
-          <a class="read-more" href="{{- .RelPermalink | safeHTML -}}">Read Post</a>
-        </p>
-        {{- partial "page/page-label" . -}}
+        <div class="read-link">
+          <a class="read-more" href="{{- .RelPermalink | relURL -}}">Read Post</a>
+        </div>
+        {{- partial "body/page/page-label" . -}}
     </article>
 </div>

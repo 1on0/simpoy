@@ -11,7 +11,7 @@
         <a href='{{ $link | safeHTML }}' target="_blank" rel="noopener" aria-label="Share on{{ .Name }}" class="share-btn {{ .Name }}" title="{{ .Name }}">
             {{ $icon := .name }}
             {{ with $icon }}
-            {{ partial "utilities/icons" . }}
+            {{ partial "helper/icons" . }}
             {{ end }}
           </a>
       </li>

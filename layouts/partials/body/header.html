@@ -1,19 +1,37 @@
 <div class="header">
     <div class="header-inner">
-        {{- partial "logo" . -}}
-
+        {{- partial "addon/logo" . -}}
         <input class="menu-btn" type="checkbox" id="menu-btn">
         <label class="menu-icon" for="menu-btn">
             <span class="nav-icon"></span>
         </label>
         <ul class="menu">
-            {{ range site.Menus.main }}
-            <li>
-                <a href="{{- .URL | absURL -}}">{{ .Name }}</a>
-            </li>
-        {{- end }}
+            {{- $currentPage := . -}}
+            {{- range site.Menus.main -}}
+                {{- if .HasChildren }}
+                    <li class="{{- if $currentPage.HasMenuCurrent "main" . -}}active{{- end -}}">
+                        <a href="#">
+                            {{- .Pre -}}
+                            <span>{{- .Name -}}</span>
+                        </a>
+                    </li>
+                    <ul class="sub-menu">
+                        {{- range .Children -}}
+                            <li class="{{ if $currentPage.IsMenuCurrent "main" . -}}active{{- end -}}">
+                                <a href="{{- .URL | absURL | safeURL -}}">{{ .Name }}</a>
+                            </li>
+                        {{- end -}}
+                    </ul>
+                {{- else -}}
+                    <li>
+                        <a href="{{- .URL | absURL | safeURL -}}">
+                            {{- .Pre -}}
+                            <span>{{- .Name -}}</span>
+                        </a>
+                    </li>
+                {{- end -}}
+            {{- end -}}
         </ul> 
-  
     </div> 
 </div>
 

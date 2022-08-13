@@ -1,0 +1,31 @@
+
+.helper-label {
+    display: inline-flex;
+    color: $first;
+    align-items: center;
+    margin: 0.5rem;
+    gap: .5rem;
+    text-decoration: none;
+
+    &-tag, &-category, p  {
+        display: flex;
+        align-items: center;
+        color: $second;
+        text-decoration: none;
+        line-height: 0;
+        
+
+        &:hover {
+            opacity: .8;
+        }
+
+        svg {
+            height: 1.25rem;
+            display: flex;
+            align-items: center;
+            width: auto;
+            fill: $second;
+            margin-right: .2rem;
+        }
+    }
+}

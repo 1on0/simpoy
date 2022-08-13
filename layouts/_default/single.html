@@ -1,9 +1,9 @@
 {{- define "title" -}}{{- .Title -}} - {{- site.Title -}}{{- end -}}
 {{- define "content" -}}
 <article class="post">
-    {{- partial "components/category" . -}}
-    {{- partial "post/post-header" . -}}
-    {{- partial "post/post-content" . -}}
-    {{- partial "components/tag" . -}}
+    {{- partial "helper/category" . -}}
+    {{- partial "body/post/post-header" . -}}
+    {{- partial "body/post/post-content" . -}}
+    {{- partial "helper/tag" . -}}
 </article>
 {{- end -}}

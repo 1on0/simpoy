@@ -3,15 +3,17 @@
 {{- $terms := .Data.Terms.ByCount -}}
 {{- $type := .Type -}}
 
-{{- if .Params.Title -}}
+{{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
+{{ with site.Taxonomies }}
 <div class="category-section">
     <!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
     <h2 class="category-section-title">
-        {{- .Params.Title -}}
+        {{- .Title -}}
     </h2>
     <!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
     {{- .Content -}}
 </div>
+{{- end -}}
 {{- end -}}
 
 <div class="tag-list">
@@ -55,3 +57,4 @@
 </div>
 {{- end -}}
 {{- end -}}
+

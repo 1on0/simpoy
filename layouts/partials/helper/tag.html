@@ -2,10 +2,10 @@
 {{- $tag := replace . "#" "%23" -}}
 {{- $tag = replace $tag "." "%2e" -}}
 {{- $url := print "/tags/" ($tag | urlize) "/" -}}
-<p class="btag">
-    <a class="tag" href="{{- $url | relLangURL -}}"> 
-        {{- partial "utilities/icons" "tags" -}}
+<p class="helper-label">
+    <a class="helper-label-tag" href="{{- $url | relURL -}}">
+        {{- partial "helper/icons" "tags" -}}
         {{- . -}}
-    </a>    
+    </a>
 </p>
 {{- end -}}

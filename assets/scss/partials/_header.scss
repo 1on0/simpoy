@@ -82,6 +82,10 @@
     max-height: 0;
     transition: max-height .2s ease-out;
 
+    .active {
+        color: $white;
+    }
+
     li {
         max-height: fit-content;
         text-align: center;
