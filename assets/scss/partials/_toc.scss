@@ -1,0 +1,23 @@
+.table-of-contents {
+    border: $border;
+    padding: 1rem;
+    margin-bottom: 2em;
+    background-color: $background-3;
+
+    ul {
+
+        li {
+            padding-left: 1rem;
+
+
+            a:-webkit-any-link {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &-title {
+        font-weight: $bold;
+        font-size: $r;
+    }
+}

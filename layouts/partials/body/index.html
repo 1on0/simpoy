@@ -13,7 +13,7 @@
     </p>
     {{- end -}}
     <div class="index-link">
-        <a class="index-link-read" href="{{- .RelPermalink | relURL -}}">Read Post</a>
+        <a class="index-link-read" href="{{- .RelPermalink | absURL -}}">Read Post</a>
     </div>
     {{- partial "body/index/index-label" . -}}
 </article>

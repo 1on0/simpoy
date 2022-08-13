@@ -1,43 +1,63 @@
-pre,
-code,
-kbd,
-samp {
-    font-family: monospace, monospace;
-}
-
-code {
-    background: $background-3;
-    color: $terminal;
-    font-size: 80%;
-    padding: 0 .2rem;
+.highlight {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /* set the tab size for browsers that support it */
+    tab-size: 4;
+    -moz-tab-size: 4;
+    /* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
+    -webkit-text-size-adjust: 100%;
 }
 
 pre {
+    position: relative;
     margin: 0;
-}
-
-.highlight>* {
-    border: 1px solid $background-2;
-}
-
-pre code {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em 0.5em 1em 0.5em;
-    tab-size: 4;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
+    background-color: #d5d6db !important;
+    border: $border;
+    color: $secondary;
+    font-family: monospace, monospace;
+    padding: .5rem;
 }
 
 .hljs {
-    padding: 1rem !important;
     display: relative;
 }
 
-.highlight {
-    margin: 0.5rem 0;
-    position: relative;
+.highlight>* {
+    padding: .5rem;
+}
+
+.highlight pre {
     overflow-x: auto;
+    word-wrap: normal;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+}
+
+.highlight td.lntd pre {
+    /* needed to fix an iPhone scrolling bug */
+    overflow-x: hidden;
+}
+
+.highlight td.lntd:last-child {
+    /* needed until this bug is fixed: https://github.com/alecthomas/chroma/issues/225 */
+    width: 100%;
+}
+
+/* Improvements to inline code blocks */
+
+code {
+    font-size: 85%;
+    color: $secondary;
+}
+
+:not(pre)>code {
+    /* inline code elements */
+    background-color: $background-3;
+    font-size: 80%;
+    padding: 0.2em 0.4em;
+
 }
 
 .copy-code {
@@ -45,17 +65,14 @@ pre code {
     position: absolute;
     top: 0;
     right: 0;
-    background: $white;
-    border: .5px solid $background-2;
-    padding: 0.3em 0.4em;
+    background: $background-2;
     user-select: none;
+    border: none;
 }
 
 .code-name {
     display: inline-block;
     position: relative;
-    padding: .6rem;
-    background-color: $background;
     color: $secondary;
     font-size: 13px;
     font-weight: 400;

@@ -4,6 +4,7 @@
     {{ if .Params.cover }}
     {{- partial "addon/featured_image" . -}}
     {{- end -}}
+    {{- partial "body/post/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
     {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
     Last update on <time>{{ .Lastmod.Format "January 2, 2006" }}</time>
