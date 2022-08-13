@@ -16,45 +16,37 @@
 {{- end -}}
 {{- end -}}
 
-<div class="tag-list">
-    {{- if not (eq $taxonomies "tags") -}}
-    {{- range site.Taxonomies.tags.ByCount -}}
-    <a href="{{- .Page.RelPermalink -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
-    {{- end -}}
-    {{- end -}}
-</div>
+{{- if (eq $taxonomies "categories") -}}
+{{- partial "helper/cloud-tag" . -}}{{- else -}}
+{{- if (eq $taxonomies "tags") -}}
+{{- partial "helper/cloud-category" . -}}{{- end -}}{{- end -}}
 
 <!-- All post with categories taxonomy,  -->
 {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
-<div class="term-list">
-    {{- range $terms -}}
-    {{- $term := .Term -}}
-    {{- $pages := .Pages -}}
-    {{- with site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
-    <div class="term-section">
-        <div class="term">
-            <h2 class="term-title">
-                <a href="{{- .RelPermalink | safeHTML -}}">
-                    {{- .Page.Title -}}
-                </a>
-            </h2>
-            {{- range first 20 $pages -}}
-            <article class="term-item">
-                <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
-                    {{- .Title -}}
-                </a>
-            </article>
-            {{- end -}}
-            {{- if gt (len $pages) 20 -}}
-            <span class="more-post">
-                <a href="{{- .RelPermalink -}}">{{- T "more" -}}</a>
-            </span>
-            {{- end -}}
-        </div>
-    </div>
+{{- range $terms -}}
+{{- $term := .Term -}}
+{{- $pages := .Pages -}}
+{{- with site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
+<div class="terms">
+    <h2 class="terms-title">
+        <a href="{{- .RelPermalink | safeHTML -}}">
+            {{- .Page.Title -}}
+        </a>
+    </h2>
+    {{- range first 10 $pages -}}
+    <article class="terms-items">
+        <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
+            {{- .Title -}}
+        </a>
+    </article>
     {{- end -}}
+    {{- if gt (len $pages) 10 -}}
+    <span class="terms-more">
+        <a href="{{- .RelPermalink -}}">{{- T "more" -}}</a>
+    </span>
     {{- end -}}
 </div>
 {{- end -}}
 {{- end -}}
-
+{{- end -}}
+{{- end -}}

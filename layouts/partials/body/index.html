@@ -9,7 +9,7 @@
     </p>
     {{- else if .Summary -}}
     <p class="index-summary">
-        {{- .Summary -}}
+        {{- .Summary | markdownify -}}
     </p>
     {{- end -}}
     <div class="index-link">
@@ -17,3 +17,4 @@
     </div>
     {{- partial "body/index/index-label" . -}}
 </article>
+

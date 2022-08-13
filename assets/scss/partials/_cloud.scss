@@ -3,28 +3,25 @@
     &-tag,
     &-category {
         margin: 1em 0;
-        text-align: center;
+        text-align: left;
 
         a {
             text-decoration: none;
-            color: $primary;
-            background-color: $primary-white;
+            color: $tertiary;
+            background-color: $background-3;
+            border: $border;
             padding: 0.4em;
             display: inline-block;
             position: relative;
             margin: 5px 10px;
 
             &:hover {
-                color: $primary-white;
-                background-color: $secondary;
+                color: $accent;
                 transition: all ease-out 0.3s;
             }
 
             sup {
-                background-color: $accent;
-                color: $primary-white;
                 padding: 0.1em 0.4em;
-                border-radius: 5em;
             }
         }
     }

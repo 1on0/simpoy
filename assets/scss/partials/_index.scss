@@ -1,6 +1,8 @@
 .index {
-    padding: 1em;
-    box-shadow: 0 2px 2px -2px $primary;
+    padding: 1.5em;
+    background-color: $primary-white;
+    border: $border;
+    margin-bottom: 2rem;
 
     sup {
 
@@ -16,7 +18,7 @@
         &-title {
             color: $primary;
             margin-bottom: 0.4em;
-            font-weight: 900;
+            font-weight: 800;
 
             &:hover {
                 opacity: 0.8;

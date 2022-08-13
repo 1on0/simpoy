@@ -1,5 +1,11 @@
+%archive {
+    text-decoration: none;
+    color: $primary;
+    padding: 1em;
+}
+
 .archive {
-    @extend %list-template;
+    @extend %archive;
 
     &-title {
         margin: 0;
@@ -11,23 +17,6 @@
 
         h2 {
             margin-bottom: 0;
-        }
-    }
-
-    .page-list {
-        margin-top: 1.5em;
-        margin-bottom: 0.75em;
-    }
-
-    .more-post {
-        background-color: $primary;
-        padding: 0.25em;
-        margin: 3em 0;
-
-        .more-single-link {
-            text-decoration: none;
-            color: $white;
-            margin: 3em 0;
         }
     }
 

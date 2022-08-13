@@ -1,42 +1,27 @@
-
-.category-section {
-    color: $white;
-    text-align: center;
-    padding: 1em;
-
-    .category-section-title {
-        text-decoration: underline;
-    }
-}
-
-
-%list-template {
-    text-decoration: none;
-    color: $primary;
-    padding: 1em;
-}
-
-.term-section {
-    @extend %list-template;
-
-    .term-title {
-        margin: 0.5em auto 1em auto;
+.terms {
+    &-title {
+        box-shadow: 0 2px 2px -2px $shadow;
+        padding: 0.25em;
 
         a {
             color: $primary;
-        }
+            margin-bottom: .75rem;
 
-        &:hover {
-            opacity: 0.8;
+
+            &:hover {
+                color: $accent;
+            }
         }
     }
 
-    .term-item {
-        margin: 0.5em auto;
+    &-items {
+        margin: .75rem 0;
 
         a {
             text-decoration: none;
             color: $primary;
+            font-size: $r;
+
 
             &:hover {
                 background-color: yellow;
