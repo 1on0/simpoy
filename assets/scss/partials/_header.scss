@@ -141,11 +141,6 @@
     }
 }
 
-
-    &:checked~.menu {
-        max-height: 100%;
-    }
-
 @media (min-width: 48rem) {
     @include menuwide;
 
