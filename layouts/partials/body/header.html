@@ -17,7 +17,9 @@
                 <a class="menu-item-link" href="{{ .URL }}">
                     {{ .Pre }}
                     <span class="menu-text">{{ .Name }}</span>
-                    <label class="menu-item-dropicon" for="{{ .Name }}">▾</label>
+                    <label class="menu-item-dropicon" for="{{ .Name }}">
+                        <span class="dropicon">ᗐ</span>
+                    </label>
                     {{ .Post }}
                 </a>
                 <input class="sub-btn" type="checkbox" id="{{ .Name }}">

@@ -8,11 +8,11 @@
         flex-wrap: wrap;
         gap: .5rem;
 
-        h5 {
+        p {
             line-height: 0;
             margin: auto 1rem;
+            color: $tertiary;
         }
-
 
         a {
             text-decoration: none;

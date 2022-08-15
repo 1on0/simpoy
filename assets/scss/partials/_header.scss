@@ -7,7 +7,7 @@
     user-select: none;
 
     .nav-icon {
-        background: $primary;
+        background: $secondary;
         display: block;
         height: 2px;
         position: relative;
@@ -16,7 +16,7 @@
         align-items: baseline;
 
         &:before {
-            background: $primary;
+            background: $secondary;
             content: '';
             display: block;
             height: 100%;
@@ -27,7 +27,7 @@
         }
 
         &:after {
-            background: $primary;
+            background: $secondary;
             content: '';
             display: block;
             height: 100%;
@@ -118,10 +118,11 @@
         position: relative;
 
         a {
-            padding: .5rem;
             display: block;
+            padding: 1rem;
             text-decoration: none;
-            color: $primary;
+            color: $secondary;
+
 
         }
     }
@@ -133,10 +134,10 @@
         display: none;
         border-bottom: none;
         background: $background;
-
+        
         a {
             box-shadow: 0 2px 2px -2px $shadow;
-            padding: .5rem;
+
         }
     }
 }
@@ -174,7 +175,6 @@
 
                 .submenu {
                     z-index: 101;
-                    margin-top: 7px;
 
                     a {
                         min-width: 10rem;
@@ -207,9 +207,9 @@
                 box-sizing: border-box;
                 width: 100%;
                 display: block;
-                padding: 1rem;
                 box-shadow: 0 2px 2px -2px $shadow;
-
+                flex-wrap: wrap;   
+                padding-left: 3rem;
             }
         }
     }
@@ -220,3 +220,7 @@
     }
 }
 
+.dropicon {
+    font-size: $r;
+    color: $forth;
+}
