@@ -7,7 +7,6 @@
     -moz-box-shadow: $moz1;
 
     &-header {
-        padding: 1em;
 
         &-title {
             color: $primary;
@@ -15,6 +14,7 @@
             text-align: left;
             padding: .75rem;
             box-shadow: 0 3px 3px -3px $secondary;
+            margin-top: 0;
 
         }
     }
