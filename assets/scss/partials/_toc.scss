@@ -4,6 +4,9 @@
     margin: 2em 0;
     background-color: $background-3;
 
+    h2 {
+    }
+
     &-title {
         margin-left: .3rem;
     }
@@ -16,6 +19,8 @@
             a:-webkit-any-link {
                 text-decoration: none;
                 color: $tertiary;
+                font-weight: $bolder;
+
             }
 
             ul {
@@ -24,6 +29,8 @@
 
                 a {
                 margin: 0;
+                font-weight: $bolder;
+
                 }
             }
         }
