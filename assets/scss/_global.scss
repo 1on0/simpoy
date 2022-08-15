@@ -15,13 +15,13 @@
     font-display: swap;
     font-family: CCSymbols;
     src: url(../font/CCSymbols.woff) format('woff'), url(../font/CCSymbols.woff2) format('woff2');
-  }
-  
+}
+
 /* color */
 $background: #EDEDE6;
 $background-2: #E8E8E1;
 $background-3: #F7F7F0;
-$background-4:#f2f1f1;
+$background-4: #f2f1f1;
 $primary: #111;
 $secondary: #454545;
 $tertiary: #575757;
@@ -81,12 +81,46 @@ $moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
     line-height: var(--h);
     color: $secondary;
     text-shadow:
-        0 var(--_t,0em) $accent, 
-        0 calc(var(--_t,0em) - var(--h)) $secondary;
+        0 var(--_t, 0em) $accent,
+        0 calc(var(--_t, 0em) - var(--h)) $secondary;
     overflow: hidden;
     transition: .3s;
 
     &:hover {
         --_t: var(--h);
+    }
+}
+
+@mixin menucheck {
+    .menu-item input[type="checkbox"] {
+        display: none;
+    }
+
+    .menu-item .menu-item-dropicon {
+        position: absolute;
+        right: 1rem;
+        top: auto;
+    }
+
+    .menu-item input[type="checkbox"]:checked+.submenu {
+        border: none;
+        padding-left: 20px;
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        position: relative;
+        max-width: 100%;
+    }
+
+}
+
+@mixin menuwide {
+    .menu .menu-item:hover>.submenu,
+    .menu .menu-item:focus-within>.submenu,
+    .menu .menu-item .submenu:hover,
+    .menu .menu-item .submenu:focus {
+        visibility: visible;
+        opacity: 1;
+        display: block;
     }
 }

@@ -2,7 +2,7 @@
 {{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{ site.Title -}}
 {{- end -}}
 {{- define "content" -}}
-{{- partial "helper/cloud-category" . -}}
 {{- partial "partials/body/archive" . -}}
+{{- partial "helper/cloud-category" . -}}
 {{- partial "helper/cloud-tag" . -}}
 {{- end -}}

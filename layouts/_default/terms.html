@@ -16,11 +16,6 @@
 {{- end -}}
 {{- end -}}
 
-{{- if (eq $taxonomies "categories") -}}
-{{- partial "helper/cloud-tag" . -}}{{- else -}}
-{{- if (eq $taxonomies "tags") -}}
-{{- partial "helper/cloud-category" . -}}{{- end -}}{{- end -}}
-
 <!-- All post with categories taxonomy,  -->
 {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
 {{- range $terms -}}
@@ -50,3 +45,5 @@
 {{- end -}}
 {{- end -}}
 {{- end -}}
+
+

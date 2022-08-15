@@ -2,18 +2,24 @@
 
     &-tag,
     &-category {
-        margin: 1em 0;
-        text-align: left;
+        margin: 2rem 0;
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        gap: .5rem;
+
+        h5 {
+            line-height: 0;
+            margin: auto 1rem;
+        }
+
 
         a {
             text-decoration: none;
+            padding: .5rem;
             color: $tertiary;
             background-color: $background-3;
             border: $border;
-            padding: 0.4em;
-            display: inline-block;
-            position: relative;
-            margin: 5px 10px;
 
             &:hover {
                 color: $accent;

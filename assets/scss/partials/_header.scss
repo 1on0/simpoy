@@ -1,97 +1,3 @@
-/* header */
-.header {
-    box-shadow: 0 2px 2px -2px $shadow;
-    display: flex;
-    margin-bottom: 2em;
-    width: 100%;
-    z-index: 3;
-
-    &-inner {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 48em;
-
-        &::before,
-        &::after {
-            box-sizing: inherit;
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            overflow: hidden;
-        }
-
-        li {
-
-            a {
-                padding: 1rem;
-                display: block;
-                text-decoration: none;
-                color: $primary;
-                box-shadow: 0 2px 2px -2px $shadow;
-
-            }
-
-            a:hover {
-                opacity: .8;
-            }
-        }
-
-        .menu-btn:hover {
-            opacity: .8;
-        }
-
-        .logo {
-            display: block;
-            padding: 1rem 2rem;
-            float: left;
- 
-
-            img {
-                display: block;
-                max-width: 100%;
-                margin: 0;
-            }
-
-            a {
-                color: $accent;
-                font-size: $xl;
-                font-weight: $bolder;
-                text-decoration: none;
-                letter-spacing: -0.01em;
-            }
-
-            &:hover {
-                opacity: .8;
-            }
-
-            svg {
-                display: inline-block;
-                height: 30px;
-            }
-        }
-    }
-}
-
-/* menu */
-.menu {
-    clear: both;
-    display: block;
-    max-height: 0;
-    transition: max-height .2s ease-out;
-
-    .active {
-        color: $white;
-    }
-
-    li {
-        max-height: fit-content;
-        text-align: center;
-    }
-}
-
 /* menu icon */
 .menu-icon {
     cursor: pointer;
@@ -138,7 +44,7 @@
     display: none;
 
     &:checked~.menu {
-        max-height: 240px;
+        max-height: 100%;
     }
 
     &:checked~.menu-icon .nav-icon {
@@ -156,42 +62,162 @@
     }
 }
 
+.header {
+    box-shadow: 0 2px 2px -2px $shadow;
+    margin-bottom: 2em;
+    width: 100%;
 
-/* for Desktop layout with min width 48em / 768 px */
+    &-inner {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 48em;
+
+        .logo {
+            display: block;
+            padding: 1rem 2rem;
+            float: left;
+
+
+            img {
+                display: block;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            a {
+                color: $accent;
+                font-size: $xl;
+                font-weight: $bolder;
+                text-decoration: none;
+                letter-spacing: -0.01em;
+            }
+
+            &:hover {
+                opacity: .8;
+            }
+
+            svg {
+                display: inline-block;
+                height: 30px;
+            }
+        }
+
+
+    }
+}
+
+.menu {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: max-height .2s ease-out;
+
+    li {
+        display: block;
+        position: relative;
+
+        a {
+            padding: .5rem;
+            display: block;
+            text-decoration: none;
+            color: $primary;
+
+        }
+    }
+
+    ul {
+        position: absolute;
+        padding: 0;
+        left: 0;
+        display: none;
+        border-bottom: none;
+        background: $background;
+
+        a {
+            box-shadow: 0 2px 2px -2px $shadow;
+            padding: .5rem;
+        }
+    }
+}
+
+
+
 @media (min-width: 48rem) {
-    .header {
-        max-height: 4rem;
+    @include menuwide;
 
+    .menu-item input[type="checkbox"] {
+        display: none;
+    }
+
+    .menu li:hover ul {
+        display: block;
+    }
+
+
+    .header {
         &-inner {
             display: flex;
             justify-content: space-between;
-
-            .menu {
-                display: flex;
-                clear: none;
-                align-items: center;
-                max-height: none;
-                font-weight: $normal;
-            }
-
-            .logo {
-                display: flex;
-                align-items: center;
-            }
 
             .menu-icon {
                 display: none;
             }
 
-            li {
-                float: left;
+            .menu {
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                visibility: visible;
+                border: 0;
+                transform: none;
+                gap: 1rem;
 
-                a {
-                    padding: 1rem;
-                    box-shadow: none;
+                .submenu {
+                    z-index: 101;
+                    margin-top: 7px;
 
+                    a {
+                        min-width: 10rem;
+                        border: $border;
+                        box-shadow: none;
+                    }
                 }
             }
         }
+    }
+}
+
+@media (max-width: 48rem) {
+    @include menucheck;
+
+    .header {
+        &-inner {
+            display: inline-block;
+
+            input:checked~.menu {
+                display: block;
+            }
+        }
+
+
+        .menu {
+            display: none;
+
+            a {
+                box-sizing: border-box;
+                width: 100%;
+                display: block;
+                padding: 1rem;
+                box-shadow: 0 2px 2px -2px $shadow;
+
+            }
+        }
+    }
+
+    /* hides sublists on hover */
+    .menu li:hover ul {
+        display: none;
     }
 }
