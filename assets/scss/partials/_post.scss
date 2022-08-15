@@ -7,14 +7,15 @@
     -moz-box-shadow: $moz1;
 
     &-header {
+        padding: .75rem;
 
         &-title {
             color: $primary;
-            line-height: 1;
+            line-height: 1.25;
             text-align: left;
-            padding: .75rem;
             box-shadow: 0 3px 3px -3px $secondary;
-            margin-top: 0;
+            margin-top: 1rem;
+            padding: .75rem;
 
         }
     }
