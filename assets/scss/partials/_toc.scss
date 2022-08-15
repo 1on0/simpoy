@@ -4,9 +4,6 @@
     margin: 2em 0;
     background-color: $background-3;
 
-    h2 {
-    }
-
     &-title {
         margin-left: .3rem;
     }
@@ -15,7 +12,7 @@
 
         li {
             padding-left: .1rem;
-            
+
             a:-webkit-any-link {
                 text-decoration: none;
                 color: $tertiary;
@@ -28,9 +25,8 @@
                 padding-left: 2rem;
 
                 a {
-                margin: 0;
-                font-weight: $bolder;
-
+                    margin: 0;
+                    font-weight: $bolder;
                 }
             }
         }
