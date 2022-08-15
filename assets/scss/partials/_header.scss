@@ -142,12 +142,9 @@
 }
 
 
-<<<<<<< HEAD
-=======
     &:checked~.menu {
         max-height: 100%;
     }
->>>>>>> 061c554966e2efe9cceee1bb35b4af7976254e45
 
 @media (min-width: 48rem) {
     @include menuwide;
@@ -221,13 +218,10 @@
             }
         }
     }
-<<<<<<< HEAD
 
     /* hides sublists on hover */
     .menu li:hover ul {
         display: none;
     }
 }
-=======
-}
->>>>>>> 061c554966e2efe9cceee1bb35b4af7976254e45
+
