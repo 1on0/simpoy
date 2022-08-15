@@ -15,7 +15,7 @@
             text-align: left;
             box-shadow: 0 3px 3px -3px $secondary;
             margin-top: 1rem;
-            padding: .75rem;
+            padding: .3rem;
 
         }
     }
@@ -23,6 +23,7 @@
     &-subtitle {
         padding: .75rem;
         margin-top: 0;
+        line-height: 1.25;
     }
 
     &-meta {
@@ -42,6 +43,7 @@
 
     &-content {
         padding: .5em 0.8em 2em 0.8em;
+        margin-top: .5rem;
 
         a {
             color: $primary;
