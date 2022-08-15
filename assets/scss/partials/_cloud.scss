@@ -4,13 +4,13 @@
     &-category {
         margin: 2rem 0;
         display: flex;
-        justify-content: start;
+        justify-content:flex-start;
         flex-wrap: wrap;
         gap: .5rem;
 
         p {
             line-height: 0;
-            margin: auto 1rem;
+            margin: auto .2rem;
             color: $tertiary;
         }
 

@@ -42,6 +42,12 @@
         }
     }
 
+    &-summary {
+        max-height: 69px;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
     &-link {
         margin: 2rem;
         text-align: right;
