@@ -1,5 +1,5 @@
 footer {
-  box-shadow: 0px 0px 0px 1px $shadow;
+  box-shadow: 0px 0px 0px 1px var(--line-shadow);
   margin-top: 3.5em;
   padding: 1.5em;
   position: relative;
@@ -11,7 +11,7 @@ footer {
   /*footer-upper*/
   .footer-upper {
     text-align: center;
-    color: $primary;
+    color: var(--primary);
 
     &-left {
       margin: 0 auto;
@@ -22,17 +22,17 @@ footer {
 
         .social-icons {
           margin: 0 0.5em;
-          color: $tertiary;
+          color: var(--secondary);
           text-decoration: none;
           transition: transform 250ms;
 
           svg {
             width: 25px;
             height: auto;
-            color: $secondary;
+            color: var(--secondary);
 
             &:hover {
-              color: $accent;
+              color: var(--accent);
               -webkit-transform: scale(1.25);
               -ms-transform: scale(1.25);
               transform: scale(1.25);
@@ -61,7 +61,7 @@ footer {
     flex-direction: row;
     align-items: center;
     text-align: center;
-    color: $primary;
+    color: var(--primary);
     padding: 0 .25em 1em .25em;
 
     .cc {
@@ -91,12 +91,12 @@ footer {
 
 
       a {
-        color: $secondary;
+        color: var(--secondary);
         text-decoration: none;
         font-weight: $bold;
 
         &:hover {
-          color: $accent;
+          color: var(--accent);
         }
       }
     }
@@ -108,12 +108,12 @@ footer {
 
 
       a {
-        color: $secondary;
+        color: var(--secondary);
         text-decoration: none;
         font-weight: $bold;
 
         &:hover {
-          color: $accent;
+          color: var(--accent);
         }
       }
     }

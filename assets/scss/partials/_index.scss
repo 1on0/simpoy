@@ -1,13 +1,13 @@
 .index {
     padding: 1.5em;
-    background-color: $primary-white;
+    background-color: var(--primary-white);
     border: $border;
     margin-bottom: 2rem;
 
     sup {
 
         a {
-            color: $primary;
+            color: var(--primary);
         }
     }
 
@@ -16,7 +16,7 @@
         text-align: left;
 
         &-title {
-            color: $primary;
+            color: var(--primary);
             margin-bottom: 0.4em;
             font-weight: 800;
 
@@ -27,18 +27,18 @@
     }
 
     &-date {
-        color: $secondary;
+        color: var(--secondary);
         margin: 0.25em 0;
     }
 
     &-summary,
     &-desc {
-        color: $primary;
+        color: var(--primary);
         margin-bottom: 0.3em;
         line-height: 1.4em;
 
         a {
-            color: $secondary;
+            color: var(--secondary);
         }
     }
 
@@ -60,10 +60,10 @@
             -webkit-box-shadow: $box;
             text-decoration: none;
             text-align: center;
-            color: $primary;
+            color: var(--primary);
 
             &:hover {
-                color: $secondary-white;
+                color: var(--secondary-white);
             }
         }
     }

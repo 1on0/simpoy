@@ -1,0 +1,59 @@
+/* Colors */
+$background-dark: #2E3440;
+$background-dark2: #3B4252;
+$background: rgb(237,237,230);
+$background-2: rgb(247,247,240);
+$primary: rgb(17,17,17);
+$secondary: rgb(64,64,64);
+$primary-white: rgb(255,255,248);
+$secondary-white: rgb(232,232,225);
+$accent: rgb(118,62,3);
+$table: rgb(232,232,225);
+$highlight: rgb(242,241,241);
+
+$box-shadow: rgba(0, 0, 0, 0.75);
+$shadow: rgba(0, 0, 0, .2);
+$border: 1px solid rgb(221,221,221);
+
+:root {
+    --background: #{$background};
+    --background-2: #{$background-2};
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --primary-white: #{$primary-white};
+    --secondary-white: #{$secondary-white};
+    --accent: #{$accent};
+    --table: #{$table};
+    --highlight: #{$highlight};
+    --shadow: #{$box-shadow};
+    --line-shadow: #{$shadow};
+}
+
+.dark {
+    --background: #{$background-dark};
+    --background-2: #{$secondary};
+    --primary: #{$background};
+    --secondary: #{$background-2};
+    --primary-white: #{$background-dark2};
+    --secondary-white: #{$secondary};
+    --accent: #{$background};
+    --table: #{$background};
+    --highlight: #{$background-2};
+    --shadow: #{shadow};
+    --line-shadow: #{$primary-white};
+
+}
+
+#dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+}
+
+body.dark .moon {
+    vertical-align: middle;
+    display: none;
+}
+
+body:not(.dark) .sun {
+    display: none;
+}

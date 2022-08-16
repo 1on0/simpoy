@@ -2,7 +2,7 @@
     border: $border;
     padding: .75rem;
     margin: 2em 0;
-    background-color: $background-3;
+    background-color: var(--background-2);
 
     &-title {
         margin-left: .3rem;
@@ -15,7 +15,7 @@
 
             a:-webkit-any-link {
                 text-decoration: none;
-                color: $tertiary;
+                color: var(--secondary);
                 font-weight: $bolder;
 
             }

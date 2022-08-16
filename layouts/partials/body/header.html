@@ -1,19 +1,21 @@
 <div class="header">
     <div class="header-inner">
-        {{- partial "addon/logo" . -}}
+        <div class="header-inner-left">
+            {{- partial "addon/logo" . -}}
+            {{- partial "addon/darkmode" . -}}
+        </div>
+        {{- if .Site.Menus.main }}
         <input class="menu-btn" type="checkbox" id="menu-btn">
         <label class="menu-icon" for="menu-btn">
             <span class="nav-icon"></span>
         </label>
-        {{- if .Site.Menus.main }}
-
         <ul class="menu">
             {{- $currentPage := . }}
             {{- range .Site.Menus.main }}
             {{- if .Name }}
             {{- if .HasChildren }}
-            <li class="menu-item {{ if or ($currentPage.IsMenuCurrent " main" .)
-                ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
+            <li class="menu-item {{ if or ($currentPage.IsMenuCurrent " main" .) ($currentPage.HasMenuCurrent "main" .)
+                }}active{{ end }}">
                 <a class="menu-item-link" href="{{ .URL }}">
                     {{ .Pre }}
                     <span class="menu-text">{{ .Name }}</span>

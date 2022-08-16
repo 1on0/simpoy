@@ -7,7 +7,7 @@
         margin: 1rem 0 1.5rem 0;
 
         thead tr th {
-            background-color: $background-2;
+            background-color: var(--background-2);
             border: 1px solid #ddd;
             padding: .75rem;
             font-weight: $bold;
@@ -18,11 +18,11 @@
         tbody tr {
 
             &:nth-child(odd) {
-                background-color: $background;
+                background-color: var(--background);
             }
 
             &:nth-child(even) {
-                background-color: $background-3;
+                background-color: var(--background);
             }
 
             td {

@@ -7,7 +7,7 @@
     user-select: none;
 
     .nav-icon {
-        background: $secondary;
+        background: var(--secondary);
         display: block;
         height: 2px;
         position: relative;
@@ -16,7 +16,7 @@
         align-items: baseline;
 
         &:before {
-            background: $secondary;
+            background: var(--secondary);
             content: '';
             display: block;
             height: 100%;
@@ -27,7 +27,7 @@
         }
 
         &:after {
-            background: $secondary;
+            background: var(--secondary);
             content: '';
             display: block;
             height: 100%;
@@ -63,7 +63,7 @@
 }
 
 .header {
-    box-shadow: 0 2px 2px -2px $shadow;
+    box-shadow: 0 2px 2px -2px var(--line-shadow);
     margin-bottom: 2em;
     width: 100%;
 
@@ -85,16 +85,13 @@
             }
 
             a {
-                color: $accent;
+                color: var(--accent);
                 font-size: $xl;
                 font-weight: $bolder;
                 text-decoration: none;
                 letter-spacing: -0.01em;
             }
 
-            &:hover {
-                opacity: .8;
-            }
 
             svg {
                 display: inline-block;
@@ -121,7 +118,7 @@
             display: block;
             padding: 1rem;
             text-decoration: none;
-            color: $secondary;
+            color: var(--secondary);
 
 
         }
@@ -133,10 +130,10 @@
         left: 0;
         display: none;
         border-bottom: none;
-        background: $background;
-        
+        background: var(--background);
+
         a {
-            box-shadow: 0 2px 2px -2px $shadow;
+            box-shadow: 0 2px 2px -2px var(--line-shadow);
 
         }
     }
@@ -158,6 +155,16 @@
         &-inner {
             display: flex;
             justify-content: space-between;
+
+            &-left {
+                display: flex;
+                align-items: center;
+
+                #dark-mode-toggle {
+                    margin-top: 10px;
+                    margin-left: -30px;
+                }
+            }
 
             .menu-icon {
                 display: none;
@@ -194,33 +201,50 @@
         &-inner {
             display: inline-block;
 
+            &-left {
+                display: inline-block;
+
+                #dark-mode-toggle {
+                    margin-top: 22px;
+                    margin-left: -30px;
+                }
+            }
+
             input:checked~.menu {
                 display: block;
             }
-        }
 
+            .menu {
+                display: none;
 
-        .menu {
-            display: none;
+                a {
+                    box-sizing: border-box;
+                    width: 100%;
+                    display: block;
+                    box-shadow: 0 2px 2px -2px var(--line-shadow);
+                    flex-wrap: wrap;
+                    padding-left: 3rem;
+                }
 
-            a {
-                box-sizing: border-box;
-                width: 100%;
-                display: block;
-                box-shadow: 0 2px 2px -2px $shadow;
-                flex-wrap: wrap;   
-                padding-left: 3rem;
+                /* hides sublists on hover */
+                li:hover ul {
+                    display: none;
+                }
             }
-        }
-    }
 
-    /* hides sublists on hover */
-    .menu li:hover ul {
-        display: none;
+        }
     }
 }
 
 .dropicon {
     font-size: $r;
-    color: $forth;
+    color: var(--secondary);
+}
+
+body.dark #moon {
+    display: none;
+}
+
+body:not(.dark) #sun {
+    display: none;
 }

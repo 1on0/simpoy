@@ -4,12 +4,12 @@
         padding: 0.25em;
 
         a {
-            color: $primary;
+            color: var(--primary);
             margin-bottom: .75rem;
 
 
             &:hover {
-                color: $accent;
+                color: var(--accent);
             }
         }
     }
@@ -21,7 +21,7 @@
 
         a {
             text-decoration: none;
-            color: $primary;
+            color: var(--primary);
             font-size: $r;
         }
     }

@@ -12,18 +12,18 @@
         p {
             line-height: 0;
             margin: auto .2rem;
-            color: $tertiary;
+            color: var(--secondary);
         }
 
         a {
             text-decoration: none;
             padding: .5rem;
-            color: $tertiary;
-            background-color: $background-3;
+            color: var(--secondary);
+            background-color: var(--background-2);
             border: $border;
 
             &:hover {
-                color: $accent;
+                color: var(--accent);
                 transition: all ease-out 0.3s;
             }
 

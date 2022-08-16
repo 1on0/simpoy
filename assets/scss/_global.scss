@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     font-family: uthmanic;
     src: url(../font/uthmanic.otf);
@@ -17,22 +18,6 @@
     src: url(../font/CCSymbols.woff) format('woff'), url(../font/CCSymbols.woff2) format('woff2');
 }
 
-/* color */
-$background: #EDEDE6;
-$background-2: #E8E8E1;
-$background-3: #F7F7F0;
-$background-4: #f2f1f1;
-$primary: #111;
-$secondary: #454545;
-$tertiary: #575757;
-$forth: #5C5C5C;
-$terminal: #3a4055;
-$primary-white: #fffff8;
-$secondary-white: #E8E8E1;
-$accent: #763e03;
-$white: #f9f9f9;
-$shadow: rgba(0, 0, 0, .2);
-$border: 1px solid #ddd;
 $serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 $arabic: uthmanic, "Geeza Pro", "Nadeem", "Al Bayan", "DecoType Naskh", "DejaVu Serif", "STFangsong", "STHeiti", "STKaiti", "STSong", "AB AlBayan", "AB Geeza", "AB Kufi", "DecoType Naskh", "Aldhabi", "Andalus", "Sakkal Majalla", "Simplified Arabic", "Traditional Arabic", "Arabic Typesetting", "Urdu Typesetting", "Droid Naskh", "Droid Kufi", "Roboto", "Tahoma", "Times New Roman", "Arial", serif;
 $cc: CCSymbols, Helvetica, Arial, sans-serif;
@@ -50,22 +35,22 @@ $bold: 600;
 $bolder: 700;
 
 /*shadow for page & post*/
-$box: 0 2px 2px 2px $primary;
-$webkit: 0 2px 2px 2px $primary;
-$moz: 0 2px 2px 2px $primary;
+$box: 0 2px 2px 2px var(--secondary);
+$webkit: 0 2px 2px 2px var(--secondary);
+$moz: 0 2px 2px 2px var(--secondary);
 
-$box1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
-$webkit1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
-$moz1: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+$box1: 0px 0px 24px 0px var(--shadow);
+$webkit1: 0px 0px 24px 0px var(--shadow);
+$moz1: 0px 0px 24px 0px var(--shadow);
 
-$box2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
-$webkit2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
-$moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+$box2: 0px 0px 5px 1px var(--shadow);
+$webkit2: 0px 0px 5px 1px var(--shadow);
+$moz2: 0px 0px 5px 1px var(--shadow);
 
 
 /*hover-effect-1*/
 @mixin hover-effect {
-    background-image: linear-gradient($accent, $accent);
+    background-image: linear-gradient(var(--accent), var(--accent));
     background-size: 0 100%;
     background-repeat: no-repeat;
     transition: .4s;
@@ -79,10 +64,10 @@ $moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
     --h: 2em;
 
     line-height: var(--h);
-    color: $secondary;
+    color: var(--secondary);
     text-shadow:
         0 var(--_t, 0em) $accent,
-        0 calc(var(--_t, 0em) - var(--h)) $secondary;
+        0 calc(var(--_t, 0em) - var(--h)) var(--secondary);
     overflow: hidden;
     transition: .3s;
 
@@ -117,7 +102,6 @@ $moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
 
 @mixin menuwide {
-
     .menu .menu-item:hover>.submenu,
     .menu .menu-item:focus-within>.submenu,
     .menu .menu-item .submenu:hover,
@@ -133,3 +117,4 @@ $moz2: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
         top: 3;
     }
 }
+

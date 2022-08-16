@@ -7,3 +7,4 @@
 {{- $highlight := slice (resources.Get "feature/highlight.min.js") | resources.Concat "feature/src/highlight.js" | resources.Minify | fingerprint -}}
 <script  src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" defer crossorigin="anonymous" onload="hljs.highlightAll();"></script>
 
+

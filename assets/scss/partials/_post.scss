@@ -1,8 +1,9 @@
 /* single & list post */
 .post {
-    background-color: $primary-white;
+    background-color: var(--primary-white)!important;
     padding: 0.75rem;
     box-shadow: $box1;
+    border: $border;
     -webkit-box-shadow: $webkit1;
     -moz-box-shadow: $moz1;
 
@@ -10,10 +11,10 @@
         padding: .75rem;
 
         &-title {
-            color: $primary;
+            color: var(--primary);
             line-height: 1.25;
             text-align: left;
-            box-shadow: 0 3px 3px -3px $secondary;
+            box-shadow: 0 3px 3px -3px var(--secondary);
             margin-top: 1rem;
             padding: .3rem;
 
@@ -37,7 +38,7 @@
         &-read {
             line-height: 0;
             margin-top: 0.5rem;
-            color: $secondary;
+            color: var(--secondary);
         }
     }
 
@@ -46,7 +47,7 @@
         margin-top: .5rem;
 
         a {
-            color: $primary;
+            color: var(--primary);
             overflow-wrap: break-word;
 
             &:hover {
@@ -56,14 +57,14 @@
         }
 
         p {
-            color: $primary;
+            color: var(--primary);
 
         }
     }
 
     &-item {
-        border-bottom: 1px solid $primary-white;
-        color: $primary-white;
+        border-bottom: 1px solid var(--background-white);
+        color: var(--primary-white);
         display: block;
         padding: 2rem 0;
         text-decoration: none;
