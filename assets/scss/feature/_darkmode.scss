@@ -1,14 +1,16 @@
 /* Colors */
 $background-dark: #2E3440;
-$background-dark2: #3B4252;
+$background-dark2: rgb(41,46,57);
 $background: rgb(237,237,230);
 $background-2: rgb(247,247,240);
 $primary: rgb(17,17,17);
-$secondary: rgb(64,64,64);
+$secondary: rgb(59,66,82);
 $primary-white: rgb(255,255,248);
 $secondary-white: rgb(232,232,225);
 $accent: rgba(161,86,40, 1);
-$table: rgb(232,232,225);
+$hover: rgba(254,214,165, 1);
+$hover-dark: rgba(79,88,110, 1);
+$table: rgb(210,210,207);
 $highlight: rgb(242,241,241);
 
 $box-shadow: rgba(0, 0, 0, 0.75);
@@ -49,6 +51,7 @@ $l-dark: #9aa5ce;
     --primary-white: #{$primary-white};
     --secondary-white: #{$secondary-white};
     --accent: #{$accent};
+    --hover: #{$hover};
     --table: #{$table};
     --highlight: #{$highlight};
     --shadow: #{$box-shadow};
@@ -69,13 +72,14 @@ $l-dark: #9aa5ce;
 
 .dark {
     --background: #{$background-dark};
-    --background-2: #{$secondary};
+    --background-2: #{$background-dark2};
     --primary: #{$background};
     --secondary: #{$background-2};
     --primary-white: #{$background-dark2};
     --secondary-white: #{$secondary};
     --accent: #{$background};
-    --table: #{$background};
+    --hover: #{$hover-dark};
+    --table: #{$secondary};
     --highlight: #{$background-2};
     --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
@@ -91,11 +95,6 @@ $l-dark: #9aa5ce;
     --j: #{$j-dark};
     --k: #{$k-dark};
     --l: #{$l-dark};
-}
-
-#dark-mode-toggle {
-    background-color: transparent;
-    border: none;
 }
 
 body.dark .moon {

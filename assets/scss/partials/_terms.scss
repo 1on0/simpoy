@@ -1,18 +1,28 @@
+.terms-section {
+    &-title {
+        padding: 1rem 2rem;
+    }
+}
+
 %terms {
     text-decoration: none;
     color: var(--primary);
-    padding: 1em;
+    padding: 0 1em;
+    margin-bottom: 2rem;
 }
 
 .terms {
     @extend %terms;
+
     &-title {
         box-shadow: 0 2px 2px -2px var(--line-shadow);
         padding: 0.25em;
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+
 
         a {
             color: var(--primary);
-            margin-bottom: .75rem;
 
             &:hover {
                 color: var(--accent);
@@ -26,9 +36,16 @@
         &-title {
             text-decoration: none;
             color: var(--secondary);
+            font-weight: $normal;
+            
 
             &:hover {
                 opacity: 0.8;
+            }
+
+            h4 {
+                margin: .5rem;
+                line-height: 1.5;
             }
         }
     }

@@ -1,8 +1,8 @@
 .table-of-contents {
     border: $border;
     padding: .75rem;
-    margin: 2em 0;
-    background-color: var(--background-2);
+    margin: 0 0 2rem;
+    background-color: var(--table);
 
     &-title {
         margin-left: .3rem;
@@ -16,18 +16,13 @@
             a:-webkit-any-link {
                 text-decoration: none;
                 color: var(--secondary);
-                font-weight: $bolder;
+                font-weight: $bold;
 
             }
 
             ul {
                 list-style-type: disc;
-                padding-left: 2rem;
-
-                a {
-                    margin: 0;
-                    font-weight: $bolder;
-                }
+                padding-left: 1rem;
             }
         }
     }

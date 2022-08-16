@@ -3,17 +3,15 @@
 {{- $terms := .Data.Terms.ByCount -}}
 {{- $type := .Type -}}
 
-{{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
-{{ with site.Taxonomies }}
-<div class="category-section">
+{{- with .Page -}}
+<div class="terms-section">
     <!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
-    <h2 class="category-section-title">
+    <h1 class="terms-section-title">
         {{- .Title -}}
-    </h2>
+    </h1>
     <!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
     {{- .Content -}}
 </div>
-{{- end -}}
 {{- end -}}
 
 <!-- All post with categories taxonomy,  -->
@@ -44,6 +42,13 @@
 {{- end -}}
 {{- end -}}
 {{- end -}}
+
+{{- if (eq $taxonomies "categories") -}}
+{{- partial "helper/cloud-tag" . -}}{{- else -}}{{- if (eq $taxonomies "tags") -}}
+{{- partial "helper/cloud-category" . -}}
 {{- end -}}
+{{- end -}}
+{{- end -}}
+
 
 

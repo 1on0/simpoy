@@ -3,7 +3,7 @@
     &-label {
         display: inline-flex;
         align-items: center;
-        margin: .25rem;
+        margin: 1rem;
         gap: 1rem;
         flex-wrap: wrap;
         padding: 1rem 0;
@@ -34,6 +34,7 @@
 
         &-category {
             padding: .1rem 1rem;
+            margin-left: 1rem;
             color: var(--secondary);
             border: $border;
             transition: transform 250ms;

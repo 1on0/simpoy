@@ -44,14 +44,14 @@
 
     &-content {
         padding: .5em 0.8em 2em 0.8em;
-        margin-top: .5rem;
+        margin-top: .3rem;
 
         a {
-            color: var(--primary);
+            color: var(--secondary);
             overflow-wrap: break-word;
 
             &:hover {
-                background-color: yellow;
+                background-color: var(--hover);
                 transition: 0.5s;
             }
         }

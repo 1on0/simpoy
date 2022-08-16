@@ -178,7 +178,7 @@
                 visibility: visible;
                 border: 0;
                 transform: none;
-                gap: 1rem;
+                gap: .25rem;
 
                 .submenu {
                     z-index: 101;
@@ -235,17 +235,4 @@
 
         }
     }
-}
-
-.dropicon {
-    font-size: $r;
-    color: var(--secondary);
-}
-
-body.dark #moon {
-    display: none;
-}
-
-body:not(.dark) #sun {
-    display: none;
 }

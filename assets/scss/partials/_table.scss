@@ -7,8 +7,8 @@
         margin: 1rem 0 1.5rem 0;
 
         thead tr th {
-            background-color: var(--background-2);
-            border: 1px solid #ddd;
+            background-color: var(--table);
+            border: 1px solid rgb(227,227,227);
             padding: .75rem;
             font-weight: $bold;
             text-align: left;
@@ -22,7 +22,7 @@
             }
 
             &:nth-child(even) {
-                background-color: var(--background);
+                background-color: var(--background-2);
             }
 
             td {
