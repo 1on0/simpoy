@@ -1,91 +1,122 @@
 /*!
-    Theme: devibeans (dark)
-    Author: @terminaldweller
-    Maintainer: @terminaldweller
-
-    Inspired by vim's jellybeans theme (https://github.com/nanotech/jellybeans.vim)
+  Theme: Tokyo-night-light
+  origin: https://github.com/enkia/tokyo-night-vscode-theme
+  Description: Original highlight.js style
+  Author: (c) Henri Vandersleyen <hvandersleyen@gmail.com>
+  License: see project LICENSE
+  Touched: 2022
 */
 
-.hljs {
-  background: var(--background);
-  color: #a39e9b;
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
 }
 
-.hljs-attr,
-.hljs-template-tag {
-  color: #8787d7;
+code.hljs {
+  padding: 3px 5px;
 }
 
-.hljs-comment,
-.hljs-doctag,
-.hljs-quote {
-  color: #339966;
-}
 
-.hljs-params {
-  color: #a39e9b;
-}
-
-.hljs-regexp {
-  color: #d700ff;
-}
-
-.hljs-tag,
-.hljs-selector-id,
-.hljs-number,
-.hljs-literal {
-  color: #ef5350;
-}
-
+/*  Comment */
 .hljs-meta,
-.hljs-meta .hljs-keyword {
-
-  color: #0087ff;
+.hljs-comment {
+  color: var(--a);
 }
 
-/* opt-out */
-.hljs-operator,
-.hljs-punctuation{
-}
-
+/* Red */
+/*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
+.hljs-tag,
+.hljs-doctag,
+.hljs-selector-id,
 .hljs-selector-class,
-.hljs-code,
-.hljs-formula,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-variable.language_,
+.hljs-deletion {
+  color: var(--b);
+}
+
+/*Orange */
+/*INFO: Number and Boolean constants, Language support constants */
 .hljs-variable,
 .hljs-template-variable,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-link,
-.hljs-keyword {
-  color: #64b5f6;
-}
-
-.hljs-built_in,
-.hljs-title,
-.hljs-deletion {
-  color: #ff8700;
-}
-
+.hljs-number,
+.hljs-literal,
 .hljs-type,
-.hljs-section,
-.hljs-function,
-.hljs-name,
-.hljs-property,
-.hljs-attribute {
-  color: #ffd75f;
+.hljs-params,
+.hljs-link {
+  color: var(--c);
 }
 
-.hljs-meta .hljs-string,
-.hljs-string,
+
+/*  Yellow */
+/* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
+.hljs-built_in, 
+.hljs-attribute {
+  color: var(--d);
+}
+/* cyan */
+/* INFO: Language support functions, CSS HTML elements */
+.hljs-selector-tag {
+  color: var(--e);
+}
+
+/* light blue */
+/* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
+.hljs-keyword,
+  .hljs-title.function_,
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
 .hljs-subst,
+.hljs-property {color: var(--f);}
+
+/*Green*/
+/* INFO: Object literal keys, Markdown links, Terminal Green */
+.hljs-selector-tag { color: var(--g);}
+
+
+/*Green(er) */
+/* INFO: Strings, CSS class names */
+.hljs-quote,
+.hljs-string,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color: #558b2f;
+  color: var(--h);
 }
 
-.hljs-selector-tag {
-  color: #9966ff;
+/* Blue */
+/* INFO:  	Function names, CSS property names, Terminal Blue */
+.hljs-code,
+.hljs-formula,
+.hljs-section {
+  color: var(--i);
+}
+
+
+
+/* Magenta */
+/*INFO: Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta */
+.hljs-name,
+.hljs-keyword,
+.hljs-operator,
+.hljs-keyword,
+.hljs-char.escape_,
+.hljs-attr {
+  color: var(--j);
+}
+
+/* white*/
+/* INFO: Variables, Class names, Terminal White */
+.hljs-punctuation {color: var(--k)}
+
+.hljs {
+  background: var(--background);
+  color: var(--l);
 }
 
 .hljs-emphasis {
@@ -95,3 +126,4 @@
 .hljs-strong {
   font-weight: bold;
 }
+

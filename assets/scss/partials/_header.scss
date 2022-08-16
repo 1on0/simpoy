@@ -160,9 +160,9 @@
                 display: flex;
                 align-items: center;
 
-                #dark-mode-toggle {
+                .darkmode {
                     margin-top: 10px;
-                    margin-left: -30px;
+                    margin-left: -15px;
                 }
             }
 
@@ -204,9 +204,10 @@
             &-left {
                 display: inline-block;
 
-                #dark-mode-toggle {
+                #darkmode {
+                    display: inline-block;
                     margin-top: 22px;
-                    margin-left: -30px;
+                    margin-left: -15px;
                 }
             }
 

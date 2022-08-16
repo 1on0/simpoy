@@ -12,7 +12,7 @@ function setTheme(mode) {
 var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
 setTheme(savedTheme);
 
-var toggle = document.getElementById("dark-mode-toggle");
+var toggle = document.getElementById("darkmode");
 
 toggle.addEventListener("click", () => {
     if (document.body.classList.contains('dark')) {
