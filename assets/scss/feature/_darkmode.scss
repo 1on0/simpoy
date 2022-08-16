@@ -7,7 +7,7 @@ $primary: rgb(17,17,17);
 $secondary: rgb(64,64,64);
 $primary-white: rgb(255,255,248);
 $secondary-white: rgb(232,232,225);
-$accent: rgb(118,62,3);
+$accent: rgba(161,86,40, 1);
 $table: rgb(232,232,225);
 $highlight: rgb(242,241,241);
 
@@ -40,9 +40,6 @@ $k: #343b58;
 $k-dark: #c0caf5;
 $l: #565a6e;
 $l-dark: #9aa5ce;
-
-
-
 
 :root {
     --background: #{$background};
@@ -80,7 +77,7 @@ $l-dark: #9aa5ce;
     --accent: #{$background};
     --table: #{$background};
     --highlight: #{$background-2};
-    --shadow: #{shadow};
+    --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
     --a: #{$a-dark};
     --b: #{$b-dark};

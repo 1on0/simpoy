@@ -17,7 +17,7 @@
 
         &-title {
             color: var(--primary);
-            margin-bottom: 0.4em;
+            margin-bottom: 3rem;
             font-weight: 800;
 
             &:hover {
@@ -26,16 +26,12 @@
         }
     }
 
-    &-date {
-        color: var(--secondary);
-        margin: 0.25em 0;
-    }
-
     &-summary,
     &-desc {
         color: var(--primary);
-        margin-bottom: 0.3em;
+        margin-bottom: 1rem;
         line-height: 1.4em;
+        font-size: $r;
 
         a {
             color: var(--secondary);
@@ -46,24 +42,28 @@
         margin-top: 1rem;
     }
 
-    &-link {
-        margin: 2rem;
-        text-align: right;
-        margin-right: 1em;
-        clear: both;
+    &-meta {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        align-items: center;
 
-        &-read {
-            padding: 0.25em 0.5em;
-            @include hover-effect;
-            box-shadow: $box;
-            -moz-box-shadow: $box;
-            -webkit-box-shadow: $box;
-            text-decoration: none;
-            text-align: center;
-            color: var(--primary);
+        &-date {
+            color: var(--secondary);
+            margin: 0.25em 0;
+        }
 
-            &:hover {
-                color: var(--secondary-white);
+        &-link {
+            &-read {
+                padding: 0.3em 0.5em;
+                border: $border;
+                text-decoration: none;
+                text-align: center;
+                color: var(--secondary);
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }

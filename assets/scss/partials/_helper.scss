@@ -48,21 +48,29 @@
 
 
     &-pagination {
-        margin: 1em 0;
-        text-align: center;
+        padding: 1rem;
+        margin: auto 2rem;
+        display: flex;
+        justify-content: space-around;
+        
 
-        .older,
-        .newer {
-            @include text-hover;
-            text-decoration: none;
-            padding: 0.4em;
-            display: inline-block;
-            position: relative;
-            font-weight: 700;
-            margin: 5px 10px;
+        &-older,
+        &-newer {
 
-            hover {
-                opacity: 0.8;
+            a {
+                text-decoration: none;
+                padding: 0.4em 0.5em;
+                display: inline-block;
+                position: relative;
+                font-weight: 700;
+                margin: 5px 10px;
+                border: $border;
+                color: var(--accent);
+
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }

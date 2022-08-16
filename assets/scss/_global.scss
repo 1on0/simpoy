@@ -24,7 +24,7 @@ $cc: CCSymbols, Helvetica, Arial, sans-serif;
 
 /* font-size */
 $s: 1rem;
-$r: 1.125rem;
+$r: 1.25rem;
 $l: 1.4rem;
 $xl: 1.7rem;
 $xxl: 2rem;
@@ -46,35 +46,6 @@ $moz1: 0px 0px 24px 0px var(--shadow);
 $box2: 0px 0px 5px 1px var(--shadow);
 $webkit2: 0px 0px 5px 1px var(--shadow);
 $moz2: 0px 0px 5px 1px var(--shadow);
-
-
-/*hover-effect-1*/
-@mixin hover-effect {
-    background-image: linear-gradient(var(--accent), var(--accent));
-    background-size: 0 100%;
-    background-repeat: no-repeat;
-    transition: .4s;
-
-    &:hover {
-        background-size: 100% 100%;
-    }
-}
-
-@mixin text-hover {
-    --h: 2em;
-
-    line-height: var(--h);
-    color: var(--secondary);
-    text-shadow:
-        0 var(--_t, 0em) $accent,
-        0 calc(var(--_t, 0em) - var(--h)) var(--secondary);
-    overflow: hidden;
-    transition: .3s;
-
-    &:hover {
-        --_t: var(--h);
-    }
-}
 
 @mixin menucheck {
     .menu-item input[type="checkbox"] {

@@ -12,7 +12,7 @@
     }
 
     &-year {
-        box-shadow: 0 2px 2px -2px $shadow;
+        box-shadow: 0 2px 2px -2px var(--line-shadow);
         padding: 0.25em;
 
         h2 {
@@ -43,6 +43,10 @@
             h4 {
                 margin: 0;
                 color: var(--secondary);
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }

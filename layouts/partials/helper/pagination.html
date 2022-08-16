@@ -1,8 +1,12 @@
 <div class="helper-pagination">
-    {{ if .Paginator.HasPrev }}
-        <a class="newer" href="{{ .Paginator.Prev.URL }}" class="prev">Newer Posts</a>
-    {{ end }}
-    {{ if .Paginator.HasNext }}
-        <a class="older" href="{{ .Paginator.Next.URL }}" class="next">Older Posts</a>
-    {{ end }}
+    {{- if .Paginator.HasPrev -}}
+    <div class="helper-pagination-newer">
+        <a class="newer" href="{{- .Paginator.Prev.URL | absURL -}}" class="prev">Newer Posts</a>
+    </div>
+    {{- end -}}
+    {{- if .Paginator.HasNext -}}
+    <div class="helper-pagination-older"> 
+        <a class="older" href="{{- .Paginator.Next.URL |absURL -}}" class="next">Older Posts</a>
+    </div>
+    {{- end -}}
 </div>

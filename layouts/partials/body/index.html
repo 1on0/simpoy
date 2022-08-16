@@ -9,12 +9,8 @@
     </p>
     {{- else if .Summary -}}
     <div class="index-summary">
-        {{- .Summary | markdownify -}}
+        {{- .Summary -}}
     </div>
     {{- end -}}
-    <div class="index-link">
-        <a class="index-link-read" href="{{- .RelPermalink | absURL -}}">Read Post</a>
-    </div>
-    {{- partial "body/index/index-label" . -}}
+    {{- partial "body/index/index-meta" . -}}
 </article>
-

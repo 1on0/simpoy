@@ -1,12 +1,18 @@
+%terms {
+    text-decoration: none;
+    color: var(--primary);
+    padding: 1em;
+}
+
 .terms {
+    @extend %terms;
     &-title {
-        box-shadow: 0 2px 2px -2px $shadow;
+        box-shadow: 0 2px 2px -2px var(--line-shadow);
         padding: 0.25em;
 
         a {
             color: var(--primary);
             margin-bottom: .75rem;
-
 
             &:hover {
                 color: var(--accent);
@@ -15,14 +21,15 @@
     }
 
     &-items {
-        margin: .75rem 0;
         padding: 0.25em;
 
-
-        a {
+        &-title {
             text-decoration: none;
-            color: var(--primary);
-            font-size: $r;
+            color: var(--secondary);
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 }

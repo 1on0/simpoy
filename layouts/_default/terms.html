@@ -30,8 +30,8 @@
     </h2>
     {{- range first 10 $pages -}}
     <article class="terms-items">
-        <a href="{{- .RelPermalink | safeHTML -}}" class="page-title">
-            {{- .Title -}}
+        <a href="{{- .RelPermalink | safeHTML -}}" class="terms-items-title">
+            <h4>{{- .Title -}}</h4>
         </a>
     </article>
     {{- end -}}
