@@ -37,10 +37,10 @@
 {{- end -}}
 
 {{- if and ($highlight) (not $development) (not $fingerprint) -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+<script src="{{- $hljs.RelPermalink -}}" defer crossorigin="anonymous" onload="hljs.highlightAll();"></script>
 {{- else if $fingerprint -}}
 {{- $hljsfp := $hljs | minify | fingerprint "sha512" -}}
-<script src="{{- $hljsfp.RelPermalink -}}" defer crossorigin="anonymous" integrity="{{- $hljsfp.Data.Integrity -}}"></script>
+<script src="{{- $hljsfp.RelPermalink -}}" defer crossorigin="anonymous" integrity="{{- $hljsfp.Data.Integrity -}}" onload="hljs.highlightAll();"></script>
 {{- end -}}
 
 {{- end -}}
