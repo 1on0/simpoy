@@ -2,7 +2,9 @@
     <div class="header-inner">
         <div class="header-inner-left">
             {{- partial "addon/logo" . -}}
+            {{- if and (site.Params.enablejs) (site.Params.addon.darkmode) -}}
             {{- partial "addon/darkmode" . -}}
+            {{- end -}}
         </div>
         {{- if .Site.Menus.main }}
         <input class="menu-btn" type="checkbox" id="menu-btn">
