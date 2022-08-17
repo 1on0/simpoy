@@ -12,13 +12,10 @@
     {{ printf `
     <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
     {{- end -}}
-    <!-- Favicon -->
-    <link rel="icon" href="./gallery/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ " apple-touch-icon.png" | relURL }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ " favicon-32x32.png" | relURL }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ " favicon-16x16.png" | relURL }}">
+    {{- partial "head/favicon" . -}}
     <!-- style -->
-    {{- $css := resources.Get "scss/style.scss" -}}
-    {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha512" -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}">
+    {{ $style := resources.Get "scss/style.scss" }}
+    {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+    {{ $css := $style | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}
+    <link rel="preload stylesheet" as="style" crossorigin="anonymous" href="{{ $css.RelPermalink | absURL | safeURL }}">
 </head>

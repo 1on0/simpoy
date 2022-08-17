@@ -1,6 +1,6 @@
 /* Colors */
 $background-dark: #2E3440;
-$background-dark2: rgb(41,46,57);
+$background-dark2: #3B4252;
 $background: rgb(237,237,230);
 $background-2: rgb(247,247,240);
 $primary: rgb(17,17,17);
@@ -71,15 +71,15 @@ $l-dark: #9aa5ce;
 }
 
 .dark {
-    --background: #{$background-dark};
+    --background: #{$background-dark2};
     --background-2: #{$background-dark2};
     --primary: #{$background};
     --secondary: #{$background-2};
-    --primary-white: #{$background-dark2};
+    --primary-white: #{$background-dark};
     --secondary-white: #{$secondary};
     --accent: #{$background};
     --hover: #{$hover-dark};
-    --table: #{$secondary};
+    --table: #{$hover-dark};
     --highlight: #{$background-2};
     --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
