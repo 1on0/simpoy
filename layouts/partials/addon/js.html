@@ -15,18 +15,20 @@
 <script type="text/javascript" src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
 
-{{- if and ($darkmode) (not $development) (not $fingerprint) -}}
+{{- if not $development -}}
+{{- if and ($darkmode) (not $fingerprint) -}}
 <script type="text/javascript" src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
-{{- else if $fingerprint -}}
+{{- else -}}
 {{- $darkmodefp := $darkmodejs | fingerprint "sha512" -}}
 <script type="text/javascript" src="{{- $darkmodefp.RelPermalink -}}" defer crossorigin="anonymous" integrity="{{- $darkmodefp.Data.Integrity -}}"></script>
 {{- end -}}
 
-{{- if and ($clipboard) (not $development) (not $fingerprint) -}}
+{{- if and ($clipboard) (not $fingerprint) -}}
 <script type="text/javascript" src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
-{{- else if $fingerprint -}}
+{{- else -}}
 {{- $clipboardfp := $clipboardjs | fingerprint "sha512" -}}
 <script type="text/javascript" src="{{- $clipboardfp.RelPermalink -}}" defer crossorigin="anonymous" integrity="{{- $clipboardfp.Data.Integrity -}}"></script>
+{{- end -}}
 {{- end -}}
 
 {{- end -}}
