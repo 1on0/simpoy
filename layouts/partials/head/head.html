@@ -7,7 +7,6 @@
     <link rel="canonical" href="{{ .Permalink | safeURL }}" />
     <!--seo-->
     {{- partial "head/seo" . -}}
-    {{- partial "head/csp" . -}}
     <!-- rss -->
     {{- with .OutputFormats.Get "rss" -}}
     {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
