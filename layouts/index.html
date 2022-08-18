@@ -7,5 +7,5 @@
 {{- range $paginator.Pages -}}
 {{- .Render "summary" -}}
 {{- end -}}
-{{- partial "helper/pagination" . -}}
+{{ template "_internal/pagination.html" . }}
 {{- end -}}

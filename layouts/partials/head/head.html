@@ -21,4 +21,8 @@
     {{- $nofp := $css | resources.ToCSS | minify }}
     <link rel="stylesheet" href="{{ $nofp.RelPermalink | safeURL }}">
     {{ end }}
+    {{- if hugo.IsProduction -}}
+    {{- partial "head/opengraph" . -}}
+    {{- partial "head/schema" . -}}
+    {{- end -}}
 </head>

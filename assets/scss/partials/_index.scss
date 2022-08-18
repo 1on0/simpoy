@@ -1,11 +1,10 @@
 .index {
-    padding: 1.5em;
+    padding: 1.25rem;
     background-color: var(--background);
     border: $border;
     margin-bottom: 2rem;
 
     sup {
-
         a {
             color: var(--primary);
         }
@@ -14,10 +13,12 @@
     &-item {
         text-decoration: none;
         text-align: left;
+        
 
         &-title {
             color: var(--primary);
             margin-bottom: 3rem;
+            margin-top: 1rem;
 
             &:hover {
                 opacity: 0.8;

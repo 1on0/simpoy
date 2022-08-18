@@ -1,1 +1,16 @@
-{{- partial "partials/body/index" . -}}
+<article class="index">
+    {{- partial "body/index/index-title" . -}}
+    {{- if .Params.cover -}}
+    {{- partial "addon/featured_image" . -}}
+    {{- end -}}
+    {{- if isset .Params "description" -}}
+    <p class="index-desc">
+        {{- .Description | markdownify -}}
+    </p>
+    {{- else if .Summary -}}
+    <div class="index-summary">
+        {{- .Summary | markdownify -}}
+    </div>
+    {{- end -}}
+    {{- partial "body/index/index-meta" . -}}
+</article>
