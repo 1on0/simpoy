@@ -9,13 +9,16 @@
     {{- partial "head/seo" . -}}
     <!-- rss -->
     {{- with .OutputFormats.Get "rss" -}}
-    {{ printf `
-    <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
     {{- end -}}
     {{- partial "head/favicon" . -}}
     <!-- style -->
-    {{ $style := resources.Get "scss/style.scss" }}
-    {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
-    {{ $css := $style | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}
-    <link rel="preload stylesheet" as="style" crossorigin="anonymous" href="{{ $css.RelPermalink | absURL | safeURL }}">
+    {{- if not site.Params.fingerprint -}}
+    {{- $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) -}}
+    {{- $css := resources.Get "scss/style.scss" | resources.ToCSS $options | resources.Minify -}}
+    <link rel="preload stylesheet" as="style" crossorigin="anonymous" href="{{- $css.RelPermalink | absURL | safeURL -}}">
+    {{- else -}}
+    {{- $cssfp := $css | fingerprint "sha512" -}}
+    <link rel="preload stylesheet" as="style" crossorigin="anonymous" href="{{- $cssfp.RelPermalink | absURL | safeURL -}}">
+    {{- end -}}
 </head>

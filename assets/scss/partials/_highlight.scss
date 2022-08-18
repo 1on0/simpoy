@@ -1,7 +1,7 @@
 /* Improvements to Hugo Chroma syntax highlighting */
 
 .highlight {
-    position: relative;
+	position: relative;
 	margin-top: 1em;
 	margin-bottom: 1em;
 	/* set the tab size for browsers that support it */
@@ -12,29 +12,25 @@
 }
 
 .highlight > * {
-	padding: 0.5em;
-    border: $border;
-}
-
-.highlight pre {
-    position: relative;
-	margin: 0px;
-	overflow-x: auto;
-	word-wrap: normal;
-    font-family: monospace, monospace;
-    background-color: var(--highlight) !important;
+	padding: 1em;
+	border: $border;
+	background-color: var(--highlight);
 }
 
 pre {
-    position: relative;
-    margin: 0;
-    background-color: var(--highlight) !important;
-    border: $border;
-    color: var(--secondary);
-    font-family: monospace, monospace;
-    padding: .5rem;
-    line-height: 1.7;
-    overflow-x: hidden;
+	background-color: var(--highlight) !important;
+	position: relative;
+	padding: 1rem;
+	border: $border;
+	color: var(--secondary);
+	font-size: 90%;
+	line-height: 1.5;
+}
+
+.highlight pre {
+	margin: 0px;
+	overflow-x: auto;
+	word-wrap: normal;
 }
 
 .highlight td.lntd pre {
@@ -50,14 +46,12 @@ pre {
 /* Improvements to inline code blocks */
 
 code {
-	font-size: 98%;
+	font-size: 100%;
 }
 
 :not(pre) > code {
 	/* inline code elements */
-	background-color: rgba(25, 25, 25, 0.05);
 	border-radius: 5px;
-	font-size: 80%;
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
 	padding-left: 0.4em;
@@ -67,12 +61,13 @@ code {
 
 .copy-code {
     display: none;
+	padding: .3rem;
     position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--background-2);
+    top: 2%;
+    right: 1%;
     user-select: none;
     border: none;
+	background-color: var(--background);
 }
 
 div.highlight:hover .copy-code,
