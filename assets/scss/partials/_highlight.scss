@@ -47,6 +47,7 @@ pre {
 
 code {
 	font-size: 100%;
+	background-color: var(--secondary-white);
 }
 
 :not(pre) > code {
@@ -63,7 +64,7 @@ code {
     display: none;
 	padding: .3rem;
     position: absolute;
-    top: 2%;
+    top: 3px;
     right: 1%;
     user-select: none;
     border: none;

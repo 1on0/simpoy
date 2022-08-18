@@ -1,5 +1,5 @@
 function setTheme(mode) {
-    localStorage.setItem("dark-mode-storage", mode);
+    sessionStorage.setItem("dark-mode-storage", mode);
 
     if(mode == "dark") {
         document.body.classList.add('dark');
@@ -9,7 +9,7 @@ function setTheme(mode) {
     }
 }
 
-var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+var savedTheme = sessionStorage.getItem("dark-mode-storage") || "light";
 setTheme(savedTheme);
 
 var toggle = document.getElementById("darkmode");
