@@ -1,0 +1,36 @@
+/* Fonts */
+@font-face {
+    font-family: uthmanic;
+    src: url(../font/uthmanic.otf);
+    font-size: large;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: et-book;
+    src: url(../font/et-book-roman-old-style-figures.woff) format('woff'), url(../font/et-book-semi-bold-old-style-figures.woff) format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CCSymbols;
+    src: url(../font/CCSymbols.woff) format('woff'), url(../font/CCSymbols.woff2) format('woff2');
+}
+
+$serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+$arabic: uthmanic, "Geeza Pro", "Nadeem", "Al Bayan", "DecoType Naskh", "DejaVu Serif", "STFangsong", "STHeiti", "STKaiti", "STSong", "AB AlBayan", "AB Geeza", "AB Kufi", "DecoType Naskh", "Aldhabi", "Andalus", "Sakkal Majalla", "Simplified Arabic", "Traditional Arabic", "Arabic Typesetting", "Urdu Typesetting", "Droid Naskh", "Droid Kufi", "Roboto", "Tahoma", "Times New Roman", "Arial", serif;
+$cc: CCSymbols, Helvetica, Arial, sans-serif;
+
+/* Font-size */
+$s: 1rem;
+$m: 1.125rem;
+$r: 1.25rem;
+$l: 1.4rem;
+$xl: 1.7rem;
+$xxl: 2rem;
+
+/* Font-weight */
+$normal: 500;
+$bold: 600;
+$bolder: 700;

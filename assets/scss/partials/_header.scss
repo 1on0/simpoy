@@ -66,6 +66,7 @@
     box-shadow: 0 2px 2px -2px var(--line-shadow);
     margin-bottom: 2em;
     width: 100%;
+    @include box2;
 
     &-inner {
         margin: 0 auto;
@@ -130,7 +131,7 @@
         left: 0;
         display: none;
         border-bottom: none;
-        background: var(--background);
+        background: var(--primary-white);
 
         a {
             box-shadow: 0 2px 2px -2px var(--line-shadow);

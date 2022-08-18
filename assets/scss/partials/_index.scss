@@ -1,6 +1,6 @@
 .index {
     padding: 1.5em;
-    background-color: var(--primary-white);
+    background-color: var(--background);
     border: $border;
     margin-bottom: 2rem;
 
@@ -30,7 +30,7 @@
         color: var(--primary);
         margin-bottom: 1rem;
         line-height: 1.5;
-        font-size: $r;
+        font-size: 1.125rem;
 
         a {
             color: var(--secondary);

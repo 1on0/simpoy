@@ -2,11 +2,11 @@
 html {
     scroll-behavior: smooth;
     min-height: 100%;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: var(--hover);
 }
 
 body {
-    background-color: var(--background);
+    background-color: var(--primary-white);
     color: var(--primary);
     -moz-osx-font-smoothing: grayscale;
     min-height: 100%;
@@ -17,8 +17,8 @@ body {
 #content {
     display: block;
     min-height: 70vh;
-    max-width: 48rem;
     width: 95%;
+    max-width: 48rem;
     margin: 0 auto !important;
     word-wrap: break-word;
 }

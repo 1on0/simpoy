@@ -1,74 +1,4 @@
-/* Colors */
-$background-dark: #2E3440;
-$background-dark2: #3B4252;
-$background: rgb(237,237,230);
-$background-2: rgb(247,247,240);
-$primary: rgb(17,17,17);
-$secondary: rgb(59,66,82);
-$primary-white: rgb(255,255,248);
-$secondary-white: rgb(232,232,225);
-$accent: rgba(161,86,40, 1);
-$hover: rgba(254,214,165, 1);
-$hover-dark: rgba(79,88,110, 1);
-$table: rgb(210,210,207);
-$highlight: rgb(242,241,241);
-
-$box-shadow: rgba(0, 0, 0, 0.75);
-$shadow: rgba(0, 0, 0, .2);
-$border: 1px solid rgb(221,221,221);
-
-/*hljs*/
-$a: #9699a3;
-$a-dark: #565f89;
-$b: #8c4351;
-$b-dark: #f7768e;
-$c: #965027;
-$c-dark: #ff9e64;
-$d: #8f5e15;
-$d-dark: #e0af68;
-$e: #166775;
-$e-dark: #2ac3de;
-$f: #0f4b6e;
-$f-dark: #7dcfff;
-$g: #33635c;
-$g-dark: #73daca;
-$h: #485e30;
-$h-dark: #9ece6a;
-$i: #34548a;
-$i-dark: #7aa2f7;
-$j: #5a4a78;
-$j-dark: bb9af7;
-$k: #343b58;
-$k-dark: #c0caf5;
-$l: #565a6e;
-$l-dark: #9aa5ce;
-
-:root {
-    --background: #{$background};
-    --background-2: #{$background-2};
-    --primary: #{$primary};
-    --secondary: #{$secondary};
-    --primary-white: #{$primary-white};
-    --secondary-white: #{$secondary-white};
-    --accent: #{$accent};
-    --hover: #{$hover};
-    --table: #{$table};
-    --highlight: #{$highlight};
-    --shadow: #{$box-shadow};
-    --line-shadow: #{$shadow};
-    --a: #{$a};
-    --b: #{$b};
-    --c: #{$c};
-    --d: #{$d};
-    --e: #{$e};
-    --f: #{$f};
-    --g: #{$g};
-    --h: #{$h};
-    --i: #{$i};
-    --j: #{$j};
-    --k: #{$k};
-    --l: #{$l};
-}
+@import "colors.scss";
 
 .dark {
     --background: #{$background-dark2};
@@ -80,21 +10,10 @@ $l-dark: #9aa5ce;
     --accent: #{$background};
     --hover: #{$hover-dark};
     --table: #{$hover-dark};
-    --highlight: #{$background-2};
+    --highlight: #{$background-dark2};
     --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
-    --a: #{$a-dark};
-    --b: #{$b-dark};
-    --c: #{$c-dark};
-    --d: #{$d-dark};
-    --e: #{$e-dark};
-    --f: #{$f-dark};
-    --g: #{$g-dark};
-    --h: #{$h-dark};
-    --i: #{$i-dark};
-    --j: #{$j-dark};
-    --k: #{$k-dark};
-    --l: #{$l-dark};
+    @include darkchroma;
 }
 
 body.dark .moon {

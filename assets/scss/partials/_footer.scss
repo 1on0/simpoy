@@ -1,5 +1,5 @@
 footer {
-  box-shadow: 0px 0px 0px 1px var(--line-shadow);
+  @include box1;
   margin-top: 3.5em;
   padding: 1.5em;
   position: relative;

@@ -1,13 +1,13 @@
 .terms-section {
     &-title {
-        padding: 1rem 2rem;
+        padding: 0 1rem;
     }
 }
 
 %terms {
     text-decoration: none;
     color: var(--primary);
-    padding: 0 1em;
+    padding: 0 1rem;
     margin-bottom: 2rem;
 }
 
@@ -16,7 +16,7 @@
 
     &-title {
         box-shadow: 0 2px 2px -2px var(--line-shadow);
-        padding: 0.25em;
+        padding: 0.3rem 0.3rem 0.5rem;
         margin-top: 1rem;
         margin-bottom: .5rem;
 
@@ -36,7 +36,6 @@
         &-title {
             text-decoration: none;
             color: var(--secondary);
-            font-weight: $normal;
             
 
             &:hover {
@@ -44,7 +43,7 @@
             }
 
             h4 {
-                margin: .5rem;
+                margin: 0.3rem .5rem;
                 line-height: 1.5;
             }
         }

@@ -1,68 +1,69 @@
+/* Improvements to Hugo Chroma syntax highlighting */
+
 .highlight {
     position: relative;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    /* set the tab size for browsers that support it */
-    tab-size: 4;
-    -moz-tab-size: 4;
-    /* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
-    -webkit-text-size-adjust: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	/* set the tab size for browsers that support it */
+	tab-size: 4;
+	-moz-tab-size: 4;
+	/* needed for the iPhone so that the two columns (line numbers and code) don't have different font sizes */
+	-webkit-text-size-adjust: 100%;
+}
+
+.highlight > * {
+	padding: 0.5em;
+    border: $border;
+}
+
+.highlight pre {
+    position: relative;
+	margin: 0px;
+	overflow-x: auto;
+	word-wrap: normal;
+    font-family: monospace, monospace;
+    background-color: var(--highlight) !important;
 }
 
 pre {
     position: relative;
     margin: 0;
-    background-color: var(--background) !important;
+    background-color: var(--highlight) !important;
     border: $border;
     color: var(--secondary);
     font-family: monospace, monospace;
     padding: .5rem;
-    line-height: 1.5;
+    line-height: 1.7;
     overflow-x: hidden;
-
-    
-}
-
-.hljs {
-    display: relative;
-}
-
-.highlight>* {
-    padding: .5rem;
-}
-
-.highlight pre {
-    overflow-x: auto;
-    word-wrap: normal;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-
 }
 
 .highlight td.lntd pre {
-    /* needed to fix an iPhone scrolling bug */
-    overflow-x: hidden;
+	/* needed to fix an iPhone scrolling bug */
+	overflow-x: hidden;
 }
 
 .highlight td.lntd:last-child {
-    /* needed until this bug is fixed: https://github.com/alecthomas/chroma/issues/225 */
-    width: 100%;
+	/* needed until this bug is fixed: https://github.com/alecthomas/chroma/issues/225 */
+	width: 100%;
 }
 
 /* Improvements to inline code blocks */
 
 code {
-    font-size: 85%;
-    color: var(--secondary);
+	font-size: 98%;
 }
 
-:not(pre)>code {
-    /* inline code elements */
-    background-color: var(--background-2);
-    font-size: 80%;
-    padding: 0.2em 0.4em;
-
+:not(pre) > code {
+	/* inline code elements */
+	background-color: rgba(25, 25, 25, 0.05);
+	border-radius: 5px;
+	font-size: 80%;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
 }
+
 
 .copy-code {
     display: none;
@@ -74,16 +75,10 @@ code {
     border: none;
 }
 
-.code-name {
-    display: inline-block;
-    position: relative;
-    color: var(--secondary);
-    font-size: 13px;
-    font-weight: 400;
-  }
-
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
     cursor: pointer;
 }
+
+
