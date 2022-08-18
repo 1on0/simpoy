@@ -1,7 +1,7 @@
 footer {
   @include box1;
   margin-top: 3.5em;
-  padding: 1.5em;
+  padding: 0.5rem 1.5rem;
   position: relative;
   left: 0;
   bottom: 0;
@@ -15,7 +15,7 @@ footer {
 
     &-left {
       margin: 0 auto;
-      padding: 0.5em;
+      padding: 0.5rem;
 
       .social-menu {
         width: 100%;

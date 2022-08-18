@@ -1,6 +1,7 @@
 .terms-section {
     &-title {
         padding: 0 1rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -31,20 +32,20 @@
     }
 
     &-items {
-        padding: 0.25em;
+        padding: 0.2em;
 
         &-title {
             text-decoration: none;
-            color: var(--secondary);
-            
 
-            &:hover {
-                opacity: 0.8;
-            }
-
-            h4 {
+            h6 {
                 margin: 0.3rem .5rem;
                 line-height: 1.5;
+                color: var(--secondary);
+
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: var(--secondary);
+                }
             }
         }
     }
