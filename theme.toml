@@ -19,3 +19,7 @@ min_version = "0.88.0"
   name = "Ion Orion Sugiarmawan"
   homepage = "https://github.com/ionsqr/simpoy"
   repo = "https://github.com/ionsqr/simpoy"
+
+[build]
+  noJSConfigInAssets = false
+  writeStats = false

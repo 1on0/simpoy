@@ -1,0 +1,4 @@
+[build]
+  noJSConfigInAssets = false
+  useResourceCachewhen = 'fallback'
+  writeStats = false
