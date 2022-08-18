@@ -15,6 +15,7 @@
 	padding: 1em;
 	border: $border;
 	background-color: var(--highlight);
+	
 }
 
 pre {
@@ -24,7 +25,7 @@ pre {
 	border: $border;
 	color: var(--secondary);
 	font-size: 90%;
-	line-height: 1.5;
+	font-family: "Courier New", monospace, monospace;
 }
 
 .highlight pre {
@@ -36,6 +37,7 @@ pre {
 .highlight td.lntd pre {
 	/* needed to fix an iPhone scrolling bug */
 	overflow-x: hidden;
+	
 }
 
 .highlight td.lntd:last-child {
@@ -46,8 +48,8 @@ pre {
 /* Improvements to inline code blocks */
 
 code {
-	font-size: 100%;
-	background-color: var(--secondary-white);
+	line-height: 1.5;
+
 }
 
 :not(pre) > code {
@@ -57,6 +59,8 @@ code {
 	padding-bottom: 0.2em;
 	padding-left: 0.4em;
 	padding-right: 0.4em;
+	font-size: 80%;
+	background-color: var(--secondary-white);
 }
 
 
@@ -68,7 +72,7 @@ code {
     right: 1%;
     user-select: none;
     border: none;
-	background-color: var(--background);
+	background-color: var(--primary-white);
 }
 
 div.highlight:hover .copy-code,
@@ -77,4 +81,4 @@ pre:hover .copy-code {
     cursor: pointer;
 }
 
-
+/* LineHighlight */ .chroma .hl { background-color: var(--hover) }
