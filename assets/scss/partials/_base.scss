@@ -111,9 +111,11 @@ blockquote {
         margin-top: 1rem;
     }
 
-    p {
+    p,
+    dl,
+    ol,
+    ul {
         font-size: $m;
-        color: $border;
     }
 }
 
@@ -220,4 +222,4 @@ video {
 
 .emojify {
     font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-  }
+}
