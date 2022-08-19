@@ -1,13 +1,14 @@
 .tab {
-    width: 100%;
     color: var(--secondary);
     overflow: hidden;
+    padding: 0 1rem;
 
     &-label {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         border: $border;
-        padding: .5rem 1rem;
+        padding: .75rem 1rem;
         background: var(--secondary-white);
         cursor: pointer;
         user-select: none;
@@ -18,7 +19,8 @@
 
         &::after {
             content: "\276F";
-            width: 1em;
+            transform: rotate(90deg);
+            width: 2rem;
             height: 1em;
             text-align: center;
             transition: all .35s;
@@ -28,7 +30,6 @@
     &-content {
         max-height: 0;
         font-size: $s;
-        padding: 0 .5rem;
         border: $border;
         color: var(--secondary);
         background: var(--primary-white);
@@ -52,13 +53,13 @@
         background: var(--darken);
 
         &::after {
-            transform: rotate(90deg);
+            transform: rotate(-90deg);
         }
     }
 
     ~.tab-content {
         max-height: 100%;
-        padding: 1em;
+        padding: 0 1rem;
         display: block;
     }
 }
