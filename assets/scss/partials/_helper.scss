@@ -29,20 +29,5 @@
                 margin-right: .1rem;
             }
         }
-
-
-
-        &-category {
-            padding: 0rem 1rem;
-            color: var(--secondary);
-            border: $border;
-            transition: transform 250ms;
-            text-decoration: none;
-
-            &:hover {
-                background-color: var(--accent);
-                color: var(--primary-white);
-            }
-        }
     }
 }

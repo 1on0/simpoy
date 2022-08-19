@@ -3,8 +3,8 @@
 /* based on tufte.css https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css */
 h1 {
     font-weight: $bolder;
-    margin-top: 2.25rem;
-    margin-bottom: 1.25rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
     font-size: $xxl;
     line-height: 1;
 }
@@ -12,8 +12,8 @@ h1 {
 h2 {
     font-style: italic;
     font-weight: 400;
-    margin-top: 2.125rem;
-    margin-bottom: 1.125rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
     font-size: $xl;
     line-height: 1;
 }
@@ -22,8 +22,8 @@ h3 {
     font-style: italic;
     font-weight: 400;
     font-size: $l;
-    margin-top: 2rem;
-    margin-bottom: 1.125rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     line-height: 1;
 }
 
@@ -47,11 +47,7 @@ hr {
 
 
 .numeral {
-    font-family: et-book-roman-old-style;
-}
-
-.danger {
-    color: red;
+    font-family: $serif;
 }
 
 section {
@@ -106,12 +102,17 @@ i {
 blockquote {
     border: $border;
     background-color: var(--background-2);
-    padding: .1em 1em .4em 20px;
+    padding: 1rem;
     border-left: 4px solid var(--secondary);
     margin: 1rem 0;
+    color: var(--secondary);
+
+    h3 {
+        margin-top: 1rem;
+    }
 
     p {
-        font-size: $r;
+        font-size: $m;
         color: $border;
     }
 }
@@ -126,9 +127,13 @@ blockquote footer {
 
     margin-top: 0.3rem;
     margin-bottom: 0;
-    font-size: 1.1rem;
     line-height: 1.3;
     vertical-align: baseline;
+
+    ol li p {
+        font-size: $m;
+        color: var(--secondary);
+    }
 
     p {
         margin: .25em 0;

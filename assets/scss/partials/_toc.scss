@@ -1,38 +1,32 @@
 .table-of-contents {
     border: $border;
-    padding: .75rem;
-    margin: 0 0 2rem;
-    background-color: var(--table);
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: var(--secondary-white);
 
     &-title {
         margin-left: .3rem;
+        font-size: $m;
     }
 
-    ul {
+    .toc {
+        margin: 0;
 
-        li {
-            padding-left: .1rem;
+        ul {
+            line-height: 1.4rem;
+            padding: 0 1rem;
+            margin: .5rem;
 
-            a:-webkit-any-link {
-                text-decoration: none;
-                color: var(--secondary);
-                font-weight: $bold;
+            li {
+                a {
+                    color: var(--secondary);
+                    text-decoration: none;
 
-            }
-
-            ul {
-                list-style-type: disc;
-                padding-left: 1rem;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
-    }
-
-    &-title {
-        font-weight: $bold;
-        font-size: $r;
-    }
-
-    h3 {
-        padding-left: 2rem;
     }
 }

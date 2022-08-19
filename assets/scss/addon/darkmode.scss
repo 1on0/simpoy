@@ -13,6 +13,7 @@
     --highlight: #{$background-dark2};
     --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
+    --darken: #{$darken-dark};
     @include darkchroma;
 }
 

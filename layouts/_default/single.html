@@ -1,11 +1,6 @@
 {{- define "title" -}}{{- .Title -}} - {{- site.Title -}}{{- end -}}
 {{- define "content" -}}
 <article class="post">
-    {{- if .Params.categories -}}
-    <p class="helper-label">
-        {{- partial "helper/label-category" . -}}
-    </p>
-    {{- end -}}
     <div class="post-header">
         {{- partial "body/post/post-title" . -}}
         {{- partial "body/post/post-meta" . -}}

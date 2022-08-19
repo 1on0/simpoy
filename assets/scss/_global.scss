@@ -12,6 +12,7 @@
     --highlight: #{$highlight};
     --shadow: #{$box-shadow};
     --line-shadow: #{$shadow};
+    --darken: #{$darken};
 }
 
 @import "colors.scss";

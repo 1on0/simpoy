@@ -65,7 +65,7 @@
 .header {
     margin-bottom: 2em;
     width: 100%;
-    @include box2;
+    box-shadow: 0 3px 3px -3px var(--secondary);
 
     &-inner {
         margin: 0 auto;

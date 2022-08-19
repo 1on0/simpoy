@@ -24,15 +24,30 @@
     &-meta {
         display: flex;
         justify-content: start;
-        gap: 3em;
         padding-left: 0.75rem;
         flex-wrap: wrap;
+        gap: 1rem;
 
         &-date,
         &-read {
             line-height: 0;
-            margin-top: 0.5rem;
+            margin: 0.5rem 0;
             color: var(--secondary);
+            font-size: $m;
+        }
+
+        &-label {
+            display: flex;
+            line-height: 0;
+            margin-top: .5rem;
+            gap: 1rem;
+
+            a {
+                color: var(--secondary);
+                font-size: $m;
+
+
+            }
         }
     }
 

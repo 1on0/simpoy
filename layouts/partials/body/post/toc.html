@@ -1,17 +1,39 @@
-{{ if or (.Params.toc) (and (ne .Params.toc false) (isset .Site.Params "tocwordthreshold") (ge .Site.Params.TocWordThreshold 0) (gt .WordCount .Site.Params.TocWordThreshold)) }}
-    {{/* If the front matter parameter is true, show the toc */}}
-    {{/* Elif the front matter parameter is false, don't show the toc */}}
-    {{/* Elif the front matter parameter is not set, show the toc if the site parameter is set, non-negative, and less than the word count */}}
-    <div class="table-of-contents">
-      <details close="close">
-        <summary>
-          <span class="table-of-contents-title">Table of Contents</span>
-        </summary>
-        {{ $toc := .TableOfContents -}}
-        {{/* Workaround for an extra layer of indentation (https://discourse.gohugo.io/t/2303) */}}
-        {{- $toc := replaceRE `<nav(.*)>(\s?)<ul>\s?<li>\s?<ul>` `<nav${1}>${2}<ul>` $toc -}}
-        {{- $toc := replaceRE `</ul>\s?</li>\s?</ul>(\s?)</nav>` `</ul>${1}</nav>` $toc -}}
-        {{- safeHTML $toc }}
-      </details>
-    </div>
-  {{ end }}
+<!-- https://github.com/gohugoio/hugo/issues/1778 + -->
+<!-- ignore empty links with + -->
+{{- $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content -}}
+  <!-- at least one header to link to -->
+  {{- $has_headers := ge (len $headers) 1 -}}
+  <!-- a post can explicitly disable Table of Contents with toc: false -->
+  {{- $show_toc := (eq $.Params.toc true) -}}
+  {{- if and $has_headers $show_toc -}}
+  <div class="table-of-contents">
+    <details close="close">
+      <!-- TOC header -->
+      <summary>
+        <span class="table-of-contents-title">Table of Contents</span>
+      </summary>
+      {{- range $headers -}}
+      {{- $header := . -}}
+      {{- range first 1 (findRE "<h[1-6]" $header 1) -}} {{- range findRE "[1-6]" . 1 -}} {{- $next_heading :=(int .) -}} 
+      <!--generate li array of the proper depth -->
+      {{- range seq $next_heading -}}
+        <div class="toc">
+          <ul class="toc-h{{ . }}">
+            {{- end -}}
+            {{- $base := ($.Page.File.LogicalName) -}}
+            {{- $anchorId := ($header | plainify | htmlUnescape | anchorize) -}}
+            {{- $href := delimit (slice $base $anchorId) "#" | string -}}
+            <li><a href="{{ relref $.Page $href -}}">
+                {{ $header | plainify | htmlUnescape -}}
+              </a></li>
+            <!-- close list -->
+            {{- range seq $next_heading -}}
+          </ul>
+          {{- end -}}
+          {{- end -}}
+          {{- end -}}
+          {{- end -}}
+        </div>
+    </details>
+  </div>
+  {{- end -}}

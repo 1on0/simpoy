@@ -1,0 +1,8 @@
+<div class="tab">
+    {{ $title := .Get 0 }}
+    <input class="tab-input" type="checkbox" id="{{ $title }}" />
+    <label class="tab-label" for="{{- $title -}}">{{ $title }}</label>
+    <div class="tab-content">
+        <p>{{ .Inner | markdownify }}</p>
+    </div>
+</div>
