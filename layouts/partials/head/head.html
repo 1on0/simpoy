@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ $nofp.RelPermalink | safeURL }}">
     {{ end }}
     {{- if hugo.IsProduction -}}
-    {{- partial "head/opengraph" . -}}
-    {{- partial "head/schema" . -}}
+    {{- template "_internal/opengraph.html" . -}}
+    {{- template "_internal/schema.html" . -}}
     {{- end -}}
 </head>
