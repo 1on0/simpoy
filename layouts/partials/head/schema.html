@@ -3,9 +3,10 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "name": "{{- site.Author -}}",
+        "name": "{{- site.Params.author -}}",
+        "description: "[{{- range $i, $e := .Params.tags -}}{{- if $i -}}, {{- end -}}{{- $e -}}{{- end -}}]"",
         "url": "{{- site.BaseURL -}}",
-        "thumbnailUrl": "{{- site.Params.thumbnailUrl -}}"
+        "thumbnailUrl": "{{- site.Params.thumbnailUrl | absURL |safeHTML -}}"
     }
     </script>
 {{- end -}}
@@ -29,7 +30,7 @@
               "name": {{- site.Params.header -}},
               "logo": {
                 "@type": "ImageObject",
-                "url": {{- site.Params.logo -}}
+                "url": {{- site.Params.thumbnailUrl | absURL |safeHTML -}}
               }
             },
             "description": {{- .Summary | plainify | safeHTML -}},
