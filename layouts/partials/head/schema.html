@@ -10,7 +10,7 @@
     </script>
 {{- end -}}
 
-{{- if or (eq .Section "archives") (eq site.taxonomies.tags) (eq site.Taxonomies.categories) -}}
+{{- if .IsPage -}}
 <script type="application/ld+json">
     	{
             "@context": "https://schema.org",

@@ -2,7 +2,7 @@
 
     <a aria-label="{{ $.Site.Title }}" href="{{ "/" | absURL }}">
         {{ with .Site.Params.logo }}
-        {{- $img := resources.Get .image -}}
+        {{- $img := resources.Get . -}}
         {{ with $img }}
             {{ $logo := $img.Resize "x30 Lanczos" }}
                 <picture>
