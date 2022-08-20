@@ -4,7 +4,7 @@
         "@context": "http://schema.org",
         "@type": "WebSite",
         "name": "{{- site.Params.author -}}",
-        "description": "[{{- range $i, $e := .Params.categories -}}{{- if $i -}}, {{- end -}}{{- $e -}}{{- end -}}]",
+        "description": "{{- site.Params.description -}}]",
         "url": "{{- site.BaseURL -}}",
         "thumbnailUrl": "{{- site.Params.thumbnailUrl | absURL |safeHTML -}}"
     }

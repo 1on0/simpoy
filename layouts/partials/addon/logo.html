@@ -1,16 +1,16 @@
 <div class="logo">
 
-    <a aria-label="{{ $.Site.Title }}" href="{{ "/" | absURL }}">
-        {{ with .Site.Params.logo }}
+    <a aria-label="{{- $.Site.Title -}}" href="{{- "/" | absURL -}}">
+        {{- with .Site.Params.logo -}}
         {{- $img := resources.Get . -}}
-        {{ with $img }}
-            {{ $logo := $img.Resize "x30 Lanczos" }}
+        {{- with $img -}}
+            {{- $logo := $img.Resize "x30 Lanczos" -}}
                 <picture>
-                    <img srcset="{{- $logo.Permalink | absURL -}}" alt="logo" aria-label="logo" width="{{ $logo.Width }}"
+                    <img srcset="{{- $logo.Permalink | absURL -}}" alt="logo" aria-label="logo" width="{{- $logo.Width -}}"
                     height="{{- $logo.Height -}}">
                 </picture>
-        {{ end }}
-        {{ end }}
-        {{ .Site.Title }}
+        {{- end -}}
+        {{- end -}}
+        {{- .Site.Title -}}
     </a>
 </div>
