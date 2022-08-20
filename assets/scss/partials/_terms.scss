@@ -19,7 +19,7 @@
         box-shadow: 0 2px 2px -2px var(--line-shadow);
         padding: 0.3rem 0.3rem 0.5rem;
         margin-top: 1rem;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
 
 
         a {
@@ -33,20 +33,16 @@
 
     &-items {
         padding: 0.2em;
+        margin-top: 0;
 
         &-title {
-            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 200;
 
-            h6 {
-                margin: 0.3rem .5rem;
-                line-height: 1.5;
-                color: var(--secondary);
-
-                &:hover {
-                    text-decoration: underline;
-                    text-decoration-color: var(--secondary);
-                }
+            &:hover {
+                color: var(--accent);
             }
+
         }
     }
 }

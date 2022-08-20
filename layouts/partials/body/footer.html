@@ -1,9 +1,4 @@
 <footer>
-  {{- if and .Params.comments (gt (len .Site.DisqusShortname) 0) -}}
-  <figure class="article-discussion">
-    {{- template "_internal/disqus.html" . -}}
-  </figure>
-  {{- end -}}
   <div class="footer">
     <div class="footer-upper">
       <div class="footer-upper-left">
@@ -20,14 +15,12 @@
           {{- end -}}
         </div>
       </div>
-
       <div class="footer-upper-right">
         <p class="copyright">
           {{- site.Copyright | safeHTML -}}
         </p>
       </div>
     </div>
-
     <div class="footer-lower">
       <ul class="cc"> 
         <li>&#x1f16d;</li>
@@ -35,13 +28,11 @@
         <li>&#x1f10f;</li>
         <li>&#x1f10e;</li>
       </ul>
-
       <p class="licensed">
         {{- with site.Params.license -}}
         Licensed under <a href="{{- .url | safeHTML -}}" target="_blank" rel="noopener">{{- .name -}}</a>
         {{- end -}}
       </p>
-
       <p class="powered">
         {{- with site.Params.powered -}}
         Powered by <a href="{{- .hugo.url | safeHTML -}}" target="_blank" rel="noopener">{{- .hugo.name -}}</a> and <a href="{{- .theme.url | safeHTML -}}" target="_blank" rel="noopener">{{- .theme.name -}}</a>
