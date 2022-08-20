@@ -10,7 +10,7 @@
     </script>
 {{- end -}}
 
-{{- if eq .Section "post" -}}
+{{- if or (eq .Section "archives") (eq site.taxonomies.tags) (eq site.Taxonomies.categories) -}}
 <script type="application/ld+json">
     	{
             "@context": "https://schema.org",
@@ -39,7 +39,7 @@
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": {{- site.Params.header -}},
+            "name": {{- site.Author -}},
             "url": {{- site.BaseURL -}}
           }
 </script>
