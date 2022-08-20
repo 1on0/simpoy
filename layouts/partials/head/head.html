@@ -24,5 +24,6 @@
     {{- if hugo.IsProduction -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- template "_internal/schema.html" . -}}
+    {{- partial "head/schema" . -}}
     {{- end -}}
 </head>

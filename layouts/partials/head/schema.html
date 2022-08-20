@@ -1,0 +1,45 @@
+{{- if .IsHome -}}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{- site.Author -}}",
+        "url": "{{- site.BaseURL -}}",
+        "thumbnailUrl": "{{- site.Params.logo -}}"
+    }
+    </script>
+{{- end -}}
+
+{{- if eq .Section "post" -}}
+<script type="application/ld+json">
+    	{
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": {{- .Title -}},
+            "image": {{- .Params.cover | absURL -}},
+            "datePublished": {{- .PublishDate -}},
+            "dateModified": {{- .Lastmod -}},
+            "author": {
+              "@type": "Person",
+              "name": {{- site.Author -}}
+            },
+            "mainEntityOfPage": { "@type": "WebPage" },
+             "publisher": {
+              "@type": "Organization",
+              "name": {{- site.Params.header -}},
+              "logo": {
+                "@type": "ImageObject",
+                "url": {{- site.Params.logo -}}
+              }
+            },
+            "description": {{- .Summary | plainify | safeHTML -}},
+            "keywords": [{{- range $i, $e := .Params.tags -}}{{- if $i -}}, {{- end -}}{{- $e -}}{{- end -}}]
+          }
+          {{- end -}}
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": {{- site.Params.header -}},
+            "url": {{- site.BaseURL -}}
+          }
+</script>
