@@ -35,11 +35,5 @@
             "description": {{- .Summary | plainify | safeHTML -}},
             "keywords": [{{- range $i, $e := .Params.tags -}}{{- if $i -}}, {{- end -}}{{- $e -}}{{- end -}}]
           }
-          {{- end -}}
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": {{- site.Author -}},
-            "url": {{- site.BaseURL -}}
-          }
 </script>
+{{- end -}}
