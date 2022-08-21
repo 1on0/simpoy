@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{- $nofp.RelPermalink | safeURL -}}" crossorigin="anonymous" rel="preload stylesheet" as="style">
     {{- end -}}
     {{- if hugo.IsProduction -}}
-    {{- template "_internal/opengraph.html" . -}}
     {{- template "_internal/schema.html" . -}}
+    {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/schema" . -}}
     {{- end -}}
 </head>
