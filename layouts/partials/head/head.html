@@ -1,10 +1,9 @@
-<head lang="{{ .Site.LanguageCode }}">
+<head lang="{{- .Site.LanguageCode -}}">
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="{{ .Permalink | safeURL }}" />
+    <link rel="canonical" href="{{- .Permalink | safeURL -}}" />
     <!--seo-->
     {{- partial "head/seo" . -}}
     <!-- rss -->
@@ -14,12 +13,12 @@
     {{- partial "head/favicon" . -}}
     <!-- style -->
     {{- $css := resources.Get "scss/style.scss" -}}
-    {{ if site.Params.fingerprint }}
+    {{- if site.Params.fingerprint -}}
     {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha256" -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" rel="preload stylesheet" as="style">
-    {{ else }}
-    {{- $nofp := $css | resources.ToCSS | minify }}
-    <link rel="stylesheet" href="{{ $nofp.RelPermalink | safeURL }}" crossorigin="anonymous" rel="preload stylesheet" as="style">
+    <link rel="stylesheet" href="{{- $style.RelPermalink | safeURL -}}" integrity="{{- $style.Data.Integrity -}}" crossorigin="anonymous" rel="preload stylesheet" as="style">
+    {{- else -}}
+    {{- $nofp := $css | resources.ToCSS | minify -}}
+    <link rel="stylesheet" href="{{- $nofp.RelPermalink | safeURL -}}" crossorigin="anonymous" rel="preload stylesheet" as="style">
     {{- end -}}
     {{- if hugo.IsProduction -}}
     {{- template "_internal/opengraph.html" . -}}

@@ -1,8 +1,8 @@
 <div class="photo-container" id="lightgallery">
     {{- $img := resources.Get .Params.cover -}}
     <div class="photo-item" data-src="{{ $img.Permalink }}">
-        {{ $medium := $img.Fill "1200x900 Lanczos" }}
-        {{ $small := $img.Fill "800x600 Lanczos" }}
+        {{ $medium := $img.Fill "1200x900 Lanczos webp" }}
+        {{ $small := $img.Fill "800x600 Lanczos webp" }}
 
         <a href="{{ $img.Permalink }}">
             <picture>
