@@ -16,11 +16,11 @@
     {{- $css := resources.Get "scss/style.scss" -}}
     {{ if site.Params.fingerprint }}
     {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha256" -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" rel="preload stylesheet" as="style>
+    <link rel="stylesheet" href="{{ $style.RelPermalink | safeURL }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" rel="preload stylesheet" as="style">
     {{ else }}
     {{- $nofp := $css | resources.ToCSS | minify }}
-    <link rel="stylesheet" href="{{ $nofp.RelPermalink | safeURL }}" crossorigin="anonymous" rel="preload stylesheet" as="style>
-    {{ end }}
+    <link rel="stylesheet" href="{{ $nofp.RelPermalink | safeURL }}" crossorigin="anonymous" rel="preload stylesheet" as="style">
+    {{- end -}}
     {{- if hugo.IsProduction -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- template "_internal/schema.html" . -}}
