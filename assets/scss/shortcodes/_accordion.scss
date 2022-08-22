@@ -9,14 +9,10 @@
         align-items: center;
         font-size: $r;
         border: $border;
-        padding: .75rem 1rem;
+        padding: .5rem 1rem;
         background: var(--secondary-white);
         cursor: pointer;
         user-select: none;
-
-        span {
-            margin-right: 2rem;
-        }
 
         &:hover {
             background: var(--darken);
@@ -25,6 +21,7 @@
         .arrow {
             align-items: baseline;
             display: flex;
+            padding: 0 .5rem;
             align-items: center;
             position: relative;
             width: 2rem;
@@ -32,6 +29,7 @@
 
             &::after {
                 content: "\276F";
+                transform: rotate(90deg);
                 display: block;
                 position: absolute;
                 transition: all .35s;
@@ -66,7 +64,7 @@
         background: var(--darken);
 
         .arrow::after {
-            transform: rotate(90deg);
+            transform: rotate(-90deg);
         }
     }
 
