@@ -25,6 +25,9 @@
     {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/schema" . -}}
     {{- end -}}
+    {{- with site.Params.plausible -}}
+    <script defer data-domain="{{- .domain -}}" src="{{- .src -}}"></script>
+    {{- end -}}
     <noscript>
         <style>
             #darkmode {
