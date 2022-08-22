@@ -6,10 +6,10 @@
     <div class="photo-item" data-src="{{ $img.RelPermalink }}">
 
         {{/* set image sizes, these are hardcoded for now */}}
-        {{- $tinys := default "500x Lanczos webp" -}}
-        {{- $smalls := default "800x Lanczos webp" -}}
-        {{- $mediums := default "1200x Lanczos webp" -}}
-        {{- $larges := default "1600x Lanczos webp" -}}
+        {{- $tinys := default "500x Lanczos" -}}
+        {{- $smalls := default "800x Lanczos" -}}
+        {{- $mediums := default "1200x Lanczos" -}}
+        {{- $larges := default "1600x Lanczos" -}}
 
         {{/* resize the src image to the given sizes */}}
         {{- .Scratch.Set "tiny" ($img.Resize $tinys) -}}

@@ -102,7 +102,7 @@ i {
 blockquote {
     border: $border;
     background-color: var(--background-2);
-    padding: 1rem;
+    padding: 0 1rem;
     border-left: 4px solid var(--secondary);
     margin: 1rem 0;
     color: var(--secondary);
@@ -116,6 +116,7 @@ blockquote {
     ol,
     ul {
         font-size: $m;
+        margin-top: .5rem;
     }
 }
 

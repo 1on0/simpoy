@@ -7,23 +7,35 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: $r;
         border: $border;
         padding: .75rem 1rem;
         background: var(--secondary-white);
         cursor: pointer;
         user-select: none;
 
+        span {
+            margin-right: 2rem;
+        }
+
         &:hover {
             background: var(--darken);
         }
 
-        &::after {
-            content: "\276F";
-            transform: rotate(90deg);
+        .arrow {
+            align-items: baseline;
+            display: flex;
+            align-items: center;
+            position: relative;
             width: 2rem;
             height: 1em;
-            text-align: center;
-            transition: all .35s;
+
+            &::after {
+                content: "\276F";
+                display: block;
+                position: absolute;
+                transition: all .35s;
+            }
         }
     }
 
@@ -38,6 +50,7 @@
 
         p {
             font-size: $m;
+            margin: .5rem 0;
         }
     }
 }
@@ -52,8 +65,8 @@
     +.tab-label {
         background: var(--darken);
 
-        &::after {
-            transform: rotate(-90deg);
+        .arrow::after {
+            transform: rotate(90deg);
         }
     }
 
