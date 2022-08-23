@@ -20,19 +20,22 @@
             "image": {{- .Params.cover | absURL -}},
             "datePublished": {{- .PublishDate -}},
             "dateModified": {{- .Lastmod -}},
+            "accountablePerson": {
+              "@type": "Person",
+              "name": "{{ site.Params.author }}",
+              "url": "{{ .Site.BaseURL }}/about"
+            },
             "author": {
               "@type": "Person",
-              "name": {{- site.Author -}}
+              "name": "{{ site.Params.author }}",
+              "url": "{{ .Site.BaseURL }}/about"
             },
-            "mainEntityOfPage": { "@type": "WebPage" },
-             "publisher": {
-              "@type": "Organization",
-              "name": {{- site.Params.header -}},
-              "logo": {
-                "@type": "ImageObject",
-                "url": {{- site.Params.thumbnailUrl | absURL |safeHTML -}}
-              }
+            "creator": {
+              "@type": "Person",
+              "name": "{{ site.Params.author }}",
+              "url": "{{ .Site.BaseURL }}/about"
             },
+            "mainEntityOfPage": "True",
             "description": {{- .Summary | plainify | safeHTML -}},
             "keywords": [{{- range $i, $e := .Params.tags -}}{{- if $i -}}, {{- end -}}{{- $e -}}{{- end -}}]
           }
