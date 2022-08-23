@@ -28,7 +28,7 @@
     {{- with site.Params.plausible -}}
     {{- $src := .src -}}
     {{- $plausible := resources.GetRemote $src | js.Build "js/src/plausible.js" | resources.Fingerprint "sha512" -}}
-    <script id="plausible" defer data-domain="{{- .domain -}}" src="{{- $plausible -}}" integrity="{{- $plausible.Data.Integrity -}}"></script>
+    <script id="plausible" defer data-domain="{{- .domain -}}" src="{{- $plausible.RelPermalink -}}" integrity="{{- $plausible.Data.Integrity -}}"></script>
     {{- end -}}
     
     <noscript>
