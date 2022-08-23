@@ -11,7 +11,7 @@
     }
 
     .menu-item .menu-item-dropicon {
-        font-size: $l;
+        font-size: $m;
         position: absolute;
         right: 2rem;
         top: auto;
@@ -42,6 +42,7 @@
 
     .dropicon {
         color: var(--secondary);
+        font-size: .8rem;
         position: relative;
         align-items: baseline;
     }
