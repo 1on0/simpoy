@@ -1,4 +1,4 @@
-<div class="photo-container" id="lightgallery">
+<div class="photo-container">
     {{- $img := resources.Get .Params.cover -}}
     <div class="photo-item" data-src="{{ $img.Permalink }}">
         {{ $medium := $img.Fill "1200x900 Lanczos" }}

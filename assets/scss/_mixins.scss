@@ -2,7 +2,6 @@
 @mixin box1 {
     box-shadow: 0px 0px 24px 0px var(--shadow);
     -webkit-box-shadow: 0px 0px 24px 0px var(--shadow);
-    -moz-box-shadow: 0px 0px 24px 0px var(--shadow);
 }
 
 /*Submenu header*/
@@ -42,10 +41,8 @@
     }
 
     .dropicon {
-        font-size: $xl;
         color: var(--secondary);
-        position: absolute;
-        right: -.3rem;
-        top: .7rem;
+        position: relative;
+        align-items: baseline;
     }
 }
