@@ -4,22 +4,22 @@
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink | safeHTML }}</link>
     <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
-    {{ with .Site.Params.languageTag | default "en-US" }}<language>{{.}}</language>{{end}}
-    <managingEditor>{{.}}{{ with site.Author }} ({{.}}){{end}}</managingEditor>
-    <webMaster>{{.}}{{ with site.Author }} ({{.}}){{end}}</webMaster>{{ with site.Copyright }}
-    <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
-    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{ with .Site.Params.languageCode | default "en-US" }}<language>{{.}}</language>{{end}}
+    <copyright>{{ with site.Copyright }}{{.}}{{end}}</copyright>{{ if not .Date.IsZero }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006" | safeHTML }}</lastBuildDate>{{ end }}
     {{- with .OutputFormats.Get "RSS" -}}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end -}}
-    {{ range .Pages }}
+    {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- range $pages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      <author>{{ with site.Params.author }} ({{.}}){{end}}</author>
+      <author>{{ with site.Params.author }}{{.}}{{end}}</author>
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | plainify }}</description>
+      <description>{{ "<![CDATA[" | safeHTML }} {{ .Summary }}]]></description>
+      <content:encoded>{{ "<![CDATA[" | safeHTML }} {{ partial "rss/rss" . | safeHTML }}]]></content:encoded>
     </item>
     {{ end }}
   </channel>
