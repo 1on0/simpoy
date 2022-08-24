@@ -3,9 +3,9 @@
     {{- partial "head/head" . -}}
     <body>
         {{- partial "body/header" . -}}
-        <section id="content">
+        <div id="content">
         {{- block "content" . }}{{- end -}}
-        </section>
+        </div>
         {{- partialCached "body/footer" . -}}
         {{- partial "addon/js" . -}}
     </body>

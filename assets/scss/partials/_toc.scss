@@ -11,24 +11,21 @@
         font-size: $m;
     }
 
-    .toc {
-        margin: 0;
+    ul {
+        line-height: 1.4rem;
+        padding: 0 1rem;
+        margin: 1rem .5rem;
 
-        ul {
-            line-height: 1.4rem;
-            padding: 0 1rem;
-            margin: .5rem;
+        li {
+            a {
+                color: var(--secondary);
+                text-decoration: none;
 
-            li {
-                a {
-                    color: var(--secondary);
-                    text-decoration: none;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }
     }
+
 }

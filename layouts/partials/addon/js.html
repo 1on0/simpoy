@@ -9,26 +9,26 @@
 {{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
 
 {{- if and $development $darkmode -}}
-<script type="text/javascript" src="{{- $darkmodejs.RelPermalink -}}" defer></script>
+<script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
 
 {{- if and (eq .Kind "page") $development $clipboard -}}
-<script type="text/javascript" src="{{- $clipboardjs.RelPermalink -}}" defer></script>
+<script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
 
 {{- if not $development -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
-<script type="text/javascript" src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+<script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
 {{- $darkmodefp := $darkmodejs | fingerprint "sha512" -}}
-<script type="text/javascript" src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 
 {{- if and ($clipboard) (not $fingerprint) -}}
-<script type="text/javascript" src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+<script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
 {{- $clipboardfp := $clipboardjs | fingerprint "sha512" -}}
-<script type="text/javascript" src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
 

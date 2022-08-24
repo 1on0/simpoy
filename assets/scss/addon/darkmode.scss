@@ -1,6 +1,7 @@
 @import "colors.scss";
 
 .dark {
+    @include darkchroma;
     --background: #{$background-dark2};
     --background-2: #{$background-dark2};
     --primary: #{$background};
@@ -14,7 +15,6 @@
     --shadow: #{$shadow};
     --line-shadow: #{$primary-white};
     --darken: #{$darken-dark};
-    @include darkchroma;
 }
 
 body.dark .moon {

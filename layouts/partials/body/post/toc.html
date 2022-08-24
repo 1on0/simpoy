@@ -17,7 +17,6 @@
       {{- range first 1 (findRE "<h[1-6]" $header 1) -}} {{- range findRE "[1-6]" . 1 -}} {{- $next_heading :=(int .) -}} 
       <!--generate li array of the proper depth -->
       {{- range seq $next_heading -}}
-        <div class="toc">
           <ul class="toc-h{{ . }}">
             {{- end -}}
             {{- $base := ($.Page.File.LogicalName) -}}
@@ -33,7 +32,6 @@
           {{- end -}}
           {{- end -}}
           {{- end -}}
-        </div>
     </details>
   </div>
   {{- end -}}
