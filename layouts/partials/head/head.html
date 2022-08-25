@@ -26,11 +26,11 @@
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/schema" . -}}
-    {{- end -}}
     {{- with site.Params.plausible -}}
     {{- $src := .src -}}
     {{- $plausible := resources.GetRemote $src | resources.Fingerprint "sha512" -}}
     <script id="plausible" defer data-domain="{{- .domain -}}" src="{{- $src -}}" integrity="{{- $plausible.Data.Integrity -}}" crossorigin="anonymous"></script>
+    {{- end -}}
     {{- end -}}
     
     <noscript>
