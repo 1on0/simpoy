@@ -25,13 +25,6 @@
     {{- if hugo.IsProduction -}}
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
-    {{- end -}}
     {{- partial "head/head-js" . -}}
-    <noscript>
-        <style type="text/css">
-            #darkmode {
-                display: none;
-            }
-        </style>
-    </noscript>
+    {{- end -}}
 </head>
