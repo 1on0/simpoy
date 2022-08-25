@@ -1,5 +1,1 @@
-{{- if .IsNamedParams -}}
-<p class="{{- .Get "class" -}}">{{- .Inner | plainify | htmlUnescape -}}</p>
-{{- else -}}
-<p class="{{- .Get 0 -}}">{{- .Inner | plainify | htmlUnescape -}}</p>
-{{- end -}}
+<span class="{{- .Get "class" -}}">{{- .Inner | plainify | htmlUnescape -}}</span>

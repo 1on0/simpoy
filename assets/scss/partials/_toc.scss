@@ -8,24 +8,43 @@
 
     &-title {
         margin-left: .3rem;
-        font-size: $m;
+        font-size: $r;
     }
 
-    ul {
-        line-height: 1.4rem;
+    .toc {
         padding: 0 1rem;
-        margin: 1rem .5rem;
+        margin: 1rem .5rem 0 .5rem;
+        color: var(--secondary);
 
-        li {
+        &-h1, &-h2, &-h3, &-h4, &-h5, &-h6 {
+            
             a {
-                color: var(--secondary);
-                text-decoration: none;
+            text-decoration: none;
 
-                &:hover {
-                    text-decoration: underline;
-                }
+            &:hover {
+                text-decoration: underline;
+            }
             }
         }
+
+        &-h1 {
+            margin-left: 0;
+        }
+
+        &-h2 {
+            margin-left: 0;
+        }
+
+        &-h3 {
+            margin-left: 2rem;
+        }
+
+        &-h4, &-h5, &-h6 {
+            margin-left: 4rem;
+        }
+
+        
+        
     }
 
 }

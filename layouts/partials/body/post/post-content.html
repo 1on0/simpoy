@@ -1,8 +1,8 @@
-<section class="post-content">
+<div class="post-content">
     <!-- Refer to https://discourse.gohugo.io/t/responsive-tables-in-markdown/10639/5 -->
     {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
     {{ if .Params.cover }}
-    {{- partial "addon/featured_image" . -}}
+    {{- partial "addon/cover" . -}}
     {{- end -}}
     {{- partial "body/post/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
@@ -12,5 +12,4 @@
     {{- if .Params.socialshare  -}}
     {{ partial "addon/socialshare.html" . }}
     {{- end -}}
-
-</section>
+</div>

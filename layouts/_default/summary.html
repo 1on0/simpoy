@@ -1,7 +1,7 @@
 <article class="index">
     {{- partial "body/index/index-title" . -}}
     {{- if .Params.cover -}}
-    {{- partial "addon/featured_image" . -}}
+    {{- partial "addon/cover" . -}}
     {{- end -}}
     {{- if isset .Params "description" -}}
     <p class="index-desc">
