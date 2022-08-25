@@ -38,18 +38,18 @@
 {{- end -}}
 
 <!-- Structured Data Page Schema - HIDDEN -->
-<div id="schema" itemscope itemtype="http://schema.org/BlogPosting">    
-  <meta itemprop="mainEntityOfPage" content="{{ .Permalink }}" />
-     <meta itemprop="inLanguage" content="en-US" />
-     <h1 itemprop="headline">{{ .Title }}</h1>
-     <meta itemprop="name" content="{{ .Title }}" />
-     <meta itemprop="description" content="{{if .Params.summary }}{{ .Params.summary  }}{{ else }}{{ if .Description }}{{ .Description }}{{ end }}{{ end }}" />
-     <meta itemprop="wordCount" content="{{ .WordCount }}" />
-     <meta itemprop="keywords" content="{{ range $i,$e := .Params.tags }}{{ if $i }},{{ end }}{{ $e }}{{ end }}" />
+<div class="schema" itemscope itemtype="http://schema.org/BlogPosting">    
+    <meta itemprop="mainEntityOfPage" content="{{ .Permalink }}" />
+    <meta itemprop="inLanguage" content="{{ site.LanguageCode }}" />
+    <h1 itemprop="headline">{{ .Title }}</h1>
+    <meta itemprop="name" content="{{ .Title }}" />
+    <meta itemprop="description" content="{{if .Content }}{{ .Content  }}{{ else }}{{ if .Description }}{{ .Description }}{{ end }}{{ end }}" />
+    <meta itemprop="wordCount" content="{{ .WordCount }}" />
+    <meta itemprop="keywords" content="{{ range $i,$e := .Params.tags }}{{ if $i }},{{ end }}{{ $e }}{{ end }}" />
      
-     <meta itemprop="copyrightYear" content="{{ .Date.Format "2006" }}" />
+    <meta itemprop="copyrightYear" content="{{ .Date.Format "2006" }}" />
     <div itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="{{ .Params.author }}">
+        <meta itemprop="name" content="{{ site.Params.author }}">
     </div>
     
     {{ if .Params.cover }}
