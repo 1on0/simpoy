@@ -22,6 +22,7 @@
     {{- $nofp := $css | resources.ToCSS | minify -}}
     <link rel="preload stylesheet" as="style" href="{{- $nofp.RelPermalink | safeURL -}}">
     {{- end -}}
+    {{- if hugo.IsProduction -}}
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/schema" . -}}
@@ -29,6 +30,7 @@
     {{- $src := .src -}}
     {{- $plausible := resources.GetRemote $src | resources.Fingerprint "sha512" -}}
     <script id="plausible" defer data-domain="{{- .domain -}}" src="{{- $src -}}" integrity="{{- $plausible.Data.Integrity -}}" crossorigin="anonymous"></script>
+    {{- end -}}
     {{- end -}}
     
     <noscript>
