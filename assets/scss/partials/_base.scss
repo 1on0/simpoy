@@ -215,10 +215,17 @@ video {
 }
 
 .arabic {
-    text-align: right;
     font-family: $arabic;
+    display: block;
+    clear: both;
     font-size: $xl;
     line-height: 3rem;
+    text-align: right;
+
+    span {
+    float: right;
+
+    }
 }
 
 .emojify {
