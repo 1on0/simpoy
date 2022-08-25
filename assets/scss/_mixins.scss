@@ -14,7 +14,7 @@
         font-size: $s;
         position: absolute;
         right: 2rem;
-        top: auto;
+        top: 1rem;
     }
 
     .menu-item input[type="checkbox"]:checked+.submenu {
@@ -31,19 +31,21 @@
 }
 
 @mixin menuwide {
-    .menu .menu-item:hover>.submenu,
-    .menu .menu-item:focus-within>.submenu,
-    .menu .menu-item .submenu:hover,
-    .menu .menu-item .submenu:focus {
+    .menu-item input[type="checkbox"] {
+        display: none; 
+    }
+
+    .menu-item .menu-item-dropicon {
+        font-size: $xs;
+        position: absolute;
+        right: -.2rem;
+        top: 1.2rem;
+    }
+
+    .menu-item input[type="checkbox"]:checked+.submenu {
         visibility: visible;
         opacity: 1;
         display: block;
     }
 
-    .dropicon {
-        color: var(--secondary);
-        font-size: .8rem;
-        position: relative;
-        align-items: baseline;
-    }
 }

@@ -3,8 +3,8 @@
     <meta itemprop="mainEntityOfPage" content="{{ .Permalink }}" />
     <meta itemprop="inLanguage" content="{{ site.LanguageCode }}" />
     <h1 itemprop="headline">{{- if .Title -}}{{ .Title }}{{- else -}}{{ site.Title }}{{- end -}}</h1>
-    <meta itemprop="name" content="{{- .Title -}}" />
-    <meta itemprop="description" content="{{- if .Description -}}{{- .Description -}}{{- else -}}{{- if .Content -}}{{- .Content  -}}{{- end -}}{{- end -}}" />
+    <meta itemprop="name" content="{{- if .Title -}}{{ .Title }}{{- else -}}{{ site.Title }}{{- end -}}" />
+    <meta itemprop="description" content="{{- if .Description -}}{{- .Description -}}{{- else -}}{{- if .Content -}}{{- .Content  -}}{{- else -}}{{- if site.Params.description -}}{{- site.Params.description  -}}{{- end -}}{{- end -}}{{- end -}}" />
     <meta itemprop="wordCount" content="{{- .WordCount -}}" />
     <meta itemprop="keywords" content="{{- if .IsPage -}}{{- range $index, $tag := .Params.tags -}}{{- $tag -}},{{- end -}}{{- else -}}{{- range $plural, $terms := site.Taxonomies -}}{{- range $term, $val := $terms -}}{{- printf "%s," $term -}}{{- end -}}{{- end -}}{{- end -}}" />
      
@@ -34,10 +34,10 @@
         <meta itemprop="name" content="{{ .Params.author }}">
     </div>
     <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="{{ .Site.Params.organization }}">
+      <meta itemprop="name" content="{{ site.Params.author }}">
       <a itemprop="url" href="/"> 
       <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"  >
-      <img itemprop="image" src="{{ site.Params.favicon.default | absURL }}" />
+      <img itemprop="image" src="{{ site.Params.favicon.default | absURL }}" alt="thumbnail" />
       <link itemprop="url" href="{{ site.Params.favicon.default | absURL }}" />
       </span>
       </a>
