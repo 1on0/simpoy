@@ -23,3 +23,42 @@
 <!-- Output all taxonomies as schema.org keywords -->
 <meta itemprop="keywords" content="{{ if .IsPage}}{{ range $index, $tag := .Params.tags }}{{ $tag }},{{ end }}{{ else }}{{ range $plural, $terms := .Site.Taxonomies }}{{ range $term, $val := $terms }}{{ printf "%s," $term }}{{ end }}{{ end }}{{ end }}" />
 {{- end -}}
+
+{{- if .IsHome -}}
+<script type="application/ld+json" nonce="yainz8od48">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "{{- site.Params.author -}}",
+    "description": "{{- site.Params.description -}}",
+    "url": "{{- site.BaseURL -}}",
+    "thumbnailUrl": "{{- site.Params.thumbnailUrl | absURL |safeHTML -}}"
+  }
+</script>
+{{- end -}}
+
+{{- if .IsPage -}}
+    <script type="application/ld+json" nonce="yainz8od48">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "articleSection" : "{{ .Section }}",
+        "name" : "{{ .Title | safeJS }}",
+        "headline" : "{{ .Title | safeJS }}",
+        "description" : "{{ with .Description }}{{ . | safeJS }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}",
+        "inLanguage" : "en-US",
+        "author" : "{{ site.Params.author }}",
+        "creator" : "{{ site.Params.author }}",
+        "accountablePerson" : "{{ site.Params.author }}",
+        "copyrightHolder" : "{{ site.Params.author }}",
+        "copyrightYear" : "{{ .Date.Format "2006" }}",
+        "datePublished" : "{{ .Date.Format "2006" }}",
+        "publisher": "{{ site.BaseURL }}",
+        "logo": "{{ site.Params.favicon.default | absURL }}",
+        "url" : "{{ .Permalink }}",
+        "wordCount" : "{{ .WordCount }}",
+        "image" : "{{ if .Params.cover }}{{- . | absURL -}}{{ else }}{{- site.Params.thumbnailUrl | absURL |safeHTML -}}{{- end -}}",
+        "keywords" : [ "{{ if .IsPage}}{{ range $index, $tag := .Params.tags }}{{ $tag }},{{ end }}{{ else }}{{ range $plural, $terms := .Site.Taxonomies }}{{ range $term, $val := $terms }}{{ printf "%s," $term }}{{ end }}{{ end }}{{ end }}" ]
+    }
+    </script>
+{{- end -}}
