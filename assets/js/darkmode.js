@@ -1,3 +1,8 @@
+$(document).ready (function() {
+    $('#tes').show();
+});
+
+
 function setTheme(mode) {
     sessionStorage.setItem("dark-mode-storage", mode);
 
@@ -21,5 +26,4 @@ toggle.addEventListener("click", () => {
         setTheme("dark");
     }
 });
-
 
