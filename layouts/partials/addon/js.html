@@ -3,18 +3,14 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
-
 {{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
 {{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
-
 {{- if and $development $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-
 {{- if and (eq .Kind "page") $development $clipboard -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
-
 {{- if not $development -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
@@ -22,7 +18,6 @@
 {{- $darkmodefp := $darkmodejs | fingerprint "sha512" -}}
 <script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-
 {{- if and ($clipboard) (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
@@ -30,7 +25,6 @@
 <script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
-
 {{- end -}}
 <noscript><style>#darkmode {display: none;}</style></noscript>
 
