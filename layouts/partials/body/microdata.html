@@ -14,14 +14,14 @@
     
     {{ if .Params.cover }}
      <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-         <img  itemprop="url" src="{{- .Params.cover | absURL -}}" alt="thumbnail">
+         <img  itemprop="url" src="{{- .Params.cover | absURL -}}" loading="lazy" alt="thumbnail">
          <meta itemprop="width" content="220" >
          <meta itemprop="height" content="220" >
     </div>
     {{ else }}
     <!-- Default to site Logo -->
     <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-         <img  itemprop="url" src="{{- site.Params.thumbnailUrl | absURL |safeHTML -}}" alt="thumbnail">
+         <img  itemprop="url" src="{{- site.Params.thumbnailUrl | absURL |safeHTML -}}" loading="lazy" alt="thumbnail">
          <meta itemprop="width" content="200" >
          <meta itemprop="height" content="200" >
     </div>
@@ -36,7 +36,7 @@
       <meta itemprop="name" content="{{ site.Params.author }}">
       <a itemprop="url" href="/"> 
       <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"  >
-      <img itemprop="image" src="{{ site.Params.favicon.default | absURL }}" alt="thumbnail" />
+      <img itemprop="image" src="{{ site.Params.favicon.default | absURL }}" loading="lazy" alt="thumbnail" />
       <link itemprop="url" href="{{ site.Params.favicon.default | absURL }}" />
       </span>
       </a>
