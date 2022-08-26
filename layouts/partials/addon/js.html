@@ -5,23 +5,25 @@
 {{- $clipboard := site.Params.addon.copybutton -}}
 {{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
 {{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
-{{- if and $development $darkmode -}}
+{{- if $development -}}
+{{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if and (eq .Kind "page") $development $clipboard -}}
+{{- if and (eq .Kind "page") $clipboard -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
+{{- end -}}
 {{- end -}}
 {{- if not $development -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $darkmodefp := $darkmodejs | fingerprint "sha512" -}}
+{{- $darkmodefp := $darkmodejs | fingerprint "sha256" -}}
 <script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- if and ($clipboard) (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $clipboardfp := $clipboardjs | fingerprint "sha512" -}}
+{{- $clipboardfp := $clipboardjs | fingerprint "sha256" -}}
 <script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
