@@ -2,19 +2,14 @@
 {{- $taxonomies := .Data.Plural -}}
 {{- $terms := .Data.Terms.ByCount -}}
 {{- $type := .Type -}}
-
 {{- with .Page -}}
 <div class="terms-section">
-    <!-- "{{- .Params.Title  -}}" pulls from the front matter title parameter of the corresponding _index.md under /content/category/_index.md -->
     <h1 class="terms-section-title">
         {{- .Title -}}
     </h1>
-    <!-- "{{- .Content -}}" pulls from the markdown content of the corresponding /content/category/_index.md -->
     {{- .Content -}}
 </div>
 {{- end -}}
-
-<!-- All post with categories taxonomy,  -->
 {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
 {{- range $terms -}}
 {{- $term := .Term -}}
@@ -42,7 +37,6 @@
 {{- end -}}
 {{- end -}}
 {{- end -}}
-
 {{- if (eq $taxonomies "categories") -}}
 {{- partial "helper/cloud-tag" . -}}{{- else -}}{{- if (eq $taxonomies "tags") -}}
 {{- partial "helper/cloud-category" . -}}

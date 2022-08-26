@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="{{- .Permalink | safeURL -}}" />
     <link rel=license href="{{ site.Params.licenseUrl }}" />
-    <!--seo-->
     {{- partial "head/seo" . -}}
-    <!-- rss -->
     {{- with .OutputFormats.Get "rss" -}}
     {{- printf `<link rel="%s" type="%s" href="%s" title="%s" crossorigin=""/>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
     {{- end -}}
     {{- partial "head/favicon" . -}}
-    <!-- style -->
     {{- $css := resources.Get "scss/style.scss" -}}
     {{- if site.Params.fingerprint -}}
     {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha512" -}}

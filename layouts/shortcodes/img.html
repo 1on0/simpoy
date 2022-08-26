@@ -1,26 +1,22 @@
 <div class="photo-container">
-    {{/* get file that matches the filename as specified as src="" in shortcode */}}
     {{- $img := resources.GetMatch (printf "%s" (.Get 0)) -}}
     {{- $options := .Get 1 -}}
     {{- $alt := .Get 2 -}}
     <div class="photo-item" data-src="{{- $img.RelPermalink -}}">
-        {{/* set image sizes, these are hardcoded for now */}}
         {{- $tinys := default "500x Lanczos" -}}
         {{- $smalls := default "800x Lanczos" -}}
         {{- $mediums := default "1200x Lanczos" -}}
         {{- $larges := default "1600x Lanczos" -}}
-        {{/* resize the src image to the given sizes */}}
         {{- .Scratch.Set "tiny" ($img.Resize $tinys) -}}
         {{- .Scratch.Set "small" ($img.Resize $smalls) -}}
         {{- .Scratch.Set "medium" ($img.Resize $mediums) -}}
         {{- .Scratch.Set "large" ($img.Resize $larges) -}}
-        {{/* add the processed images to the scratch */}}
         {{- $tiny := .Scratch.Get "tiny" -}}
         {{- $small := .Scratch.Get "small" -}}
         {{- $medium := .Scratch.Get "medium" -}}
         {{- $large := .Scratch.Get "large" -}}
         <picture>
-            <img class="center" width="{{$img.Width}}" height="{{$img.Height}}" 
+            <img class="center" width="{{- $img.Width -}}" height="{{- $img.Height -}}" 
                 sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
                 srcset='
                 {{- if ge $img.Width "500" -}}
