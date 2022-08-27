@@ -3,28 +3,28 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
-{{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
+{{- $darkmodejs := resources.Get "js/darkmode.js" | minify -}}
+{{- $clipboardjs := resources.Get "js/clipboard.js" | minify -}}
 {{- if $development -}}
 {{- if $darkmode -}}
-<script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
+<script src="{{- $darkmodejs.Permalink -}}" defer></script>
 {{- end -}}
 {{- if and (eq .Kind "page") $clipboard -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
+<script src="{{- $clipboardjs.Permalink -}}" defer></script>
 {{- end -}}
 {{- end -}}
 {{- if not $development -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
-<script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+<script src="{{- $darkmodejs.Permalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
-<script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- $darkmodefp := $darkmodejs | resources.Fingerprint "sha384" -}}
+<script src="{{- $darkmodefp.Permalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- if and ($clipboard) (not $fingerprint) -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+<script src="{{- $clipboardjs.Permalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
-<script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- $clipboardfp := $clipboardjs | resources.Fingerprint "sha384" -}}
+<script src="{{- $clipboardfp.Permalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
 {{- end -}}
