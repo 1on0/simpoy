@@ -13,13 +13,15 @@
     {{- partial "head/favicon" . -}}
     {{- $css := resources.Get "scss/style.scss" -}}
     {{- if site.Params.fingerprint -}}
-    {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha512" -}}
+    {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha384" -}}
     <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}" integrity="{{- $style.Data.Integrity -}}" crossorigin="anonymous">
     {{- else -}}
     {{- $nofp := $css | resources.ToCSS | minify -}}
     <link rel="preload stylesheet" as="style" href="{{- $nofp.RelPermalink | safeURL -}}">
     {{- end -}}
+    {{- if hugo.IsProduction -}}
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/head-js" . -}}
+    {{- end -}}
 </head>

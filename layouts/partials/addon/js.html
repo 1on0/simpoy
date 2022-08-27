@@ -17,13 +17,13 @@
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $darkmodefp := $darkmodejs | fingerprint "sha256" -}}
+{{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
 <script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- if and ($clipboard) (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $clipboardfp := $clipboardjs | fingerprint "sha256" -}}
+{{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
 <script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
