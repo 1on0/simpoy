@@ -1,7 +1,8 @@
 <meta itemprop="name" content="{{- if .Title -}}{{- .Title -}}{{- else -}}{{- if site.Title -}}{{- site.Title -}}{{- end -}}{{- end -}}">
-<meta itemprop="description"
-  content="{{- with .Description -}}{{- . -}}{{- else -}}{{- if .IsPage -}}{{- .Summary -}}{{- else -}}{{- with site.Params.description -}}{{- . -}}{{- end -}}{{- end -}}{{- end -}}">
-{{- if .IsPage -}}
+<meta itemprop="description" content="{{- with .Description -}}{{- . -}}{{- else -}}{{- if .IsPage -}}{{- .Summary -}}{{- else -}}{{- with site.Params.description -}}{{- . -}}{{- end -}}{{- end -}}{{- end -}}">
+{{- if .IsPage  -}}
+{{- $tes := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- if $tes -}}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
 {{- with .PublishDate -}}
 <meta itemprop="datePublished" {{- .Format $iso8601 | printf "content=%q" | safeHTMLAttr -}} />{{- end -}}
@@ -22,6 +23,7 @@
 <meta itemprop="image" content="{{- index . 0 | absURL -}}" />{{- end -}}
 {{- end -}}
 {{- end -}}
+{{- end -}}
 <meta itemprop="keywords"
   content="{{- if .IsPage -}}{{- range $index, $tag := .Params.tags -}}{{- $tag -}},{{- end -}}{{- else -}}{{- range $plural, $terms := site.Taxonomies -}}{{- range $term, $val := $terms -}}{{- printf "%s," $term -}}{{- end -}}{{- end -}}{{- end -}}" />
 {{- end -}}
@@ -37,16 +39,18 @@
   }
 </script>
 {{- end -}}
-{{- if .IsPage -}}
+{{- if .IsPage  -}}
+{{- $tes := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- if $tes -}}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "articleSection": "{{- .Section -}}",
+    "articleSection": "{{- with .Section -}}{{- . -}}{{- else -}}{{- with .Title -}}{{- . -}}{{- end -}}{{- end -}}",
     "name": "{{- .Title | safeJS -}}",
     "headline": "{{- .Title | safeJS -}}",
-    "description": "{{- with .Description -}}{{- . | safeJS -}}{{- else -}}{{- with .Summary -}}{{- . -}}{{- end -}}{{- end -}}",
-    "inLanguage": "en-US",
+    "description": "{{- with .Description -}}{{- . | safeJS -}}{{- else -}}{{- with .Summary -}}{{- . -}}{{- else -}}{{- with .Content -}}{{- . -}}{{- end -}}{{- end -}}{{- end -}}",
+    "inLanguage": "{{- site.LanguageCode -}}",
     "author": "{{- site.Params.author -}}",
     "creator": "{{- site.Params.author -}}",
     "accountablePerson": "{{- site.Params.author -}}",
@@ -63,4 +67,5 @@
     ]
   }
 </script>
+{{- end -}}
 {{- end -}}
