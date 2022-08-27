@@ -3,8 +3,8 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
-{{- $darkmodejs := resources.Get "js/darkmode.js" | minify -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" | minify -}}
+{{- $darkmodejs := resources.Get "js/darkmode.js" -}}
+{{- $clipboardjs := resources.Get "js/clipboard.js" -}}
 {{- if $development -}}
 {{- if $darkmode -}}
 <script src="{{- $darkmodejs.Permalink -}}" defer></script>
