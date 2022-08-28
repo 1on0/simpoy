@@ -18,23 +18,23 @@
 <script src="{{- $globaljs.RelPermalink -}}" defer></script>
 {{- end -}}
 {{- end -}}
-{{- if not $development -}}
-{{- if and ($darkmode) (not $fingerprint) (not $global) -}}
+{{- if and  (not $development) (not $global) -}}
+{{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
 {{- else -}}
 {{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if and ($clipboard) (not $fingerprint) (not $global) -}}
+{{- if and ($clipboard) (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
 {{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if $global }}
+{{- end -}}
+{{- if and (not $development) $global }}
 {{- $globalfp := $globaljs | fingerprint "sha384" }}
 <script src="{{- $globaljs.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
-{{- end -}}
 {{- end -}}
 {{- end -}}
 <noscript><style>#darkmode {display: none;}</style></noscript>

@@ -11,10 +11,12 @@
     {{- printf `<link rel="%s" type="%s" href="%s" title="%s" crossorigin=""/>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
     {{- end -}}
     {{- partial "head/favicon" . -}}
-    {{- $css := resources.Get "scss/style.scss" | toCSS -}}
+    {{- if eq (hugo.Environment) "development" -}}
+    {{- $css := resources.Get "scss/style.scss" | toCSS (dict "outputStyle" "nested") -}}
     <link rel="preload stylesheet" as="style" href="{{- $css.RelPermalink | safeURL -}}">
+    {{- end -}}
     {{- if hugo.IsProduction -}}
-    {{- $options := (dict "targetPath" "src/simpoy.css" "outputStyle" "compressed") }}
+    {{- $options := (dict "targetPath" "css/simpoy.css" "outputStyle" "compressed") }}
     {{- if site.Params.fingerprint -}}
     {{- $style := resources.Get "scss/style.scss" | toCSS $options | fingerprint "sha384" -}}
     <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}" integrity="{{- $style.Data.Integrity -}}" crossorigin="anonymous">
