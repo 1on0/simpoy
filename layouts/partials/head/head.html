@@ -11,15 +11,17 @@
     {{- printf `<link rel="%s" type="%s" href="%s" title="%s" crossorigin=""/>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
     {{- end -}}
     {{- partial "head/favicon" . -}}
-    {{- $css := resources.Get "scss/style.scss" -}}
+    {{- $css := resources.Get "scss/style.scss" | toCSS -}}
+    <link rel="preload stylesheet" as="style" href="{{- $css.RelPermalink | safeURL -}}">
+    {{- if hugo.IsProduction -}}
+    {{- $options := (dict "targetPath" "src/simpoy.css" "outputStyle" "compressed") }}
     {{- if site.Params.fingerprint -}}
-    {{- $style := $css | resources.ToCSS | minify | resources.Fingerprint "sha384" -}}
+    {{- $style := resources.Get "scss/style.scss" | toCSS $options | fingerprint "sha384" -}}
     <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}" integrity="{{- $style.Data.Integrity -}}" crossorigin="anonymous">
     {{- else -}}
-    {{- $nofp := $css | resources.ToCSS | minify -}}
+    {{- $nofp := resources.Get "scss/style.scss" | toCSS $options -}}
     <link rel="preload stylesheet" as="style" href="{{- $nofp.RelPermalink | safeURL -}}">
     {{- end -}}
-    {{- if hugo.IsProduction -}}
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
     {{- partial "head/head-js" . -}}

@@ -11,13 +11,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
     min-height: 100%;
     font-family: $serif;
-
 }
 
 #content {
     display: block;
     min-height: 70vh;
-    width: 95%;
+    width: 100%;
     max-width: 48rem;
     margin: 0 auto !important;
     word-wrap: break-word;

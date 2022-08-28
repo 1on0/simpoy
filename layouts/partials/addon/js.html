@@ -3,28 +3,37 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
-{{- $darkmodejs := resources.Get "js/darkmode.js" -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" -}}
+{{- $global := slice $darkmode $clipboard }}
+{{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
+{{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
+{{- $globaljs := slice $darkmodejs $clipboardjs | resources.Concat "js/src/global.js" | minify -}}
 {{- if $development -}}
-{{- if $darkmode -}}
-<script src="{{- $darkmodejs.Permalink -}}" defer></script>
+{{- if and $darkmode (not $global) -}}
+<script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if and (eq .Kind "page") $clipboard -}}
-<script src="{{- $clipboardjs.Permalink -}}" defer></script>
+{{- if and (eq .Kind "page") $clipboard (not $global) -}}
+<script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
+{{- end -}}
+{{- if $global -}}
+<script src="{{- $globaljs.RelPermalink -}}" defer></script>
 {{- end -}}
 {{- end -}}
 {{- if not $development -}}
-{{- if and ($darkmode) (not $fingerprint) -}}
-<script src="{{- $darkmodejs.Permalink -}}" defer crossorigin="anonymous"></script>
+{{- if and ($darkmode) (not $fingerprint) (not $global) -}}
+<script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
 {{- else -}}
-{{- $darkmodefp := $darkmodejs | resources.Fingerprint "sha384" -}}
-<script src="{{- $darkmodefp.Permalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
+<script src="{{- $darkmodejs.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if and ($clipboard) (not $fingerprint) -}}
-<script src="{{- $clipboardjs.Permalink -}}" defer crossorigin="anonymous"></script>
+{{- if and ($clipboard) (not $fingerprint) (not $global) -}}
+<script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
-{{- $clipboardfp := $clipboardjs | resources.Fingerprint "sha384" -}}
-<script src="{{- $clipboardfp.Permalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
+<script src="{{- $clipboardjs.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- end -}}
+{{- if $global }}
+{{- $globalfp := $globaljs | fingerprint "sha384" }}
+<script src="{{- $globaljs.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
 {{- end -}}

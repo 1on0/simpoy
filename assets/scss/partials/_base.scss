@@ -1,6 +1,5 @@
 /* baseof */
 
-/* based on tufte.css https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css */
 h1 {
     font-weight: $bolder;
     margin-top: 3.5rem;
@@ -10,8 +9,7 @@ h1 {
 }
 
 h2 {
-    font-style: italic;
-    font-weight: 400;
+    font-weight: $bolder;
     margin-top: 3rem;
     margin-bottom: 1.25rem;
     font-size: $xl;
@@ -19,12 +17,25 @@ h2 {
 }
 
 h3 {
-    font-style: italic;
-    font-weight: 400;
+    font-weight: $bold;
     font-size: $l;
     margin-top: 3rem;
     margin-bottom: 1rem;
     line-height: 1;
+}
+
+h4,
+h5,
+h6 {
+    font-size: $r;
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 a,
+h2 a,
+h3 a {
+    text-decoration: none;
 }
 
 p.subtitle {
@@ -58,8 +69,8 @@ p,
 dl,
 ol,
 ul {
-    font-size: $r;
-    line-height: 2rem;
+    font-size: $m;
+    line-height: 1.5;
 }
 
 p {
@@ -72,20 +83,6 @@ p {
 footer p {
     font-size: $s;
     line-height: 1.5rem;
-}
-
-h4,
-h5,
-h6 {
-    font-size: $r;
-    margin-top: 1.4rem;
-    margin-bottom: 0.5rem;
-}
-
-h1 a,
-h2 a,
-h3 a {
-    text-decoration: none;
 }
 
 strong,
@@ -115,7 +112,7 @@ blockquote {
     dl,
     ol,
     ul {
-        font-size: $m;
+        font-size: $s;
         margin-top: .5rem;
     }
 }
