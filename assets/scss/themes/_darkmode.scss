@@ -2,12 +2,14 @@
 
 .dark {
     @include darkchroma;
+
     --black-primary: #{$white-secondary};
     --black-secondary: #{$white-primary};
     --white-primary: #{$dark-primary};
     --white-secondary: #{$dark-secondary};
     --grey-primary: #{$dark-secondary};
     --grey-secondary: #{$dark-secondary};
+    --link: #{$dark-link};
     --accent: #{$white-primary};
     --hover: #{$hover-dark};
     --table: #{$hover-dark};

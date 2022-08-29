@@ -9,7 +9,6 @@
 }
 
 .highlight > * {
-	border: $border;
 	background-color: var(--highlight);
 	overflow-x: auto;
     word-wrap: normal;
@@ -22,7 +21,6 @@ pre {
 	position: relative;
 	padding: 1rem;
 	color: var(--black-secondary);
-	border: $border;
 	font-size: 90%;
 	overflow-x: auto;
     word-wrap: normal;

@@ -1,11 +1,6 @@
 %border {
     border: $border;
-    padding: .3rem .6rem;
-}
-
-%style {
-    text-decoration: none;
-    color: var(--accent);
+    padding: .3rem .6rem
 }
 
 .pagination {
@@ -15,52 +10,10 @@
     list-style: none;
     padding-inline-start: 0px;
 
-    &-first {
-        @extend %border;
-
-        &-link {
-            @extend %style;
-        }
+    &-first, &-previous, &-next, &-last, &-item, &-item-current {
+        @extend %border
     }
 
-    &-previous {
-        @extend %border;
-
-        &-link {
-            @extend %style;
-        }
-    }
-
-    &-item {
-        @extend %border;
-
-        &-link {
-            @extend %style;
-        }
-
-        &-current {
-            @extend %border;
-            background-color: var(--accent);
-        }
-
-        &-link-current {
-            color: var(--white-primary);
-        }
-    }
-
-    &-next {
-        @extend %border;
-
-        &-link {
-            @extend %style;
-        }
-    }
-
-    &-last {
-        @extend %border;
-
-        &-link {
-            @extend %style;
-        }
-    }
+    &-item-current {color: var(--accent)}      
+    &-item-link-current {color: var(--black-secondary)}  
 }

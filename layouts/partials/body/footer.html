@@ -1,35 +1,18 @@
 <footer>
-  <div class="footer">
-    <div class="footer-upper">
-      <div class="social-menu">
-        {{- with site.Menus.social -}}
-        {{- range . -}}
-        {{- $url := .URL -}}
-        <a class="social-icons" href='{{- $url | safeHTML -}}' target="_blank" title="{{- .Name -}}">
-          {{- $icon := .Name -}}
-          {{- with $icon -}}
-          {{- partial "helper/icons" . -}}
-          {{- end -}}</a>
-        {{- end -}}
-        {{- end -}}
-      </div>
-      <a class="back-top" href="#header">Back to top</a>
-    </div>
-    <div class="footer-lower">
-      <p class="copyright">
-        {{ site.Copyright }} | {{ site.Params.author }}
-      </p>
-      <p class="licensed">
-        {{- with site.Params.license -}}
-        Licensed under <a href="{{- .url | safeHTML -}}" target="_blank" rel="noopener">{{- .name -}}</a>
-        {{- end -}}
-      </p>
-      <p class="powered">
-        {{- with site.Params.powered -}}
-        Powered by <a href="{{- .hugo.url | safeHTML -}}" target="_blank" rel="noopener">{{- .hugo.name -}}</a> and <a
-          href="{{- .theme.url | safeHTML -}}" target="_blank" rel="noopener">{{- .theme.name -}}</a>
-        {{- end -}}
-      </p>
-    </div>
+  <div class="footer-inner">
+    <p class="copyright">
+      {{ site.Copyright }} | {{ site.Params.author }}
+    </p>
+    <p class="licensed">
+      {{- with site.Params.license -}}
+      Licensed under <a href="{{- .url | safeHTML -}}" target="_blank" rel="noopener">{{- .name -}}</a>
+      {{- end -}}
+    </p>
+    <p class="powered">
+      {{- with site.Params.powered -}}
+      Powered by <a href="{{- .hugo.url | safeHTML -}}" target="_blank" rel="noopener">{{- .hugo.name -}}</a> and <a
+        href="{{- .theme.url | safeHTML -}}" target="_blank" rel="noopener">{{- .theme.name -}}</a>
+      {{- end -}}
+    </p>
   </div>
 </footer>

@@ -1,13 +1,8 @@
 .index {
-    padding: 1.25rem;
-    background-color: var(--white-secondary);
+    border: $border;
     margin-bottom: 2rem;
-
-    sup {
-        a {
-            color: var(--black-primary);
-        }
-    }
+    padding: 1rem;
+    margin: 1rem;
 
     &-item {
         text-decoration: none;
@@ -25,26 +20,6 @@
                 opacity: 0.8;
             }
         }
-    }
-
-    &-summary,
-    &-desc {
-        color: var(--black-primary);
-        margin-bottom: 1rem;
-        line-height: 1.5;
-        font-size: 1.125rem;
-
-        pre {
-            font-size: 80%;
-        }
-
-        a {
-            color: var(--black-secondary);
-        }
-    }
-
-    &-summary {
-        margin-top: 1rem;
     }
 
     &-meta {
@@ -65,10 +40,6 @@
                 text-decoration: none;
                 text-align: center;
                 color: var(--black-secondary);
-
-                &:hover {
-                    opacity: 0.8;
-                }
             }
         }
     }

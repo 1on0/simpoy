@@ -4,9 +4,9 @@
 {{- $type := .Type -}}
 {{- with .Page -}}
 <div class="terms-section">
-    <h1 class="terms-section-title">
+    <h3 class="terms-section-title">
         {{- .Title -}}
-    </h1>
+    </h3>
     {{- .Content -}}
 </div>
 {{- end -}}
@@ -16,11 +16,11 @@
 {{- $pages := .Pages -}}
 {{- with site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
 <div class="terms">
-    <h2 class="terms-title">
+    <h5 class="terms-title">
         <a href="{{- .RelPermalink | safeHTML -}}">
             {{- .Page.Title -}}
         </a>
-    </h2>
+    </h5>
     {{- range first 10 $pages -}}
     <h6 class="terms-items">
         <a href="{{- .RelPermalink | safeHTML -}}" class="terms-items-title">

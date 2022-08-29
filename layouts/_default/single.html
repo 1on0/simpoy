@@ -8,9 +8,7 @@
     </div>
     {{- partial "body/post/post-content" . -}}
     {{- if .Params.tags -}}
-    <p class="helper-label">
-        {{- partial "helper/label-tag" . -}}
-    </p>
+    {{- partial "helper/label-tag" . -}}
     {{- end -}}
 </article>
 {{- end -}}

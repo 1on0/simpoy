@@ -1,41 +1,18 @@
-.terms-section {
-    &-title {
-        padding: 0 1rem;
-        margin-bottom: 2rem;
-    }
-}
-
 .terms {
     padding: 0 1rem;
     margin-bottom: 2rem;
 
-    &-title {
-        box-shadow: 0 2px 2px -2px var(--line-shadow);
-        padding: 0.3rem 0.3rem 0.5rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-
-        a {
-            color: var(--black-primary);
-
-            &:hover {
-                color: var(--accent);
-            }
-        }
-    }
-
     &-items {
         padding: 0.2rem;
         margin-top: 0;
+    }
 
-        &-title {
-            color: var(--black-secondary);
-            font-weight: 200;
+    &-title {
+        box-shadow: 0 2px 2px -2px var(--line-shadow);
+        padding: 0.3rem 0.3rem 0.5rem;
 
-            &:hover {
-                color: var(--accent);
-            }
-
+        a {
+            color: var(--black-primary)
         }
     }
 }

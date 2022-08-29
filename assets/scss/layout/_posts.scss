@@ -1,26 +1,18 @@
 .post {
 
-    &-header {
-        padding: .75rem;
+    &-header  {
+        padding: 1rem;
 
         &-title {
-            color: var(--black-primary);
-            line-height: 1.25;
             text-align: left;
             box-shadow: 0 3px 3px -3px var(--black-secondary);
-            margin-top: 0;
-            padding: .3rem;
-
         }
     }
 
     &-subtitle {
         padding: .75rem;
-        margin-top: 0.5rem;
         font-style: italic;
-        line-height: 1.25;
-        font-weight: $normal;
-
+        font-weight: $normal
     }
 
     &-meta {
@@ -29,54 +21,20 @@
         padding-left: 0.75rem;
         flex-wrap: wrap;
         gap: 1rem;
+        font-size: $m;
 
         &-date,
-        &-read {
-            line-height: 0;
+        &-read, &-label {
             margin: 0.5rem 0;
-            color: var(--black-secondary);
-            font-size: $m;
-        }
-
-        &-label {
-            display: flex;
             line-height: 0;
-            margin-top: .5rem;
-            gap: 1rem;
-
-            a {
-                color: var(--black-secondary);
-                font-size: $m;
-
-
-            }
         }
     }
 
     &-content {
-        padding: .5rem 0.8rem .5rem 0.8rem;
+        padding: 0.5rem 0;
         margin-top: .3rem;
 
-        a {
-            color: var(--black-secondary);
-            overflow-wrap: break-word;
-
-            &:hover {
-                background-color: var(--hover);
-                transition: 0.5s;
-            }
+         h1, h2, h3, h4, h5, h6, p {padding: 0 1.5rem}       
         }
 
-        p {
-            color: var(--black-primary);
-
-        }
-    }
-
-    &-item {
-        color: var(--white-primary);
-        display: block;
-        padding: 2rem 0;
-        text-decoration: none;
-    }
 }

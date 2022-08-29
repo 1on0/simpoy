@@ -1,0 +1,17 @@
+.social-icons {
+    text-decoration: none;
+    transition: transform 250ms;
+
+    svg {
+      width: 25px;
+      height: auto;
+      color: var(--black-secondary);
+
+      &:hover {
+        color: var(--accent);
+        -webkit-transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        transform: scale(1.25);
+      }
+    }
+  }

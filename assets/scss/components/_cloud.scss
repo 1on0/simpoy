@@ -10,14 +10,12 @@
     p {
         line-height: 0;
         margin: auto .2rem;
-        color: var(--black-secondary);
-        font-size: $s;
     }
 
     a {
         text-decoration: none;
         padding: .3rem .5rem;
-        color: var(--secondary);
+        color: var(--black-secondary);
         background-color: var(--grey-primary);
         border: $border;
 
@@ -26,8 +24,5 @@
             transition: all ease-out 0.3s;
         }
 
-        sup {
-            padding: 0.1em 0.4em;
-        }
     }
 }

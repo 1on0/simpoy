@@ -34,9 +34,10 @@
 {{- end -}}
 {{- if and (not $development) $global (not $fingerprint) }}
 <script src="{{- $globaljs.RelPermalink -}}" defer crossorigin="anonymous"></script>
-{{- else -}}
+{{- else -}}{{- if $fingerprint -}}
 {{- $globalfp := $globaljs | fingerprint "sha384" }}
 <script src="{{- $globalfp.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- end -}}
 {{- end -}}
 {{- end -}}
 <noscript><style>#darkmode {display: none;}</style></noscript>

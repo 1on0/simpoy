@@ -1,4 +1,4 @@
-<div id="header" class="header">
+<header class="header" id="header">
     <div class="header-inner">
         <div class="header-inner-left">
             {{- partial "addon/logo" . -}}
@@ -8,50 +8,32 @@
         </div>
         {{- if site.Menus.main -}}
         <input class="menu-btn" type="checkbox" id="menu-btn">
-        <label class="menu-icon" for="menu-btn">
-            <span class="nav-icon"></span>
-        </label>
+        <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label>
         <ul class="menu">
             {{- $currentPage := . -}}
             {{- range site.Menus.main -}}
             {{- if .Name -}}
             {{- if .HasChildren -}}
             <li class="menu-item {{- if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) -}}active{{- end -}}">
-                <a class="menu-item-link" href="{{- .URL -}}">
-                    {{- .Pre -}}
-                    <span class="menu-text">{{- .Name -}}</span>
-                    {{- .Post -}}
-                </a>
+                <a class="menu-item-link" href="{{- .URL -}}">{{- .Pre -}}<span class="menu-text">{{- .Name -}}</span>{{- .Post -}}</a>
                 <label class="menu-item-dropicon" for="{{- .Name -}}">&#9661;</label>
                 <input class="sub-btn" type="checkbox" id="{{- .Name -}}">
                 <ul class="submenu">
                     {{- range .Children -}}
                     <li class="menu-item{{- if or ($currentPage.IsMenuCurrent " main" .)
-                        ($currentPage.HasMenuCurrent "main" .) -}}active{{- end -}}">
-                        <a class="menu-item-link" href="{{- .URL -}}">
-                            {{- .Pre -}}
-                            <span class="menu-text">{{- .Name -}}</span>
-                            {{- .Post -}}
-                        </a>
+                        ($currentPage.HasMenuCurrent "main" .) -}}active{{- end -}}"><a class="menu-item-link" href="{{- .URL -}}">{{- .Pre -}}<span class="menu-text">{{- .Name -}}</span>{{- .Post -}}</a>
                     </li>
                     {{- end -}}
                 </ul>
             </li>
             {{- else -}}
             <li class="menu-item{{- if or ($currentPage.IsMenuCurrent " main" .) ($currentPage.HasMenuCurrent "main" .)
-                -}}active{{- end -}}">
-                <a class="menu-item-link" href="{{- .URL -}}">
-                    {{- .Pre -}}
-                    <span class="menu-text">{{- .Name -}}</span>
-                    {{- .Post -}}
-                </a>
+                -}}active{{- end -}}"><a class="menu-item-link" href="{{- .URL -}}">{{- .Pre -}}<span class="menu-text">{{- .Name -}}</span>{{- .Post -}}</a>
             </li>
             {{- end -}}
             {{- end -}}
             {{- end -}}
         </ul>
-        {{- else -}}
-        <div class="divider"></div>
         {{- end -}}
     </div>
-</div>
+</header>

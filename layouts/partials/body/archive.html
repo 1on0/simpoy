@@ -1,25 +1,14 @@
 <div class="archive">
-    <h2 class="archive-title">
-        {{- $taxonomy := .Data.Singular -}}
-        {{- if eq $taxonomy "category" -}}
-        {{- .Title -}}
-        {{- else if eq $taxonomy "tag" -}}
-        {{- .Title -}}
-        {{- else -}}
-        {{- .Title -}}
-        {{- end -}}
-    </h2>
+    <h3 class="archive-title">{{- $taxonomy := .Data.Singular -}}{{- if eq $taxonomy "category" -}}{{- .Title -}}{{- else if eq $taxonomy "tag" -}}{{- .Title -}}{{- else -}}{{- .Title -}}{{- end -}}</h3>
     {{- if .Pages -}}
     {{- range (.Pages.GroupByDate "2006") -}}
-    <h3 class="archive-year">{{ .Key }}</h3>
+    <h4 class="archive-year">{{ .Key }}</h4>
     {{- range (.Pages.GroupByDate "January") -}}
-    <h4 class="archive-month">{{ .Key }}</h4>
+    <h5 class="archive-month">{{ .Key }}</h5>
     {{- range .Pages -}}
     <article class="archive-item">
         <p class="archive-item-date"><span>{{- site.Params.list.dateFormat | default "02" | .Date.Format -}}</span> </p>
-        <a href="{{ .RelPermalink }}" class="archive-item-title">
-            <h4>{{- .Title -}}</h4>
-        </a>
+        <a href="{{ .RelPermalink }}" class="archive-item-title"><h6>{{- .Title -}}</h6></a>
     </article>
     {{- end -}}
     {{- end -}}
