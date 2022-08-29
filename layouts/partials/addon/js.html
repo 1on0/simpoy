@@ -36,7 +36,7 @@
 <script src="{{- $globaljs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
 {{- $globalfp := $globaljs | fingerprint "sha384" }}
-<script src="{{- $globaljs.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script src="{{- $globalfp.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
 <noscript><style>#darkmode {display: none;}</style></noscript>
