@@ -1,0 +1,77 @@
+.tab {
+    width: 100%;
+    color: var(--black-secondary);
+    overflow: hidden;
+
+    &-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $m;
+        border: $border;
+        line-height: 1.5rem;
+        padding: .5rem 1rem;
+        background: var(--white-secondary);
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            background: var(--darken);
+        }
+
+        .arrow {
+            align-items: baseline;
+            display: flex;
+            padding: 0 .5rem;
+            align-items: center;
+            position: relative;
+            width: 2rem;
+            height: 1em;
+
+            &::after {
+                content: "\276F";
+                transform: rotate(90deg);
+                display: block;
+                position: absolute;
+                transition: all .35s;
+            }
+        }
+    }
+
+    &-content {
+        max-height: 0;
+        font-size: $s;
+        border: $border;
+        color: var(--black-secondary);
+        background: var(--white-primary);
+        transition: all .35s;
+        display: none;
+
+        p {
+            font-size: $m;
+            margin: .5rem 0;
+        }
+    }
+}
+
+.tab-input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.tab-input:checked {
+    +.tab-label {
+        background: var(--darken);
+
+        .arrow::after {
+            transform: rotate(-90deg);
+        }
+    }
+
+    ~.tab-content {
+        max-height: 100%;
+        padding: 0 1rem;
+        display: block;
+    }
+}

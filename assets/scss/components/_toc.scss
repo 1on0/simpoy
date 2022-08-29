@@ -1,0 +1,39 @@
+.table-of-contents {
+    border: $border;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: var(--white-secondary);
+    cursor: pointer;
+
+    &-title {
+        margin-left: .3rem;
+        font-size: $r;
+    }
+
+    .toc {
+        padding: 0 1rem;
+        margin: 1rem .5rem 0 .5rem;
+        color: var(--black-secondary);
+
+        &-h1, &-h2, &-h3, &-h4, &-h5,
+        &-h6 a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &-h1, &-h2 {
+            margin-left: 0;
+        }
+
+        &-h3, &-h4 {
+            margin-left: 2rem;
+        }
+
+        &-h5, &-h6 {
+            margin-left: 4rem;
+        }
+    }
+}

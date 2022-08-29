@@ -4,8 +4,8 @@
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
 {{- $global := slice $darkmode $clipboard }}
-{{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
+{{- $darkmodejs := resources.Get "js/darkmode.js" | minify -}}
+{{- $clipboardjs := resources.Get "js/clipboard.js" | minify -}}
 {{- $globaljs := slice $darkmodejs $clipboardjs | resources.Concat "js/src/global.js" | minify -}}
 {{- if $development -}}
 {{- if and $darkmode (not $global) -}}

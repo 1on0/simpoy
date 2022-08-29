@@ -1,0 +1,33 @@
+.cloud-tag,
+.cloud-category {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    p {
+        line-height: 0;
+        margin: auto .2rem;
+        color: var(--black-secondary);
+        font-size: $s;
+    }
+
+    a {
+        text-decoration: none;
+        padding: .3rem .5rem;
+        color: var(--secondary);
+        background-color: var(--grey-primary);
+        border: $border;
+
+        &:hover {
+            color: var(--accent);
+            transition: all ease-out 0.3s;
+        }
+
+        sup {
+            padding: 0.1em 0.4em;
+        }
+    }
+}

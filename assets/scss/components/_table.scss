@@ -1,0 +1,41 @@
+.table-wrapper table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    display: block;
+    overflow-x: auto;
+    word-wrap: normal;
+    margin: 1rem 0 1.5rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+    thead tr th {
+        background-color: var(--table);
+        border: 1px solid rgb(227, 227, 227);
+        padding: .75rem;
+        font-weight: $bold;
+        text-align: left;
+    }
+
+    tbody tr {
+
+        &:nth-child(odd) {
+            background-color: var(--grey-primary);
+        }
+
+        &:nth-child(even) {
+            background-color: var(--grey-secondary);
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: .75rem;
+            min-width: 100px;
+            text-align: left;
+            word-wrap: break-word;
+
+            a {
+                word-break: break-all;
+            }
+        }
+    }
+}

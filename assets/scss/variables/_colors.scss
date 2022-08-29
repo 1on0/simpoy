@@ -1,0 +1,34 @@
+$dark-primary: rgb(28, 31, 39);
+$dark-secondary: rgb(32, 36, 45);
+$grey-primary: rgb(226, 226, 225);
+$grey-secondary: rgb(237, 237, 237);
+$black-primary: rgb(17, 17, 17);
+$black-secondary: rgb(59, 66, 82);
+$white-primary: rgb(255, 255, 248);
+$white-secondary: rgb(250, 250, 242);
+$accent: rgba(161, 86, 40, 1);
+$hover: rgba(254, 214, 165, 1);
+$hover-dark: rgba(79, 88, 110, 1);
+$table: rgb(210, 210, 207);
+$highlight: rgb(242, 241, 241);
+$darken: darken(rgb(250, 250, 242), 2%);
+$darken-dark: darken(#3B4252, 5%);
+$box-shadow: rgba(0, 0, 0, 0.75);
+$shadow: rgba(0, 0, 0, .2);
+$border: 1px solid rgb(221,221,221);
+
+:root {
+    --black-primary: #{$black-primary};
+    --black-secondary: #{$black-secondary};
+    --white-primary: #{$white-primary};
+    --white-secondary: #{$white-secondary};
+    --grey-primary: #{$grey-primary};
+    --grey-secondary: #{$grey-secondary};
+    --accent: #{$accent};
+    --hover: #{$hover};
+    --table: #{$table};
+    --highlight: #{$highlight};
+    --shadow: #{$box-shadow};
+    --line-shadow: #{$shadow};
+    --darken: #{$darken};
+}

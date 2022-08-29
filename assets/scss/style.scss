@@ -1,33 +1,29 @@
-/*
-*   Simpoy
-*
-*/
-@import "addon/darkmode.scss";
-@import "addon/normalize.scss";
+@import "base/normalize.scss";
 
-@import "global.scss";
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/utilities";
 
-@import "partials/layout.scss";
-@import "partials/base.scss";
+@import "themes/darkmode.scss";
 
-@import "partials/header.scss";
-@import "partials/terms.scss";
-@import "partials/index.scss";
-@import "partials/archive.scss";
-@import "partials/post.scss";
-@import "partials/footer.scss";
-@import "partials/pagination.scss";
+@import "layout/header.scss";
+@import "layout/terms.scss";
+@import "layout/archives.scss";
+@import "layout/index.scss";
+@import "layout/posts.scss";
+@import "layout/footer.scss";
+
+@import "components/pagination.scss";
+@import "components/cloud.scss";
+@import "components/highlight.scss";
+@import "components/label.scss";
+@import "components/media.scss";
+@import "components/accordion.scss";
+@import "components/table.scss";
+@import "components/toc.scss";
 
 
-@import "partials/helper.scss";
-@import "partials/cloud.scss";
-@import "partials/media.scss";
-@import "partials/highlight.scss";
-@import "partials/toc.scss";
-@import "partials/table.scss";
-@import "partials/404.scss";
 
-@import "shortcodes/accordion.scss";
 
 
 

@@ -16,13 +16,12 @@
     <link rel="preload stylesheet" as="style" href="{{- $css.RelPermalink | safeURL -}}">
     {{- end -}}
     {{- if hugo.IsProduction -}}
-    {{- $options := (dict "targetPath" "css/simpoy.css" "outputStyle" "compressed") }}
     {{- if site.Params.fingerprint -}}
-    {{- $style := resources.Get "scss/style.scss" | toCSS $options | fingerprint "sha384" -}}
-    <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}" integrity="{{- $style.Data.Integrity -}}" crossorigin="anonymous">
+    {{- $stylefp := slice (resources.Get "scss/style.scss") | resources.Concat "simpoy.css" | toCSS (dict "outputStyle" "compressed") | fingerprint "sha384" -}}
+    <link rel="preload stylesheet" as="style" href="{{- $stylefp.RelPermalink | safeURL -}}" integrity="{{- $stylefp.Data.Integrity -}}" crossorigin="anonymous">
     {{- else -}}
-    {{- $nofp := resources.Get "scss/style.scss" | toCSS $options -}}
-    <link rel="preload stylesheet" as="style" href="{{- $nofp.RelPermalink | safeURL -}}">
+    {{- $style := slice (resources.Get "scss/style.scss") | resources.Concat "simpoy.css" | toCSS toCSS (dict "outputStyle" "compressed") -}}
+    <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}">
     {{- end -}}
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/opengraph.html" . -}}
