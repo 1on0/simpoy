@@ -17,10 +17,10 @@
     {{- end -}}
     {{- if hugo.IsProduction -}}
     {{- if site.Params.fingerprint -}}
-    {{- $stylefp := slice (resources.Get "scss/style.scss") | resources.Concat "simpoy.css" | toCSS (dict "outputStyle" "compressed") | fingerprint "sha384" -}}
+    {{- $stylefp := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") | fingerprint "sha384" -}}
     <link rel="preload stylesheet" as="style" href="{{- $stylefp.RelPermalink | safeURL -}}" integrity="{{- $stylefp.Data.Integrity -}}" crossorigin="anonymous">
     {{- else -}}
-    {{- $style := slice (resources.Get "scss/style.scss") | resources.Concat "simpoy.css" | toCSS toCSS (dict "outputStyle" "compressed") -}}
+    {{- $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") -}}
     <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}">
     {{- end -}}
     {{- template "_internal/schema.html" . -}}
