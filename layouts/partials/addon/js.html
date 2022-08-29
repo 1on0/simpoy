@@ -32,7 +32,9 @@
 <script src="{{- $clipboardjs.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
-{{- if and (not $development) $global }}
+{{- if and (not $development) $global (not $fingerprint) }}
+<script src="{{- $globaljs.RelPermalink -}}" defer crossorigin="anonymous"></script>
+{{- else -}}
 {{- $globalfp := $globaljs | fingerprint "sha384" }}
 <script src="{{- $globaljs.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
