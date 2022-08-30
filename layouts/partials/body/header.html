@@ -16,7 +16,7 @@
             {{- if .HasChildren -}}
             <li class="menu-item {{- if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) -}}active{{- end -}}">
                 <a class="menu-item-link" href="{{- .URL -}}">{{- .Pre -}}<span class="menu-text">{{- .Name -}}</span>{{- .Post -}}</a>
-                <label class="menu-item-dropicon" for="{{- .Name -}}">&xvee;</label>
+                <label class="menu-item-dropicon" for="{{- .Name -}}"></label>
                 <input class="sub-btn" type="checkbox" id="{{- .Name -}}">
                 <ul class="submenu">
                     {{- range .Children -}}

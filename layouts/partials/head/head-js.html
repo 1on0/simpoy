@@ -1,5 +1,5 @@
 {{- with site.Params.plausible -}}
 {{- $src := .src -}}
 {{- $plausible := resources.GetRemote $src | resources.Fingerprint "sha384" -}}
-<script id="plausible" defer data-domain="{{- .domain -}}" src="{{- $src -}}" integrity="{{- $plausible.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script defer data-domain="{{- .domain -}}" src="{{- $plausible.RelPermalink -}}" integrity="{{- $plausible.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}

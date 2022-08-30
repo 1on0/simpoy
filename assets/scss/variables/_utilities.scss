@@ -221,46 +221,6 @@ box-shadow: 10px 10px 0px 0px $black-secondary;
     -moz-box-shadow: 0px 0px 24px 0px var(--shadow)
 }
 
-@mixin menucheck {
-    .menu-item input[type="checkbox"] {
-        display: none
-    }
-
-    .menu-item .menu-item-dropicon {
-        right: 3rem;
-        top: 1rem
-    }
-
-    .menu-item input[type="checkbox"]:checked+.submenu {
-        border: none;
-        padding-left: 2rem;
-        visibility: visible;
-        opacity: 1;
-        display: block;
-        flex-wrap: wrap;
-        position: relative;
-        max-width: 100%;
-        height: auto
-    }
-}
-
-@mixin menuwide {
-    .menu-item input[type="checkbox"] {
-        display: none
-    }
-
-    .menu-item .menu-item-dropicon {
-        right: -.2rem;
-        top: 1.2rem
-    }
-
-    .menu-item input[type="checkbox"]:checked+.submenu {
-        visibility: visible;
-        opacity: 1;
-        display: block
-    }
-}
-
 @mixin hover-effect {
     background-image: linear-gradient(var(--accent), var(--accent));
     background-size: 0 100%;
@@ -271,9 +231,4 @@ box-shadow: 10px 10px 0px 0px $black-secondary;
         color: var(--white-primary);
         background-size: 100% 100%;
     }
-}
-
-.menu-item-dropicon {
-    font-size: $xs;
-    position: absolute
 }

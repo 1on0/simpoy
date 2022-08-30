@@ -5,7 +5,9 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: .75rem;
+    font-size: $xs;
+
 
     p {
         line-height: 0;
@@ -14,7 +16,7 @@
 
     a {
         text-decoration: none;
-        padding: .3rem .5rem;
+        padding: 0.1rem 0.3rem;
         color: var(--black-secondary);
         background-color: var(--grey-primary);
         border: $border;

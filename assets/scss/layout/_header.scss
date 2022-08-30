@@ -1,9 +1,19 @@
 .menu-icon {
     cursor: pointer;
     float: right;
-    padding: 2rem 2rem;
+    padding: 2rem;
     position: relative;
-    user-select: none;
+    user-select: none
+}
+
+%icon {
+    background: var(--black-secondary);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%
 }
 
 .nav-icon {
@@ -16,25 +26,13 @@
     align-items: baseline;
 
     &:before {
-        background: var(--black-secondary);
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-        top: 5px;
+        @extend %icon;
+        top: 5px
     }
 
     &:after {
-        background: var(--black-secondary);
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-        top: -5px;
+        @extend %icon;
+        top: -5px
     }
 }
 
@@ -42,20 +40,20 @@
     display: none;
 
     &:checked~.menu {
-        max-height: 100%;
+        max-height: 100%
+    }
 
-        &-icon .nav-icon {
-            background: transparent;
+    &:checked~.menu-icon .nav-icon {
+        background: transparent;
 
-            &:before {
-                transform: rotate(-45deg);
-                top: 0;
-            }
+        &:before {
+            transform: rotate(-45deg);
+            top: 0
+        }
 
-            &:after {
-                transform: rotate(45deg);
-                top: 0;
-            }
+        &:after {
+            transform: rotate(45deg);
+            top: 0
         }
     }
 }
@@ -70,32 +68,32 @@
         margin: 0 auto;
         width: 100%;
         max-width: 48em;
+    }
 
-        .logo {
+    &-inner .logo {
+        display: block;
+        padding: 0.7rem 2rem;
+        float: left;
+
+
+        img {
             display: block;
-            padding: 0.7rem 2rem;
-            float: left;
+            max-width: 100%;
+            margin: 0
+        }
+
+        a {
+            color: var(--accent);
+            font-size: $l;
+            font-weight: $bolder;
+            text-decoration: none;
+            letter-spacing: -0.01em
+        }
 
 
-            img {
-                display: block;
-                max-width: 100%;
-                margin: 0;
-            }
-
-            a {
-                color: var(--accent);
-                font-size: $l;
-                font-weight: $bolder;
-                text-decoration: none;
-                letter-spacing: -0.01em;
-            }
-
-
-            svg {
-                display: inline-block;
-                height: 30px;
-            }
+        svg {
+            display: inline-block;
+            height: 30px
         }
     }
 }
@@ -115,7 +113,7 @@
             display: block;
             padding: 1rem;
             text-decoration: none;
-            color: var(--black-secondary);
+            color: var(--black-secondary)
         }
     }
 
@@ -125,11 +123,53 @@
         left: 0;
         display: none;
         border-bottom: none;
-        background: var(--white-primary);
+        background: var(--white-primary)
+    }
+}
 
-        a {
-            box-shadow: 0 2px 2px -2px var(--line-shadow);
-        }
+.menu-item-dropicon {
+    font-size: $xs;
+    position: absolute
+}
+
+
+@mixin menucheck {
+    .menu-item input[type="checkbox"] {
+        display: none
+    }
+
+    .menu-item .menu-item-dropicon {
+        right: 3rem;
+        top: 1rem
+    }
+
+    .menu-item input[type="checkbox"]:checked+.submenu {
+        border: none;
+        padding-left: 2rem;
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        flex-wrap: wrap;
+        position: relative;
+        max-width: 100%;
+        height: auto
+    }
+}
+
+@mixin menuwide {
+    .menu-item input[type="checkbox"] {
+        display: none
+    }
+
+    .menu-item .menu-item-dropicon {
+        right: -.2rem;
+        top: 1.2rem
+    }
+
+    .menu-item input[type="checkbox"]:checked+.submenu {
+        visibility: visible;
+        opacity: 1;
+        display: block
     }
 }
 
@@ -142,13 +182,13 @@
 
         &-left {
             display: flex;
-            align-items: center;
+            align-items: center
         }
     }
 
     #darkmode {
         margin-top: 8px;
-        margin-left: -15px;
+        margin-left: -15px
     }
 
     .menu {
@@ -162,7 +202,7 @@
         gap: .25rem;
 
         &-icon {
-            display: none;
+            display: none
         }
     }
 
@@ -172,7 +212,7 @@
         a {
             min-width: 10rem;
             border: $border;
-            box-shadow: none;
+            box-shadow: none
         }
     }
 }
@@ -180,38 +220,31 @@
 @media (max-width: 48rem) {
     @include menucheck;
 
-    .header-inner {
+    .header-inner-left {
+        display: inline-block
+    }
+
+    input:checked~.menu {
+        display: block
+    }
+
+    #darkmode {
         display: inline-block;
-
-        &-left {
-            display: inline-block;
-        }
-
-        input:checked~.menu {
-            display: block;
-        }
-
-        #darkmode {
-            display: inline-block;
-            margin-top: 22px;
-            margin-left: -1rem;
-        }
+        margin-top: 22px;
+        margin-left: -1rem
     }
 
     .menu {
         display: none;
+    }
 
-        li a {
-            width: 100%;
-            display: block;
-            background-color: var(--white-primary);
-            box-shadow: 0 3px 3px -3px var(--black-secondary);
-            flex-wrap: wrap;
-            padding-left: 3rem;
-        }
-
-        li:hover ul {
-            display: none;
-        }
+    .menu li a {
+        width: 100%;
+        display: block;
+        background-color: var(--white-primary);
+        box-shadow: 0 3px 3px -3px var(--black-secondary);
+        flex-wrap: wrap;
+        padding-left: 3rem;
+        z-index: 111
     }
 }
