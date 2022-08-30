@@ -3,40 +3,30 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
-{{- $global := slice $darkmode $clipboard }}
-{{- $darkmodejs := resources.Get "js/darkmode.js" | minify -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" | minify -}}
-{{- $globaljs := slice $darkmodejs $clipboardjs | resources.Concat "js/src/global.js" | minify -}}
+{{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
+{{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
 {{- if $development -}}
-{{- if and $darkmode (not $global) -}}
+{{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if and (eq .Kind "page") $clipboard (not $global) -}}
+{{- if and (eq .Kind "page") $clipboard -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if $global -}}
-<script src="{{- $globaljs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- end -}}
-{{- if and  (not $development) (not $global) -}}
+{{- if (not $development) -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
 {{- else -}}
 {{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
-<script src="{{- $darkmodejs.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if and ($clipboard) (not $fingerprint) -}}
+{{- if and (eq .Kind "page") ($clipboard) -}}
+{{- if (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
 {{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+<script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- end -}}
-{{- if and (not $development) $global (not $fingerprint) }}
-<script src="{{- $globaljs.RelPermalink -}}" defer crossorigin="anonymous"></script>
-{{- else -}}{{- if $fingerprint -}}
-{{- $globalfp := $globaljs | fingerprint "sha384" }}
-<script src="{{- $globalfp.RelPermalink -}}" defer integrity="{{- $globalfp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
 {{- end -}}
