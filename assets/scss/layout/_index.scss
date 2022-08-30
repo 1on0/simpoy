@@ -1,8 +1,9 @@
 .index {
     border: $border;
+    @include box;
     margin-bottom: 2rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0 1rem 2rem;
 
     &-item {
         text-decoration: none;
@@ -11,9 +12,7 @@
 
         &-title {
             color: var(--black-primary);
-            margin-bottom: 3rem;
-            margin-top: 1rem;
-            line-height: 1.25;
+            margin: 1rem 0;
             font-weight: 800;
 
             &:hover {
@@ -35,6 +34,7 @@
 
         &-link {
             &-read {
+                @include hover-effect;
                 padding: 0.3em 0.5em;
                 border: $border;
                 text-decoration: none;

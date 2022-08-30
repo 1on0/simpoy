@@ -5,6 +5,8 @@
     &-items {
         padding: 0.2rem;
         margin-top: 0;
+        font-size: $m;
+
     }
 
     &-title {
@@ -16,3 +18,5 @@
         }
     }
 }
+
+.terms-section {padding: 0 1rem}

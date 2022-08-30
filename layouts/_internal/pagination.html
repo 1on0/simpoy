@@ -7,12 +7,12 @@
   <ul class="pagination"> 
     {{- if ne $paginator.PageNumber 1 -}}
     <li class="pagination-first">
-      <a class="pagination-first-link" href="{{- $paginator.First.URL -}}">««</a>
+      <a class="pagination-first-link" href="{{- $paginator.First.URL -}}">Latest</a>
     </li>
     {{- end -}}
     {{- if $paginator.HasPrev -}}
     <li class="pagination-previous">
-      <a class="pagination-previous-link" href="{{- $paginator.Prev.URL -}}">«</a>
+      <a class="pagination-previous-link" href="{{- $paginator.Prev.URL -}}">&#x2039;</a>
     </li>
     {{- end -}}
     {{- range $paginator.Pagers -}}    
@@ -44,12 +44,12 @@
     {{- end -}}
     {{- if $paginator.HasNext -}}
     <li class="pagination-next">
-      <a class="pagination-next-link" href="{{- $paginator.Next.URL -}}" >»</a>
+      <a class="pagination-next-link" href="{{- $paginator.Next.URL -}}" >&#x203a;</a>
     </li>
     {{- end -}}
     {{- if ne $paginator.PageNumber $paginator.TotalPages -}}
     <li class="pagination-last">
-      <a class="pagination-last-link" href="{{- $paginator.Last.URL -}}">»»</a>
+      <a class="pagination-last-link" href="{{- $paginator.Last.URL -}}">Oldest</a>
     </li>
     {{- end -}}
   </ul>

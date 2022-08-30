@@ -4,16 +4,17 @@
 }
 
 .pagination {
-    margin: 0;
+    margin: 1rem;
     display: flex;
     justify-content: center;
+    gap: .5rem;
     list-style: none;
     padding-inline-start: 0px;
 
     &-first, &-previous, &-next, &-last, &-item, &-item-current {
-        @extend %border
+        @extend %border;
     }
 
-    &-item-current {color: var(--accent)}      
-    &-item-link-current {color: var(--black-secondary)}  
+    &-item-current {background-color: var(--accent)}      
+    &-item-link-current, &-item-link-current:hover  {color: var(--white-secondary);text-decoration: none}  
 }
