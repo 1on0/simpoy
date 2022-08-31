@@ -12,15 +12,15 @@
     {{- end -}}
     {{- partial "head/favicon" . -}}
     {{- if eq (hugo.Environment) "development" -}}
-    {{- $css := resources.Get "scss/style.scss" | toCSS (dict "outputStyle" "nested") | resources.PostCSS -}}
+    {{- $css := resources.Get "scss/style.scss" | toCSS (dict "outputStyle" "nested") -}}
     <link rel="preload stylesheet" as="style" href="{{- $css.RelPermalink | safeURL -}}">
     {{- end -}}
     {{- if hugo.IsProduction -}}
     {{- if site.Params.fingerprint -}}
-    {{- $stylefp := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") | resources.PostCSS | fingerprint "sha384" -}}
+    {{- $stylefp := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") | fingerprint "sha384" -}}
     <link rel="preload stylesheet" as="style" href="{{- $stylefp.RelPermalink | safeURL -}}" integrity="{{- $stylefp.Data.Integrity -}}" crossorigin="anonymous">
     {{- else -}}
-    {{- $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") | resources.PostCSS -}}
+    {{- $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "simpoy.css" "outputStyle" "compressed") -}}
     <link rel="preload stylesheet" as="style" href="{{- $style.RelPermalink | safeURL -}}">
     {{- end -}}
     {{- template "_internal/schema.html" . -}}
