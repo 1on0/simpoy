@@ -1,11 +1,11 @@
-<div class="social-menu">
+<div class="social">
     {{- with site.Menus.social -}}
     {{- range . -}}
     {{- $url := .URL -}}
     <a class="social-icons" href='{{- $url | safeHTML -}}' target="_blank" title="{{- .Name -}}">
       {{- $icon := .Name -}}
       {{- with $icon -}}
-      {{- partial "helper/icons" . -}}
+      {{- partial "components/icons" . -}}
       {{- end -}}</a>
     {{- end -}}
     {{- end -}}

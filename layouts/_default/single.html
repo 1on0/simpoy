@@ -1,14 +1,5 @@
 {{- define "title" -}}{{- .Title -}} - {{- site.Title -}}{{- end -}}
 {{- define "content" -}}
-<article class="post">
-    <div class="post-header">
-        {{- partial "body/post/post-title" . -}}
-        {{- partial "body/post/post-meta" . -}}
-        {{- partial "body/post/post-subtitle" . -}}
-    </div>
-    {{- partial "body/post/post-content" . -}}
-    {{- if .Params.tags -}}
-    {{- partial "helper/label-tag" . -}}
-    {{- end -}}
-</article>
+{{- partial "body/posts-head" . -}}
+{{- partial "body/posts-body" . -}}
 {{- end -}}

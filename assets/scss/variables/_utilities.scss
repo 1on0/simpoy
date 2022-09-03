@@ -1,234 +1,247 @@
 html {
-    scroll-behavior: smooth;
-    min-height: 100%;
-    -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    background-color: var(--white-primary);
-    color: var(--black-primary);
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100%;
-    font-family: $serif;
-    line-height: 1.75
+  background-color: var(--white-primary);
+  color: var(--black-primary);
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  font-family: $serif;
+  line-height: 1.75
 }
 
 section {
-    display: block;
-    min-height: 70vh;
-    width: 100%;
-    max-width: 48rem;
-    margin: 0 auto !important;
-    word-wrap: break-word;
-    padding: 1rem 0
+  display: block;
+  min-height: 70vh;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  word-wrap: break-word;
+  padding: 1rem 0;
 }
 
-section .post {padding: 0}
+.page-title, .index p, .index span  {
+  margin: .75rem 1.5rem;
+}
 
-.top {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
+@mixin meta {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $xs;
+  gap: .75rem;
+  justify-content: flex-start;
+  margin: .3rem 0;
+  padding: .75rem 1.5rem;
+
+  p, span {
+    margin: auto .2rem;
+  }
+
+  a {
+    @include box;
+    border: $border;
+    padding: .1rem .5rem;
+    text-decoration: none;
+    transition: .5s;
 
     &:hover {
-        background-color: none;
+      @include nobox;
+      transition: .5s;
     }
+  }
+}
+
+.top {
+  display: block;
+  text-align: center;
+  margin: 2rem auto;
+
+  &:hover {
+    background-color: none;
+  }
 }
 
 footer {
-    box-shadow: 0px 3px 3px 3px var(--black-secondary);
-    margin-top: 2rem;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    clear: both;
+  box-shadow: 0px 3px 3px 3px var(--black-secondary);
+  margin-top: 2rem;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  clear: both;
 }
 
 .schema {
-    display: none !important;
+  display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.3;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
 }
 
-h1 a, h2 a , h3 a {
-    text-decoration: none
+h1 a,
+h2 a,
+h3 a {
+  color: var(--black-primary);
+  text-decoration: none
 }
 
 h1 {
-    margin: 3.5rem 0 1.5rem;
-    font-size: $xxl
+  margin: 3rem 0 1.5rem;
+  font-size: $xxl
 }
 
 h2 {
-    margin: 3rem 0 1.25rem;
-    font-size: $xl
+  margin: 2rem 0 1.25rem;
+  font-size: $xl
 }
 
 h3 {
-    margin: 2rem 0 1rem ;
-    font-size: $l
+  margin: 1.75rem 0 1rem;
+  font-size: $l
 }
 
 h4,
 h5,
 h6 {
-    font-weight: $normal;
-    font-size: $r;
-    margin-top: 1.4rem;
-    margin-bottom: 0.5rem
+  font-weight: $normal;
+  font-size: $r;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem
 }
 
 p.subtitle {
-    font-style: italic;
-    margin: 1rem auto;
-    font-size: $xl;
-    display: block;
-    line-height: 1;
+  font-style: italic;
+  margin: 1rem auto;
+  font-size: $xl;
+  display: block;
+  line-height: 1;
 }
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1rem 0;
-    padding: 0;
+  border: 0;
+  border-top: 2px solid var(--grey-primary);
+  display: block;
+  height: 1px;
+  margin: 0 1rem;
+  padding: 0;
 }
 
 p,
 dl,
 ol,
 ul {
-    font-size: $s;
+  font-size: $s;
+  margin-top: .5rem;
 }
 
 p {
-    margin: 1.4rem auto;
-    padding-right: 0;
-    vertical-align: baseline;
+  margin-bottom: 1.4rem;
+  padding-right: 0;
+  vertical-align: baseline;
 }
 
 a {
-    color: var(--link);
+  color: var(--link);
 
-    &:hover {
-        color: var(--accent);
-        transition: 0.3s
-    }
+  &:hover {
+    color: var(--accent);
+    transition: 0.3s
+  }
 }
 
 footer p {
-    font-size: $xs;
-    line-height: 1rem;
-    margin: 0.25rem auto
+  font-size: $xs;
+  line-height: 1rem;
+  margin: 0.25rem auto
 }
 
 strong,
 b {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 em,
 i {
-    font-style: italic;
-    line-height: 1.4rem
+  font-style: italic;
+  line-height: 1.4rem
 }
 
 blockquote {
-    text-align: left;
-    border: $border;
-    background-color: var(--grey-primary);
-    padding: 0 1rem;
-    border-left: 4px solid var(--black-secondary);
-    margin: 1rem 0;
-    color: var(--black-secondary);
+  text-align: left;
+  background-color: var(--grey-primary);
+  padding: .5rem 1rem;
+  border-left: 4px solid var(--table);
+  margin: 1rem 0;
+  color: var(--black-secondary);
 
-    h3 {
-        margin-top: 1rem;
-    }
-
-    p,
-    dl,
-    ol,
-    ul {
-        font-size: $s;
-        margin-top: .5rem
-    }
+  h3 {
+    margin-top: 1rem;
+  }
 }
 
 blockquote footer {
-    font-size: 1.1rem;
-    text-align: right
+  font-size: 1.1rem;
+  text-align: right
 }
 
 .footnotes {
-    margin-top: 0.3rem;
-    margin-bottom: 0;
-    vertical-align: baseline;
+  color: var(--black-secondary);
+  vertical-align: baseline;
+  width: 75%;;
 
-    ol li p {
-        font-size: $m;
-        color: var(--black-secondary)
-    }
-
-    p {
-        margin: .25em 0
-    }
+  ol {
+    margin: 0 2rem;
+  }
+  
+  p {
+    margin: .5rem;
+  }
 }
 
 figcaption {
-    float: right;
-    clear: right;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 1.1rem;
-    vertical-align: baseline;
-    position: relative
+  float: right;
+  clear: right;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  vertical-align: baseline;
+  position: relative
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box
+  box-sizing: border-box
 }
 
 .arabic {
-    font-family: $arabic;
-    display: block;
-    clear: both;
-    font-size: $xl;
-    line-height: 3rem;
-    text-align: right;
-    margin: 1rem 0
-}
-
-.emojify {
-    font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols
+  font-family: $arabic;
+  display: block;
+  clear: both;
+  font-size: $xl;
+  line-height: 3rem;
+  text-align: right;
+  margin: 1rem 0
 }
 
 @mixin box {
-box-shadow: 10px 10px 0px 0px $black-secondary;
--webkit-box-shadow: 10px 10px 0px 0px $black-secondary;
--moz-box-shadow: 10px 10px 0px 0px $black-secondary;
+  box-shadow: 5px 5px 0px 0px $black-secondary;
+  -webkit-box-shadow: 5px 5px 0px 0px $black-secondary;
+  -moz-box-shadow: 5px 5px 0px 0px $black-secondary;
 }
 
-@mixin box1 {
-    box-shadow: 0px 0px 24px 0px var(--shadow);
-    -webkit-box-shadow: 0px 0px 24px 0px var(--shadow);
-    -moz-box-shadow: 0px 0px 24px 0px var(--shadow)
-}
-
-@mixin hover-effect {
-    background-image: linear-gradient(var(--accent), var(--accent));
-    background-size: 0 100%;
-    background-repeat: no-repeat;
-    transition: .4s;
-
-    &:hover {
-        color: var(--white-primary);
-        background-size: 100% 100%;
-    }
+@mixin nobox {
+  box-shadow: 0px 0px 0px 0px var(--shadow);
+  -webkit-box-shadow: 0px 0px 0px 0px var(--shadow);
+  -moz-box-shadow: 0px 0px 0px 0px var(--shadow)
 }

@@ -1,6 +1,0 @@
-{{- range .Params.categories -}}
-{{- $category := replace . "#" "%23" -}}
-{{- $category = replace $category "." "%2e" -}}
-{{- $url := print "/categories/" ($category | urlize) "/" -}}
-<a class="helper-label-category" href="{{- $url | relLangURL -}}">{{- . -}}</a>
-{{- end -}}

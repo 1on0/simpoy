@@ -1,6 +1,6 @@
-<article class="index">
-    <h3 class="page-title"><a class="index-item" href="{{- .RelPermalink | relURL | safeURL -}}">{{- .Title -}}</a></h3>
-    <p class="index-body">{{- if isset .Params "description" -}}{{- .Description | markdownify -}}{{- else if .Summary -}}{{- .Summary | markdownify -}}{{- end -}}</p>
+<div class="ctn-head">
+    <h3 class="page-title">{{- .Title -}}</h3>
+    <hr>
     <p class="mt">
         {{- if not .Date.IsZero -}}
         <span class="date">
@@ -19,4 +19,9 @@
         {{- end -}}
         {{- end -}}
     </p>
-</article>
+    {{- with .Params.description -}}
+    <h3 class="subtitle">
+        {{- . -}}
+    </h3>
+    {{- end -}}
+</div>

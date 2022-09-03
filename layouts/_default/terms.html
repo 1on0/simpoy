@@ -38,8 +38,8 @@
 {{- end -}}
 {{- end -}}
 {{- if (eq $taxonomies "categories") -}}
-{{- partial "helper/cloud-tag" . -}}{{- else -}}{{- if (eq $taxonomies "tags") -}}
-{{- partial "helper/cloud-category" . -}}
+{{- partial "components/cloud-tag" . -}}{{- else -}}{{- if (eq $taxonomies "tags") -}}
+{{- partial "components/cloud-category" . -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}

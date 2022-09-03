@@ -1,33 +1,8 @@
-@charset "utf-8";
-@import "base/normalize.scss";
-@import "variables/colors.scss";
-@import "variables/fonts.scss";
-@import "variables/utilities.scss";
-
-@import "themes/darkmode.scss";
-
-@import "layout/header.scss";
-@import "layout/terms.scss";
-@import "layout/archives.scss";
-@import "layout/index.scss";
-@import "layout/posts.scss";
-@import "layout/footer.scss";
-
-@import "components/pagination.scss";
-@import "components/cloud.scss";
-@import "components/highlight.scss";
-@import "components/label.scss";
-@import "components/media.scss";
-@import "components/accordion.scss";
-@import "components/table.scss";
-@import "components/toc.scss";
-
-
-
-
-
-
-
-
-
-
+@charset 'utf-8';
+@import 'reset';
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'variables/utilities';
+@import 'themes/darkmode';
+@import 'layouts';
+@import 'components';

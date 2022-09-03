@@ -1,9 +1,12 @@
 <header class="header" id="header">
     <div class="header-inner">
         <div class="header-inner-left">
-            {{- partial "addon/logo" . -}}
+            {{- partial "components/logo" . -}}
             {{- if and (site.Params.enablejs) (site.Params.addon.darkmode) -}}
-            {{- partial "addon/darkmode" . -}}
+            <label class="darkmode" id="darkmode">
+                {{- partial "components/icons" "dark" -}}
+                {{- partial "components/icons" "light" -}}
+            </label>
             {{- end -}}
         </div>
         {{- if site.Menus.main -}}

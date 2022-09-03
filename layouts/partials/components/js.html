@@ -9,7 +9,7 @@
 {{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if and (eq .Kind "page") $clipboard -}}
+{{- if and (findRE "<pre" .Content 1) $clipboard -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
 {{- end -}}
@@ -20,7 +20,7 @@
 {{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
 <script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if and (eq .Kind "page") ($clipboard) -}}
+{{- if and (findRE "<pre" .Content 1) ($clipboard) -}}
 {{- if (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}

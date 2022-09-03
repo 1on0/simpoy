@@ -4,11 +4,11 @@
     <body>
         {{- partial "body/microdata" . -}}
         {{- partial "body/header" . -}}
-        <section id="content">
+        <section class="content">
         {{- block "content" . }}{{- end -}}
         </section>
         {{- partialCached "components/totop" . -}}
         {{- partialCached "body/footer" . -}}
-        {{- partial "addon/js" . -}}
+        {{- partial "components/js" . -}}
     </body>
 </html>
