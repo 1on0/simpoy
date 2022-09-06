@@ -1,9 +1,13 @@
 .menu-icon {
   cursor: pointer;
   float: right;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
   user-select: none;
+}
+
+.darkmode {
+  cursor: pointer;
 }
 
 %icon {
@@ -60,20 +64,22 @@
 
 .header {
   box-shadow: 0 3px 3px -3px var(--black-secondary);
-  height: 65px;
+  height: 50px;
   margin-bottom: 2em;
+  padding: .5rem;
+  width: 100%;
+  line-height: 0;
+}
+
+.nav {
+  margin: 0 auto;
+  max-width: 48em;
   width: 100%;
 
-  &-inner {
-    margin: 0 auto;
-    max-width: 48em;
-    width: 100%;
-  }
-
-  &-inner &-inner-left .logo {
+  .logo {
     display: block;
     float: left;
-    padding: .7rem 2rem;
+    padding: 1rem;
 
     img {
       display: block;
@@ -83,9 +89,9 @@
 
     a {
       color: var(--accent);
+      margin: 0;
       font-size: $l;
       font-weight: $bolder;
-      letter-spacing: -.01em;
       text-decoration: none;
     }
 
@@ -101,7 +107,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: max-height .2s ease-out;
 
   li {
     display: block;
@@ -115,7 +120,7 @@
     }
   }
 
-  ul {
+  .submenu {
     background: var(--white-primary);
     border-bottom: 0;
     display: none;
@@ -175,34 +180,30 @@
   }
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   @include menuwide;
 
-  .header-inner {
+  .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-    &-left {
+
+    &-right {
       align-items: center;
       display: flex;
+      justify-content: flex-end;
+      margin-right: 1rem;
     }
-  }
-
-  .darkmode {
-    margin-left: -15px;
-    margin-top: 8px;
   }
 
   .menu {
     align-items: center;
-    border: 0;
     display: flex;
     flex-wrap: wrap;
     gap: .25rem;
     position: relative;
     transform: none;
-    visibility: visible;
-    z-index: 200;
 
     &-icon {
       display: none;
@@ -220,36 +221,35 @@
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 769px) {
   @include menucheck;
-
-  .header-inner-left {
-    display: inline-block;
-  }
 
   input:checked~.menu {
     display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 50%;
+    background-color: var(--white-primary);
+
+    li {
+      border: $border;
+      line-height: initial;
+    }
   }
 
-  .darkmode {
-    display: inline-block;
-    margin-left: -1rem;
-    margin-top: 22px;
+  .nav-right {
+    float: right;
+
+    .darkmode {
+      position: absolute;
+      top: 1rem;
+      right: 4.5rem;
+    }
   }
 
   .menu {
     display: none;
-    z-index: 200;
-  }
-
-  .menu li {
-    background-color: var(--white-primary);
-    border: $border;
-    display: block;
-    flex-wrap: wrap;
-    padding-left: 2.5rem;
-    width: 100%;
-    z-index: 111;
   }
 }
 

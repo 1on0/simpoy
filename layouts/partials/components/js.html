@@ -1,11 +1,16 @@
 {{- if site.Params.enablejs -}}
 {{- $fingerprint := site.Params.fingerprint -}}
 {{- $development := eq (hugo.Environment) "development" -}}
+{{- $isearch := resources.Get "js/instantsearch.js" | js.Build "js/src/instantsearch.js" -}}
+{{- $algolia := resources.Get "js/app.js" | js.Build "js/src/instantsearch.js" -}}
+{{- $search := slice $isearch $algolia | resources.Concat "js/tes.js" | minify }}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
 {{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
 {{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
 {{- if $development -}}
+<script src="{{- $search.RelPermalink -}}" defer></script>
+
 {{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
@@ -14,6 +19,8 @@
 {{- end -}}
 {{- end -}}
 {{- if (not $development) -}}
+<script src="{{- $algolia.RelPermalink -}}" defer></script>
+
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
 {{- else -}}

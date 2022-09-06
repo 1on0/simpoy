@@ -3,33 +3,30 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  @media(max-width: 48rem) {
-    margin: 0;
+  @media(min-width: 48rem) {
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    width: 50%;
   }
 
-  .photo-item {
-    padding: .25rem;
-    width: 60%;
+  img {
+    display: block;
+    height: auto;
+    margin: 1rem 0;
+    max-width: 100%;
+    text-align: center;
+  }
 
-    img {
-      border-radius: 5px;
-      display: block;
-      height: auto;
-      margin: 1em 0;
-      max-width: 100%;
-    }
-
-    @media(max-width: 48rem) {
-      width: 100%;
-    }
+  @media(max-width: 48rem) {
+    width: 100%;
   }
 }
 
+
 audio {
   display: block;
-  margin: auto;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin: 2rem auto;
   text-align: center;
 }
 
@@ -84,10 +81,10 @@ audio {
   &-item,
   &-item-current {
     a {
-    @extend %border;
-    text-decoration: none;
+      @extend %border;
+      text-decoration: none;
+    }
   }
-}
 
   &-item-current {
     background-color: var(--accent);
@@ -95,8 +92,10 @@ audio {
   }
 
   &-item-link-current {
-    &, &:hover {
-    color: var(--white-secondary);
+
+    &,
+    &:hover {
+      color: var(--white-secondary);
     }
   }
 }
@@ -241,19 +240,6 @@ pre {
     padding: .25rem 1rem .5rem;
 
     &-h1,
-    &-h2,
-    &-h3,
-    &-h4,
-    &-h5,
-    &-h6 {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &-h1,
     &-h2 {
       margin-left: 0;
     }
@@ -274,80 +260,6 @@ pre {
   display: block;
   margin: 2rem auto;
   text-align: center;
-}
-
-.tab {
-  width: 100%;
-  color: var(--black-secondary);
-  overflow: hidden;
-
-  &-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: $border;
-    line-height: 1.5rem;
-    padding: .5rem 1rem;
-    background: var(--white-secondary);
-    cursor: pointer;
-    user-select: none;
-
-    &:hover {
-      background: var(--darken);
-    }
-
-    .arrow {
-      align-items: baseline;
-      display: flex;
-      padding: 0 .5rem;
-      position: relative;
-      width: 2rem;
-      height: 1em;
-
-      &::after {
-        content: "\276F";
-        transform: rotate(90deg);
-        display: block;
-        position: absolute;
-        transition: all .35s;
-      }
-    }
-  }
-
-  &-content {
-    max-height: 0;
-    border: $border;
-    color: var(--black-secondary);
-    background: var(--white-primary);
-    transition: all .35s;
-    display: none;
-
-    p {
-      margin: .5rem 0;
-    }
-  }
-}
-
-.tab-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-
-.tab-input:checked {
-  +.tab-label {
-    background: var(--darken);
-
-    .arrow::after {
-      transform: rotate(-90deg);
-    }
-  }
-
-  ~.tab-content {
-    max-height: 100%;
-    padding: 0;
-    display: block;
-  }
 }
 
 .social {
