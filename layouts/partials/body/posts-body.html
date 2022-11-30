@@ -6,16 +6,44 @@
     {{- end -}}
     {{- partial "components/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
-    {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
-    Last update on <time class="dt-published">
-        <a class="u-url" href="{{ .Permalink }}">{{ .Lastmod.Format "January 2, 2006" }}</a>
-    </time>
-    {{- end }}
-    {{- if .Params.tags -}}
-    <p class="lbl p-category">Tags:
-        {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
-        <a class="lbl-t" href="{{- " /tags/" | relURL -}}{{- . | urlize -}}">{{- $t -}}</a>
-        {{ end }}
-    </p>
-    {{- end -}}
+    <div class="info">
+        {{- if not .Date.IsZero -}}
+        <p class="info-date">
+            Published date : <time class="dt-published"><a class="u-url" href="{{ .Permalink }}">{{ .Date.Format (or site.Params.dateFormat.published "January 2, 2006") -}}</a></time>
+        </p>
+        {{- end -}}
+        {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
+        <p class="info-lastmod">
+        Last update : <time class="info-lastmod">
+            {{ .Lastmod.Format "January 2, 2006" }}
+        </p>
+        {{- end }}
+        {{ if or (.Params.tags) (.Params.categories) (.Params.series) (.Params.readtime) }}
+        <p class="info-read">Reading time :
+            {{ $readTime := cond (gt .ReadingTime 1) "-min-" "-min-" -}}
+            {{- .ReadingTime -}}{{- $readTime -}}read
+        </p>
+        {{- end -}}
+        {{- with site.Params}}
+        <p class="info-author">
+            Posted by : <a rel="author" class="p-author h-card" href="{{ "about" | relURL }}">{{ .Author -}}</a>
+        </p>
+        {{- end -}}
+        {{- if .Params.categories -}}
+        <p class="info-label">
+            Categories :
+            {{ range $k, $c := .Params.categories -}}{{- if $k -}} {{- end -}}
+            <a class="info-categories p-category" href="{{- " /categories/" | relURL -}}{{- . | urlize -}}">{{- $c
+                -}}</a>
+            {{- end -}}
+            {{- end -}}
+            {{- if .Params.tags -}}
+        </p>
+        <p class="info-label">
+            Tags : {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
+            <a class="info-tags" href="{{- " /tags/" | relURL -}}{{- . | urlize -}}">{{- $t -}}</a>
+            {{- end }}
+            {{- end -}}
+        </p>
+    </div>
 </article>

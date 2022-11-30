@@ -1,28 +1,10 @@
 .photo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  @media(min-width: 48rem) {
-    display: block;
-    margin: 2rem auto;
-    text-align: center;
-    width: 50%;
-  }
-
-  img {
-    display: block;
-    height: auto;
-    margin: 1rem 0;
-    max-width: 100%;
-    text-align: center;
-  }
+  @include img;
 
   @media(max-width: 48rem) {
     width: 100%;
   }
 }
-
 
 audio {
   display: block;
@@ -274,7 +256,7 @@ pre {
     svg {
       color: var(--secondary);
       height: auto;
-      width: 25px;
+      width: 30px;
     }
 
     svg:hover {

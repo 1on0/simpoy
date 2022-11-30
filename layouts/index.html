@@ -1,6 +1,6 @@
 {{- define "content" -}}
-{{- if site.Params.profile.enable -}}
-{{- partial "body/profile" . -}}
+{{- if site.Params.hcard -}}
+{{- partialCached "body/h-card" . -}}
 {{- end -}}
 {{- $pages := .Pages -}}
 {{- if .IsHome -}}

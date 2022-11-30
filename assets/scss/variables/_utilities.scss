@@ -25,8 +25,31 @@ section {
   min-height: 80vh;
 }
 
-.page-title, .index p, .index .arabic  {
+.page-title,
+.index p,
+.index .arabic {
   margin: .75rem 1.5rem;
+}
+
+@mixin img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media(min-width: 48rem) {
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    width: 70%;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    margin: 1rem 0;
+    max-width: 100%;
+    text-align: center;
+  }
 }
 
 @mixin meta {
@@ -39,7 +62,8 @@ section {
   margin: .3rem 0;
   padding: .75rem 1.5rem;
 
-  p, span {
+  p,
+  span {
     margin: auto .2rem;
   }
 
@@ -201,7 +225,7 @@ blockquote footer {
   ol {
     margin: 0 2rem;
   }
-  
+
   p {
     margin: .5rem;
   }

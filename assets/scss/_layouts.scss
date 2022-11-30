@@ -245,9 +245,8 @@
     float: right;
 
     .darkmode {
-      position: absolute;
-      right: 3.25rem;
-      top: 1.05rem;
+      position: relative;
+      margin-top: .2rem;
     }
   }
 
@@ -308,10 +307,6 @@
     font-weight: $normal;
     padding: 0 2rem;
   }
-
-  .mt {
-    @include meta;
-  }
 }
 
 .ctn-body {
@@ -368,7 +363,11 @@
   padding: 0 1rem;
 }
 
-.footer-inner, .profile-home {
+.hide {
+  display: none;
+}
+
+.footer-inner, .profile-home, .my {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -382,16 +381,33 @@
   }
 
   &-image {
-    flex: 25%;
+    flex: 30%;
+    @include img;
+    padding: 0 2rem;
+
+    @media(max-width: 48rem) {
+      width: 40%;
+    }
   }
 
   &-bio {
-    flex: 75%;
+    flex: 70%;
+    padding-bottom: 1rem;
   }
 }
 
 @media (max-width: 48rem) {
-  .footer-inner, .profile-home {
+  .footer-inner, .profile-home, .my {
     flex-direction: column;
+  }
+}
+
+.info {
+  padding: 1rem;
+
+  &-date, &-lastmod, &-read, &-author, &-label {
+  border: $border;
+  line-height: 2rem;
+  margin: 0;
   }
 }
