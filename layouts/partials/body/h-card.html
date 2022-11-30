@@ -1,6 +1,6 @@
 <div class="my h-card">
-    {{- with site.Params.profile }}
-    {{- $img := resources.Get .display -}}
+    {{- with site.Params.hcard }}
+    {{- $img := resources.Get .image -}}
     {{- $small := $img.Fill "320x320 Lanczos webp" -}}
     {{- $medium := $img.Fill "640x640 Lanczos webp" -}}
     <picture class="my-image">
