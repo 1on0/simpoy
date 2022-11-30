@@ -2,7 +2,7 @@
     {{- with site.Menus.social -}}
     {{- range . -}}
     {{- $url := .URL -}}
-    <a class="social-icons" href='{{- $url | safeHTML -}}' target="_blank" title="{{- .Name -}}">
+    <a class="social-icons" rel="me" href='{{- $url | safeHTML -}}' target="_blank" title="{{- .Name -}}">
       {{- $icon := .Name -}}
       {{- with $icon -}}
       {{- partial "components/icons" . -}}

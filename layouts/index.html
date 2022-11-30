@@ -1,4 +1,7 @@
 {{- define "content" -}}
+{{- if site.Params.profile.enable -}}
+{{- partial "body/profile" . -}}
+{{- end -}}
 {{- $pages := .Pages -}}
 {{- if .IsHome -}}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
@@ -7,5 +10,5 @@
 {{- range $paginator.Pages -}}
 {{- .Render "summary" -}}
 {{- end -}}
-{{ template "_internal/pagination.html" . }}
+{{- template "_internal/pagination.html" . -}}
 {{- end -}}

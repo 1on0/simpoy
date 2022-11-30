@@ -1,0 +1,17 @@
+{{- with .Page -}}
+<article class="profile-home h-card p-author">
+    {{- with site.Params.profile }}
+    {{- $img := resources.Get .display -}}
+    {{- $profile := $img.Fill "125x125 Lanczos webp" -}}
+    <div class="profile-home-image">
+        <picture>
+            <img class="u-photo" width="{{- $profile.Width -}}" height="{{- $profile.Height -}}"
+                src="{{- $profile.RelPermalink -}}">
+        </picture>
+        {{- end -}}
+    </div>
+    <div class="profile-home-bio">
+        {{- .Content -}}
+    </div>
+</article>
+{{- end -}}

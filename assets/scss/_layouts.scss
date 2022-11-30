@@ -7,6 +7,9 @@
 }
 
 .darkmode {
+  background: none;
+  border: 0;
+  color: var(--black-secondary);
   cursor: pointer;
 }
 
@@ -243,8 +246,8 @@
 
     .darkmode {
       position: absolute;
-      top: 1rem;
-      right: 4.5rem;
+      right: 3.25rem;
+      top: 1.05rem;
     }
   }
 
@@ -365,7 +368,7 @@
   padding: 0 1rem;
 }
 
-.footer-inner {
+.footer-inner, .profile-home {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -377,10 +380,18 @@
   .powered {
     flex: 100% / 3;
   }
+
+  &-image {
+    flex: 25%;
+  }
+
+  &-bio {
+    flex: 75%;
+  }
 }
 
 @media (max-width: 48rem) {
-  .footer-inner {
+  .footer-inner, .profile-home {
     flex-direction: column;
   }
 }

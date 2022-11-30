@@ -1,9 +1,9 @@
 <div class="ctn-head">
-    <h3 class="page-title">{{- .Title -}}</h3>
+    <h3 class="page-title p-name">{{- .Title -}}</h3>
     <hr>
     <p class="mt">
         {{- if not .Date.IsZero -}}
-        <span class="date">
+        <span class="date dt-published">
             {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
         </span>
         {{- end -}}

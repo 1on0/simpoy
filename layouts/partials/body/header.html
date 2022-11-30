@@ -37,10 +37,10 @@
             </ul>
             {{- end -}}
             {{- if and (site.Params.enablejs) (site.Params.addon.darkmode) -}}
-            <label class="darkmode" id="darkmode">
-                {{- partial "components/icons" "dark" -}}
-                {{- partial "components/icons" "light" -}}
-            </label>
+            <button aria-label="darkmode" class="darkmode" id="darkmode">
+                <span class="moon">&#9681;</span>
+                <span class="sun">&#x263C;</span>
+            </button>
             {{- end -}}
         </div>
     </div>

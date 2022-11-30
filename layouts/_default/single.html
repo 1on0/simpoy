@@ -1,5 +1,7 @@
 {{- define "title" -}}{{- .Title -}} - {{- site.Title -}}{{- end -}}
 {{- define "content" -}}
+<article class="p-author h-entry">
 {{- partial "body/posts-head" . -}}
 {{- partial "body/posts-body" . -}}
+</article>
 {{- end -}}

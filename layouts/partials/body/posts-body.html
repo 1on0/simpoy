@@ -1,4 +1,4 @@
-<div class="ctn-body">
+<article class="ctn-body e-content">
     <!-- Refer to https://discourse.gohugo.io/t/responsive-tables-in-markdown/10639/5 -->
     {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
     {{ if .Params.cover }}
@@ -7,13 +7,15 @@
     {{- partial "components/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
     {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) }}
-    Last update on <time>{{ .Lastmod.Format "January 2, 2006" }}</time>
+    Last update on <time class="dt-published">
+        <a class="u-url" href="{{ .Permalink }}">{{ .Lastmod.Format "January 2, 2006" }}</a>
+    </time>
     {{- end }}
     {{- if .Params.tags -}}
-    <p class="lbl">Tags:
+    <p class="lbl p-category">Tags:
         {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
-        <a class="lbl-t" href="{{- "/tags/" | relURL -}}{{- . | urlize -}}">{{- $t -}}</a>
+        <a class="lbl-t" href="{{- " /tags/" | relURL -}}{{- . | urlize -}}">{{- $t -}}</a>
         {{ end }}
     </p>
     {{- end -}}
-</div>
+</article>
