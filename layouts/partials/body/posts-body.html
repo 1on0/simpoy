@@ -6,8 +6,8 @@
     {{- end -}}
     {{- partial "components/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
-    <element hidden>{{- partial "components/display-image" . -}}</element>
     <div class="info">
+        <element hidden>{{- partial "components/display-image" . -}}</element>
         {{- if not .Date.IsZero -}}
         <p class="info-date">
             Published date : <time class="dt-published"><a class="u-url" href="{{ .Permalink }}">{{ .Date.Format (or site.Params.dateFormat.published "January 2, 2006") -}}</a></time>
