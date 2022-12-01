@@ -4,11 +4,8 @@
         <h3>Hi, I'm <span class="p-name" rel="me">{{- site.Params.hcard.name -}}</span>
             <span class="p-family-name">{{- site.Params.hcard.family -}}</span>
         </h3>
-        <element hidden><p class="p-honorific-suffix hide">{{- site.Params.hcard.honorificsuffix -}}</p></element>
-        <element hidden><p class="p-nickname">{{- site.Params.hcard.nick -}}</p></element>
         {{- with site.Params.hcard.bio -}}
         <p class="p-note">{{- . | markdownify | emojify -}}</p>
-        <element hidden><a class="u-url" href="{{- site.BaseURL -}}">{{- site.Title -}}</a></element>
         <div class="social">
             {{- with site.Menus.social -}}
             {{- range $k, $url := . -}}{{- if $k }}/{{ end -}}
@@ -20,6 +17,11 @@
             {{- end -}}
             {{- end -}}
         </div>
+        <element hidden>
+            <p class="p-honorific-suffix hide">{{- site.Params.hcard.honorificsuffix -}}</p>
+            <p class="p-nickname">{{- site.Params.hcard.nick -}}</p>
+            <a class="u-url" href="{{- site.BaseURL -}}">{{- site.Title -}}</a>
+        </element>
     </div>
     {{- end -}}
 </div>
