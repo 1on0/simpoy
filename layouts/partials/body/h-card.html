@@ -9,7 +9,7 @@
         <div class="social">
             {{- with site.Menus.social -}}
             {{- range $k, $url := . -}}{{- if $k }}/{{ end -}}
-            <a class="social-icons" rel="me" href='{{- $k | safeHTML -}}' target="_blank" title="{{- .Name -}}">
+            <a class="social-icons" rel="me" href='{{- .URL | safeHTML -}}' target="_blank" title="{{- .Name -}}">
                 {{- $icon := .Name -}}
                 {{- with $icon -}}
                 {{- title . -}}

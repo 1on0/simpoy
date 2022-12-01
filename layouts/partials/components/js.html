@@ -9,7 +9,7 @@
 {{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if or (and .IsHome $clipboard) (and (findRE "<pre" .Content 1) $clipboard) -}}
+{{- if or (and .IsHome (findRE "<pre" .Content 1) $clipboard) (and (findRE "<pre" .Content 1) $clipboard) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
 {{- end -}}
 {{- end -}}

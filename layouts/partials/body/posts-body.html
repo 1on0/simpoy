@@ -6,6 +6,7 @@
     {{- end -}}
     {{- partial "components/toc" . -}}
     {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
+    <element hidden>{{- partial "components/display-image" . -}}</element>
     <div class="info">
         {{- if not .Date.IsZero -}}
         <p class="info-date">
@@ -51,6 +52,5 @@
             {{- end -}}
             {{- end -}}
         </p>
-        <element hidden>{{- partial "components/display-image" . -}}</element>
     </div>
 </article>
