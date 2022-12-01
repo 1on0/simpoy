@@ -246,7 +246,7 @@
 
     .darkmode {
       position: relative;
-      margin-top: .2rem;
+      margin-top: .3rem;
     }
   }
 
@@ -334,6 +334,10 @@
     padding-right: 1.5rem;
   }
 
+  .gallery {
+    padding: 0;
+  }
+
   li p {
     padding: 0;
   }
@@ -363,11 +367,7 @@
   padding: 0 1rem;
 }
 
-.hide {
-  display: none;
-}
-
-.footer-inner, .profile-home, .my {
+.footer-inner, .my {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -386,7 +386,7 @@
     padding: 0 2rem;
 
     @media(max-width: 48rem) {
-      width: 40%;
+      width: 50%;
     }
   }
 
@@ -397,7 +397,7 @@
 }
 
 @media (max-width: 48rem) {
-  .footer-inner, .profile-home, .my {
+  .footer-inner, .my {
     flex-direction: column;
   }
 }
@@ -405,7 +405,7 @@
 .info {
   padding: 1rem;
 
-  &-date, &-lastmod, &-read, &-author, &-label {
+  &-date, &-lastmod, &-read, &-author, &-label, &-syndication {
   border: $border;
   line-height: 2rem;
   margin: 0;

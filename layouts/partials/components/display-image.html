@@ -1,0 +1,12 @@
+{{- with site.Params.hcard }}
+{{- $img := resources.Get .image -}}
+{{- $small := $img.Fill "320x320 Lanczos webp" -}}
+{{- $medium := $img.Fill "640x640 Lanczos webp" -}}
+<picture class="my-image">
+    <img class="u-photo" width="{{- $img.Width -}}" height="{{- $img.Height -}}"
+        sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
+        srcset='{{- if ge $img.Width "320" -}}{{- with $small.RelPermalink -}}{{.}} 320w{{- end -}}{{- end -}}
+{{- if ge $img.Width "640" -}}{{- with $medium.RelPermalink -}}, {{.}} 640w{{- end -}}{{- end -}}'
+        src="{{- $img.RelPermalink -}}" alt="{{- site.Title -}}">
+    {{- end -}}
+</picture>

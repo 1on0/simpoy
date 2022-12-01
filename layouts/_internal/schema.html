@@ -40,8 +40,8 @@
 </script>
 {{- end -}}
 {{- if .IsPage  -}}
-{{- $tes := where site.RegularPages "Type" "in" site.Params.mainSections -}}
-{{- if $tes -}}
+{{ $tes := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ if $tes }}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",

@@ -1,5 +1,5 @@
 {{- define "content" -}}
-{{- if site.Params.hcard -}}
+{{- if and (eq .Paginator.PageNumber 1) (site.Params.hcard) -}}
 {{- partialCached "body/h-card" . -}}
 {{- end -}}
 {{- $pages := .Pages -}}
