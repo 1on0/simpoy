@@ -1,10 +1,4 @@
 <div class="archive">
-    <div id="hits">
-        <!-- Hits widget will appear here -->
-      </div>
-      <div id="search-box">
-        <!-- SearchBox widget will appear here -->
-      </div>
     <h3 class="archive-title">{{- $taxonomy := .Data.Singular -}}{{- if eq $taxonomy "category" -}}{{- .Title -}}{{- else if eq $taxonomy "tag" -}}{{- .Title -}}{{- else -}}{{- .Title -}}{{- end -}}</h3>
     {{- if .Pages -}}
     {{- range (.Pages.GroupByDate "2006") -}}

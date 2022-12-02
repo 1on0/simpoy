@@ -3,10 +3,9 @@
     {{- partial "head/head" . -}}
     <body>
         {{- partial "body/header" . -}}
-        <section class="content">
+        <section>
         {{- block "content" . }}{{- end -}}
         </section>
-        {{- partialCached "components/totop" . -}}
         {{- partialCached "body/footer" . -}}
         {{- partial "components/js" . -}}
     </body>

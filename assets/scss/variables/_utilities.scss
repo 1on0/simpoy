@@ -1,34 +1,32 @@
 html {
-  scroll-behavior: smooth;
   height: 100%;
-  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
-
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent
 }
 
 body {
   background-color: var(--white-primary);
   color: var(--black-primary);
-  min-height: 100%;
-  -moz-osx-font-smoothing: grayscale;
   font-family: $serif;
   line-height: 1.75;
+  min-height: 100%;
+  -moz-osx-font-smoothing: grayscale
 }
 
 section {
   display: block;
-  width: 100%;
   max-width: 48rem;
   margin: 0 auto;
-  word-wrap: break-word;
+  margin-top: 5rem;
+  min-height: 90vh;
   padding: 1rem 0;
-  min-height: 80vh;
+  width: 100%;
+  word-wrap: break-word;
 }
 
-.page-title,
-.index p,
-.index .arabic {
-  margin: .75rem 1.5rem;
+.content-title, .index p, .index .arabic {
+  margin: .75rem 1.5rem
 }
 
 @mixin img {
@@ -40,7 +38,7 @@ section {
     display: block;
     margin: 2rem auto;
     text-align: center;
-    width: 70%;
+    width: 70%
   }
 
   img {
@@ -48,7 +46,7 @@ section {
     height: auto;
     margin: 1rem 0;
     max-width: 100%;
-    text-align: center;
+    text-align: center
   }
 }
 
@@ -62,9 +60,8 @@ section {
   margin: .3rem 0;
   padding: .75rem 1.5rem;
 
-  p,
-  span {
-    margin: auto .2rem;
+  p, span {
+    margin: auto .2rem
   }
 
   a {
@@ -81,52 +78,35 @@ section {
   }
 }
 
-.top {
-  display: block;
-  text-align: center;
-  margin: 2rem auto;
-
-  &:hover {
-    background-color: none;
-  }
-}
-
 footer {
+  bottom: 0;
   box-shadow: 0px 3px 3px 3px var(--black-secondary);
   margin-top: 2rem;
   position: static;
-  bottom: 0;
-  width: 100%;
+  width: 100%
 }
 
 .schema {
-  display: none !important;
+  display: none !important
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.3;
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3
 }
 
-h1 a,
-h2 a,
-h3 a {
+h1 a, h2 a, h3 a {
   color: var(--black-primary);
   text-decoration: none
 }
 
 h1 {
-  margin: 3rem 0 1.5rem;
-  font-size: $xxl
+  font-size: $xxl;
+  margin: 3rem 0 1.5rem
 }
 
 h2 {
-  margin: 2rem 0 1.25rem;
-  font-size: $xl
+  font-size: $xl;
+  margin: 2rem 0 1.25rem
 }
 
 h3 {
@@ -134,9 +114,7 @@ h3 {
   font-size: $l
 }
 
-h4,
-h5,
-h6 {
+h4, h5, h6 {
   font-weight: $normal;
   font-size: $r;
   margin-top: 1.4rem;
@@ -144,11 +122,11 @@ h6 {
 }
 
 p.subtitle {
-  font-style: italic;
-  margin: 1rem auto;
-  font-size: $xl;
   display: block;
+  font-size: $xl;
+  font-style: italic;
   line-height: 1;
+  margin: 1rem auto
 }
 
 hr {
@@ -157,21 +135,18 @@ hr {
   display: block;
   height: 1px;
   margin: 0 1rem;
-  padding: 0;
+  padding: 0
 }
 
-p,
-dl,
-ol,
-ul {
+p, dl, ol, ul {
   font-size: $s;
-  margin-top: .5rem;
+  margin-top: .5rem
 }
 
 p {
   margin-bottom: 1.4rem;
   padding-right: 0;
-  vertical-align: baseline;
+  vertical-align: baseline
 }
 
 a {
@@ -201,15 +176,15 @@ i {
 }
 
 blockquote {
-  text-align: left;
   background-color: var(--grey-primary);
-  padding: .5rem 1rem;
   border-left: 4px solid var(--table);
-  margin: 1rem 0;
   color: var(--black-secondary);
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+  text-align: left
 
   h3 {
-    margin-top: 1rem;
+    margin-top: 1rem
   }
 }
 
@@ -223,38 +198,36 @@ blockquote footer {
   vertical-align: baseline;
 
   ol {
-    margin: 0 2rem;
+    margin: 0 2rem 2rem
   }
 
   p {
-    margin: .5rem;
+    margin: .5rem
   }
 }
 
 figcaption {
-  float: right;
   clear: right;
-  margin-top: 0;
-  margin-bottom: 0;
+  float: right;
   font-size: 1.1rem;
-  vertical-align: baseline;
-  position: relative
+  margin-bottom: 0;
+  margin-top: 0;
+  position: relative;
+  vertical-align: baseline
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box
 }
 
 .arabic {
-  font-family: $arabic;
-  display: block;
   clear: both;
+  display: block;
+  font-family: $arabic;
   font-size: $xl;
   line-height: 3rem;
-  text-align: right;
-  margin: 1rem 0
+  margin: 1rem 0;
+  text-align: right
 }
 
 @mixin box {

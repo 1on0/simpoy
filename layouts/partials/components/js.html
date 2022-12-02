@@ -3,24 +3,37 @@
 {{- $development := eq (hugo.Environment) "development" -}}
 {{- $darkmode := site.Params.addon.darkmode -}}
 {{- $clipboard := site.Params.addon.copybutton -}}
+{{- $webmention := site.Params.webmention.js -}}
 {{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
 {{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
+{{- $webmentionjs := resources.Get "js/webmention.js" | js.Build "js/src/webmention.js" | minify -}}
 {{- if and $development -}}
 {{- if $darkmode -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
 {{- end -}}
-{{- if or (and .IsHome (findRE "<pre" .Content 1) $clipboard) (and (findRE "<pre" .Content 1) $clipboard) -}}
+{{- if and (findRE "<pre" .Content 1) $clipboard -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
+{{- end -}}
+{{- if and (isset .Params "syndication") ($webmention) -}}
+<script src="{{- $webmentionjs.RelPermalink -}}" async></script>
 {{- end -}}
 {{- end -}}
 {{- if (not $development) -}}
+{{- if and (isset .Params "syndication") $webmention -}}
+{{- if (not $fingerprint) -}}
+<script src="{{- $webmentionjs.RelPermalink -}}" async></script>
+{{- else -}}
+{{- $webmentionfp := $webmentionjs | fingerprint "sha384" -}}
+<script src="{{- $webmentionfp.RelPermalink -}}" async integrity="{{- $webmentionfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+{{- end -}}
+{{- end -}}
 {{- if and ($darkmode) (not $fingerprint) -}}
 <script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
 {{- else -}}
 {{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
 <script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
 {{- end -}}
-{{- if or (and .IsHome $clipboard) (and (findRE "<pre" .Content 1) $clipboard) -}}
+{{- if and (findRE "<pre" .Content 1) $clipboard -}}
 {{- if (not $fingerprint) -}}
 <script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
 {{- else -}}
