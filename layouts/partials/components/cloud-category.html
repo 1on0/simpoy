@@ -1,7 +1,7 @@
-<div class="cloud-category">
+<div class="stamp mg-1">
     <p>All Categories :</p>
     {{- $taxonomies := .Data.Plural -}}
     {{- range site.Taxonomies.categories.ByCount -}}
-    <a href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
+    <a class="box" href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
     {{- end -}}
 </div> 

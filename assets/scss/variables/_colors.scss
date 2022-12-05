@@ -1,3 +1,4 @@
+@import "chroma.scss";
 $dark-primary: rgb(33, 34, 36);
 $dark-secondary: rgb(57, 56, 55);
 $grey-primary: rgb(226, 226, 225);
@@ -34,4 +35,30 @@ $border: 1px solid rgb(221, 221, 221);
   --shadow: #{$box-shadow};
   --line-shadow: #{$shadow};
   --darken: #{$darken};
+}
+
+.dark {
+  @include darkchroma;
+  --black-primary: #{$white-secondary};
+  --black-secondary: #{$white-primary};
+  --white-primary: #{$dark-primary};
+  --white-secondary: #{$dark-secondary};
+  --grey-primary: #{$dark-secondary};
+  --grey-secondary: #{$dark-secondary};
+  --link: #{$dark-link};
+  --accent: #{$white-primary};
+  --hover: #{$white-secondary};
+  --table: #{$hover-dark};
+  --highlight: #{$black-secondary};
+  --shadow: #{$shadow};
+  --line-shadow: #{$white-primary};
+  --darken: #{$darken-dark};
+}
+
+body.dark .moon {
+  display: none;
+}
+
+body:not(.dark) .sun {
+  display: none;
 }

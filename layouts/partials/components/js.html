@@ -1,46 +1,23 @@
-{{- if site.Params.enablejs -}}
-{{- $fingerprint := site.Params.fingerprint -}}
-{{- $development := eq (hugo.Environment) "development" -}}
-{{- $darkmode := site.Params.addon.darkmode -}}
-{{- $clipboard := site.Params.addon.copybutton -}}
-{{- $webmention := site.Params.webmention.js -}}
-{{- $darkmodejs := resources.Get "js/darkmode.js" | js.Build "js/src/darkmode.js" | minify -}}
-{{- $clipboardjs := resources.Get "js/clipboard.js" | js.Build "js/src/clipboard.js" | minify -}}
-{{- $webmentionjs := resources.Get "js/webmention.js" | js.Build "js/src/webmention.js" | minify -}}
-{{- if and $development -}}
-{{- if $darkmode -}}
-<script src="{{- $darkmodejs.RelPermalink -}}" defer></script>
-{{- end -}}
-{{- if and (findRE "<pre" .Content 1) $clipboard -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer></script>
-{{- end -}}
-{{- if and (isset .Params "syndication") ($webmention) -}}
-<script src="{{- $webmentionjs.RelPermalink -}}" async></script>
+{{- if .Site.Params.enablejs -}}
+
+{{- $d := site.Params.addon.darkmode -}}
+{{- $c := site.Params.addon.copybutton -}}
+{{- $copy := findRE "<pre" .Content 1 -}}
+{{- $darkmode := resources.Get "js/darkmode.js" -}}
+{{- $clipboard := resources.Get "js/clipboard.js" -}}
+{{- $bundle := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
+{{- $darkmodep := $darkmode | minify | babel -}}
+{{- $bundlep := $bundle | minify | babel -}}
+
+{{- if and $c $d $copy}}
+<script crossorigin="anonymous" defer src="{{- if hugo.IsProduction -}}{{- $bundlep.RelPermalink -}}{{- else -}}{{- $bundle.RelPermalink }}{{- end -}}"></script>
+{{- else -}}{{- if and $d (not $copy) -}}
+<script crossorigin="anonymous" defer src="{{- if hugo.IsProduction -}}{{- $darkmodep.RelPermalink -}}{{- else -}}{{- $darkmode.RelPermalink }}{{- end -}}"></script>
 {{- end -}}
 {{- end -}}
-{{- if (not $development) -}}
-{{- if and (isset .Params "syndication") $webmention -}}
-{{- if (not $fingerprint) -}}
-<script src="{{- $webmentionjs.RelPermalink -}}" async></script>
-{{- else -}}
-{{- $webmentionfp := $webmentionjs | fingerprint "sha384" -}}
-<script src="{{- $webmentionfp.RelPermalink -}}" async integrity="{{- $webmentionfp.Data.Integrity -}}" crossorigin="anonymous"></script>
+
+
 {{- end -}}
-{{- end -}}
-{{- if and ($darkmode) (not $fingerprint) -}}
-<script src="{{- $darkmodejs.RelPermalink -}}" defer crossorigin="anonymous" crossorigin="anonymous"></script>
-{{- else -}}
-{{- $darkmodefp := $darkmodejs | fingerprint "sha384" -}}
-<script src="{{- $darkmodefp.RelPermalink -}}" defer integrity="{{- $darkmodefp.Data.Integrity -}}" crossorigin="anonymous"></script>
-{{- end -}}
-{{- if and (findRE "<pre" .Content 1) $clipboard -}}
-{{- if (not $fingerprint) -}}
-<script src="{{- $clipboardjs.RelPermalink -}}" defer crossorigin="anonymous"></script>
-{{- else -}}
-{{- $clipboardfp := $clipboardjs | fingerprint "sha384" -}}
-<script src="{{- $clipboardfp.RelPermalink -}}" defer integrity="{{- $clipboardfp.Data.Integrity -}}" crossorigin="anonymous"></script>
-{{- end -}}
-{{- end -}}
-{{- end -}}
-{{- end -}}
-<noscript><style>#darkmode {display: none;}</style></noscript>
+
+
+

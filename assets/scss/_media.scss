@@ -1,0 +1,63 @@
+@media (max-width: 769px) {
+	.footer, .h-card {
+		flex-direction: column;
+		text-align: center;
+
+		&-image {
+			width: 50%;
+		}
+	}
+
+	input:checked~.menu {
+		background-color: var(--white-primary);
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 42px;
+		width: 33%;
+
+		li {
+			border: $border;
+			line-height: initial;
+			padding: 1rem;
+		}
+	}
+
+	.nav-right {
+		float: right;
+
+		.darkmode {
+			position: relative;
+			margin-top: .5rem;
+		}
+	}
+
+	.menu {
+		display: none;
+	}
+}
+
+@media (min-width: 48rem) {
+	.nav {
+
+		&-right {
+			align-items: center;
+			display: flex;
+			justify-content: flex-end;
+			margin-right: 1rem;
+		}
+	}
+
+	.menu {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: .25rem;
+		position: relative;
+		transform: none;
+
+		&-icon {
+			display: none;
+		}
+	}
+}

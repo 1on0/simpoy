@@ -1,22 +1,18 @@
-<article class="index">
-    <h3 class="content-title"><a class="index-item" href="{{- .RelPermalink | relURL | safeURL -}}">{{- .Title -}}</a></h3>
-    <p class="index-body">{{- if isset .Params "description" -}}{{- .Description | markdownify -}}{{- else if .Summary -}}{{- .Summary | markdownify -}}{{- end -}}</p>
-    <p class="mt">
+<div class="index box mg-1">
+    <a class="index-card mg-0" href="{{- .RelPermalink | relURL -}}">
+        <h3>{{- .Title -}}</h3>
+        <p>{{- if isset .Params "description" -}}{{- .Description | markdownify -}}{{- else if .Summary -}}{{- .Summary | markdownify -}}{{- end -}}</p>
+        <div class="stamp pd-1-0">
         {{- if not .Date.IsZero -}}
-        <span class="date">
+            <span>
             {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
-        </span>
-        {{- end -}}
-        {{ if or (.Params.tags) (.Params.categories) (.Params.series) (.Params.readtime) }}
-        <span class="read">
-            {{- $readTime := cond (gt .ReadingTime 1) "-min-" "-min-" -}}
-            {{- .ReadingTime -}}{{- $readTime -}}read
-        </span>
+            </span>
         {{- end -}}
         {{- if .Params.categories -}}
         {{ range $k, $c := .Params.categories -}}{{- if $k -}} {{- end -}}
-        <a class="lbl-c" href="{{- "/categories/" | relURL -}}{{- . | urlize -}}">{{- $c -}}</a>
+            <a class="box" href="{{- "/categories/" | relURL -}}{{- . | urlize -}}">{{- $c -}}</a>
         {{- end -}}
         {{- end -}}
-    </p>
-</article>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,117 @@
+.nav {
+	margin: 0 auto;
+	padding: 0;
+	justify-content: space-between;
+	width: 100%;
+
+	.logo {
+		display: block;
+		float: left;
+
+		img {
+			display: block;
+			margin: 0;
+			max-width: 100%;
+		}
+
+		a {
+			color: var(--accent);
+			margin: 0;
+			font-size: $l;
+			font-weight: $bolder;
+			text-decoration: none;
+		}
+
+		svg {
+			display: inline-block;
+			height: 30px
+		}
+	}
+}
+
+.menu-icon {
+	cursor: pointer;
+	float: right;
+	padding: 1rem;
+	position: relative;
+	user-select: none;
+}
+
+.darkmode {
+	background: none;
+	border: 0;
+	color: var(--black-secondary);
+	cursor: pointer;
+}
+
+%icon {
+	background: var(--black-secondary);
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: .2s ease-out;
+	width: 100%;
+}
+
+.nav-icon {
+	align-items: baseline;
+	background: var(--black-secondary);
+	display: block;
+	height: 2px;
+	position: relative;
+	transition: background .2s ease-out;
+	width: 18px;
+
+	&::before {
+		@extend %icon;
+		top: 5px;
+	}
+
+	&::after {
+		@extend %icon;
+		top: -5px;
+	}
+}
+
+.menu-btn {
+	display: none;
+
+	&:checked~.menu {
+		max-height: 100%;
+
+		&-icon .nav-icon {
+			background: transparent;
+		}
+
+		&-icon .nav-icon::before {
+			top: 0;
+			transform: rotate(-45deg);
+		}
+
+		&-icon .nav-icon::after {
+			top: 0;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	&-item {
+		background-color: var(--white-primary);
+		display: block;
+		position: relative;
+		padding: 0 .5rem;
+
+
+		a {
+			color: var(--black-secondary);
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
