@@ -1,3 +1,3 @@
-module github.com/ionsqr/simpoy/v0.0.110-alpha
+module github.com/ionsqr/simpoy
 
 go 1.19
