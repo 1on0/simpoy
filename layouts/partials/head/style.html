@@ -1,4 +1,4 @@
-{{- $css := resources.Get "scss/style.scss" | toCSS | resources.PostCSS -}}
+{{- $css := resources.Get "css/style.scss" | toCSS | resources.PostCSS (dict "config" "./assets/mod/postcss.config.js") -}}
 {{- if hugo.IsProduction -}}
 {{- $css = $css | minify | fingerprint "sha384" | resources.PostProcess -}}
 {{- end -}}
