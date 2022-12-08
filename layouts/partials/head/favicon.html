@@ -1,0 +1,14 @@
+<link href="{{- site.BaseURL -}}" class="h-card" rel="me">
+{{- with site.Params.webmention}}
+<link rel="webmention" href="https://webmention.io/{{- .domain -}}/webmention">
+<link rel="pingback" href="https://webmention.io/{{- .domain -}}/xmlrpc">
+{{- end -}}
+<link rel="icon" href="{{- site.Params.favicon.default | absURL -}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{- site.Params.favicon.square16 | absURL -}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{- site.Params.favicon.square32 | absURL }}">
+<link rel="apple-touch-icon" href="{{- site.Params.favicon.apple_touch | absURL -}}">
+<link rel="mask-icon" href="{{- site.Params.favicon.safari_pinned | absURL -}}">
+<link rel="icon" type="image/png" sizes=192x192 href="{{- site.Params.favicon.square192 | absURL -}}">
+<link rel="icon" type="image/png" sizes=512x512 href="{{- site.Params.favicon.square512 | absURL -}}">
+<meta name="theme-color" content="{{- site.Params.theme_color -}}">
+<meta name="msapplication-TileColor" content="{{- site.Params.msapplication_TileColor -}}">

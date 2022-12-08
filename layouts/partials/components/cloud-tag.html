@@ -1,0 +1,6 @@
+<div class="stamp mg-1">
+    <p>All Tags :</p>
+    {{- range site.Taxonomies.tags.ByCount -}}
+    <a class="box" href="{{- .Page.RelPermalink -}}">{{- .Page.Title -}} <sup> {{- .Count -}}</sup></a>
+    {{- end -}}
+</div>

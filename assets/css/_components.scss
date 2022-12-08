@@ -1,0 +1,259 @@
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media(min-width: 48rem) {
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    width: 70%
+  }
+
+  img {
+    display: block;
+    height: auto;
+    margin: 1rem 0;
+    max-width: 100%;
+    text-align: center
+  }
+}
+
+audio {
+  display: block;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.gallery {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  list-style-type: none;
+  margin: 2rem 0 4rem;
+
+  &>li {
+    flex-basis: 300px;
+  }
+
+  li {
+    img {
+      border-radius: 5px;
+      height: auto;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+}
+
+%border {
+  border: $border;
+  padding: .3rem .6rem;
+}
+
+.pgn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem;
+  justify-content: center;
+  list-style: none;
+  margin: .3rem 0;
+  padding: 1rem;
+
+  &-gen, &-num, &-num-current {
+    a {
+      @extend %border;
+      text-decoration: none;
+    }
+  }
+
+  &-num-current {
+    background-color: var(--accent);
+    color: var(--white-secondary)
+  }
+
+  &-num-link-current {
+    &, &:hover {
+      color: var(--white-secondary);
+    }
+  }
+}
+
+.highlight {
+  -moz-tab-size: 4;
+  margin: 2rem auto;
+  position: relative;
+  tab-size: 4;
+
+  .lntd {
+    pre,
+    pre line {
+      overflow-x: hidden;
+      padding: .5rem;
+      line-height: 0;
+    }
+
+    &:last-child {
+      width: 100%;
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  &:hover, pre:hover {
+    .copy-code {
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  &>* {
+    background-color: var(--highlight);
+    overflow-x: auto;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    word-wrap: normal;
+  }
+}
+
+pre {
+  background-color: var(--highlight);
+  color: var(--black-secondary);
+  overflow-x: auto;
+  padding: 1rem;
+  position: relative;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+  word-wrap: normal;
+
+  code {
+    font-size: 80%;
+    line-height: 1.7;
+  }
+}
+
+:not(pre)>code {
+  background-color: var(--highlight);
+  border-radius: 5px;
+  font-size: 85%;
+  padding-bottom: .2rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  padding-top: .2rem;
+}
+
+.copy-code {
+  background-color: var(--white-primary);
+  border: 0;
+  border-radius: 5px;
+  display: none;
+  padding: .3rem .3rem .2rem;
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  user-select: none;
+}
+
+.chroma .hl {
+  background-color: var(--hover);
+}
+
+.goat svg {
+  height: auto;
+  width: 70%;
+}
+
+.table-wrapper table {
+  border-collapse: collapse;
+  display: block;
+  margin: 1rem 0 3rem;
+  overflow-x: auto;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+  table-layout: fixed;
+  word-wrap: normal;
+
+  thead tr th {
+    background-color: var(--table);
+    border: 1px solid rgb(227, 227, 227);
+    font-weight: $bold;
+    padding: .75rem;
+    text-align: left;
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: var(--grey-primary);
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--grey-secondary);
+    }
+  }
+
+  td {
+    border: 1px solid #ddd;
+    min-width: 100px;
+    padding: .75rem;
+    text-align: left;
+    word-wrap: break-word;
+
+    a {
+      word-break: break-all;
+    }
+  }
+}
+
+.table-of-contents {
+  background-color: var(--white-secondary);
+  cursor: pointer;
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+
+  &-title {
+    margin-left: .3rem;
+  }
+
+  .toc {
+    color: var(--black-secondary);
+    margin: 1rem .5rem 0;
+    padding: .25rem 1rem .5rem;
+
+    &-h1, &-h2 {
+      margin-left: 0;
+    }
+
+    &-h3, &-h4 {
+      margin-left: 2rem;
+    }
+
+    &-h5, &-h6 {
+      margin-left: 4rem;
+    }
+  }
+}
+
+.social {
+  padding: 0;
+
+  &-icons {
+    margin: 0;
+    transition: transform 250ms;
+
+    svg {
+      color: var(--secondary);
+      height: auto;
+      width: 25px;
+    }
+
+    svg:hover {
+      -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+      transform: scale(1.25);
+    }
+  }
+}

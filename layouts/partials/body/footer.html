@@ -1,0 +1,18 @@
+<footer>
+  <div class="footer flex-center pd-1">
+    <p class="flex-3">
+      {{ site.Copyright }} | {{ site.Params.author }}
+    </p>
+    <p class="flex-3">
+      {{- with site.Params.license -}}
+      Licensed under <a href="{{- .url | safeHTML -}}" target="_blank" rel="noopener">{{- .name -}}</a>
+      {{- end -}}
+    </p>
+    <p class="flex-3">
+      {{- with site.Params.powered -}}
+      Powered by <a href="{{- .hugo.url | safeHTML -}}" target="_blank" rel="noopener">{{- .hugo.name -}}</a> and <a
+        href="{{- .theme.url | safeHTML -}}" target="_blank" rel="noopener">{{- .theme.name -}}</a>
+      {{- end -}}
+    </p>
+  </div>
+</footer>

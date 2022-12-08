@@ -1,0 +1,8 @@
+{{- define "title" -}}
+{{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{ site.Title -}}
+{{- end -}}
+{{- define "content" -}}
+{{- partial "partials/body/archive" . -}}
+{{- partial "components/cloud-category" . -}}
+{{- partial "components/cloud-tag" . -}}
+{{- end -}}

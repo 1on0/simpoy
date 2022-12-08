@@ -1,0 +1,61 @@
+<article class="p-author h-entry pd-1">
+    <h3 class="p-name">{{- .Title -}}</h3>
+    <hr>
+    {{- with .Params.description -}}
+    <h3 class="subtitle">{{- . -}}</h3>
+    {{- end -}}
+    <div class="e-content">
+        {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
+        {{ if .Params.cover }}
+        {{- partial "components/cover" . -}}
+        {{- end -}}
+        {{- partial "components/toc" . -}}
+        {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
+        {{- if not .Date.IsZero -}}
+    </div>
+    <div class="entry">
+        <span class="info">
+            Published date : <time class="dt-published"><a class="u-url" href="{{ .Permalink }}">{{ .Date.Format (or
+                    site.Params.dateFormat.published "January 2, 2006") -}}</a></time>
+        </span>
+        {{- end -}}
+        {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) -}}
+        <span class="info">
+            Last update : <time>{{- .Lastmod.Format "January 2, 2006" -}}</time>
+        </span>
+        {{- end }}
+        {{- if or (.Params.tags) (.Params.categories) (.Params.series) (.Params.readtime) -}}
+        <span class="info">Reading time :
+            {{ $readTime := cond (gt .ReadingTime 1) "-min-" "-min-" -}}
+            {{- .ReadingTime -}}{{- $readTime -}}read
+        </span>
+        {{- end -}}
+        {{- with site.Params}}
+        <span class="info">
+            Posted by : <a rel="author" class="p-author h-card" href="{{ " about" | relURL }}">{{ .Author -}}</a>
+        </span>
+        {{- end -}}
+        {{- if .Params.categories -}}
+        <span class="info">
+            Categories :
+            {{ range $k, $c := .Params.categories -}}{{- if $k -}}, {{ end -}}
+            <a class="p-category" href="{{- " /categories/" | relURL -}}{{- . | urlize -}}">{{- title $c -}}</a>
+            {{- end -}}
+            {{- end -}}
+        </span>
+        {{- if .Params.tags -}}
+        <span class="info">
+            Tags : {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
+            <a class="tags" href="{{- " /tags/" | relURL -}}{{- . | urlize -}}">{{- title $t -}}</a>
+            {{- end }}
+            {{- end -}}
+        </span>
+        {{- with .Params.syndication -}}
+        <span class="info">
+        Syndication : {{- range $f, $s := . }}
+        <a href="{{- $s -}}" class="u-syndication" rel="syndication">{{- title $f -}}</a>
+        {{- end -}}
+        {{- end -}}
+        </span>
+    </div>
+</article>

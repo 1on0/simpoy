@@ -1,0 +1,7 @@
+{{- $audio := resources.GetMatch (printf "%s" (.Get 0)) -}}
+<audio controls preload="{{- .Get "preload" | default "metadata" -}}">
+    {{- with $audio -}}
+    <source src="{{- .Permalink -}}" type="audio/mpeg">
+    {{- end -}}
+</audio>
+

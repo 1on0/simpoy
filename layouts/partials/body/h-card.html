@@ -1,0 +1,27 @@
+<div class="flex-center h-card pd-1">
+    {{- partial "components/display-image" . -}}
+    <div class="h-card-bio mg-0-1">
+        <h3>Hi, I'm <span class="p-name" rel="me">{{- site.Params.hcard.name -}}</span>
+            <span class="p-family-name">{{- site.Params.hcard.family -}}</span>
+        </h3>
+        {{- with site.Params.hcard.bio -}}
+        <p class="p-note">{{- . | markdownify | emojify -}}</p>
+        <div class="social">
+            {{- with site.Menus.social -}}
+            {{- range $k, $url := . -}}{{- if $k }}/{{ end -}}
+            <a class="social-icons" rel="me" href='{{- .URL | safeHTML -}}' target="_blank" title="{{- .Name -}}">
+                {{- $icon := .Name -}}
+                {{- with $icon -}}
+                {{- title . -}}
+                {{- end -}}</a>
+            {{- end -}}
+            {{- end -}}
+        </div>
+        <element hidden>
+            <p class="p-honorific-suffix hide">{{- site.Params.hcard.honorificsuffix -}}</p>
+            <p class="p-nickname">{{- site.Params.hcard.nick -}}</p>
+            <a class="u-url" href="{{- site.BaseURL -}}">{{- site.Title -}}</a>
+        </element>
+    </div>
+    {{- end -}}
+</div>

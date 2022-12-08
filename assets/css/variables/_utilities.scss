@@ -1,0 +1,89 @@
+@mixin small {
+  box-shadow: 5px 5px 0px 0px $black-secondary;
+  -webkit-box-shadow: 5px 5px 0px 0px $black-secondary;
+  -moz-box-shadow: 5px 5px 0px 0px $black-secondary;
+}
+
+@mixin big {
+  box-shadow: 8px 8px 0px 0px $black-secondary;
+  -webkit-box-shadow: 8px 8px 0px 0px $black-secondary;
+  -moz-box-shadow: 8px 8px 0px 0px $black-secondary;
+}
+
+.mg-0 {
+  margin: 0;
+}
+
+.mg-0-1 {
+  margin: 0 1rem;
+}
+
+.mg-1-0 {
+  margin: 1rem 0;
+}
+
+.mg-1 {
+  margin: 1rem;
+}
+
+.mg-right {
+  margin-right: 1rem;
+}
+
+.pd-0-1 {
+  padding: 0 1rem;
+}
+
+.pd-1 {
+  padding: 1rem;
+}
+
+.pd-1-0 {
+  padding: 1rem 0;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-3 {
+  flex: 100/3;
+}
+
+.line-shadow {
+  box-shadow: 0 2px 2px -2px var(--line-shadow);
+  padding: .25em;
+}
+
+.stamp {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: flex-start;
+
+  a, p, span {
+    font-size: $xs;
+    margin: auto .2rem;
+  }
+
+  .box {
+    @include small;
+  }
+}
+
+.box {
+  border: $border;
+  padding: .1rem .5rem;
+  text-decoration: none;
+  transition: .5s;
+
+  &:hover {
+    box-shadow: 0px 0px 0px 0px var(--shadow);
+    -webkit-box-shadow: 0px 0px 0px 0px var(--shadow);
+    -moz-box-shadow: 0px 0px 0px 0px var(--shadow);
+    transition: .5s;
+  }
+}
