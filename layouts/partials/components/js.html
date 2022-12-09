@@ -1,19 +1,16 @@
-{{- if site.Params.js -}}
+{{- if .Site.Params.js -}}
 {{- $d := site.Params.js.darkmode -}}
 {{- $c := site.Params.js.copybutton -}}
 {{- $copy := findRE "<pre" .Content 1 -}}
 {{- $darkmode := resources.Get "js/dark.js" -}}
 {{- $clipboard := resources.Get "js/clipboard.js" -}}
-{{- $all := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
-{{- $h := hugo.IsProduction -}}
-{{- if $h -}}
-{{- $all := $all | minify | babel | fingerprint "sha384" -}}
-{{- $darkmode := $darkmode | minify | babel | fingerprint "sha384" -}}
-{{- end -}}
-{{- if and $c $d $copy -}}
-<script src="{{- $all.RelPermalink -}}" {{- if $h -}}integrity="{{- $all.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
+{{- $bundle := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
+{{- $darkmodep := $darkmode | minify | babel | fingerprint "sha384" -}}
+{{- $bundlep := $bundle | minify | babel | fingerprint "sha384" -}}
+{{- if and $c $d $copy}}
+<script src="{{- if hugo.IsProduction -}}{{- $bundlep.RelPermalink -}}{{- else -}}{{- $bundle.RelPermalink }}{{- end -}}" {{- if hugo.IsProduction -}}integrity="{{- $bundlep.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
 {{- else -}}{{- if and $d (not $copy) -}}
-<script src="{{- $darkmode.RelPermalink -}}" {{- if $h -}}integrity="{{- $darkmode.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
+<script src="{{- if hugo.IsProduction -}}{{- $darkmodep.RelPermalink -}}{{- else -}}{{- $darkmode.RelPermalink }}{{- end -}}" {{- if hugo.IsProduction -}}integrity="{{- $darkmodep.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
 {{- end -}}
 {{- end -}}
 {{- end -}}
