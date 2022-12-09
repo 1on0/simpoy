@@ -4,15 +4,15 @@
 name = "Simpoy"
 license = "MIT"
 licenselink = "https://github.com/ionsqr/simpoy/blob/master/LICENSE"
-description = "A Knowledge Seeker"
-homepage = "http://simpoy.com/"
+description = "Theme for Knowledge Seeker"
+homepage = "http://simpoy.netlify.app/"
 tags = []
 features = []
-min_version = "0.88.0"
+min_version = "0.104.0"
 
 [author]
   name = "Ion Orion Sugiarmawan"
-  homepage = "https://iorn.org"
+  homepage = "https://simpoy.netlify.app"
 
 # If porting an existing theme
 [original]
