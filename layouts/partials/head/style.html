@@ -1,5 +1,5 @@
-{{- $css := resources.Get "css/style.scss" | toCSS | -}}
+{{- $css := resources.Get "css/style.scss" | toCSS | resources.PostCSS -}}
 {{- if hugo.IsProduction -}}
-{{- $css = $css | minify | fingerprint "sha384" -}}
+{{- $css = $css | minify | fingerprint "sha384" | resources.PostProcess -}}
 {{- end -}}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" {{- if hugo.IsProduction -}} integrity="{{- $css.Data.Integrity -}}" crossorigin="anonymous"{{- end -}}>
