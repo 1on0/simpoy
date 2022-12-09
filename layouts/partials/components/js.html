@@ -1,8 +1,8 @@
-{{- if .Site.Params.enablejs -}}
-{{- $d := site.Params.addon.darkmode -}}
-{{- $c := site.Params.addon.copybutton -}}
+{{- if site.Params.js -}}
+{{- $d := site.Params.js.darkmode -}}
+{{- $c := site.Params.js.copybutton -}}
 {{- $copy := findRE "<pre" .Content 1 -}}
-{{- $darkmode := resources.Get "js/darkmode.js" -}}
+{{- $darkmode := resources.Get "js/dark.js" -}}
 {{- $clipboard := resources.Get "js/clipboard.js" -}}
 {{- $all := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
 {{- $h := hugo.IsProduction -}}
