@@ -1,0 +1,45 @@
+@media (max-width: 769px) {
+
+	.footer,
+	.h-card {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.h-card-image {
+		width: 50%;
+	}
+}
+
+@media (min-width: 768px) {
+	.nav-right {
+		justify-content: flex-end;
+	}
+
+	.menu {
+		display: flex;
+		gap: .5rem;
+		position: relative;
+		transform: none;
+		z-index: 1;
+
+		&-item {
+			margin: 0;
+		}
+
+		&-icon {
+			display: none;
+		}
+	}
+
+	.darkmode {
+		margin: 0;
+	}
+
+	.photo-container {
+		display: block;
+		margin: 2rem auto;
+		text-align: center;
+		width: 70%
+	}
+}

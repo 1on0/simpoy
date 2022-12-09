@@ -1,15 +1,25 @@
+.content {
+  padding-bottom: 2.5rem;
+
+  svg {
+	width: fit-content
+	}
+}
+
+.subtitle {
+	font-style: italic;
+}
+
 .nav {
+	justify-content: space-between;
 	margin: 0 auto;
 	padding: 0;
-	justify-content: space-between;
 	width: 100%;
 
 	.logo {
-		display: block;
 		float: left;
 
 		img {
-			display: block;
 			margin: 0;
 			max-width: 100%;
 		}
@@ -31,9 +41,7 @@
 
 .menu-icon {
 	cursor: pointer;
-	float: right;
 	padding: 1rem;
-	position: relative;
 	user-select: none;
 }
 
@@ -42,6 +50,7 @@
 	border: 0;
 	color: var(--black-secondary);
 	cursor: pointer;
+	margin-top: .25rem;
 }
 
 %icon {
@@ -97,21 +106,73 @@
 }
 
 .menu {
+	display: none;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	z-index: 1000;
 
 	&-item {
-		background-color: var(--white-primary);
 		display: block;
 		position: relative;
 		padding: 0 .5rem;
 
-
 		a {
-			color: var(--black-secondary);
 			display: block;
 			text-decoration: none;
 		}
+	}
+}
+
+input:checked~.menu {
+	background-color: var(--white-primary);
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 42px;
+
+	li {
+		border: $border;
+		line-height: initial;
+		margin: 0;
+		padding: 1rem;
+	}
+}
+
+.index {
+	@include big;
+	padding: 0 1rem;
+
+	&-card {
+		color: var(--black-primary);
+		text-decoration: none;
+	}
+}
+
+.archive-date {
+	background-color: var(--accent);
+	color: var(--white-secondary);
+	padding: .5rem .6rem;
+}
+
+.entry,
+.e-content {
+	margin: 3rem 0;
+
+	.info {
+		border: $border;
+		display: block;
+		padding: .5rem;
+	}
+}
+
+.h-card {
+	&-image {
+		flex: 30%;
+		padding: 0 2rem;
+	}
+
+	&-bio {
+		flex: 70%;
 	}
 }

@@ -1,21 +1,25 @@
-.photo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.link-anchor {
+  opacity: 0;
+}
 
-  @media(min-width: 48rem) {
-    display: block;
-    margin: 2rem auto;
-    text-align: center;
-    width: 70%
-  }
+.anchor a {
+  text-decoration: none;
+}
+
+.anchor:hover {
+
+  .link-anchor {
+opacity: 1;  }
+}
+
+.photo-container {
+  margin: 2rem -1rem;
 
   img {
     display: block;
     height: auto;
-    margin: 1rem 0;
+    margin: 0;
     max-width: 100%;
-    text-align: center
   }
 }
 
@@ -25,7 +29,7 @@ audio {
   text-align: center;
 }
 
-.gallery {
+ul.gallery {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -33,18 +37,17 @@ audio {
   justify-content: center;
   list-style-type: none;
   margin: 2rem 0 4rem;
+  padding-inline-start: 0;
 
   &>li {
     flex-basis: 300px;
   }
 
-  li {
-    img {
-      border-radius: 5px;
-      height: auto;
-      vertical-align: middle;
-      width: 100%;
-    }
+  li img {
+    border-radius: 5px;
+    height: auto;
+    vertical-align: middle;
+    width: 100%;
   }
 }
 
@@ -53,7 +56,7 @@ audio {
   padding: .3rem .6rem;
 }
 
-.pgn {
+ul.page {
   display: flex;
   flex-wrap: wrap;
   gap: .2rem;
@@ -62,20 +65,17 @@ audio {
   margin: .3rem 0;
   padding: 1rem;
 
-  &-gen, &-num, &-num-current {
+  li.page-item {
     a {
       @extend %border;
       text-decoration: none;
     }
   }
 
-  &-num-current {
+  li.active {
     background-color: var(--accent);
-    color: var(--white-secondary)
-  }
 
-  &-num-link-current {
-    &, &:hover {
+    a {
       color: var(--white-secondary);
     }
   }
@@ -83,7 +83,7 @@ audio {
 
 .highlight {
   -moz-tab-size: 4;
-  margin: 2rem auto;
+  margin: 2rem -1rem;
   position: relative;
   tab-size: 4;
 
@@ -100,14 +100,10 @@ audio {
     }
   }
 
-  pre {
-    margin: 0;
-  }
-
   &:hover, pre:hover {
     .copy-code {
       cursor: pointer;
-      display: block;
+      opacity: 1;
     }
   }
 
@@ -140,26 +136,18 @@ pre {
   background-color: var(--highlight);
   border-radius: 5px;
   font-size: 85%;
-  padding-bottom: .2rem;
-  padding-left: .4rem;
-  padding-right: .4rem;
-  padding-top: .2rem;
+  padding: .2rem .4rem;
 }
 
-.copy-code {
-  background-color: var(--white-primary);
-  border: 0;
-  border-radius: 5px;
-  display: none;
+button.copy-code {
+  background-color: transparent;
+  border-style: none;
+  font-size: 0.8em;
+  opacity: 0;
   padding: .3rem .3rem .2rem;
   position: absolute;
-  right: 4px;
-  top: 3px;
-  user-select: none;
-}
-
-.chroma .hl {
-  background-color: var(--hover);
+  right: .8rem;
+  top: .5rem;
 }
 
 .goat svg {
@@ -170,7 +158,7 @@ pre {
 .table-wrapper table {
   border-collapse: collapse;
   display: block;
-  margin: 1rem 0 3rem;
+  margin: 1rem -1rem 3rem;
   overflow-x: auto;
   scrollbar-color: transparent transparent;
   scrollbar-width: thin;
@@ -179,10 +167,8 @@ pre {
 
   thead tr th {
     background-color: var(--table);
-    border: 1px solid rgb(227, 227, 227);
-    font-weight: $bold;
+    border: $border;
     padding: .75rem;
-    text-align: left;
   }
 
   tbody {
@@ -201,59 +187,21 @@ pre {
     padding: .75rem;
     text-align: left;
     word-wrap: break-word;
-
-    a {
-      word-break: break-all;
-    }
   }
 }
 
-.table-of-contents {
+.toc {
+  border: $border;
   background-color: var(--white-secondary);
   cursor: pointer;
-  margin: 1rem 0;
-  padding: .5rem 1rem;
+  margin: 1rem -1rem;
+  padding: 1rem 1rem;
 
-  &-title {
-    margin-left: .3rem;
+  ul {
+    list-style-type: decimal;
   }
 
-  .toc {
-    color: var(--black-secondary);
-    margin: 1rem .5rem 0;
-    padding: .25rem 1rem .5rem;
-
-    &-h1, &-h2 {
-      margin-left: 0;
-    }
-
-    &-h3, &-h4 {
-      margin-left: 2rem;
-    }
-
-    &-h5, &-h6 {
-      margin-left: 4rem;
-    }
-  }
-}
-
-.social {
-  padding: 0;
-
-  &-icons {
-    margin: 0;
-    transition: transform 250ms;
-
-    svg {
-      color: var(--secondary);
-      height: auto;
-      width: 25px;
-    }
-
-    svg:hover {
-      -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-      transform: scale(1.25);
-    }
+  ul ul {
+      list-style-type: square;
   }
 }

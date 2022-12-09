@@ -2,13 +2,17 @@
 {{- $img := resources.GetMatch (printf "%s" (.Get 0)) -}}
 {{- $options := .Get 1 -}}
 {{- $alt := .Get 2 -}}
-
+{{- $colors := $img.Colors -}}
+{{- if (lt ($colors | len) 2) -}}
+	{{- $colors = $colors | append "#ffffff" -}}
+{{- end -}}
+{{- $bgcolors := delimit ($colors) ", " -}}
+{{- $style := print "background: linear-gradient(" $bgcolors "); background-size: cover; background-repeat: no-repeat;" -}}
 {{/* set image sizes, these are hardcoded for now */}}
-{{- $tinyw := default "500x375 Lanczos" -}}
-{{- $smallw := default "800x600 Lanczos" -}}
-{{- $mediumw := default "1200x900 Lanczos" -}}
-{{- $largew := default "1600x1200 Lanczos" -}}
-
+{{- $tinyw := default "500x300 Lanczos webp" -}}
+{{- $smallw := default "800x600 Lanczos webp" -}}
+{{- $mediumw := default "1200x1000 Lanczos webp" -}}
+{{- $largew := default "1600x1400 Lanczos webp" -}}
 {{/* resize the src image to the given sizes */}}
 {{- .Scratch.Set "tiny" ($img.Fill $tinyw) -}}
 {{- .Scratch.Set "small" ($img.Fill $smallw) -}}
@@ -19,7 +23,7 @@
 {{- $small := .Scratch.Get "small" -}}
 {{- $medium := .Scratch.Get "medium" -}}
 {{- $large := .Scratch.Get "large" -}}
-<li>
+<li style="{{ $style | safeCSS }}">
     <img class="center" width="{{- $img.Width -}}" height="{{- $img.Height -}}"
     sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
     srcset='{{- if ge $img.Width "500" -}}{{- with $tiny.RelPermalink -}}{{.}} 500w{{- end -}}{{- end -}}

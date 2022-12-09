@@ -1,19 +1,22 @@
+@import 'colors';
+@import 'fonts';
+
 html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent
-  }
-  
-body {
-    background-color: var(--white-primary);
-    color: var(--black-primary);
-    font-family: $serif;
-    line-height: 1.75;
-    word-wrap: break-word;
-    -moz-osx-font-smoothing: grayscale
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent
 }
-  
-.wrap {  
+
+body {
+  background-color: var(--white-primary);
+  color: var(--black-primary);
+  font-family: $serif;
+  line-height: 1.75;
+  word-wrap: break-word;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.wrap {
   position: relative;
   margin: 0 auto;
   max-width: 48rem;
@@ -21,13 +24,9 @@ body {
 }
 
 header {
-	background-color: var(--white-primary);
-	padding: 0 1rem;
-	width: 100%;
-}
-
-.content {
-  padding-bottom: 2.5rem;
+  background-color: var(--white-primary);
+  padding: 0 1rem;
+  width: 100%;
 }
 
 footer {
@@ -42,11 +41,18 @@ footer {
   display: none !important
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.3
 }
 
-h1 a, h2 a, h3 a {
+h1 a,
+h2 a,
+h3 a {
   color: var(--black-primary);
   text-decoration: none
 }
@@ -66,36 +72,37 @@ h3 {
   font-size: $l
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-weight: $normal;
   font-size: $r;
   margin-top: 1.4rem;
   margin-bottom: 0.5rem
 }
 
-.subtitle {
-  display: block;
-  font-size: $xl;
-  font-style: italic;
-  line-height: 1;
-  margin: 1rem auto
-}
-
 hr {
-  border: 0;
   border-top: 2px solid var(--grey-primary);
-  display: block;
-  height: 1px;
-  padding: 0
 }
 
-p, dl, ol, ul {
+p,
+dl,
+ol,
+ul {
   font-size: $s;
-  margin-top: .5rem
+}
+
+ol,
+ul {
+  padding-inline-start: 2rem;
+}
+
+li {
+  margin-top: .5rem;
 }
 
 p {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
   padding-right: 0;
   vertical-align: baseline
 }
@@ -122,22 +129,54 @@ b {
 
 em,
 i {
-  font-style: italic;
   line-height: 1.4rem
 }
 
 blockquote {
   background-color: var(--grey-primary);
-  border-left: 4px solid var(--table);
-  color: var(--black-secondary);
-  margin: 1rem 0;
+  border-left: .5rem solid var(--table);
+  color: var(--note-text);
+  margin: 2rem -1rem;
   padding: .5rem 1rem;
-  text-align: left
+
+  &::before {
+    font-size: $m;
+    font-weight: $bolder;
+  }
 
   h3 {
     margin-top: 1rem
   }
 }
+
+blockquote.note {
+  background-color: rgba(0, 133, 242, .1);
+  border-left: 5px solid var(--note-text);
+
+  &::before {
+    content: 'ⓘ Note';
+  }
+}
+
+blockquote.warning {
+  background-color: rgba(199, 183, 0, .4);
+  border-left: 5px solid rgb(199, 183, 0);
+
+  &::before {
+    content: 'ⓘ Warning';
+  }
+}
+
+blockquote.danger {
+  background-color: rgba(153, 25, 48, .4);
+  border-left: 5px solid rgb(153, 25, 48);
+
+  &::before {
+    content: 'ⓘ Danger';
+  }
+}
+
+
 
 blockquote footer {
   font-size: 1.1rem;
@@ -147,6 +186,11 @@ blockquote footer {
 .footnotes {
   color: var(--black-secondary);
   vertical-align: baseline;
+
+  ol,
+  ul {
+    padding-inline-start: 3rem;
+  }
 
   p {
     margin: 0.5rem 0;
@@ -163,7 +207,9 @@ figcaption {
   vertical-align: baseline
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box
 }
 

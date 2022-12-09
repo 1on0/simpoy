@@ -1,23 +1,22 @@
 {{- if .Site.Params.enablejs -}}
-
 {{- $d := site.Params.addon.darkmode -}}
 {{- $c := site.Params.addon.copybutton -}}
 {{- $copy := findRE "<pre" .Content 1 -}}
 {{- $darkmode := resources.Get "js/darkmode.js" -}}
 {{- $clipboard := resources.Get "js/clipboard.js" -}}
-{{- $bundle := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
-{{- $darkmodep := $darkmode | minify | babel -}}
-{{- $bundlep := $bundle | minify | babel -}}
+{{- $all := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
+{{- $h := hugo.IsProduction -}}
 
-{{- if and $c $d $copy}}
-<script crossorigin="anonymous" defer src="{{- if hugo.IsProduction -}}{{- $bundlep.RelPermalink -}}{{- else -}}{{- $bundle.RelPermalink }}{{- end -}}"></script>
+{{- if $h -}}
+{{- $all := $all | minify | babel | fingerprint "sha384" -}}
+{{- $darkmode := $darkmode | minify | babel | fingerprint "sha384" -}}
+{{- end -}}
+
+{{- if and $c $d $copy -}}
+<script src="{{- $all.RelPermalink -}}" {{- if $h -}}integrity="{{- $all.Data.Integrity -}}"{{- end -}} defer></script>
 {{- else -}}{{- if and $d (not $copy) -}}
-<script crossorigin="anonymous" defer src="{{- if hugo.IsProduction -}}{{- $darkmodep.RelPermalink -}}{{- else -}}{{- $darkmode.RelPermalink }}{{- end -}}"></script>
+<script src="{{- $darkmode.RelPermalink -}}" {{- if $h -}}integrity="{{- $darkmode.Data.Integrity -}}"{{- end -}} defer></script>
 {{- end -}}
 {{- end -}}
 
-
 {{- end -}}
-
-
-

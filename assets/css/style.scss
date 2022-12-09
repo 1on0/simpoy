@@ -1,10 +1,8 @@
 @charset 'utf-8';
 @import 'reset';
-@import 'variables/colors';
-@import 'variables/fonts';
+
+@import 'variables/base';
 @import 'variables/utilities';
-@import 'variables/core';
-@import 'layouts';
-@import 'components';
-@import 'header';
-@import 'media';
+@import 'layouts/body';
+@import 'layouts/components';
+@import 'layouts/media';

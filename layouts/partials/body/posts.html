@@ -1,8 +1,8 @@
-<article class="p-author h-entry pd-1">
+<article class="p-author h-entry mg-1">
     <h3 class="p-name">{{- .Title -}}</h3>
     <hr>
     {{- with .Params.description -}}
-    <h3 class="subtitle">{{- . -}}</h3>
+    <h4 class="subtitle">{{- . -}}</h4>
     {{- end -}}
     <div class="e-content">
         {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
@@ -32,21 +32,21 @@
         {{- end -}}
         {{- with site.Params}}
         <span class="info">
-            Posted by : <a rel="author" class="p-author h-card" href="{{ " about" | relURL }}">{{ .Author -}}</a>
+            Posted by : <a rel="author" class="p-author h-card" href="{{ "about" | relURL }}">{{ .Author -}}</a>
         </span>
         {{- end -}}
         {{- if .Params.categories -}}
         <span class="info">
             Categories :
             {{ range $k, $c := .Params.categories -}}{{- if $k -}}, {{ end -}}
-            <a class="p-category" href="{{- " /categories/" | relURL -}}{{- . | urlize -}}">{{- title $c -}}</a>
+            <a class="p-category" href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- title $c -}}</a>
             {{- end -}}
             {{- end -}}
         </span>
         {{- if .Params.tags -}}
         <span class="info">
             Tags : {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
-            <a class="tags" href="{{- " /tags/" | relURL -}}{{- . | urlize -}}">{{- title $t -}}</a>
+            <a class="tags" href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- title $t -}}</a>
             {{- end }}
             {{- end -}}
         </span>

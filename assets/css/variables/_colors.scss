@@ -1,15 +1,15 @@
-@import "chroma.scss";
 $dark-primary: rgb(33, 34, 36);
 $dark-secondary: rgb(57, 56, 55);
-$grey-primary: rgb(226, 226, 225);
+$grey-primary: rgba(246,246,246, 0.8);
 $grey-secondary: rgb(237, 237, 237);
 $black-primary: rgb(17, 17, 17);
 $black-secondary: rgb(59, 66, 82);
 $white-primary: rgb(255, 255, 248);
 $white-secondary: rgb(250, 250, 242);
+$note-text: rgb(24,49,84);
 $link: rgb(0, 94, 174);
 $dark-link: rgb(140, 180, 255);
-$accent: rgba(161, 86, 40, 1);
+$accent: rgb(140,28,37);
 $hover: rgba(254, 214, 165, 1);
 $hover-dark: rgba(79, 88, 110, 1);
 $table: rgb(210, 210, 207);
@@ -27,6 +27,7 @@ $border: 1px solid rgb(221, 221, 221);
   --white-secondary: #{$white-secondary};
   --grey-primary: #{$grey-primary};
   --grey-secondary: #{$grey-secondary};
+  --note-text: #{$note-text};
   --link: #{$link};
   --accent: #{$accent};
   --hover: #{$hover};
@@ -38,13 +39,13 @@ $border: 1px solid rgb(221, 221, 221);
 }
 
 .dark {
-  @include darkchroma;
   --black-primary: #{$white-secondary};
   --black-secondary: #{$white-primary};
   --white-primary: #{$dark-primary};
   --white-secondary: #{$dark-secondary};
   --grey-primary: #{$dark-secondary};
   --grey-secondary: #{$dark-secondary};
+  --note-text: #{$white-primary};
   --link: #{$dark-link};
   --accent: #{$white-primary};
   --hover: #{$white-secondary};
