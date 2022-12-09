@@ -2,4 +2,4 @@
 {{- if hugo.IsProduction -}}
 {{- $css = $css | minify | fingerprint "sha384" -}}
 {{- end -}}
-<link href="{{ $css.RelPermalink }}" rel="stylesheet" {{- if hugo.IsProduction -}} integrity="{{- $css.Data.Integrity -}}" {{- end -}}>
+<link href="{{ $css.RelPermalink }}" rel="stylesheet" {{- if hugo.IsProduction -}} integrity="{{- $css.Data.Integrity -}}" crossorigin="anonymous"{{- end -}}>

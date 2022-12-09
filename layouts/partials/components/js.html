@@ -13,9 +13,9 @@
 {{- end -}}
 
 {{- if and $c $d $copy -}}
-<script src="{{- $all.RelPermalink -}}" {{- if $h -}}integrity="{{- $all.Data.Integrity -}}"{{- end -}} defer></script>
+<script src="{{- $all.RelPermalink -}}" {{- if $h -}}integrity="{{- $all.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
 {{- else -}}{{- if and $d (not $copy) -}}
-<script src="{{- $darkmode.RelPermalink -}}" {{- if $h -}}integrity="{{- $darkmode.Data.Integrity -}}"{{- end -}} defer></script>
+<script src="{{- $darkmode.RelPermalink -}}" {{- if $h -}}integrity="{{- $darkmode.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
 {{- end -}}
 {{- end -}}
 
