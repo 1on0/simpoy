@@ -1,3 +1,3 @@
-module github.com/1on0/simpoy
+module github.com/i0no/simpoy
 
 go 1.19
