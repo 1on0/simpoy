@@ -1,34 +1,3 @@
-{{/* get file that matches the filename as specified as src="" in shortcode */}}
-{{- $img := resources.GetMatch (printf "%s" (.Get 0)) -}}
-{{- $options := .Get 1 -}}
-{{- $alt := .Get 2 -}}
-{{- $colors := $img.Colors -}}
-{{- if (lt ($colors | len) 2) -}}
-	{{- $colors = $colors | append "#ffffff" -}}
-{{- end -}}
-{{- $bgcolors := delimit ($colors) ", " -}}
-{{- $style := print "background: linear-gradient(" $bgcolors "); background-size: cover; background-repeat: no-repeat;" -}}
-{{/* set image sizes, these are hardcoded for now */}}
-{{- $tinyw := default "500x300 Lanczos webp" -}}
-{{- $smallw := default "800x600 Lanczos webp" -}}
-{{- $mediumw := default "1200x1000 Lanczos webp" -}}
-{{- $largew := default "1600x1400 Lanczos webp" -}}
-{{/* resize the src image to the given sizes */}}
-{{- .Scratch.Set "tiny" ($img.Fill $tinyw) -}}
-{{- .Scratch.Set "small" ($img.Fill $smallw) -}}
-{{- .Scratch.Set "medium" ($img.Fill $mediumw) -}}
-{{- .Scratch.Set "large" ($img.Fill $largew) -}}
-{{/* add the processed images to the scratch */}}
-{{- $tiny := .Scratch.Get "tiny" -}}
-{{- $small := .Scratch.Get "small" -}}
-{{- $medium := .Scratch.Get "medium" -}}
-{{- $large := .Scratch.Get "large" -}}
-<li style="{{ $style | safeCSS }}">
-    <img class="center" width="{{- $img.Width -}}" height="{{- $img.Height -}}"
-    sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
-    srcset='{{- if ge $img.Width "500" -}}{{- with $tiny.RelPermalink -}}{{.}} 500w{{- end -}}{{- end -}}
-        {{- if ge $img.Width "800" -}}{{- with $small.RelPermalink -}}, {{.}} 800w{{- end -}}{{- end -}}
-        {{- if ge $img.Width "1200" -}}{{- with $medium.RelPermalink -}}, {{.}} 1200w{{- end -}}{{- end -}}
-        {{- if ge $img.Width "1600" -}}{{- with $large.RelPermalink -}}, {{.}} 1600w{{- end -}}{{- end -}}' 
-        src="{{- $img.RelPermalink -}}" loading="lazy" alt="{{- $alt -}}">
-</li>
+<ul class="gallery">
+  {{- .Inner -}}
+</ul>

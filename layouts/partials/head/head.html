@@ -7,14 +7,12 @@
     <link rel="canonical" href="{{- .Permalink | safeURL -}}">
     {{- partial "head/seo" . -}}
     {{- with .OutputFormats.Get "rss" -}}
-    {{- printf `<link rel="%s" type="%s" href="%s" title="%s" crossorigin=""/>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+        {{- printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
     {{- end -}}
     {{- partial "head/favicon" . -}}
     {{- partial "head/style" . -}}
     {{- if hugo.IsProduction -}}
-    {{- template "_internal/schema.html" . -}}
-    {{- template "_internal/opengraph.html" . -}}
-    {{- partial "head/head-js" . -}}
+        {{- template "_internal/schema.html" . -}}
+        {{- template "_internal/opengraph.html" . -}}
     {{- end -}}
-
 </head>

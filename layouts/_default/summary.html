@@ -1,18 +1,16 @@
-<div class="index box mg-1">
-    <a class="index-card mg-0" href="{{- .RelPermalink | relURL -}}">
-        <h3>{{- .Title -}}</h3>
-        <p>{{- if isset .Params "description" -}}{{- .Description | markdownify -}}{{- else if .Summary -}}{{- .Summary | markdownify -}}{{- end -}}</p>
-        <div class="stamp pd-1-0">
-        {{- if not .Date.IsZero -}}
-            <span>
-            {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
-            </span>
-        {{- end -}}
-        {{- if .Params.categories -}}
-        {{ range $k, $c := .Params.categories -}}{{- if $k -}} {{- end -}}
-            <a class="box" href="{{- "/categories/" | relURL -}}{{- . | urlize -}}">{{- $c -}}</a>
-        {{- end -}}
-        {{- end -}}
-        </div>
-    </a>
+<div class="index box mg-2-0">
+    <h3><a class="index-card" href="{{- .RelPermalink | relURL -}}">{{- .Title -}}</a></h3>
+    <p>{{- if isset .Params "description" -}}{{- .Description | markdownify -}}{{- else if .Summary -}}{{- .Summary | markdownify -}}{{- end -}}</p>
+    <p class="cloud">
+    {{- if not .Date.IsZero -}}
+        <span>
+        {{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
+        </span>
+    {{- end -}}
+    {{ range $i, $c := .Params.categories -}}
+      {{- with partial "components/taxo" . -}}
+      <a class="box" href="{{ .RelPermalink }}">{{- title $c -}}</a>
+      {{- end -}}
+    {{- end -}}
+    </p>
 </div>

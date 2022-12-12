@@ -9,10 +9,16 @@
 	.h-card-image {
 		width: 50%;
 	}
+
+	.single-image {
+		margin: 2rem 0;
+		width: 100%;
+	}
 }
 
 @media (min-width: 768px) {
 	.nav-right {
+		flex-direction: row;
 		justify-content: flex-end;
 	}
 
@@ -36,10 +42,13 @@
 		margin: 0;
 	}
 
-	.photo-container {
-		display: block;
+	.single-image {
 		margin: 2rem auto;
-		text-align: center;
-		width: 70%
+		width: 70%;
 	}
+
+	.goat svg {
+		height: auto;
+		width: 50%;
+	  }
 }

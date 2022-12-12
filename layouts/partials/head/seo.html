@@ -1,17 +1,17 @@
 {{- if .IsHome -}}
-{{- printf `<title> %s  | %s </title>` site.Title site.Params.description | safeHTML -}}
+  {{- printf `<title> %s  | %s </title>` site.Title site.Params.description | safeHTML -}}
 {{- end -}}
 {{- if not .IsHome -}}
-{{- with .Title -}}
-{{- printf `<title> %s | %s </title>`  . site.Title | safeHTML -}}
-{{- end -}}
+  {{- with .Title -}}
+    {{- printf `<title> %s | %s </title>`  . site.Title | safeHTML -}}
+  {{- end -}}
 {{- end -}}
 {{- with .Description -}}
   <meta name="description" content="{{- . -}}">
-{{- else -}}
+  {{- else -}}
   {{- with .Summary | plainify -}}
   <meta name="description" content="{{- . -}}">
-{{- else -}}
+  {{- else -}}
   <meta name="description" content="{{- site.Params.description -}}">
-{{- end -}}
+  {{- end -}}
 {{- end -}}

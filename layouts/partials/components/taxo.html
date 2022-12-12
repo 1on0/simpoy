@@ -1,0 +1,13 @@
+{{- $taxo := false -}}
+{{- with index site.Taxonomies.tags (urlize .) -}}
+  {{- with .Page -}}
+    {{- $taxo = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with index site.Taxonomies.categories (urlize .) -}}
+  {{- with .Page -}}
+    {{- $taxo = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $taxo -}}

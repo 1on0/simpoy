@@ -1,38 +1,10 @@
-{{- $img := resources.GetMatch (printf "%s" (.Get 0)) -}}
-{{- $options := .Get 1 -}}
-{{- $alt := .Get 2 -}}
-{{- $colors := $img.Colors -}}
-{{- if (lt ($colors | len) 2) -}}
-{{- $colors = $colors | append "#ffffff" -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $pass := dict
+    "img" $src
+    "alt" $alt
+    "loading" "lazy"
+-}}
+{{- with $pass -}}
+{{ partial "components/tes" . }}
 {{- end -}}
-{{- $bgcolors := delimit ($colors) ", " -}}
-{{- $style := print "background: linear-gradient(" $bgcolors "); background-repeat: no-repeat;" -}}
-{{- $tinys := default "500x Lanczos" -}}
-{{- $smalls := default "800x Lanczos" -}}
-{{- $mediums := default "1200x Lanczos" -}}
-{{- $larges := default "1600x Lanczos" -}}
-{{- .Scratch.Set "tiny" ($img.Resize $tinys) -}}
-{{- .Scratch.Set "small" ($img.Resize $smalls) -}}
-{{- .Scratch.Set "medium" ($img.Resize $mediums) -}}
-{{- .Scratch.Set "large" ($img.Resize $larges) -}}
-{{- $tiny := .Scratch.Get "tiny" -}}
-{{- $small := .Scratch.Get "small" -}}
-{{- $medium := .Scratch.Get "medium" -}}
-{{- $large := .Scratch.Get "large" -}}
-<div class="photo-container flex-center" style="{{ $style | safeCSS }}">
-    <img class="center" width="{{- $img.Width -}}" height="{{- $img.Height -}}" style="{{ $style | safeCSS }}"
-        sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"
-        srcset='
-                {{- if ge $img.Width "500" -}}
-                {{- with $tiny.RelPermalink -}}{{.}} 500w{{- end -}}
-                {{- end -}}
-                {{- if ge $img.Width "800" -}}
-                {{- with $small.RelPermalink -}}, {{.}} 800w{{- end -}}
-                {{- end -}}
-                {{- if ge $img.Width "1200" -}}
-                {{- with $medium.RelPermalink -}}, {{.}} 1200w{{- end -}}
-                {{- end -}}
-                {{- if ge $img.Width "1600" -}}
-                {{- with $large.RelPermalink -}}, {{.}} 1600w{{- end -}}
-                {{- end -}}' src="{{- $img.RelPermalink -}}" loading="lazy" alt="{{- $alt -}}">
-</div>

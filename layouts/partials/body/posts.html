@@ -1,27 +1,26 @@
-<article class="p-author h-entry mg-1">
-    <h3 class="p-name">{{- .Title -}}</h3>
-    <hr>
+<article class="p-author h-entry">
+    <h1 class="p-name line-shadow">{{- .Title -}}</h1>
     {{- with .Params.description -}}
-    <h4 class="subtitle">{{- . -}}</h4>
+    <h2 class="subtitle">{{- . -}}</h2>
     {{- end -}}
-    <div class="e-content">
+    <div class="e-content mg-2-0">
         {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
-        {{ if .Params.cover }}
-        {{- partial "components/cover" . -}}
+        {{ with resources.Get .Params.cover }}
+            {{ partial "components/tes" (dict "img" . "alt" "An example image") }}
         {{- end -}}
         {{- partial "components/toc" . -}}
         {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
-        {{- if not .Date.IsZero -}}
     </div>
-    <div class="entry">
+    <p class="entry mg-2-0">
+        {{- if not .Date.IsZero -}}
         <span class="info">
-            Published date : <time class="dt-published"><a class="u-url" href="{{ .Permalink }}">{{ .Date.Format (or
-                    site.Params.dateFormat.published "January 2, 2006") -}}</a></time>
+            Published date : <time class="dt-published" datetime="{{- .PublishDate.Format "2006-01-02T15:04:05Z0700" -}}">
+                {{ .Date.Format (or site.Params.dateFormat.published "January 2, 2006") -}}</time>
         </span>
         {{- end -}}
         {{- if (and (eq .Lastmod.IsZero false) (ne .Lastmod .Date)) -}}
         <span class="info">
-            Last update : <time>{{- .Lastmod.Format "January 2, 2006" -}}</time>
+            Last update : <time datetime="{{- .Lastmod.Format "2006-01-02T15:04:05Z0700" -}}">{{- .Lastmod.Format "January 2, 2006" -}}</time>
         </span>
         {{- end }}
         {{- if or (.Params.tags) (.Params.categories) (.Params.series) (.Params.readtime) -}}
@@ -37,25 +36,31 @@
         {{- end -}}
         {{- if .Params.categories -}}
         <span class="info">
-            Categories :
-            {{ range $k, $c := .Params.categories -}}{{- if $k -}}, {{ end -}}
-            <a class="p-category" href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- title $c -}}</a>
+            Categories : 
+            {{ range $i, $c := .Params.categories -}}{{- if gt $i 0 -}}, {{ end -}}
+            {{- with partial "components/taxo" . -}}
+              <a href="{{ .RelPermalink }}">{{- title $c -}}</a>
             {{- end -}}
             {{- end -}}
         </span>
+        {{- end -}}
         {{- if .Params.tags -}}
         <span class="info">
-            Tags : {{ range $k, $t := .Params.tags -}}{{- if $k -}}, {{ end -}}
-            <a class="tags" href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- title $t -}}</a>
-            {{- end }}
+            Tags : 
+            {{ range $i, $t := .Params.tags -}}{{- if gt $i 0 -}}, {{ end -}}
+            {{- with partial "components/taxo" . -}}
+              <a href="{{ .RelPermalink }}">{{- title $t -}}</a>
+                {{- end -}}
             {{- end -}}
         </span>
+        {{- end -}}
         {{- with .Params.syndication -}}
         <span class="info">
-        Syndication : {{- range $f, $s := . }}
+        Syndication : {{ range $f, $s := . }}
         <a href="{{- $s -}}" class="u-syndication" rel="syndication">{{- title $f -}}</a>
         {{- end -}}
-        {{- end -}}
         </span>
-    </div>
+        {{- end -}}
+        <a class="u-url hide" href="{{ .Permalink }}">{{- .Title -}}</a>
+    </p>
 </article>

@@ -2,12 +2,13 @@
   padding-bottom: 2.5rem;
 
   svg {
-	width: fit-content
+	max-width: 100%;
 	}
 }
 
 .subtitle {
 	font-style: italic;
+	font-weight: $normal;
 }
 
 .nav {
@@ -37,6 +38,10 @@
 			height: 30px
 		}
 	}
+}
+
+.nav-right {
+	flex-direction: row-reverse;
 }
 
 .menu-icon {
@@ -155,16 +160,12 @@ input:checked~.menu {
 	padding: .5rem .6rem;
 }
 
-.entry,
-.e-content {
-	margin: 3rem 0;
-
-	.info {
+.info {
 		border: $border;
 		display: block;
 		padding: .5rem;
-	}
 }
+
 
 .h-card {
 	&-image {

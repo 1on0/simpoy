@@ -1,0 +1,36 @@
+{{- $src := resources.Get .img -}}
+{{- $alt := .alt -}}
+{{- $slice := slice 320 480 640 768 960 1280 1600 1920 -}}
+{{- $srcset := slice -}}
+{{- $colors := $src.Colors -}}
+{{- if (lt ($colors | len) 2) -}}
+	{{- $colors = $colors | append "#ffffff" -}}
+{{- end -}}
+{{- $bgcolors := delimit ($colors) ", " -}}
+{{- $style := print "background: linear-gradient(" $bgcolors "); background-size: cover; background-repeat: no-repeat;" -}}
+{{- range $slice -}}
+    {{- if (le . $src.Width) -}}
+        {{- $w := printf "%dx" . -}}
+        {{- $url := ($src.Resize $w).RelPermalink | safeURL -}}
+        {{- $url := printf "%s %dw" $url . -}}
+        {{- $srcset = $srcset | append $url -}}
+    {{- end -}}
+{{- end -}}
+{{- $set := delimit $srcset "," -}}
+
+<picture class="picture">
+    <source
+    type="image/webp"
+    srcset="{{- $set -}}"/>
+    <source
+    type="image/jpeg"
+    srcset="{{- $set -}}"\/>
+    <img
+    sizes="(max-width: 480px) 480px, 100vw"
+    src="{{- $src.RelPermalink -}}"
+    alt="{{- $alt -}}"
+    width="100%"
+    height="auto"
+    {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}
+    {{- with .loading -}}loading="{{- . -}}"{{- end -}}/>
+</picture>

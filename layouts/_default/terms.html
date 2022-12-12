@@ -2,32 +2,24 @@
 {{- $taxonomies := .Data.Plural -}}
 {{- $terms := .Data.Terms.ByCount -}}
 {{- $type := .Type -}}
-{{- with .Page -}}
 <div class="pd-1">
-    <h3>{{- .Title -}}</h3>
-    {{- .Content -}}
+{{- with .Page -}}
+    <h1>{{- .Title -}}</h1>
+    {{- with .Content -}}
+        {{- . -}}
     {{- end -}}
-    {{- if or (eq $taxonomies "categories") (eq $taxonomies "tags") -}}
     {{- range $terms -}}
     {{- $term := .Term -}}
     {{- $pages := .Pages -}}
-    {{- with site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
+        {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
     <div>
-        <h3 class="line-shadow"><a href="{{- .RelPermalink | safeHTML -}}">{{- .Page.Title -}}</a></h3>
-        {{- range first 99 $pages -}}
-        <h6 class="mg-1-0"><a href="{{- .RelPermalink | safeHTML -}}">{{- .Title -}}</a></h6>
-        {{- end -}}
-        {{- if gt (len $pages) 99 -}}
-        <span><a href="{{- .RelPermalink -}}">{{- T "more" -}}</a></span>
-        {{- end -}}
+        <h2 class="line-shadow"><a href="{{- .RelPermalink | safeHTML -}}">{{- .Page.Title -}}</a></h2>
+            {{- range $pages -}}
+        <h3 class="mg-1-0"><a href="{{- .RelPermalink | safeHTML -}}">{{- .Title -}}</a></h3>
+            {{- end -}}
     </div>
+        {{- end -}}
     {{- end -}}
-    {{- end -}}
-    {{- end -}}
+{{- end -}}
 </div>
-{{- if (eq $taxonomies "categories") -}}
-{{- partial "components/cloud-tag" . -}}{{- else -}}{{- if (eq $taxonomies "tags") -}}
-{{- partial "components/cloud-category" . -}}
-{{- end -}}
-{{- end -}}
 {{- end -}}

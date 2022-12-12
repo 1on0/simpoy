@@ -8,11 +8,11 @@
             <ul class="menu">
                 {{- $currentPage := . -}}
                 {{- range site.Menus.main -}}
-                {{- if .Name -}}
+                    {{- if .Name -}}
                 <li class="menu-item"><a class="menu-item-link" href="{{- .URL -}}">{{- .Pre -}}<span
                             class="menu-text">{{- .Name -}}</span>{{- .Post -}}</a>
                 </li>
-                {{- end -}}
+                    {{- end -}}
                 {{- end -}}
             </ul>
             {{- end -}}
