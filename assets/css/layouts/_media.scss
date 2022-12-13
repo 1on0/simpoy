@@ -43,13 +43,13 @@
 
 	ul.gallery {
 		&>li {
-			flex-basis: 300px;
+			flex-basis: 230px;
 			margin-top: 0;
 		  }
 		
 		  &::after {
 			content: "";
-			flex-basis: 300px;
+			flex-basis: 230px;
 		  }
 
 		  .photo-container {

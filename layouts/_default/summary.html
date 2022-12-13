@@ -20,7 +20,7 @@
 				{{- end -}}
 			{{- end -}}
 		{{- end -}}
-		{{- if .Params.categories -}}
+		{{- if .Params.tags -}}
 			{{ range $i, $t := .Params.tags -}}
 				{{- with partial "components/taxo" . -}}
 		<a class="box" href="{{ .RelPermalink }}">{{- title $t -}}</a>

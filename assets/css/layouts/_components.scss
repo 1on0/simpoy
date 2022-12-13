@@ -20,13 +20,13 @@ ul.gallery {
   padding-inline-start: 0;
   
   &>li {
-    flex-basis: 200px;
-    margin-top: 0; /* width: 350px; */
+    flex-basis: 125px;
+    margin-top: 0;
   }
 
   &::after {
     content: "";
-    flex-basis: 200px;
+    flex-basis: 125px;
   }
 
   li picture {
