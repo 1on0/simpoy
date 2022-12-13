@@ -1,8 +1,11 @@
 {{- define "title" -}}
-{{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{ site.Title -}}
+    {{- .Title }} - {{- T .Data.Singular | default .Data.Singular -}} - {{ site.Title -}}
 {{- end -}}
 {{- define "content" -}}
-{{- partial "partials/body/archive" . -}}
-{{- partial "components/cloud-category" . -}}
-{{- partial "components/cloud-tag" . -}}
+    {{- $pages := .Pages -}}
+    {{- $paginator := .Paginate $pages -}}
+    {{- range $paginator.Pages -}}
+        {{- .Render "summary" -}}
+    {{- end -}}
+    {{- template "_internal/pagination.html" . -}}
 {{- end -}}

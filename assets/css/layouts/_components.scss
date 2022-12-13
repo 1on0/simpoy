@@ -40,8 +40,10 @@ ul.gallery {
 }
 
 img {
+  border-radius: 5px;
   display: block;
   height: auto;
+  text-align: center;
   width: 100%;
 }
 
@@ -82,15 +84,13 @@ ul.page {
 }
 
 .highlight {
-  -moz-tab-size: 4;
   margin: 2rem -1rem;
   position: relative;
-  tab-size: 4;
 
   .lntd {
     pre,
     pre line {
-      overflow-x: hidden;
+      overflow-x: auto;
       padding: .5rem;
       line-height: 0;
     }
@@ -106,32 +106,36 @@ ul.page {
       opacity: 1;
     }
   }
-
-  &>* {
-    background-color: var(--highlight);
-    overflow-x: auto;
-    scrollbar-color: transparent transparent;
-    scrollbar-width: thin;
-    word-wrap: normal;
-  }
 }
 
 pre {
-  background-color: var(--highlight);
   color: var(--black-secondary);
   overflow-x: auto;
   padding: 1rem;
-  position: relative;
-  scrollbar-color: transparent transparent;
+  scrollbar-color: var(--grey-secondary) transparent;
   scrollbar-width: thin;
   word-wrap: normal;
 
+  /* scrollbar on chromium */
+  &::-webkit-scrollbar {
+    height: .5rem;
+    width: .5rem;
+    background: transparent;
+  }
+
+  /* scrollbar bar color on chromium */
+  &::-webkit-scrollbar-thumb {
+    background: var(--grey-primary);
+    -webkit-border-radius: 10px;
+  }
+
   code {
-    font-size: 80%;
-    line-height: 1.7;
+    font-size: 85%;
+    line-height: 2;
   }
 }
 
+/* for inline markdown */
 :not(pre)>code {
   background-color: var(--highlight);
   border-radius: 5px;
@@ -139,6 +143,7 @@ pre {
   padding: .2rem .4rem;
 }
 
+/* copy-code js */
 button.copy-code {
   background-color: transparent;
   border-style: none;
@@ -150,6 +155,7 @@ button.copy-code {
   top: .5rem;
 }
 
+/* style goat rendering svg */
 .goat svg {
   height: auto;
   width: 70%;

@@ -6,5 +6,11 @@
     "loading" "lazy"
 -}}
 {{- with $pass -}}
+{{- with .Parent -}}
+<li>
 {{ partial "components/tes" . }}
+</li>
+{{- else -}}
+{{ partial "components/tes" . }}
+{{- end -}}
 {{- end -}}

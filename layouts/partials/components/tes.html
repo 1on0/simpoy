@@ -18,7 +18,7 @@
 {{- end -}}
 {{- $set := delimit $srcset "," -}}
 
-<picture class="picture">
+<picture class="picture" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
     <source
     type="image/webp"
     srcset="{{- $set -}}"/>
@@ -29,8 +29,7 @@
     sizes="(max-width: 480px) 480px, 100vw"
     src="{{- $src.RelPermalink -}}"
     alt="{{- $alt -}}"
-    width="100%"
-    height="auto"
-    {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}
+    width="{{- $src.Width -}}"
+    height="{{- $src.Height -}}"
     {{- with .loading -}}loading="{{- . -}}"{{- end -}}/>
 </picture>

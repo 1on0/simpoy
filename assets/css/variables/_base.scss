@@ -138,7 +138,7 @@ blockquote {
   border-left: .5rem solid var(--table);
   color: var(--note-text);
   margin: 2rem auto;
-  padding: .5rem 1rem;
+  padding: 1.5rem 1.25rem;
 
   &::before {
     font-size: $m;
@@ -178,6 +178,12 @@ blockquote.danger {
   &::before {
     content: 'ⓘ Danger';
   }
+}
+
+blockquote.twitter-tweet {
+  background-color: var(--table);
+  color: var(--black-secondary);
+  margin: auto -1rem;
 }
 
 blockquote footer {

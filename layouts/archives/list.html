@@ -1,11 +1,12 @@
+{{- define "content" -}}
 <div>
     <h1>{{- .Title -}}</h1>
-    {{- with .Pages -}}
-        {{- range (.GroupByDate "2006") -}}
-    <h2 class="line-shadow">{{ .Key }}</h2>
-            {{- range (.GroupByDate "January") -}}
+    {{- range .Site.RegularPages.GroupByPublishDate "2006" -}}
+        {{- if ne .Key "0001" -}}
+    <h2 class="line-shadow">{{- replace .Key "0001" "" -}}</h2>
+            {{ range .Pages.GroupByDate "January" }}
     <h3>{{ .Key }}</h3>
-                {{- range $.Pages -}}
+                {{- range where .Pages "Type" "in" site.Params.mainSections -}}
     <article class="mg-1-0 flex-center">
         <p class="mg-right mg-0"><span class="archive-date">{{- site.Params.list.dateFormat | default "02" | .Date.Format -}}</span></p>
         <a href="{{ .RelPermalink }}" ><h4 class="mg-0">{{- .Title -}}</h4></a>
@@ -15,3 +16,6 @@
         {{- end -}}
     {{- end -}}
 </div>
+{{- partial "components/cloud-tag" . -}}
+{{- end -}}
+
