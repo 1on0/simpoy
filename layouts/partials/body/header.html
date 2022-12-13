@@ -1,7 +1,9 @@
-<header>
+<div class="header-container">
     <div class="flex-center line-shadow nav">
-        {{- partial "components/logo" . -}}
-        <div class="flex-center nav-right">
+        <header class="nav-left">
+            {{- partial "components/logo" . -}}
+        </header>
+        <nav class="flex-center nav-right">
             {{- if site.Menus.main -}}
             <input class="menu-btn" type="checkbox" id="menu-btn">
             <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label>
@@ -28,6 +30,6 @@
                     </svg></span>
             </button>
             {{- end -}}
-        </div>
+        </nav>
     </div>
-</header>
+</div>

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{- site.LanguageCode -}}">
 {{- partial "head/head" . -}}
-<body>
 	<div class="wrap">
 		{{- partial "body/header" . -}}
-		<div class="content pd-1 mg-1-0">
-			{{- block "content" . }}{{- end -}}
-		</div>
+		<main class="content pd-1 mg-1-0">
+		{{- block "content" . }}{{- end -}}
+		</main>
 		{{- partialCached "body/footer" . -}}
 		{{- partial "components/js" . -}}
 	</div>
-</body>
 </html>
