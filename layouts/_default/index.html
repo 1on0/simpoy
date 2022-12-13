@@ -1,14 +1,14 @@
 {{- define "content" -}}
     {{- if and (eq .Paginator.PageNumber 1) (site.Params.hcard) -}}
-    {{- partialCached "body/h-card" . -}}
-{{- end -}}
-{{- $pages := .Pages -}}
-{{- if .IsHome -}}
-    {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
-{{- end -}}
-{{ $paginator := .Paginate $pages -}}
-{{- range $paginator.Pages -}}
-    {{- .Render "summary" -}}
-{{- end -}}
-{{- template "_internal/pagination.html" . -}}
+        {{- partialCached "body/h-card" . -}}
+    {{- end -}}
+    {{- $pages := .Pages -}}
+    {{- if .IsHome -}}
+        {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- end -}}
+    {{ $paginator := .Paginate $pages -}}
+    {{- range $paginator.Pages -}}
+        {{- .Render "summary" -}}
+    {{- end -}}
+    {{- template "_internal/pagination.html" . -}}
 {{- end -}}
