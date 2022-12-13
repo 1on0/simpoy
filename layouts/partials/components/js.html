@@ -5,8 +5,8 @@
 {{- $darkmode := resources.Get "js/dark.js" -}}
 {{- $clipboard := resources.Get "js/clipboard.js" -}}
 {{- $bundle := slice $darkmode $clipboard | resources.Concat "js/bundle.js" -}}
-{{- $darkmodep := $darkmode | minify | babel | fingerprint "sha384" -}}
-{{- $bundlep := $bundle | minify | babel | fingerprint "sha384" -}}
+{{- $darkmodep := $darkmode | minify | fingerprint "sha384" -}}
+{{- $bundlep := $bundle | minify | fingerprint "sha384" -}}
 {{- if and $c $d $copy}}
 <script src="{{- if hugo.IsProduction -}}{{- $bundlep.RelPermalink -}}{{- else -}}{{- $bundle.RelPermalink }}{{- end -}}" {{- if hugo.IsProduction -}}integrity="{{- $bundlep.Data.Integrity -}}" crossorigin="anonymous"{{- end -}} defer></script>
 {{- else -}}{{- if and $d (not $copy) -}}
