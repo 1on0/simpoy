@@ -20,13 +20,13 @@ ul.gallery {
   padding-inline-start: 0;
   
   &>li {
-    flex-basis: 125px;
+    flex-basis: 175px;
     margin-top: 0;
   }
 
   &::after {
     content: "";
-    flex-basis: 125px;
+    flex-basis: 175px;
   }
 
   li picture {
@@ -58,7 +58,7 @@ audio {
   padding: .3rem .6rem;
 }
 
-ul.page {
+ul.pagination.pagination-default {
   display: flex;
   flex-wrap: wrap;
   gap: .2rem;
@@ -66,6 +66,10 @@ ul.page {
   list-style: none;
   margin: .3rem 0;
   padding: 1rem;
+
+  li.page-item.disabled {
+    display: none
+  }
 
   li.page-item {
     a {
@@ -115,28 +119,6 @@ pre {
   scrollbar-color: var(--grey-secondary) transparent;
   scrollbar-width: thin;
   word-wrap: normal;
-
-  /* scrollbar on chromium */
-  &::-webkit-scrollbar {
-    height: .5rem;
-    width: .5rem;
-  }
-
-  /* scrollbar bar color on chromium */
-  &::-webkit-scrollbar-thumb {
-    background: var(--highlight);
-    -webkit-border-radius: 10px;
-
-    &:horizontal:hover, &:horizontal:active {
-      background: var(--white-primary);
-
-    }
-  }
-
-  /* scrollbar track on chromium */
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
 
   code {
     font-size: 85%;

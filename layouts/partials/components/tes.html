@@ -2,6 +2,7 @@
 {{- $alt := .alt -}}
 {{- $slice := slice 320 480 640 768 960 1280 1600 1920 -}}
 {{- $srcset := slice -}}
+{{- $srcset := slice -}}
 {{- $colors := $src.Colors -}}
 {{- if (lt ($colors | len) 2) -}}
 	{{- $colors = $colors | append "#ffffff" -}}
@@ -10,14 +11,14 @@
 {{- $style := print "background: linear-gradient(" $bgcolors "); background-size: cover; background-repeat: no-repeat;" -}}
 {{- range $slice -}}
     {{- if (le . $src.Width) -}}
-        {{- $w := printf "%dx" . -}}
+        {{- $w := printf "%dx Lanczos webp" . -}}
         {{- $url := ($src.Resize $w).RelPermalink | safeURL -}}
         {{- $url := printf "%s %dw" $url . -}}
         {{- $srcset = $srcset | append $url -}}
     {{- end -}}
 {{- end -}}
 {{- $set := delimit $srcset "," -}}
-<div class="photo-container" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
+<div class="photo-container single-image" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
     <picture>
         <img
         src="{{- $src.RelPermalink -}}"

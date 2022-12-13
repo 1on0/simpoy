@@ -1,4 +1,7 @@
 <div class="index box mg-2-0">
+	{{ with resources.Get .Params.cover }}
+            {{ partial "components/tes" (dict "img" . "alt" "Cover Title") }}
+    {{- end -}}
 	<h3><a class="index-card" href="{{- .RelPermalink | relURL -}}">{{- .Title -}}</a></h3>
 	<p>
 	{{- if isset .Params "description" -}}

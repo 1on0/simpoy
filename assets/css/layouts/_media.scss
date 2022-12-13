@@ -11,8 +11,9 @@
 	}
 
 	.photo-container {
-		margin: 2rem -1rem;
-	}
+		margin: 0 -1rem;
+	  }
+
 }
 
 @media (min-width: 768px) {
@@ -53,16 +54,19 @@
 		  }
 
 		  .photo-container {
-			max-width: 100%;
+			width: 100%;
 		  }
 	}
 
-	.photo-container {
-		display: block;
+	.index .photo-container {
+		margin: 0 -1rem;
+	  }
+	  
+	  .e-content .photo-container {
 		margin: 2rem auto;
-		max-width: 80%;
-	}
-	
+		width: 80%;
+	  }
+
 	.goat svg {
 		height: auto;
 		width: 50%;
