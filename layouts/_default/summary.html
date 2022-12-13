@@ -4,7 +4,7 @@
 	{{- if isset .Params "description" -}}
 		{{- .Description | markdownify -}}
 		{{- else if .Summary -}}
-		{{- .Summary |markdownify -}}
+		{{- .Summary | markdownify -}}
 	{{- end -}}
 	</p>
 	<p class="cloud">
