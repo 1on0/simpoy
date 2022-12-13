@@ -17,19 +17,14 @@
     {{- end -}}
 {{- end -}}
 {{- $set := delimit $srcset "," -}}
-
-<picture class="picture" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
-    <source
-    type="image/webp"
-    srcset="{{- $set -}}"/>
-    <source
-    type="image/jpeg"
-    srcset="{{- $set -}}"\/>
-    <img
-    sizes="(max-width: 480px) 480px, 100vw"
-    src="{{- $src.RelPermalink -}}"
-    alt="{{- $alt -}}"
-    width="{{- $src.Width -}}"
-    height="{{- $src.Height -}}"
-    {{- with .loading -}}loading="{{- . -}}"{{- end -}}/>
-</picture>
+<div class="photo-container" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
+    <picture>
+        <img
+        src="{{- $src.RelPermalink -}}"
+        alt="{{- $alt -}}"
+        width="{{- $src.Width -}}"
+        height="{{- $src.Height -}}"
+        srcset="{{- $set -}}"
+        {{- with .loading -}}loading="{{- . -}}"{{- end -}}/>
+    </picture>
+</div>
