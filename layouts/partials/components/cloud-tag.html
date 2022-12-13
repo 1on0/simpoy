@@ -1,4 +1,4 @@
-<p class="cloud">All Tags :
+<p class="cloud mg-2-0">All Tags :
 {{- range site.Taxonomies.tags.ByCount -}}
     <a class="box" href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
 {{- end -}}

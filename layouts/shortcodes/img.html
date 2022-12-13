@@ -5,12 +5,11 @@
     "alt" $alt
     "loading" "lazy"
 -}}
-{{- with $pass -}}
+
 {{- with .Parent -}}
-<li>
-{{ partial "components/tes" . }}
+<li class="{{ .Get "class" }}-image">
+    {{- with $pass -}} 
+        {{ partial "components/tes" . }}
+    {{- end -}}
 </li>
-{{- else -}}
-{{ partial "components/tes" . }}
-{{- end -}}
 {{- end -}}

@@ -41,11 +41,21 @@
 		margin: 0;
 	}
 
-	.picture {
-	display: block;
-    margin: 2rem auto;
+	ul.gallery {
+		&>li {
+			flex-basis: 300px;
+			margin-top: 0;
+		  }
+		
+		  &::after {
+			content: "";
+			flex-basis: 300px;
+		  }
+	}
+
+	picture {
     text-align: center;
-    width: 70%
+	width: 50%;
 	}
 	
 	.goat svg {

@@ -1,4 +1,4 @@
-<p class="cloud">All Categories :
+<p class="cloud mg-2-0">All Categories :
 {{- range site.Taxonomies.categories.ByCount -}}
     <a class="box" href="{{- .Page.RelPermalink | relURL -}}">{{- .Page.Title -}} <sup> {{- .Count -}} </sup></a>
 {{- end -}}
