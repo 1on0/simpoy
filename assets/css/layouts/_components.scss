@@ -4,9 +4,9 @@
 
   svg {
     opacity: .3;
-  
+
     &:hover {
-      opacity: 1; 
+      opacity: 1;
     }
   }
 }
@@ -24,7 +24,7 @@ ul.gallery {
     margin-top: 0;
     flex-grow: 1;
   }
-  
+
   li>.photo-container {
     height: 30vh;
     margin: 0;
@@ -39,11 +39,12 @@ ul.gallery {
   }
 }
 
+/* for single image */
 .e-content .photo-container {
   margin: 3rem auto;
   width: 80%;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
 }
 
 img {
@@ -63,6 +64,7 @@ audio {
   padding: .3rem .6rem;
 }
 
+/* pagination style using default hugo template */
 ul.pagination.pagination-default {
   display: flex;
   flex-wrap: wrap;
@@ -92,21 +94,30 @@ ul.pagination.pagination-default {
   }
 }
 
+/* chroma highlighting */
 .highlight {
   margin: .75rem -1rem 2rem -1rem;
   position: relative;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  -webkit-text-size-adjust: 100%;
 
-  .lntd {
-    pre,
-    pre line {
-      overflow-x: auto;
-      padding: .5rem;
-      line-height: 0;
-    }
+  &>* {
+    padding: .75rem;
+  }
 
-    &:last-child {
-      width: 100%;
-    }
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    word-wrap: normal;
+  }
+
+  td.lntd pre {
+    overflow-x: hidden;
+  }
+
+  td.lntd:last-child {
+    width: 100%;
   }
 
   &:hover, pre:hover {
@@ -118,17 +129,22 @@ ul.pagination.pagination-default {
 }
 
 pre {
+  background-color: var(--highlight);
   color: var(--black-secondary);
-  overflow-x: auto;
   padding: 1rem;
-  scrollbar-color: var(--grey-secondary) transparent;
-  scrollbar-width: thin;
-  word-wrap: normal;
+  position: relative;
 
-  code {
-    font-size: 85%;
-    line-height: 2;
+  /* show copycode for four indentation */
+  &:hover, pre:hover {
+    .copy-code {
+      cursor: pointer;
+      display: block;
+    }
   }
+}
+
+code {
+  font-size: 90%;
 }
 
 /* for inline markdown */
@@ -141,14 +157,14 @@ pre {
 
 /* copy-code js */
 button.copy-code {
-  background-color: transparent;
+  background-color: var(--white-secondary);
   border-style: none;
   display: none;
   font-size: 0.8em;
   padding: .3rem .3rem .2rem;
   position: absolute;
-  right: .8rem;
-  top: .5rem;
+  right: 0;
+  top: 0;
 }
 
 /* style goat rendering svg */
@@ -204,6 +220,6 @@ button.copy-code {
   }
 
   ul ul {
-      list-style-type: square;
+    list-style-type: square;
   }
 }

@@ -19,10 +19,10 @@ body {
 }
 
 .wrap {
-  position: relative;
   margin: 0 auto;
   max-width: 48rem;
   min-height: 100vh;
+  position: relative
 }
 
 footer {
@@ -127,10 +127,15 @@ i {
 
 blockquote {
   background-color: var(--grey-primary);
+  border: $border;
   border-left: 8px solid var(--table);
   color: var(--note-text);
   margin: auto -1rem;
   padding: .5rem 1.25rem;
+    
+  &::before {
+    font-weight: $bolder;
+  }
 
   h3 {
     margin-top: .5rem
@@ -150,7 +155,7 @@ blockquote.note {
 
 blockquote.warning {
   border-radius: 5px;
-  background-color: rgba(199, 183, 0, .1);
+  background-color: rgba(199, 183, 0, .5);
   border-left: 8px solid rgb(199, 183, 0);
   margin: auto 0;
 
@@ -161,7 +166,7 @@ blockquote.warning {
 
 blockquote.danger {
   border-radius: 5px;
-  background-color: rgba(153, 25, 48, .1);
+  background-color: rgba(153, 25, 48, .3);
   border-left: 8px solid rgb(153, 25, 48);
   margin: auto 0;
 
