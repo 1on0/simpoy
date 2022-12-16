@@ -102,14 +102,15 @@ ul.pagination.pagination-default {
   -moz-tab-size: 4;
   -webkit-text-size-adjust: 100%;
 
+  /* double column */
   &>* {
+    overflow-x: auto;
     padding: .75rem;
+    word-wrap: normal;
   }
 
   pre {
     margin: 0;
-    overflow-x: auto;
-    word-wrap: normal;
   }
 
   td.lntd pre {
@@ -128,13 +129,16 @@ ul.pagination.pagination-default {
   }
 }
 
+/* indented with four spaces not under highlight */
 pre {
   background-color: var(--highlight);
   color: var(--black-secondary);
+  overflow-x: auto;
   padding: 1rem;
   position: relative;
+  word-wrap: normal;
 
-  /* show copycode for four indentation */
+  /* show copycode for indented with four spaces */
   &:hover, pre:hover {
     .copy-code {
       cursor: pointer;
