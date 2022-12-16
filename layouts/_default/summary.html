@@ -1,7 +1,7 @@
 <div class="index box mg-2-0">
-	{{ with resources.Get .Params.cover }}
-            {{ partial "components/tes" (dict "img" . "alt" "Cover Title") }}
-    {{- end -}}
+	{{- if site.Params.showcover -}}
+		{{- partial "components/cover" . -}}
+	{{- end -}}
 	<h3><a class="index-card" href="{{- .RelPermalink | relURL -}}">{{- .Title -}}</a></h3>
 	<p>
 	{{- if isset .Params "description" -}}
@@ -11,11 +11,14 @@
 	{{- end -}}
 	</p>
 	<p class="cloud">
+		{{- if site.Params.meta.date -}}
 		{{- if not .Date.IsZero -}}
 		<span>
 			{{- .Date.Format (or site.Params.dateFormat.published "Jan 02, 2006") -}}
 		</span>
 		{{- end -}}
+		{{- end -}}
+		{{- if site.Params.meta.categories -}}
 		{{- if .Params.categories -}}
 			{{ range $i, $c := .Params.categories -}}
 				{{- with partial "components/taxo" . -}}
@@ -23,12 +26,15 @@
 				{{- end -}}
 			{{- end -}}
 		{{- end -}}
+		{{- end -}}
+		{{- if site.Params.meta.tags -}}
 		{{- if .Params.tags -}}
 			{{ range $i, $t := .Params.tags -}}
 				{{- with partial "components/taxo" . -}}
 		<a class="box" href="{{ .RelPermalink }}">{{- title $t -}}</a>
 				{{- end -}}
 			{{- end -}}
+		{{- end -}}
 		{{- end -}}
 	</p>
 </div>

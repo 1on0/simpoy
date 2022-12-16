@@ -1,15 +1,8 @@
-.content {
-  padding-bottom: 2.5rem;
-
-  svg {
-	max-width: 100%;
-	}
-}
-
-.subtitle {
-	font-style: italic;
-	font-weight: $normal;
-}
+.header-container {
+	background-color: var(--white-primary);
+	padding: 0 1rem;
+	width: 100%;
+  }
 
 .nav {
 	justify-content: space-between;
@@ -27,9 +20,9 @@
 
 		a {
 			color: var(--accent);
-			margin: 0;
 			font-size: $l;
 			font-weight: $bolder;
+			margin: 0;
 			text-decoration: none;
 		}
 
@@ -41,13 +34,8 @@
 }
 
 .nav-right {
-	flex-direction: row-reverse;
-}
-
-.menu-icon {
-	cursor: pointer;
-	padding: 1rem;
-	user-select: none;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
 .darkmode {
@@ -55,7 +43,7 @@
 	border: 0;
 	color: var(--black-secondary);
 	cursor: pointer;
-	margin-top: .25rem;
+	margin: 0 1rem;
 }
 
 %icon {
@@ -111,38 +99,60 @@
 }
 
 .menu {
-	display: none;
-	list-style: none;
+	display: flex;
+	gap: 1rem;
 	margin: 0;
 	padding: 0;
+	position: relative;
+	transform: none;
 	z-index: 1000;
 
 	&-item {
-		display: block;
-		position: relative;
-		padding: 0 .5rem;
+		list-style-type: none;
+		margin: 0;
 
 		a {
 			display: block;
 			text-decoration: none;
 		}
 	}
+
+	&-icon {
+	cursor: pointer;
+	display: none;
+	padding: 1rem 0;
+	user-select: none;
+	}
 }
 
 input:checked~.menu {
 	background-color: var(--white-primary);
+	border: $border;
 	display: block;
 	position: absolute;
-	right: 0;
+	right: 5px;
 	top: 42px;
 
 	li {
-		border: $border;
-		line-height: initial;
 		margin: 0;
-		padding: 1rem;
+		padding: .5rem 1rem;
 	}
 }
+
+.content {
+	padding-bottom: 2.5rem;
+
+	svg {
+		background: var(--white-secondary);
+		max-width: 100%;
+	}
+}
+
+.subtitle {
+	font-style: italic;
+	font-weight: $normal;
+}
+
 
 .index {
 	@include big;
@@ -152,9 +162,16 @@ input:checked~.menu {
 		color: var(--black-primary);
 		text-decoration: none;
 	}
-	
+
+	/* image card index with same height .Params.cover in front matter only */
 	.photo-container {
-		margin-top: 0;
+		margin: 0 -1rem;
+
+		img {
+			height: 400px;
+			object-fit: cover;
+			width: 100%;
+		}
 	}
 }
 
@@ -165,11 +182,10 @@ input:checked~.menu {
 }
 
 .info {
-		border: $border;
-		display: block;
-		padding: .5rem;
+	border: $border;
+	display: block;
+	padding: .5rem;
 }
-
 
 .h-card {
 	&-image {

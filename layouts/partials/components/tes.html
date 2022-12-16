@@ -1,7 +1,7 @@
 {{- $src := resources.Get .img -}}
+{{- $img := $src.Resize "480x Lanczos webp" -}}
 {{- $alt := .alt -}}
-{{- $slice := slice 320 480 640 760 960 1080 1280 1400 1600 1920 -}}
-{{- $srcset := slice -}}
+{{- $slice := slice 480 760 1080 1280 1400 -}}
 {{- $srcset := slice -}}
 {{- $colors := $src.Colors -}}
 {{- if (lt ($colors | len) 2) -}}
@@ -18,10 +18,10 @@
     {{- end -}}
 {{- end -}}
 {{- $set := delimit $srcset "," -}}
-<div class="photo-container single-image" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
+<div class="photo-container" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
     <picture>
         <img
-        src="{{- $src.RelPermalink -}}"
+        src="{{- $img.RelPermalink -}}"
         alt="{{- $alt -}}"
         width="{{- $src.Width -}}"
         sizes="(min-width: 1380px) 750px, (min-width: 820px) 719px, (min-width: 740px) calc(-33.33vw + 875px), (min-width: 340px) calc(92.63vw - 39px), calc(100vw - 32px)"

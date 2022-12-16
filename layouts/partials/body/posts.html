@@ -5,9 +5,7 @@
     {{- end -}}
     <div class="e-content mg-2-0">
         {{- $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" -}}
-        {{ with resources.Get .Params.cover }}
-            {{ partial "components/tes" (dict "img" . "alt" "Cover Title") }}
-        {{- end -}}
+        {{- partial "components/cover" . -}}
         {{- partial "components/toc" . -}}
         {{- .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML -}}
     </div>

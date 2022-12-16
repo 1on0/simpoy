@@ -1,4 +1,4 @@
-@media (max-width: 769px) {
+@media (max-width: 768px) {
 
 	.footer,
 	.h-card {
@@ -10,65 +10,44 @@
 		width: 50%;
 	}
 
-	.photo-container {
-		margin: 0 -1rem;
-	  }
-
-}
-
-@media (min-width: 768px) {
 	.nav-right {
-		flex-direction: row;
-		justify-content: flex-end;
-	}
-
-	.menu {
-		display: flex;
-		gap: .5rem;
-		position: relative;
-		transform: none;
-		z-index: 1;
-
-		&-item {
-			margin: 0;
-		}
-
-		&-icon {
-			display: none;
-		}
+		flex-direction: row-reverse;
 	}
 
 	.darkmode {
-		margin: 0;
+		margin-top: .25rem
 	}
 
-	ul.gallery {
-		&>li {
-			flex-basis: 230px;
-			margin-top: 0;
-		  }
-		
-		  &::after {
-			content: "";
-			flex-basis: 230px;
-		  }
+	.menu {
+		display: none;
 
-		  .photo-container {
-			width: 100%;
-		  }
+		&-icon {
+			display: block;
+		}
+
+		&-item {
+			display: block;
+			position: relative;
+			padding: 0 .5rem;
+		}
 	}
 
-	.index .photo-container {
-		margin: 0 -1rem;
-	  }
-	  
-	  .e-content .photo-container {
-		margin: 2rem auto;
-		width: 85%;
-	  }
+	ul.gallery {	
+		li>.photo-container {
+		  height: 20vh;
+		}
+	}
+
+	.index .photo-container img {
+		height: 250px;
+	}
+
+	.e-content .photo-container {
+		width: 100%;
+	}
 
 	.goat svg {
 		height: auto;
-		width: 50%;
-	  }
+		width: 60%;
+	}
 }

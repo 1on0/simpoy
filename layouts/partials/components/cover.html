@@ -1,0 +1,22 @@
+{{- $src := .Resources.GetMatch .Params.cover -}}
+{{- with $src -}}
+    {{- $large := $src.Fill "1500x1200 smart webp" -}}
+    {{- $medium := $src.Fill "1200x900 smart webp" -}}
+    {{- $small := $src.Fill "800x600 smart webp" -}}
+    {{- $tiny := $src.Fill "600x400 smart webp" -}}
+    {{- $colors := $src.Colors -}}
+        {{- if (lt ($colors | len) 2) -}}
+            {{- $colors = $colors | append "#ffffff" -}}
+        {{- end -}}
+        {{- $bgcolors := delimit ($colors) ", " -}}
+        {{- $style := print "background: linear-gradient(" $bgcolors "); background-size: cover; background-repeat: no-repeat;" -}}
+<div class="photo-container" {{- if (ge hugo.Version "0.104") -}}style="{{ $style | safeCSS }}"{{- end -}}>
+    <picture>
+        <source media="(min-width:600px)" srcset={{- $small.RelPermalink | safeURL -}}>
+        <source media="(min-width:800px)" srcset={{- $medium.RelPermalink | safeURL -}}>
+        <source media="(min-width:1200px)" srcset={{- $large.RelPermalink | safeURL -}}>
+        <source media="(min-width:1500px)" srcset={{- $src.RelPermalink | safeURL -}}>
+        <img src="{{- $tiny.RelPermalink | safeURL -}}" alt="{{- $.Params.title -}}">
+    </picture>
+</div>
+{{- end }}

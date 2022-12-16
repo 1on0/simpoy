@@ -1,15 +1,19 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" -}}
+{{- $load := .Get "loading" -}}
 {{- $pass := dict
     "img" $src
     "alt" $alt
-    "loading" "lazy"
+    "loading" $load
 -}}
-
 {{- with .Parent -}}
 <li class="{{ .Get "class" }}-image">
     {{- with $pass -}} 
-        {{ partial "components/tes" . }}
+        {{ partial "components/tes" . -}}
     {{- end -}}
 </li>
+    {{- else -}}
+    {{- with $pass -}}
+            {{ partial "components/tes" . -}}
+    {{- end -}}
 {{- end -}}

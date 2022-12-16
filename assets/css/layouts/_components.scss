@@ -11,34 +11,39 @@
   }
 }
 
+/*flexbox image gallery with flex-grow */
 ul.gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  gap: 7px;
   list-style-type: none;
+  margin: 3rem 0;
   padding-inline-start: 0;
-  
+
   &>li {
-    flex-basis: 175px;
     margin-top: 0;
+    flex-grow: 1;
   }
-
-  &::after {
-    content: "";
-    flex-basis: 175px;
-  }
-
-  li picture {
-    object-fit: cover;
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-  }
-
-  .photo-container {
+  
+  li>.photo-container {
+    height: 30vh;
     margin: 0;
+    width: 100%;
   }
+
+  li>.photo-container img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.e-content .photo-container {
+  margin: 3rem auto;
+  width: 80%;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
 }
 
 img {
@@ -88,7 +93,7 @@ ul.pagination.pagination-default {
 }
 
 .highlight {
-  margin: 2rem -1rem;
+  margin: .75rem -1rem 2rem -1rem;
   position: relative;
 
   .lntd {
@@ -149,7 +154,8 @@ button.copy-code {
 /* style goat rendering svg */
 .goat svg {
   height: auto;
-  width: 70%;
+  margin: 1rem auto;
+  width: 50%;
 }
 
 .table-wrapper table {
@@ -188,11 +194,10 @@ button.copy-code {
 }
 
 .toc {
-  border: $border;
   background-color: var(--white-secondary);
   cursor: pointer;
   margin: 1rem -1rem;
-  padding: 1rem 1rem;
+  padding: .5rem 1rem;
 
   ul {
     list-style-type: decimal;

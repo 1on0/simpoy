@@ -25,12 +25,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  background-color: var(--white-primary);
-  padding: 0 1rem;
-  width: 100%;
-}
-
 footer {
   bottom: 0;
   height: 2.5rem;
@@ -133,24 +127,21 @@ i {
 
 blockquote {
   background-color: var(--grey-primary);
-  border-left: 5px solid var(--table);
-  color: var(--black-secondary);
+  border-left: 8px solid var(--table);
+  color: var(--note-text);
   margin: auto -1rem;
-  padding: 1.5rem 1.25rem;
-
-  &::before {
-    font-size: $m;
-    font-weight: $bolder;
-  }
+  padding: .5rem 1.25rem;
 
   h3 {
-    margin-top: 1rem
+    margin-top: .5rem
   }
 }
 
 blockquote.note {
+  border-radius: 5px;
   background-color: rgba(0, 133, 242, .1);
-  border-left: 5px solid var(--note-text);
+  border-left: 8px solid var(--note-text);
+  margin: auto 0;
 
   &::before {
     content: 'ⓘ Note';
@@ -158,8 +149,10 @@ blockquote.note {
 }
 
 blockquote.warning {
+  border-radius: 5px;
   background-color: rgba(199, 183, 0, .1);
-  border-left: 5px solid rgb(199, 183, 0);
+  border-left: 8px solid rgb(199, 183, 0);
+  margin: auto 0;
 
   &::before {
     content: 'ⓘ Warning';
@@ -167,8 +160,10 @@ blockquote.warning {
 }
 
 blockquote.danger {
+  border-radius: 5px;
   background-color: rgba(153, 25, 48, .1);
-  border-left: 5px solid rgb(153, 25, 48);
+  border-left: 8px solid rgb(153, 25, 48);
+  margin: auto 0;
 
   &::before {
     content: 'ⓘ Danger';
@@ -176,7 +171,7 @@ blockquote.danger {
 }
 
 blockquote.twitter-tweet {
-  background-color: var(--table);
+  background-color: var(--highlight);
   color: var(--black-secondary);
   margin: auto -1rem;
 }
